@@ -1,5 +1,6 @@
 # 阿里云开发者C++工具套件
 
+[![GitHub version](https://badge.fury.io/gh/https%3A%2F%2Fgithub.com%2Faliyun%2Faliyun-openapi-cpp-sdk.svg)](https://badge.fury.io/gh/https%3A%2F%2Fgithub.com%2Faliyun%2Faliyun-openapi-cpp-sdk)
 [![Build Status](https://travis-ci.org/aliyun/aliyun-openapi-cpp-sdk.svg?branch=master)](https://travis-ci.org/aliyun/aliyun-openapi-cpp-sdk)
 [![codecov](https://codecov.io/gh/aliyun/aliyun-openapi-cpp-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/aliyun/aliyun-openapi-cpp-sdk)
 
