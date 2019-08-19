@@ -57,8 +57,6 @@ namespace AlibabaCloud
 				void setRegionId(const std::string& regionId);
 				std::string getIntervalForHistory()const;
 				void setIntervalForHistory(const std::string& intervalForHistory);
-				std::string getNodeId()const;
-				void setNodeId(const std::string& nodeId);
 				std::string getMonitorKeys()const;
 				void setMonitorKeys(const std::string& monitorKeys);
 
@@ -74,7 +72,6 @@ namespace AlibabaCloud
 				std::string securityToken_;
 				std::string regionId_;
 				std::string intervalForHistory_;
-				std::string nodeId_;
 				std::string monitorKeys_;
 
 			};

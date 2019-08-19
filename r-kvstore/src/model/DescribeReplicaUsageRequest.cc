@@ -47,17 +47,6 @@ void DescribeReplicaUsageRequest::setSourceDBInstanceId(const std::string& sourc
 	setCoreParameter("SourceDBInstanceId", sourceDBInstanceId);
 }
 
-std::string DescribeReplicaUsageRequest::getDestinationDBInstanceId()const
-{
-	return destinationDBInstanceId_;
-}
-
-void DescribeReplicaUsageRequest::setDestinationDBInstanceId(const std::string& destinationDBInstanceId)
-{
-	destinationDBInstanceId_ = destinationDBInstanceId;
-	setCoreParameter("DestinationDBInstanceId", destinationDBInstanceId);
-}
-
 std::string DescribeReplicaUsageRequest::getSecurityToken()const
 {
 	return securityToken_;

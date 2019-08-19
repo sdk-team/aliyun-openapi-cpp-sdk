@@ -25,6 +25,17 @@ DescribeCacheAnalysisReportListRequest::DescribeCacheAnalysisReportListRequest()
 DescribeCacheAnalysisReportListRequest::~DescribeCacheAnalysisReportListRequest()
 {}
 
+std::string DescribeCacheAnalysisReportListRequest::getDate()const
+{
+	return date_;
+}
+
+void DescribeCacheAnalysisReportListRequest::setDate(const std::string& date)
+{
+	date_ = date;
+	setCoreParameter("Date", date);
+}
+
 long DescribeCacheAnalysisReportListRequest::getResourceOwnerId()const
 {
 	return resourceOwnerId_;

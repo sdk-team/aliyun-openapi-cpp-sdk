@@ -34,11 +34,6 @@ namespace AlibabaCloud
 			public:
 				struct DBInstanceAttribute
 				{
-					struct Tag
-					{
-						std::string value;
-						std::string key;
-					};
 					long connections;
 					std::string endTime;
 					std::string config;
@@ -48,33 +43,24 @@ namespace AlibabaCloud
 					std::string maintainEndTime;
 					long capacity;
 					long qPS;
-					std::string privateIp;
 					std::string securityIPList;
 					std::string instanceStatus;
 					std::string networkType;
 					long bandwidth;
-					std::string packageType;
-					std::string instanceType;
 					std::string availabilityValue;
-					std::vector<DBInstanceAttribute::Tag> tags;
 					std::string engine;
 					std::string maintainStartTime;
-					std::string architectureType;
 					std::string engineVersion;
 					std::string zoneId;
 					std::string instanceId;
 					std::string vSwitchId;
+					std::string privateIpAddr;
 					std::string createTime;
-					std::string nodeType1;
 					std::string instanceClass;
-					std::string auditLogRetention;
 					bool isRds;
-					std::string replicationMode;
-					std::string replicaId;
 					std::string instanceName;
 					std::string vpcId;
 					std::string chargeType;
-					std::string vpcAuthMode;
 					std::string nodeType;
 					std::string regionId;
 				};

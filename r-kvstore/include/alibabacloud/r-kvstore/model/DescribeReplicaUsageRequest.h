@@ -39,8 +39,6 @@ namespace AlibabaCloud
 				void setResourceOwnerId(long resourceOwnerId);
 				std::string getSourceDBInstanceId()const;
 				void setSourceDBInstanceId(const std::string& sourceDBInstanceId);
-				std::string getDestinationDBInstanceId()const;
-				void setDestinationDBInstanceId(const std::string& destinationDBInstanceId);
 				std::string getSecurityToken()const;
 				void setSecurityToken(const std::string& securityToken);
 				std::string getResourceOwnerAccount()const;
@@ -59,7 +57,6 @@ namespace AlibabaCloud
             private:
 				long resourceOwnerId_;
 				std::string sourceDBInstanceId_;
-				std::string destinationDBInstanceId_;
 				std::string securityToken_;
 				std::string resourceOwnerAccount_;
 				std::string regionId_;

@@ -35,10 +35,13 @@ DescribeInstanceAttributeResult::~DescribeInstanceAttributeResult()
 
 void DescribeInstanceAttributeResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
 	auto allInstances = value["Instances"]["DBInstanceAttribute"];
 	for (auto value : allInstances)
@@ -80,8 +83,8 @@ void DescribeInstanceAttributeResult::parse(const std::string &payload)
 			instancesObject.vpcId = value["VpcId"].asString();
 		if(!value["VSwitchId"].isNull())
 			instancesObject.vSwitchId = value["VSwitchId"].asString();
-		if(!value["PrivateIp"].isNull())
-			instancesObject.privateIp = value["PrivateIp"].asString();
+		if(!value["PrivateIpAddr"].isNull())
+			instancesObject.privateIpAddr = value["PrivateIpAddr"].asString();
 		if(!value["CreateTime"].isNull())
 			instancesObject.createTime = value["CreateTime"].asString();
 		if(!value["EndTime"].isNull())
@@ -102,32 +105,6 @@ void DescribeInstanceAttributeResult::parse(const std::string &payload)
 			instancesObject.availabilityValue = value["AvailabilityValue"].asString();
 		if(!value["SecurityIPList"].isNull())
 			instancesObject.securityIPList = value["SecurityIPList"].asString();
-		if(!value["InstanceType"].isNull())
-			instancesObject.instanceType = value["InstanceType"].asString();
-		if(!value["ArchitectureType"].isNull())
-			instancesObject.architectureType = value["ArchitectureType"].asString();
-		if(!value["NodeType"].isNull())
-			instancesObject.nodeType1 = value["NodeType"].asString();
-		if(!value["PackageType"].isNull())
-			instancesObject.packageType = value["PackageType"].asString();
-		if(!value["ReplicaId"].isNull())
-			instancesObject.replicaId = value["ReplicaId"].asString();
-		if(!value["VpcAuthMode"].isNull())
-			instancesObject.vpcAuthMode = value["VpcAuthMode"].asString();
-		if(!value["AuditLogRetention"].isNull())
-			instancesObject.auditLogRetention = value["AuditLogRetention"].asString();
-		if(!value["ReplicationMode"].isNull())
-			instancesObject.replicationMode = value["ReplicationMode"].asString();
-		auto allTags = value["Tags"]["Tag"];
-		for (auto value : allTags)
-		{
-			DBInstanceAttribute::Tag tagsObject;
-			if(!value["Key"].isNull())
-				tagsObject.key = value["Key"].asString();
-			if(!value["Value"].isNull())
-				tagsObject.value = value["Value"].asString();
-			instancesObject.tags.push_back(tagsObject);
-		}
 		instances_.push_back(instancesObject);
 	}
 

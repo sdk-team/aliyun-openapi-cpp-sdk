@@ -35,10 +35,13 @@ DescribeBackupsResult::~DescribeBackupsResult()
 
 void DescribeBackupsResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
 	auto allBackups = value["Backups"]["Backup"];
 	for (auto value : allBackups)
@@ -64,12 +67,6 @@ void DescribeBackupsResult::parse(const std::string &payload)
 			backupsObject.backupDownloadURL = value["BackupDownloadURL"].asString();
 		if(!value["BackupSize"].isNull())
 			backupsObject.backupSize = std::stol(value["BackupSize"].asString());
-		if(!value["EngineVersion"].isNull())
-			backupsObject.engineVersion = value["EngineVersion"].asString();
-		if(!value["NodeInstanceId"].isNull())
-			backupsObject.nodeInstanceId = value["NodeInstanceId"].asString();
-		if(!value["BackupIntranetDownloadURL"].isNull())
-			backupsObject.backupIntranetDownloadURL = value["BackupIntranetDownloadURL"].asString();
 		backups_.push_back(backupsObject);
 	}
 	if(!value["PageNumber"].isNull())

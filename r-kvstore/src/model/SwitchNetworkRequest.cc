@@ -25,61 +25,6 @@ SwitchNetworkRequest::SwitchNetworkRequest() :
 SwitchNetworkRequest::~SwitchNetworkRequest()
 {}
 
-long SwitchNetworkRequest::getResourceOwnerId()const
-{
-	return resourceOwnerId_;
-}
-
-void SwitchNetworkRequest::setResourceOwnerId(long resourceOwnerId)
-{
-	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string SwitchNetworkRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void SwitchNetworkRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string SwitchNetworkRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void SwitchNetworkRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-long SwitchNetworkRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void SwitchNetworkRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::string SwitchNetworkRequest::getAccessKeyId()const
-{
-	return accessKeyId_;
-}
-
-void SwitchNetworkRequest::setAccessKeyId(const std::string& accessKeyId)
-{
-	accessKeyId_ = accessKeyId;
-	setCoreParameter("AccessKeyId", accessKeyId);
-}
-
 std::string SwitchNetworkRequest::getVSwitchId()const
 {
 	return vSwitchId_;
@@ -89,6 +34,17 @@ void SwitchNetworkRequest::setVSwitchId(const std::string& vSwitchId)
 {
 	vSwitchId_ = vSwitchId;
 	setCoreParameter("VSwitchId", vSwitchId);
+}
+
+long SwitchNetworkRequest::getResourceOwnerId()const
+{
+	return resourceOwnerId_;
+}
+
+void SwitchNetworkRequest::setResourceOwnerId(long resourceOwnerId)
+{
+	resourceOwnerId_ = resourceOwnerId;
+	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string SwitchNetworkRequest::getInstanceId()const
@@ -113,6 +69,17 @@ void SwitchNetworkRequest::setSecurityToken(const std::string& securityToken)
 	setCoreParameter("SecurityToken", securityToken);
 }
 
+std::string SwitchNetworkRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void SwitchNetworkRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
 std::string SwitchNetworkRequest::getRegionId()const
 {
 	return regionId_;
@@ -135,26 +102,15 @@ void SwitchNetworkRequest::setTargetNetworkType(const std::string& targetNetwork
 	setCoreParameter("TargetNetworkType", targetNetworkType);
 }
 
-std::string SwitchNetworkRequest::getRetainClassic()const
+std::string SwitchNetworkRequest::getOwnerAccount()const
 {
-	return retainClassic_;
+	return ownerAccount_;
 }
 
-void SwitchNetworkRequest::setRetainClassic(const std::string& retainClassic)
+void SwitchNetworkRequest::setOwnerAccount(const std::string& ownerAccount)
 {
-	retainClassic_ = retainClassic;
-	setCoreParameter("RetainClassic", retainClassic);
-}
-
-std::string SwitchNetworkRequest::getClassicExpiredDays()const
-{
-	return classicExpiredDays_;
-}
-
-void SwitchNetworkRequest::setClassicExpiredDays(const std::string& classicExpiredDays)
-{
-	classicExpiredDays_ = classicExpiredDays;
-	setCoreParameter("ClassicExpiredDays", classicExpiredDays);
+	ownerAccount_ = ownerAccount;
+	setCoreParameter("OwnerAccount", ownerAccount);
 }
 
 std::string SwitchNetworkRequest::getVpcId()const
@@ -166,5 +122,27 @@ void SwitchNetworkRequest::setVpcId(const std::string& vpcId)
 {
 	vpcId_ = vpcId;
 	setCoreParameter("VpcId", vpcId);
+}
+
+long SwitchNetworkRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void SwitchNetworkRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setCoreParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string SwitchNetworkRequest::getAccessKeyId()const
+{
+	return accessKeyId_;
+}
+
+void SwitchNetworkRequest::setAccessKeyId(const std::string& accessKeyId)
+{
+	accessKeyId_ = accessKeyId;
+	setCoreParameter("AccessKeyId", accessKeyId);
 }
 

@@ -35,10 +35,13 @@ DescribeRegionsResult::~DescribeRegionsResult()
 
 void DescribeRegionsResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
 	auto allRegionIds = value["RegionIds"]["KVStoreRegion"];
 	for (auto value : allRegionIds)
@@ -52,9 +55,9 @@ void DescribeRegionsResult::parse(const std::string &payload)
 			regionIdsObject.localName = value["LocalName"].asString();
 		if(!value["RegionEndpoint"].isNull())
 			regionIdsObject.regionEndpoint = value["RegionEndpoint"].asString();
-		auto allZoneIdList = value["ZoneIdList"]["ZoneId"];
-		for (auto value : allZoneIdList)
-			regionIdsObject.zoneIdList.push_back(value.asString());
+		auto allZoneLists = value["ZoneLists"]["Zone"];
+		for (auto value : allZoneLists)
+			regionIdsObject.zoneLists.push_back(value.asString());
 		regionIds_.push_back(regionIdsObject);
 	}
 

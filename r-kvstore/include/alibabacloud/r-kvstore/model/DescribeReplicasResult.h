@@ -37,13 +37,8 @@ namespace AlibabaCloud
 					struct Items1
 					{
 						std::string role;
-						std::string dBInstanceStatus;
 						std::string dBInstanceId;
 						std::string readWriteType;
-						std::string regionId;
-						std::string dBInstanceDescription;
-						std::string engine;
-						std::string instanceNetworkType;
 					};
 					std::string replicaDescription;
 					std::string replicaStatus;

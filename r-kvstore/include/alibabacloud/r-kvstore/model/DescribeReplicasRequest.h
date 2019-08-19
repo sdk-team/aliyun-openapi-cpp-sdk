@@ -43,8 +43,6 @@ namespace AlibabaCloud
 				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getRegionId()const;
 				void setRegionId(const std::string& regionId);
-				bool getAttachDbInstanceData()const;
-				void setAttachDbInstanceData(bool attachDbInstanceData);
 				std::string getOwnerAccount()const;
 				void setOwnerAccount(const std::string& ownerAccount);
 				std::string getReplicaId()const;
@@ -63,7 +61,6 @@ namespace AlibabaCloud
 				std::string securityToken_;
 				std::string resourceOwnerAccount_;
 				std::string regionId_;
-				bool attachDbInstanceData_;
 				std::string ownerAccount_;
 				std::string replicaId_;
 				int pageSize_;

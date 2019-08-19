@@ -69,17 +69,6 @@ void DescribeReplicasRequest::setRegionId(const std::string& regionId)
 	setCoreParameter("RegionId", regionId);
 }
 
-bool DescribeReplicasRequest::getAttachDbInstanceData()const
-{
-	return attachDbInstanceData_;
-}
-
-void DescribeReplicasRequest::setAttachDbInstanceData(bool attachDbInstanceData)
-{
-	attachDbInstanceData_ = attachDbInstanceData;
-	setCoreParameter("AttachDbInstanceData", attachDbInstanceData ? "true" : "false");
-}
-
 std::string DescribeReplicasRequest::getOwnerAccount()const
 {
 	return ownerAccount_;

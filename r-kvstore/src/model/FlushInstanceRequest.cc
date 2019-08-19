@@ -69,6 +69,17 @@ void FlushInstanceRequest::setResourceOwnerAccount(const std::string& resourceOw
 	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
+std::string FlushInstanceRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void FlushInstanceRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setCoreParameter("RegionId", regionId);
+}
+
 std::string FlushInstanceRequest::getOwnerAccount()const
 {
 	return ownerAccount_;

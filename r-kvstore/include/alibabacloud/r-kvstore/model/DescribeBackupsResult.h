@@ -35,17 +35,14 @@ namespace AlibabaCloud
 				struct Backup
 				{
 					std::string backupMethod;
-					std::string engineVersion;
-					std::string backupIntranetDownloadURL;
-					std::string backupMode;
-					long backupSize;
-					int backupId;
-					std::string nodeInstanceId;
-					std::string backupDBNames;
 					std::string backupDownloadURL;
 					std::string backupEndTime;
+					std::string backupMode;
+					long backupSize;
 					std::string backupStartTime;
+					int backupId;
 					std::string backupType;
+					std::string backupDBNames;
 					std::string backupStatus;
 				};
 

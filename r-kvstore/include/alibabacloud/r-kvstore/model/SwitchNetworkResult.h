@@ -37,12 +37,10 @@ namespace AlibabaCloud
 				SwitchNetworkResult();
 				explicit SwitchNetworkResult(const std::string &payload);
 				~SwitchNetworkResult();
-				std::string getTaskId()const;
 
 			protected:
 				void parse(const std::string &payload);
 			private:
-				std::string taskId_;
 
 			};
 		}

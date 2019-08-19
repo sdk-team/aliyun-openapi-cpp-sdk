@@ -47,8 +47,6 @@ namespace AlibabaCloud
 				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getOwnerAccount()const;
 				void setOwnerAccount(const std::string& ownerAccount);
-				std::string getCouponNo()const;
-				void setCouponNo(const std::string& couponNo);
 				long getOwnerId()const;
 				void setOwnerId(long ownerId);
 				std::string getInstanceClass()const;
@@ -63,8 +61,6 @@ namespace AlibabaCloud
 				void setSecurityToken(const std::string& securityToken);
 				std::string getRegionId()const;
 				void setRegionId(const std::string& regionId);
-				bool getForceUpgrade()const;
-				void setForceUpgrade(bool forceUpgrade);
 				std::string getBusinessInfo()const;
 				void setBusinessInfo(const std::string& businessInfo);
 
@@ -75,7 +71,6 @@ namespace AlibabaCloud
 				std::string fromApp_;
 				std::string resourceOwnerAccount_;
 				std::string ownerAccount_;
-				std::string couponNo_;
 				long ownerId_;
 				std::string instanceClass_;
 				std::string accessKeyId_;
@@ -83,7 +78,6 @@ namespace AlibabaCloud
 				std::string instanceId_;
 				std::string securityToken_;
 				std::string regionId_;
-				bool forceUpgrade_;
 				std::string businessInfo_;
 
 			};

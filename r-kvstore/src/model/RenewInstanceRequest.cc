@@ -91,17 +91,6 @@ void RenewInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
 	setCoreParameter("OwnerAccount", ownerAccount);
 }
 
-std::string RenewInstanceRequest::getCouponNo()const
-{
-	return couponNo_;
-}
-
-void RenewInstanceRequest::setCouponNo(const std::string& couponNo)
-{
-	couponNo_ = couponNo;
-	setCoreParameter("CouponNo", couponNo);
-}
-
 long RenewInstanceRequest::getOwnerId()const
 {
 	return ownerId_;
@@ -177,17 +166,6 @@ void RenewInstanceRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
 	setCoreParameter("RegionId", regionId);
-}
-
-bool RenewInstanceRequest::getForceUpgrade()const
-{
-	return forceUpgrade_;
-}
-
-void RenewInstanceRequest::setForceUpgrade(bool forceUpgrade)
-{
-	forceUpgrade_ = forceUpgrade;
-	setCoreParameter("ForceUpgrade", forceUpgrade ? "true" : "false");
 }
 
 std::string RenewInstanceRequest::getBusinessInfo()const

@@ -35,6 +35,8 @@ namespace AlibabaCloud
 				DescribeCacheAnalysisReportListRequest();
 				~DescribeCacheAnalysisReportListRequest();
 
+				std::string getDate()const;
+				void setDate(const std::string& date);
 				long getResourceOwnerId()const;
 				void setResourceOwnerId(long resourceOwnerId);
 				std::string getResourceOwnerAccount()const;
@@ -61,6 +63,7 @@ namespace AlibabaCloud
 				void setNodeId(const std::string& nodeId);
 
             private:
+				std::string date_;
 				long resourceOwnerId_;
 				std::string resourceOwnerAccount_;
 				std::string ownerAccount_;

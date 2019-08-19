@@ -38,7 +38,6 @@ namespace AlibabaCloud
 					std::string zoneId;
 					bool switchNetwork;
 					std::string regionId;
-					bool disabled;
 					bool isRds;
 				};
 

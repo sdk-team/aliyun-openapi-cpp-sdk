@@ -146,17 +146,6 @@ void DescribeHistoryMonitorValuesRequest::setIntervalForHistory(const std::strin
 	setCoreParameter("IntervalForHistory", intervalForHistory);
 }
 
-std::string DescribeHistoryMonitorValuesRequest::getNodeId()const
-{
-	return nodeId_;
-}
-
-void DescribeHistoryMonitorValuesRequest::setNodeId(const std::string& nodeId)
-{
-	nodeId_ = nodeId;
-	setCoreParameter("NodeId", nodeId);
-}
-
 std::string DescribeHistoryMonitorValuesRequest::getMonitorKeys()const
 {
 	return monitorKeys_;

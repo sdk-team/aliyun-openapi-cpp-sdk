@@ -35,10 +35,13 @@ DescribeVerificationListResult::~DescribeVerificationListResult()
 
 void DescribeVerificationListResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
 	auto allItems = value["Items"]["ItemsItem"];
 	for (auto value : allItems)
@@ -60,6 +63,8 @@ void DescribeVerificationListResult::parse(const std::string &payload)
 			itemsObject.schema = value["Schema"].asString();
 		if(!value["InconsistentFields"].isNull())
 			itemsObject.inconsistentFields = value["InconsistentFields"].asString();
+		if(!value["InconsistentFields"].isNull())
+			itemsObject.inconsistentFields1 = value["InconsistentFields"].asString();
 		items_.push_back(itemsObject);
 	}
 	if(!value["ReplicaId"].isNull())

@@ -80,17 +80,6 @@ void DescribeZonesRequest::setOwnerAccount(const std::string& ownerAccount)
 	setCoreParameter("OwnerAccount", ownerAccount);
 }
 
-std::string DescribeZonesRequest::getAcceptLanguage()const
-{
-	return acceptLanguage_;
-}
-
-void DescribeZonesRequest::setAcceptLanguage(const std::string& acceptLanguage)
-{
-	acceptLanguage_ = acceptLanguage;
-	setCoreParameter("AcceptLanguage", acceptLanguage);
-}
-
 long DescribeZonesRequest::getOwnerId()const
 {
 	return ownerId_;

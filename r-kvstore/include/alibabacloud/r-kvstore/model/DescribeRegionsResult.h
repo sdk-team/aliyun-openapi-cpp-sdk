@@ -34,10 +34,10 @@ namespace AlibabaCloud
 			public:
 				struct KVStoreRegion
 				{
+					std::vector<std::string> zoneLists;
 					std::string regionId;
 					std::string zoneIds;
 					std::string regionEndpoint;
-					std::vector<std::string> zoneIdList;
 					std::string localName;
 				};
 

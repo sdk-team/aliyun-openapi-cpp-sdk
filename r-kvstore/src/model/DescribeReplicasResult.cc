@@ -35,10 +35,13 @@ DescribeReplicasResult::~DescribeReplicasResult()
 
 void DescribeReplicasResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
 	auto allReplicas = value["Replicas"]["Items"];
 	for (auto value : allReplicas)
@@ -64,16 +67,6 @@ void DescribeReplicasResult::parse(const std::string &payload)
 				dBInstancesObject.role = value["Role"].asString();
 			if(!value["ReadWriteType"].isNull())
 				dBInstancesObject.readWriteType = value["ReadWriteType"].asString();
-			if(!value["InstanceNetworkType"].isNull())
-				dBInstancesObject.instanceNetworkType = value["InstanceNetworkType"].asString();
-			if(!value["DBInstanceDescription"].isNull())
-				dBInstancesObject.dBInstanceDescription = value["DBInstanceDescription"].asString();
-			if(!value["DBInstanceStatus"].isNull())
-				dBInstancesObject.dBInstanceStatus = value["DBInstanceStatus"].asString();
-			if(!value["Engine"].isNull())
-				dBInstancesObject.engine = value["Engine"].asString();
-			if(!value["RegionId"].isNull())
-				dBInstancesObject.regionId = value["RegionId"].asString();
 			replicasObject.dBInstances.push_back(dBInstancesObject);
 		}
 		replicas_.push_back(replicasObject);

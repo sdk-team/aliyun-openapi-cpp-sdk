@@ -36,17 +36,6 @@ void DescribeReplicaPerformanceRequest::setResourceOwnerId(long resourceOwnerId)
 	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
-std::string DescribeReplicaPerformanceRequest::getDestinationDBInstanceId()const
-{
-	return destinationDBInstanceId_;
-}
-
-void DescribeReplicaPerformanceRequest::setDestinationDBInstanceId(const std::string& destinationDBInstanceId)
-{
-	destinationDBInstanceId_ = destinationDBInstanceId;
-	setCoreParameter("DestinationDBInstanceId", destinationDBInstanceId);
-}
-
 std::string DescribeReplicaPerformanceRequest::getResourceOwnerAccount()const
 {
 	return resourceOwnerAccount_;

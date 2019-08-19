@@ -47,8 +47,6 @@ namespace AlibabaCloud
 				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getOwnerAccount()const;
 				void setOwnerAccount(const std::string& ownerAccount);
-				std::string getCouponNo()const;
-				void setCouponNo(const std::string& couponNo);
 				long getOwnerId()const;
 				void setOwnerId(long ownerId);
 				std::string getAccessKeyId()const;
@@ -69,7 +67,6 @@ namespace AlibabaCloud
 				std::string fromApp_;
 				std::string resourceOwnerAccount_;
 				std::string ownerAccount_;
-				std::string couponNo_;
 				long ownerId_;
 				std::string accessKeyId_;
 				std::string securityToken_;

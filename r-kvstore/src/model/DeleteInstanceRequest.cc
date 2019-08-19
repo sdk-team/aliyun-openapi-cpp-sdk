@@ -69,6 +69,17 @@ void DeleteInstanceRequest::setResourceOwnerAccount(const std::string& resourceO
 	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
+std::string DeleteInstanceRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DeleteInstanceRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setCoreParameter("RegionId", regionId);
+}
+
 std::string DeleteInstanceRequest::getOwnerAccount()const
 {
 	return ownerAccount_;

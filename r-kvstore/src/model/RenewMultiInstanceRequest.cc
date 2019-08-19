@@ -91,17 +91,6 @@ void RenewMultiInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
 	setCoreParameter("OwnerAccount", ownerAccount);
 }
 
-std::string RenewMultiInstanceRequest::getCouponNo()const
-{
-	return couponNo_;
-}
-
-void RenewMultiInstanceRequest::setCouponNo(const std::string& couponNo)
-{
-	couponNo_ = couponNo;
-	setCoreParameter("CouponNo", couponNo);
-}
-
 long RenewMultiInstanceRequest::getOwnerId()const
 {
 	return ownerId_;

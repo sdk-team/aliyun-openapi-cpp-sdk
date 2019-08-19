@@ -37,6 +37,7 @@ namespace AlibabaCloud
 					std::string inconsistentType;
 					std::string keyType;
 					std::string schema;
+					std::string inconsistentFields1;
 					std::string occurTime;
 					std::string inconsistentFields;
 					std::string instanceIdB;
