@@ -35,10 +35,13 @@ DescribeDrdsDBsResult::~DescribeDrdsDBsResult()
 
 void DescribeDrdsDBsResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
 	auto allData = value["Data"]["Db"];
 	for (auto value : allData)
@@ -47,18 +50,41 @@ void DescribeDrdsDBsResult::parse(const std::string &payload)
 		if(!value["DbName"].isNull())
 			dataObject.dbName = value["DbName"].asString();
 		if(!value["Status"].isNull())
-			dataObject.status = std::stoi(value["Status"].asString());
+			dataObject.status = value["Status"].asString();
 		if(!value["CreateTime"].isNull())
 			dataObject.createTime = value["CreateTime"].asString();
-		if(!value["Msg"].isNull())
-			dataObject.msg = value["Msg"].asString();
 		if(!value["Mode"].isNull())
 			dataObject.mode = value["Mode"].asString();
+		if(!value["Schema"].isNull())
+			dataObject.schema = value["Schema"].asString();
+		if(!value["DbInstType"].isNull())
+			dataObject.dbInstType = value["DbInstType"].asString();
 		data_.push_back(dataObject);
 	}
 	if(!value["Success"].isNull())
 		success_ = value["Success"].asString() == "true";
+	if(!value["PageNumber"].isNull())
+		pageNumber_ = value["PageNumber"].asString();
+	if(!value["PageSize"].isNull())
+		pageSize_ = value["PageSize"].asString();
+	if(!value["Total"].isNull())
+		total_ = value["Total"].asString();
 
+}
+
+std::string DescribeDrdsDBsResult::getPageSize()const
+{
+	return pageSize_;
+}
+
+std::string DescribeDrdsDBsResult::getPageNumber()const
+{
+	return pageNumber_;
+}
+
+std::string DescribeDrdsDBsResult::getTotal()const
+{
+	return total_;
 }
 
 std::vector<DescribeDrdsDBsResult::Db> DescribeDrdsDBsResult::getData()const

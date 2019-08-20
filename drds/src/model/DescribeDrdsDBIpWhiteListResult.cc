@@ -35,23 +35,25 @@ DescribeDrdsDBIpWhiteListResult::~DescribeDrdsDBIpWhiteListResult()
 
 void DescribeDrdsDBIpWhiteListResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
-	auto dataNode = value["Data"];
-		auto allIpWhiteList = dataNode["IpWhiteList"]["Ip"];
-		for (auto value : allIpWhiteList)
-			data_.ipWhiteList.push_back(value.asString());
+	auto allIpWhiteList = value["IpWhiteList"]["Ip"];
+	for (const auto &item : allIpWhiteList)
+		ipWhiteList_.push_back(item.asString());
 	if(!value["Success"].isNull())
 		success_ = value["Success"].asString() == "true";
 
 }
 
-DescribeDrdsDBIpWhiteListResult::Data DescribeDrdsDBIpWhiteListResult::getData()const
+std::vector<std::string> DescribeDrdsDBIpWhiteListResult::getIpWhiteList()const
 {
-	return data_;
+	return ipWhiteList_;
 }
 
 bool DescribeDrdsDBIpWhiteListResult::getSuccess()const

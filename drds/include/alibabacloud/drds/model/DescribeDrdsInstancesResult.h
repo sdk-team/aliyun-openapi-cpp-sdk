@@ -43,13 +43,25 @@ namespace AlibabaCloud
 						std::string vswitchId;
 					};
 					std::string status;
-					std::string type;
 					std::string description;
-					std::string drdsInstanceId;
+					std::string instanceSpec;
 					std::string zoneId;
-					long version;
-					std::string networkType;
+					long expireDate;
 					long createTime;
+					std::string label;
+					std::string machineType;
+					std::string instanceSeries;
+					std::string versionAction;
+					std::string type;
+					std::string drdsInstanceId;
+					std::string vpcId;
+					long version;
+					std::string masterInstanceId;
+					std::string orderInstanceId;
+					std::string networkType;
+					std::string instRole;
+					std::string commodityCode;
+					std::vector<std::string> readOnlyDBInstanceIds;
 					std::string vpcCloudInstanceId;
 					std::string regionId;
 					std::vector<Instance::Vip> vips;
@@ -59,14 +71,18 @@ namespace AlibabaCloud
 				DescribeDrdsInstancesResult();
 				explicit DescribeDrdsInstancesResult(const std::string &payload);
 				~DescribeDrdsInstancesResult();
-				std::vector<Instance> getData()const;
-				bool getSuccess()const;
+				std::vector<Instance> getInstances()const;
+				int getPageSize()const;
+				int getPageNumber()const;
+				int getTotal()const;
 
 			protected:
 				void parse(const std::string &payload);
 			private:
-				std::vector<Instance> data_;
-				bool success_;
+				std::vector<Instance> instances_;
+				int pageSize_;
+				int pageNumber_;
+				int total_;
 
 			};
 		}

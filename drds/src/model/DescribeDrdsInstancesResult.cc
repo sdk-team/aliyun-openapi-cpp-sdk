@@ -35,35 +35,60 @@ DescribeDrdsInstancesResult::~DescribeDrdsInstancesResult()
 
 void DescribeDrdsInstancesResult::parse(const std::string &payload)
 {
-	Json::Reader reader;
+	Json::CharReaderBuilder builder;
+	Json::CharReader *reader = builder.newCharReader();
+	Json::Value *val;
 	Json::Value value;
-	reader.parse(payload, value);
-
+	JSONCPP_STRING *errs;
+	reader->parse(payload.data(), payload.data() + payload.size(), val, errs);
+	value = *val;
 	setRequestId(value["RequestId"].asString());
-	auto allData = value["Data"]["Instance"];
-	for (auto value : allData)
+	auto allInstances = value["Instances"]["Instance"];
+	for (auto value : allInstances)
 	{
-		Instance dataObject;
+		Instance instancesObject;
 		if(!value["DrdsInstanceId"].isNull())
-			dataObject.drdsInstanceId = value["DrdsInstanceId"].asString();
+			instancesObject.drdsInstanceId = value["DrdsInstanceId"].asString();
 		if(!value["Type"].isNull())
-			dataObject.type = value["Type"].asString();
+			instancesObject.type = value["Type"].asString();
 		if(!value["RegionId"].isNull())
-			dataObject.regionId = value["RegionId"].asString();
+			instancesObject.regionId = value["RegionId"].asString();
 		if(!value["ZoneId"].isNull())
-			dataObject.zoneId = value["ZoneId"].asString();
+			instancesObject.zoneId = value["ZoneId"].asString();
 		if(!value["Description"].isNull())
-			dataObject.description = value["Description"].asString();
+			instancesObject.description = value["Description"].asString();
 		if(!value["NetworkType"].isNull())
-			dataObject.networkType = value["NetworkType"].asString();
+			instancesObject.networkType = value["NetworkType"].asString();
 		if(!value["Status"].isNull())
-			dataObject.status = value["Status"].asString();
+			instancesObject.status = value["Status"].asString();
 		if(!value["CreateTime"].isNull())
-			dataObject.createTime = std::stol(value["CreateTime"].asString());
+			instancesObject.createTime = std::stol(value["CreateTime"].asString());
 		if(!value["Version"].isNull())
-			dataObject.version = std::stol(value["Version"].asString());
+			instancesObject.version = std::stol(value["Version"].asString());
+		if(!value["CommodityCode"].isNull())
+			instancesObject.commodityCode = value["CommodityCode"].asString();
+		if(!value["InstRole"].isNull())
+			instancesObject.instRole = value["InstRole"].asString();
+		if(!value["InstanceSeries"].isNull())
+			instancesObject.instanceSeries = value["InstanceSeries"].asString();
+		if(!value["InstanceSpec"].isNull())
+			instancesObject.instanceSpec = value["InstanceSpec"].asString();
+		if(!value["MasterInstanceId"].isNull())
+			instancesObject.masterInstanceId = value["MasterInstanceId"].asString();
 		if(!value["VpcCloudInstanceId"].isNull())
-			dataObject.vpcCloudInstanceId = value["VpcCloudInstanceId"].asString();
+			instancesObject.vpcCloudInstanceId = value["VpcCloudInstanceId"].asString();
+		if(!value["VpcId"].isNull())
+			instancesObject.vpcId = value["VpcId"].asString();
+		if(!value["ExpireDate"].isNull())
+			instancesObject.expireDate = std::stol(value["ExpireDate"].asString());
+		if(!value["VersionAction"].isNull())
+			instancesObject.versionAction = value["VersionAction"].asString();
+		if(!value["Label"].isNull())
+			instancesObject.label = value["Label"].asString();
+		if(!value["MachineType"].isNull())
+			instancesObject.machineType = value["MachineType"].asString();
+		if(!value["OrderInstanceId"].isNull())
+			instancesObject.orderInstanceId = value["OrderInstanceId"].asString();
 		auto allVips = value["Vips"]["Vip"];
 		for (auto value : allVips)
 		{
@@ -78,22 +103,39 @@ void DescribeDrdsInstancesResult::parse(const std::string &payload)
 				vipsObject.vpcId = value["VpcId"].asString();
 			if(!value["VswitchId"].isNull())
 				vipsObject.vswitchId = value["VswitchId"].asString();
-			dataObject.vips.push_back(vipsObject);
+			instancesObject.vips.push_back(vipsObject);
 		}
-		data_.push_back(dataObject);
+		auto allReadOnlyDBInstanceIds = value["ReadOnlyDBInstanceIds"]["ReadOnlyDBInstanceId"];
+		for (auto value : allReadOnlyDBInstanceIds)
+			instancesObject.readOnlyDBInstanceIds.push_back(value.asString());
+		instances_.push_back(instancesObject);
 	}
-	if(!value["Success"].isNull())
-		success_ = value["Success"].asString() == "true";
+	if(!value["PageNumber"].isNull())
+		pageNumber_ = std::stoi(value["PageNumber"].asString());
+	if(!value["PageSize"].isNull())
+		pageSize_ = std::stoi(value["PageSize"].asString());
+	if(!value["Total"].isNull())
+		total_ = std::stoi(value["Total"].asString());
 
 }
 
-std::vector<DescribeDrdsInstancesResult::Instance> DescribeDrdsInstancesResult::getData()const
+std::vector<DescribeDrdsInstancesResult::Instance> DescribeDrdsInstancesResult::getInstances()const
 {
-	return data_;
+	return instances_;
 }
 
-bool DescribeDrdsInstancesResult::getSuccess()const
+int DescribeDrdsInstancesResult::getPageSize()const
 {
-	return success_;
+	return pageSize_;
+}
+
+int DescribeDrdsInstancesResult::getPageNumber()const
+{
+	return pageNumber_;
+}
+
+int DescribeDrdsInstancesResult::getTotal()const
+{
+	return total_;
 }
 

@@ -19,11 +19,22 @@
 using AlibabaCloud::Drds::Model::DescribeDrdsDBsRequest;
 
 DescribeDrdsDBsRequest::DescribeDrdsDBsRequest() :
-	RpcServiceRequest("drds", "2017-10-16", "DescribeDrdsDBs")
+	RpcServiceRequest("drds", "2019-01-23", "DescribeDrdsDBs")
 {}
 
 DescribeDrdsDBsRequest::~DescribeDrdsDBsRequest()
 {}
+
+int DescribeDrdsDBsRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeDrdsDBsRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setCoreParameter("PageSize", std::to_string(pageSize));
+}
 
 std::string DescribeDrdsDBsRequest::getDrdsInstanceId()const
 {
@@ -33,7 +44,18 @@ std::string DescribeDrdsDBsRequest::getDrdsInstanceId()const
 void DescribeDrdsDBsRequest::setDrdsInstanceId(const std::string& drdsInstanceId)
 {
 	drdsInstanceId_ = drdsInstanceId;
-	setParameter("DrdsInstanceId", drdsInstanceId);
+	setCoreParameter("DrdsInstanceId", drdsInstanceId);
+}
+
+int DescribeDrdsDBsRequest::getPageNumber()const
+{
+	return pageNumber_;
+}
+
+void DescribeDrdsDBsRequest::setPageNumber(int pageNumber)
+{
+	pageNumber_ = pageNumber;
+	setCoreParameter("PageNumber", std::to_string(pageNumber));
 }
 
 std::string DescribeDrdsDBsRequest::getAccessKeyId()const
@@ -44,6 +66,6 @@ std::string DescribeDrdsDBsRequest::getAccessKeyId()const
 void DescribeDrdsDBsRequest::setAccessKeyId(const std::string& accessKeyId)
 {
 	accessKeyId_ = accessKeyId;
-	setParameter("AccessKeyId", accessKeyId);
+	setCoreParameter("AccessKeyId", accessKeyId);
 }
 

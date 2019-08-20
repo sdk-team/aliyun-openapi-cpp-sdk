@@ -35,13 +35,19 @@ namespace AlibabaCloud
 				DescribeDrdsDBsRequest();
 				~DescribeDrdsDBsRequest();
 
+				int getPageSize()const;
+				void setPageSize(int pageSize);
 				std::string getDrdsInstanceId()const;
 				void setDrdsInstanceId(const std::string& drdsInstanceId);
+				int getPageNumber()const;
+				void setPageNumber(int pageNumber);
 				std::string getAccessKeyId()const;
 				void setAccessKeyId(const std::string& accessKeyId);
 
             private:
+				int pageSize_;
 				std::string drdsInstanceId_;
+				int pageNumber_;
 				std::string accessKeyId_;
 
 			};

@@ -34,10 +34,11 @@ namespace AlibabaCloud
 			public:
 				struct Db
 				{
-					int status;
-					std::string msg;
+					std::string status;
+					std::string dbInstType;
 					std::string createTime;
 					std::string mode;
+					std::string schema;
 					std::string dbName;
 				};
 
@@ -45,12 +46,18 @@ namespace AlibabaCloud
 				DescribeDrdsDBsResult();
 				explicit DescribeDrdsDBsResult(const std::string &payload);
 				~DescribeDrdsDBsResult();
+				std::string getPageSize()const;
+				std::string getPageNumber()const;
+				std::string getTotal()const;
 				std::vector<Db> getData()const;
 				bool getSuccess()const;
 
 			protected:
 				void parse(const std::string &payload);
 			private:
+				std::string pageSize_;
+				std::string pageNumber_;
+				std::string total_;
 				std::vector<Db> data_;
 				bool success_;
 

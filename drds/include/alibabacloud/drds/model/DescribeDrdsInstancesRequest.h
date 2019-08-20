@@ -30,21 +30,41 @@ namespace AlibabaCloud
 		{
 			class ALIBABACLOUD_DRDS_EXPORT DescribeDrdsInstancesRequest : public RpcServiceRequest
 			{
+				struct Tag
+				{
+					std::string value;
+					std::string key;
+				};
 
 			public:
 				DescribeDrdsInstancesRequest();
 				~DescribeDrdsInstancesRequest();
 
+				bool getExpired()const;
+				void setExpired(bool expired);
 				std::string getRegionId()const;
 				void setRegionId(const std::string& regionId);
+				int getPageSize()const;
+				void setPageSize(int pageSize);
+				std::string getDescription()const;
+				void setDescription(const std::string& description);
+				std::vector<Tag> getTag()const;
+				void setTag(const std::vector<Tag>& tag);
 				std::string getType()const;
 				void setType(const std::string& type);
+				int getPageNumber()const;
+				void setPageNumber(int pageNumber);
 				std::string getAccessKeyId()const;
 				void setAccessKeyId(const std::string& accessKeyId);
 
             private:
+				bool expired_;
 				std::string regionId_;
+				int pageSize_;
+				std::string description_;
+				std::vector<Tag> tag_;
 				std::string type_;
+				int pageNumber_;
 				std::string accessKeyId_;
 
 			};
