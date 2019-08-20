@@ -51,42 +51,6 @@ FtClient::FtClient(const std::string & accessKeyId, const std::string & accessKe
 FtClient::~FtClient()
 {}
 
-FtClient::TestPortalOutcome FtClient::testPortal(const TestPortalRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return TestPortalOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return TestPortalOutcome(TestPortalResult(outcome.result()));
-	else
-		return TestPortalOutcome(outcome.error());
-}
-
-void FtClient::testPortalAsync(const TestPortalRequest& request, const TestPortalAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, testPortal(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::TestPortalOutcomeCallable FtClient::testPortalCallable(const TestPortalRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<TestPortalOutcome()>>(
-			[this, request]()
-			{
-			return this->testPortal(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
 FtClient::RoaHttpStringResponseTestOutcome FtClient::roaHttpStringResponseTest(const RoaHttpStringResponseTestRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();

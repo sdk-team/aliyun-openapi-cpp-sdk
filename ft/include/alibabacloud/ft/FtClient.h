@@ -22,8 +22,6 @@
 #include <alibabacloud/core/EndpointProvider.h>
 #include <alibabacloud/core/RoaServiceClient.h>
 #include "FtExport.h"
-#include "model/TestPortalRequest.h"
-#include "model/TestPortalResult.h"
 #include "model/RoaHttpStringResponseTestRequest.h"
 #include "model/RoaHttpStringResponseTestResult.h"
 
@@ -35,9 +33,6 @@ namespace AlibabaCloud
 		class ALIBABACLOUD_FT_EXPORT FtClient : public RoaServiceClient
 		{
 		public:
-			typedef Outcome<Error, Model::TestPortalResult> TestPortalOutcome;
-			typedef std::future<TestPortalOutcome> TestPortalOutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::TestPortalRequest&, const TestPortalOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestPortalAsyncHandler;
 			typedef Outcome<Error, Model::RoaHttpStringResponseTestResult> RoaHttpStringResponseTestOutcome;
 			typedef std::future<RoaHttpStringResponseTestOutcome> RoaHttpStringResponseTestOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::RoaHttpStringResponseTestRequest&, const RoaHttpStringResponseTestOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> RoaHttpStringResponseTestAsyncHandler;
@@ -46,9 +41,6 @@ namespace AlibabaCloud
 			FtClient(const std::shared_ptr<CredentialsProvider> &credentialsProvider, const ClientConfiguration &configuration);
 			FtClient(const std::string &accessKeyId, const std::string &accessKeySecret, const ClientConfiguration &configuration);
 			~FtClient();
-			TestPortalOutcome testPortal(const Model::TestPortalRequest &request)const;
-			void testPortalAsync(const Model::TestPortalRequest& request, const TestPortalAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			TestPortalOutcomeCallable testPortalCallable(const Model::TestPortalRequest& request) const;
 			RoaHttpStringResponseTestOutcome roaHttpStringResponseTest(const Model::RoaHttpStringResponseTestRequest &request)const;
 			void roaHttpStringResponseTestAsync(const Model::RoaHttpStringResponseTestRequest& request, const RoaHttpStringResponseTestAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			RoaHttpStringResponseTestOutcomeCallable roaHttpStringResponseTestCallable(const Model::RoaHttpStringResponseTestRequest& request) const;

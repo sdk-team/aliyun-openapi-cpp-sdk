@@ -21,15 +21,11 @@ set(ft_public_header
 	include/alibabacloud/ft/FtExport.h )
 
 set(ft_public_header_model 
-	include/alibabacloud/ft/model/TestPortalRequest.h
-	include/alibabacloud/ft/model/TestPortalResult.h
 	include/alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h
 	include/alibabacloud/ft/model/RoaHttpStringResponseTestResult.h )
 
 set(ft_src 
 	src/FtClient.cc
-	src/model/TestPortalRequest.cc
-	src/model/TestPortalResult.cc
 	src/model/RoaHttpStringResponseTestRequest.cc
 	src/model/RoaHttpStringResponseTestResult.cc )
 
