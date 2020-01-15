@@ -123,6 +123,150 @@ AcsClient::DeleteApiOnlineOutcomeCallable AcsClient::deleteApiOnlineCallable(con
 	return task->get_future();
 }
 
+AcsClient::ModifyApiNameOutcome AcsClient::modifyApiName(const ModifyApiNameRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return ModifyApiNameOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return ModifyApiNameOutcome(ModifyApiNameResult(outcome.result()));
+	else
+		return ModifyApiNameOutcome(outcome.error());
+}
+
+void AcsClient::modifyApiNameAsync(const ModifyApiNameRequest& request, const ModifyApiNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, modifyApiName(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+AcsClient::ModifyApiNameOutcomeCallable AcsClient::modifyApiNameCallable(const ModifyApiNameRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<ModifyApiNameOutcome()>>(
+			[this, request]()
+			{
+			return this->modifyApiName(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+AcsClient::ModifyApiNameInDailyOutcome AcsClient::modifyApiNameInDaily(const ModifyApiNameInDailyRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return ModifyApiNameInDailyOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return ModifyApiNameInDailyOutcome(ModifyApiNameInDailyResult(outcome.result()));
+	else
+		return ModifyApiNameInDailyOutcome(outcome.error());
+}
+
+void AcsClient::modifyApiNameInDailyAsync(const ModifyApiNameInDailyRequest& request, const ModifyApiNameInDailyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, modifyApiNameInDaily(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+AcsClient::ModifyApiNameInDailyOutcomeCallable AcsClient::modifyApiNameInDailyCallable(const ModifyApiNameInDailyRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<ModifyApiNameInDailyOutcome()>>(
+			[this, request]()
+			{
+			return this->modifyApiNameInDaily(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+AcsClient::PurchaseApiOutcome AcsClient::purchaseApi(const PurchaseApiRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return PurchaseApiOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return PurchaseApiOutcome(PurchaseApiResult(outcome.result()));
+	else
+		return PurchaseApiOutcome(outcome.error());
+}
+
+void AcsClient::purchaseApiAsync(const PurchaseApiRequest& request, const PurchaseApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, purchaseApi(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+AcsClient::PurchaseApiOutcomeCallable AcsClient::purchaseApiCallable(const PurchaseApiRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<PurchaseApiOutcome()>>(
+			[this, request]()
+			{
+			return this->purchaseApi(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+AcsClient::PutFlowControlOutcome AcsClient::putFlowControl(const PutFlowControlRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return PutFlowControlOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return PutFlowControlOutcome(PutFlowControlResult(outcome.result()));
+	else
+		return PutFlowControlOutcome(outcome.error());
+}
+
+void AcsClient::putFlowControlAsync(const PutFlowControlRequest& request, const PutFlowControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, putFlowControl(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+AcsClient::PutFlowControlOutcomeCallable AcsClient::putFlowControlCallable(const PutFlowControlRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<PutFlowControlOutcome()>>(
+			[this, request]()
+			{
+			return this->putFlowControl(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
 AcsClient::ResumePurchasedApiOutcome AcsClient::resumePurchasedApi(const ResumePurchasedApiRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();
@@ -189,150 +333,6 @@ AcsClient::StopPurchasedApiOutcomeCallable AcsClient::stopPurchasedApiCallable(c
 			[this, request]()
 			{
 			return this->stopPurchasedApi(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-AcsClient::ModifyApiNameInDailyOutcome AcsClient::modifyApiNameInDaily(const ModifyApiNameInDailyRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return ModifyApiNameInDailyOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return ModifyApiNameInDailyOutcome(ModifyApiNameInDailyResult(outcome.result()));
-	else
-		return ModifyApiNameInDailyOutcome(outcome.error());
-}
-
-void AcsClient::modifyApiNameInDailyAsync(const ModifyApiNameInDailyRequest& request, const ModifyApiNameInDailyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, modifyApiNameInDaily(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-AcsClient::ModifyApiNameInDailyOutcomeCallable AcsClient::modifyApiNameInDailyCallable(const ModifyApiNameInDailyRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<ModifyApiNameInDailyOutcome()>>(
-			[this, request]()
-			{
-			return this->modifyApiNameInDaily(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-AcsClient::PutFlowControlOutcome AcsClient::putFlowControl(const PutFlowControlRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return PutFlowControlOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return PutFlowControlOutcome(PutFlowControlResult(outcome.result()));
-	else
-		return PutFlowControlOutcome(outcome.error());
-}
-
-void AcsClient::putFlowControlAsync(const PutFlowControlRequest& request, const PutFlowControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, putFlowControl(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-AcsClient::PutFlowControlOutcomeCallable AcsClient::putFlowControlCallable(const PutFlowControlRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<PutFlowControlOutcome()>>(
-			[this, request]()
-			{
-			return this->putFlowControl(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-AcsClient::ModifyApiNameOutcome AcsClient::modifyApiName(const ModifyApiNameRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return ModifyApiNameOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return ModifyApiNameOutcome(ModifyApiNameResult(outcome.result()));
-	else
-		return ModifyApiNameOutcome(outcome.error());
-}
-
-void AcsClient::modifyApiNameAsync(const ModifyApiNameRequest& request, const ModifyApiNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, modifyApiName(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-AcsClient::ModifyApiNameOutcomeCallable AcsClient::modifyApiNameCallable(const ModifyApiNameRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<ModifyApiNameOutcome()>>(
-			[this, request]()
-			{
-			return this->modifyApiName(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-AcsClient::PurchaseApiOutcome AcsClient::purchaseApi(const PurchaseApiRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return PurchaseApiOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return PurchaseApiOutcome(PurchaseApiResult(outcome.result()));
-	else
-		return PurchaseApiOutcome(outcome.error());
-}
-
-void AcsClient::purchaseApiAsync(const PurchaseApiRequest& request, const PurchaseApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, purchaseApi(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-AcsClient::PurchaseApiOutcomeCallable AcsClient::purchaseApiCallable(const PurchaseApiRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<PurchaseApiOutcome()>>(
-			[this, request]()
-			{
-			return this->purchaseApi(request);
 			});
 
 	asyncExecute(new Runnable([task]() { (*task)(); }));

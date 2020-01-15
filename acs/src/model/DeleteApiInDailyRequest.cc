@@ -20,7 +20,10 @@ using AlibabaCloud::Acs::Model::DeleteApiInDailyRequest;
 
 DeleteApiInDailyRequest::DeleteApiInDailyRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/deleteApiInDaily");
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteApiInDailyRequest::~DeleteApiInDailyRequest()
 {}

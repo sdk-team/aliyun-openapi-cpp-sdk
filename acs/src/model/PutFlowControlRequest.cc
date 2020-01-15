@@ -20,7 +20,10 @@ using AlibabaCloud::Acs::Model::PutFlowControlRequest;
 
 PutFlowControlRequest::PutFlowControlRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/FlowControl/[ProductName]/[VersionName]/[ApiName]");
+	setMethod(HttpRequest::Method::Put);
+}
 
 PutFlowControlRequest::~PutFlowControlRequest()
 {}

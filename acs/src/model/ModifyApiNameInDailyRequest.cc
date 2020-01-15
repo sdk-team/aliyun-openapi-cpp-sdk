@@ -20,7 +20,10 @@ using AlibabaCloud::Acs::Model::ModifyApiNameInDailyRequest;
 
 ModifyApiNameInDailyRequest::ModifyApiNameInDailyRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/modifyApiNameInDaily");
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyApiNameInDailyRequest::~ModifyApiNameInDailyRequest()
 {}

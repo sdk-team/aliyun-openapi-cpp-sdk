@@ -25,18 +25,18 @@ set(acs_public_header_model
 	include/alibabacloud/acs/model/DeleteApiInDailyResult.h
 	include/alibabacloud/acs/model/DeleteApiOnlineRequest.h
 	include/alibabacloud/acs/model/DeleteApiOnlineResult.h
+	include/alibabacloud/acs/model/ModifyApiNameRequest.h
+	include/alibabacloud/acs/model/ModifyApiNameResult.h
+	include/alibabacloud/acs/model/ModifyApiNameInDailyRequest.h
+	include/alibabacloud/acs/model/ModifyApiNameInDailyResult.h
+	include/alibabacloud/acs/model/PurchaseApiRequest.h
+	include/alibabacloud/acs/model/PurchaseApiResult.h
+	include/alibabacloud/acs/model/PutFlowControlRequest.h
+	include/alibabacloud/acs/model/PutFlowControlResult.h
 	include/alibabacloud/acs/model/ResumePurchasedApiRequest.h
 	include/alibabacloud/acs/model/ResumePurchasedApiResult.h
 	include/alibabacloud/acs/model/StopPurchasedApiRequest.h
-	include/alibabacloud/acs/model/StopPurchasedApiResult.h
-	include/alibabacloud/acs/model/ModifyApiNameInDailyRequest.h
-	include/alibabacloud/acs/model/ModifyApiNameInDailyResult.h
-	include/alibabacloud/acs/model/PutFlowControlRequest.h
-	include/alibabacloud/acs/model/PutFlowControlResult.h
-	include/alibabacloud/acs/model/ModifyApiNameRequest.h
-	include/alibabacloud/acs/model/ModifyApiNameResult.h
-	include/alibabacloud/acs/model/PurchaseApiRequest.h
-	include/alibabacloud/acs/model/PurchaseApiResult.h )
+	include/alibabacloud/acs/model/StopPurchasedApiResult.h )
 
 set(acs_src 
 	src/AcsClient.cc
@@ -44,18 +44,18 @@ set(acs_src
 	src/model/DeleteApiInDailyResult.cc
 	src/model/DeleteApiOnlineRequest.cc
 	src/model/DeleteApiOnlineResult.cc
+	src/model/ModifyApiNameRequest.cc
+	src/model/ModifyApiNameResult.cc
+	src/model/ModifyApiNameInDailyRequest.cc
+	src/model/ModifyApiNameInDailyResult.cc
+	src/model/PurchaseApiRequest.cc
+	src/model/PurchaseApiResult.cc
+	src/model/PutFlowControlRequest.cc
+	src/model/PutFlowControlResult.cc
 	src/model/ResumePurchasedApiRequest.cc
 	src/model/ResumePurchasedApiResult.cc
 	src/model/StopPurchasedApiRequest.cc
-	src/model/StopPurchasedApiResult.cc
-	src/model/ModifyApiNameInDailyRequest.cc
-	src/model/ModifyApiNameInDailyResult.cc
-	src/model/PutFlowControlRequest.cc
-	src/model/PutFlowControlResult.cc
-	src/model/ModifyApiNameRequest.cc
-	src/model/ModifyApiNameResult.cc
-	src/model/PurchaseApiRequest.cc
-	src/model/PurchaseApiResult.cc )
+	src/model/StopPurchasedApiResult.cc )
 
 add_library(acs ${LIB_TYPE}
 	${acs_public_header}

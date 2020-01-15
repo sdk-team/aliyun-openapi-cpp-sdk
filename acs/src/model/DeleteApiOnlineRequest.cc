@@ -20,7 +20,10 @@ using AlibabaCloud::Acs::Model::DeleteApiOnlineRequest;
 
 DeleteApiOnlineRequest::DeleteApiOnlineRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/deleteApiOnline");
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteApiOnlineRequest::~DeleteApiOnlineRequest()
 {}

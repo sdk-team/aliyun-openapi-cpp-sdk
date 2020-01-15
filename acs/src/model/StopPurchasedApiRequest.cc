@@ -20,7 +20,10 @@ using AlibabaCloud::Acs::Model::StopPurchasedApiRequest;
 
 StopPurchasedApiRequest::StopPurchasedApiRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/Api/StopPurchasedApi");
+	setMethod(HttpRequest::Method::Post);
+}
 
 StopPurchasedApiRequest::~StopPurchasedApiRequest()
 {}

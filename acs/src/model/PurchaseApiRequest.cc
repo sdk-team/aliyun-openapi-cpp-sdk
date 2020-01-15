@@ -20,32 +20,13 @@ using AlibabaCloud::Acs::Model::PurchaseApiRequest;
 
 PurchaseApiRequest::PurchaseApiRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/Api/PurchaseApi");
+	setMethod(HttpRequest::Method::Post);
+}
 
 PurchaseApiRequest::~PurchaseApiRequest()
 {}
-
-std::string PurchaseApiRequest::getServiceDate()const
-{
-	return serviceDate_;
-}
-
-void PurchaseApiRequest::setServiceDate(const std::string& serviceDate)
-{
-	serviceDate_ = serviceDate;
-	setCoreParameter("ServiceDate", serviceDate);
-}
-
-long PurchaseApiRequest::getQuota()const
-{
-	return quota_;
-}
-
-void PurchaseApiRequest::setQuota(long quota)
-{
-	quota_ = quota;
-	setCoreParameter("Quota", std::to_string(quota));
-}
 
 std::string PurchaseApiRequest::getOrgCode()const
 {
@@ -80,6 +61,39 @@ void PurchaseApiRequest::setChannel(const std::string& channel)
 	setCoreParameter("Channel", channel);
 }
 
+std::string PurchaseApiRequest::getPurchaseApiName()const
+{
+	return purchaseApiName_;
+}
+
+void PurchaseApiRequest::setPurchaseApiName(const std::string& purchaseApiName)
+{
+	purchaseApiName_ = purchaseApiName;
+	setCoreParameter("PurchaseApiName", purchaseApiName);
+}
+
+std::string PurchaseApiRequest::getServiceDate()const
+{
+	return serviceDate_;
+}
+
+void PurchaseApiRequest::setServiceDate(const std::string& serviceDate)
+{
+	serviceDate_ = serviceDate;
+	setCoreParameter("ServiceDate", serviceDate);
+}
+
+long PurchaseApiRequest::getQuota()const
+{
+	return quota_;
+}
+
+void PurchaseApiRequest::setQuota(long quota)
+{
+	quota_ = quota;
+	setCoreParameter("Quota", std::to_string(quota));
+}
+
 std::string PurchaseApiRequest::getAction()const
 {
 	return action_;
@@ -100,17 +114,6 @@ void PurchaseApiRequest::setPurchaseVersion(const std::string& purchaseVersion)
 {
 	purchaseVersion_ = purchaseVersion;
 	setCoreParameter("PurchaseVersion", purchaseVersion);
-}
-
-std::string PurchaseApiRequest::getPurchaseApiName()const
-{
-	return purchaseApiName_;
-}
-
-void PurchaseApiRequest::setPurchaseApiName(const std::string& purchaseApiName)
-{
-	purchaseApiName_ = purchaseApiName;
-	setCoreParameter("PurchaseApiName", purchaseApiName);
 }
 
 std::string PurchaseApiRequest::getBillingType()const

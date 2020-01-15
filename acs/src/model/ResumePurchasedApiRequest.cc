@@ -20,7 +20,10 @@ using AlibabaCloud::Acs::Model::ResumePurchasedApiRequest;
 
 ResumePurchasedApiRequest::ResumePurchasedApiRequest() :
 	RoaServiceRequest("acs", "2015-01-01")
-{}
+{
+	setResourcePath("/Api/ResumePurchasedApi");
+	setMethod(HttpRequest::Method::Post);
+}
 
 ResumePurchasedApiRequest::~ResumePurchasedApiRequest()
 {}
