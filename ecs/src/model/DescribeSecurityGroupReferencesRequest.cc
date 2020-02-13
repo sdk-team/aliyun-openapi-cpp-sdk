@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeSecurityGroupReferencesRequest;
 
 DescribeSecurityGroupReferencesRequest::DescribeSecurityGroupReferencesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeSecurityGroupReferences")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeSecurityGroupReferencesRequest::~DescribeSecurityGroupReferencesRequest()
 {}
-
-std::string DescribeSecurityGroupReferencesRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeSecurityGroupReferencesRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeSecurityGroupReferencesRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long DescribeSecurityGroupReferencesRequest::getResourceOwnerId()const
 void DescribeSecurityGroupReferencesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeSecurityGroupReferencesRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeSecurityGroupReferencesRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeSecurityGroupReferencesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeSecurityGroupReferencesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeSecurityGroupReferencesRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeSecurityGroupReferencesRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::vector<std::string> DescribeSecurityGroupReferencesRequest::getSecurityGroupId()const
@@ -88,8 +46,42 @@ std::vector<std::string> DescribeSecurityGroupReferencesRequest::getSecurityGrou
 void DescribeSecurityGroupReferencesRequest::setSecurityGroupId(const std::vector<std::string>& securityGroupId)
 {
 	securityGroupId_ = securityGroupId;
-	for(int i = 0; i!= securityGroupId.size(); i++)
-		setCoreParameter("SecurityGroupId."+ std::to_string(i), securityGroupId.at(i));
+	for(int dep1 = 0; dep1!= securityGroupId.size(); dep1++) {
+		setParameter("SecurityGroupId."+ std::to_string(dep1), securityGroupId.at(dep1));
+	}
+}
+
+std::string DescribeSecurityGroupReferencesRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeSecurityGroupReferencesRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeSecurityGroupReferencesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeSecurityGroupReferencesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeSecurityGroupReferencesRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeSecurityGroupReferencesRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DescribeSecurityGroupReferencesRequest::getOwnerId()const
@@ -100,6 +92,6 @@ long DescribeSecurityGroupReferencesRequest::getOwnerId()const
 void DescribeSecurityGroupReferencesRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

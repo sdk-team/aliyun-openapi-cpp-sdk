@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeImageSupportInstanceTypesRequest;
 
 DescribeImageSupportInstanceTypesRequest::DescribeImageSupportInstanceTypesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeImageSupportInstanceTypes")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeImageSupportInstanceTypesRequest::~DescribeImageSupportInstanceTypesRequest()
 {}
@@ -33,24 +35,7 @@ std::string DescribeImageSupportInstanceTypesRequest::getActionType()const
 void DescribeImageSupportInstanceTypesRequest::setActionType(const std::string& actionType)
 {
 	actionType_ = actionType;
-	setCoreParameter("ActionType", actionType);
-}
-
-std::vector<DescribeImageSupportInstanceTypesRequest::Filter> DescribeImageSupportInstanceTypesRequest::getFilter()const
-{
-	return filter_;
-}
-
-void DescribeImageSupportInstanceTypesRequest::setFilter(const std::vector<Filter>& filter)
-{
-	filter_ = filter;
-	int i = 0;
-	for(int i = 0; i!= filter.size(); i++)	{
-		auto obj = filter.at(i);
-		std::string str ="Filter."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
-	}
+	setParameter("ActionType", actionType);
 }
 
 long DescribeImageSupportInstanceTypesRequest::getResourceOwnerId()const
@@ -61,7 +46,7 @@ long DescribeImageSupportInstanceTypesRequest::getResourceOwnerId()const
 void DescribeImageSupportInstanceTypesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeImageSupportInstanceTypesRequest::getImageId()const
@@ -72,18 +57,7 @@ std::string DescribeImageSupportInstanceTypesRequest::getImageId()const
 void DescribeImageSupportInstanceTypesRequest::setImageId(const std::string& imageId)
 {
 	imageId_ = imageId;
-	setCoreParameter("ImageId", imageId);
-}
-
-std::string DescribeImageSupportInstanceTypesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeImageSupportInstanceTypesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ImageId", imageId);
 }
 
 std::string DescribeImageSupportInstanceTypesRequest::getRegionId()const
@@ -94,7 +68,18 @@ std::string DescribeImageSupportInstanceTypesRequest::getRegionId()const
 void DescribeImageSupportInstanceTypesRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeImageSupportInstanceTypesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeImageSupportInstanceTypesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long DescribeImageSupportInstanceTypesRequest::getOwnerId()const
@@ -105,6 +90,22 @@ long DescribeImageSupportInstanceTypesRequest::getOwnerId()const
 void DescribeImageSupportInstanceTypesRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<DescribeImageSupportInstanceTypesRequest::Filter> DescribeImageSupportInstanceTypesRequest::getFilter()const
+{
+	return filter_;
+}
+
+void DescribeImageSupportInstanceTypesRequest::setFilter(const std::vector<Filter>& filter)
+{
+	filter_ = filter;
+	for(int dep1 = 0; dep1!= filter.size(); dep1++) {
+		auto filterObj = filter.at(dep1);
+		std::string filterObjStr = "Filter." + std::to_string(dep1 + 1);
+		setParameter(filterObjStr + ".Value", filterObj.value);
+		setParameter(filterObjStr + ".Key", filterObj.key);
+	}
 }
 

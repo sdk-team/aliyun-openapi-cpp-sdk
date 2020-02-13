@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ModifyForwardEntryRequest;
 
 ModifyForwardEntryRequest::ModifyForwardEntryRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyForwardEntry")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyForwardEntryRequest::~ModifyForwardEntryRequest()
 {}
@@ -33,40 +35,7 @@ long ModifyForwardEntryRequest::getResourceOwnerId()const
 void ModifyForwardEntryRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyForwardEntryRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyForwardEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifyForwardEntryRequest::getIpProtocol()const
-{
-	return ipProtocol_;
-}
-
-void ModifyForwardEntryRequest::setIpProtocol(const std::string& ipProtocol)
-{
-	ipProtocol_ = ipProtocol;
-	setCoreParameter("IpProtocol", ipProtocol);
-}
-
-std::string ModifyForwardEntryRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifyForwardEntryRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyForwardEntryRequest::getForwardTableId()const
@@ -77,18 +46,7 @@ std::string ModifyForwardEntryRequest::getForwardTableId()const
 void ModifyForwardEntryRequest::setForwardTableId(const std::string& forwardTableId)
 {
 	forwardTableId_ = forwardTableId;
-	setCoreParameter("ForwardTableId", forwardTableId);
-}
-
-long ModifyForwardEntryRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void ModifyForwardEntryRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ForwardTableId", forwardTableId);
 }
 
 std::string ModifyForwardEntryRequest::getInternalIp()const
@@ -99,7 +57,7 @@ std::string ModifyForwardEntryRequest::getInternalIp()const
 void ModifyForwardEntryRequest::setInternalIp(const std::string& internalIp)
 {
 	internalIp_ = internalIp;
-	setCoreParameter("InternalIp", internalIp);
+	setParameter("InternalIp", internalIp);
 }
 
 std::string ModifyForwardEntryRequest::getRegionId()const
@@ -110,7 +68,7 @@ std::string ModifyForwardEntryRequest::getRegionId()const
 void ModifyForwardEntryRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 std::string ModifyForwardEntryRequest::getForwardEntryId()const
@@ -121,18 +79,7 @@ std::string ModifyForwardEntryRequest::getForwardEntryId()const
 void ModifyForwardEntryRequest::setForwardEntryId(const std::string& forwardEntryId)
 {
 	forwardEntryId_ = forwardEntryId;
-	setCoreParameter("ForwardEntryId", forwardEntryId);
-}
-
-std::string ModifyForwardEntryRequest::getInternalPort()const
-{
-	return internalPort_;
-}
-
-void ModifyForwardEntryRequest::setInternalPort(const std::string& internalPort)
-{
-	internalPort_ = internalPort;
-	setCoreParameter("InternalPort", internalPort);
+	setParameter("ForwardEntryId", forwardEntryId);
 }
 
 std::string ModifyForwardEntryRequest::getExternalIp()const
@@ -143,7 +90,62 @@ std::string ModifyForwardEntryRequest::getExternalIp()const
 void ModifyForwardEntryRequest::setExternalIp(const std::string& externalIp)
 {
 	externalIp_ = externalIp;
-	setCoreParameter("ExternalIp", externalIp);
+	setParameter("ExternalIp", externalIp);
+}
+
+std::string ModifyForwardEntryRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyForwardEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyForwardEntryRequest::getIpProtocol()const
+{
+	return ipProtocol_;
+}
+
+void ModifyForwardEntryRequest::setIpProtocol(const std::string& ipProtocol)
+{
+	ipProtocol_ = ipProtocol;
+	setParameter("IpProtocol", ipProtocol);
+}
+
+std::string ModifyForwardEntryRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyForwardEntryRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long ModifyForwardEntryRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void ModifyForwardEntryRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ModifyForwardEntryRequest::getInternalPort()const
+{
+	return internalPort_;
+}
+
+void ModifyForwardEntryRequest::setInternalPort(const std::string& internalPort)
+{
+	internalPort_ = internalPort;
+	setParameter("InternalPort", internalPort);
 }
 
 std::string ModifyForwardEntryRequest::getExternalPort()const
@@ -154,6 +156,6 @@ std::string ModifyForwardEntryRequest::getExternalPort()const
 void ModifyForwardEntryRequest::setExternalPort(const std::string& externalPort)
 {
 	externalPort_ = externalPort;
-	setCoreParameter("ExternalPort", externalPort);
+	setParameter("ExternalPort", externalPort);
 }
 

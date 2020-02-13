@@ -20,32 +20,12 @@ using AlibabaCloud::Ecs::Model::CreateKeyPairRequest;
 
 CreateKeyPairRequest::CreateKeyPairRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateKeyPair")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateKeyPairRequest::~CreateKeyPairRequest()
 {}
-
-std::string CreateKeyPairRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void CreateKeyPairRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
-
-std::string CreateKeyPairRequest::getResourceGroupId()const
-{
-	return resourceGroupId_;
-}
-
-void CreateKeyPairRequest::setResourceGroupId(const std::string& resourceGroupId)
-{
-	resourceGroupId_ = resourceGroupId;
-	setCoreParameter("ResourceGroupId", resourceGroupId);
-}
 
 long CreateKeyPairRequest::getResourceOwnerId()const
 {
@@ -55,29 +35,7 @@ long CreateKeyPairRequest::getResourceOwnerId()const
 void CreateKeyPairRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateKeyPairRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string CreateKeyPairRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateKeyPairRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateKeyPairRequest::getKeyPairName()const
@@ -88,7 +46,29 @@ std::string CreateKeyPairRequest::getKeyPairName()const
 void CreateKeyPairRequest::setKeyPairName(const std::string& keyPairName)
 {
 	keyPairName_ = keyPairName;
-	setCoreParameter("KeyPairName", keyPairName);
+	setParameter("KeyPairName", keyPairName);
+}
+
+std::string CreateKeyPairRequest::getResourceGroupId()const
+{
+	return resourceGroupId_;
+}
+
+void CreateKeyPairRequest::setResourceGroupId(const std::string& resourceGroupId)
+{
+	resourceGroupId_ = resourceGroupId;
+	setParameter("ResourceGroupId", resourceGroupId);
+}
+
+std::string CreateKeyPairRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void CreateKeyPairRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::vector<CreateKeyPairRequest::Tag> CreateKeyPairRequest::getTag()const
@@ -99,13 +79,23 @@ std::vector<CreateKeyPairRequest::Tag> CreateKeyPairRequest::getTag()const
 void CreateKeyPairRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Value", tagObj.value);
+		setParameter(tagObjStr + ".Key", tagObj.key);
 	}
+}
+
+std::string CreateKeyPairRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long CreateKeyPairRequest::getOwnerId()const
@@ -116,6 +106,6 @@ long CreateKeyPairRequest::getOwnerId()const
 void CreateKeyPairRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CreateAutoSnapshotPolicyRequest;
 
 CreateAutoSnapshotPolicyRequest::CreateAutoSnapshotPolicyRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateAutoSnapshotPolicy")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateAutoSnapshotPolicyRequest::~CreateAutoSnapshotPolicyRequest()
 {}
@@ -33,29 +35,7 @@ long CreateAutoSnapshotPolicyRequest::getResourceOwnerId()const
 void CreateAutoSnapshotPolicyRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateAutoSnapshotPolicyRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateAutoSnapshotPolicyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string CreateAutoSnapshotPolicyRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateAutoSnapshotPolicyRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateAutoSnapshotPolicyRequest::getTimePoints()const
@@ -66,29 +46,7 @@ std::string CreateAutoSnapshotPolicyRequest::getTimePoints()const
 void CreateAutoSnapshotPolicyRequest::setTimePoints(const std::string& timePoints)
 {
 	timePoints_ = timePoints;
-	setCoreParameter("TimePoints", timePoints);
-}
-
-int CreateAutoSnapshotPolicyRequest::getRetentionDays()const
-{
-	return retentionDays_;
-}
-
-void CreateAutoSnapshotPolicyRequest::setRetentionDays(int retentionDays)
-{
-	retentionDays_ = retentionDays;
-	setCoreParameter("RetentionDays", std::to_string(retentionDays));
-}
-
-long CreateAutoSnapshotPolicyRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void CreateAutoSnapshotPolicyRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("TimePoints", timePoints);
 }
 
 std::string CreateAutoSnapshotPolicyRequest::getRepeatWeekdays()const
@@ -99,7 +57,40 @@ std::string CreateAutoSnapshotPolicyRequest::getRepeatWeekdays()const
 void CreateAutoSnapshotPolicyRequest::setRepeatWeekdays(const std::string& repeatWeekdays)
 {
 	repeatWeekdays_ = repeatWeekdays;
-	setCoreParameter("RepeatWeekdays", repeatWeekdays);
+	setParameter("RepeatWeekdays", repeatWeekdays);
+}
+
+std::string CreateAutoSnapshotPolicyRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void CreateAutoSnapshotPolicyRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string CreateAutoSnapshotPolicyRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateAutoSnapshotPolicyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+long CreateAutoSnapshotPolicyRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void CreateAutoSnapshotPolicyRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string CreateAutoSnapshotPolicyRequest::getAutoSnapshotPolicyName()const
@@ -110,6 +101,17 @@ std::string CreateAutoSnapshotPolicyRequest::getAutoSnapshotPolicyName()const
 void CreateAutoSnapshotPolicyRequest::setAutoSnapshotPolicyName(const std::string& autoSnapshotPolicyName)
 {
 	autoSnapshotPolicyName_ = autoSnapshotPolicyName;
-	setCoreParameter("AutoSnapshotPolicyName", autoSnapshotPolicyName);
+	setParameter("AutoSnapshotPolicyName", autoSnapshotPolicyName);
+}
+
+int CreateAutoSnapshotPolicyRequest::getRetentionDays()const
+{
+	return retentionDays_;
+}
+
+void CreateAutoSnapshotPolicyRequest::setRetentionDays(int retentionDays)
+{
+	retentionDays_ = retentionDays;
+	setParameter("RetentionDays", std::to_string(retentionDays));
 }
 

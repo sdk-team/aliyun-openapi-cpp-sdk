@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CreateRouteEntryRequest;
 
 CreateRouteEntryRequest::CreateRouteEntryRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateRouteEntry")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateRouteEntryRequest::~CreateRouteEntryRequest()
 {}
@@ -33,29 +35,7 @@ long CreateRouteEntryRequest::getResourceOwnerId()const
 void CreateRouteEntryRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateRouteEntryRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateRouteEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string CreateRouteEntryRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateRouteEntryRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateRouteEntryRequest::getClientToken()const
@@ -66,29 +46,18 @@ std::string CreateRouteEntryRequest::getClientToken()const
 void CreateRouteEntryRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
+	setParameter("ClientToken", clientToken);
 }
 
-std::string CreateRouteEntryRequest::getDestinationCidrBlock()const
+std::string CreateRouteEntryRequest::getRegionId()const
 {
-	return destinationCidrBlock_;
+	return regionId_;
 }
 
-void CreateRouteEntryRequest::setDestinationCidrBlock(const std::string& destinationCidrBlock)
+void CreateRouteEntryRequest::setRegionId(const std::string& regionId)
 {
-	destinationCidrBlock_ = destinationCidrBlock;
-	setCoreParameter("DestinationCidrBlock", destinationCidrBlock);
-}
-
-std::string CreateRouteEntryRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateRouteEntryRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string CreateRouteEntryRequest::getNextHopId()const
@@ -99,18 +68,7 @@ std::string CreateRouteEntryRequest::getNextHopId()const
 void CreateRouteEntryRequest::setNextHopId(const std::string& nextHopId)
 {
 	nextHopId_ = nextHopId;
-	setCoreParameter("NextHopId", nextHopId);
-}
-
-long CreateRouteEntryRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void CreateRouteEntryRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("NextHopId", nextHopId);
 }
 
 std::string CreateRouteEntryRequest::getNextHopType()const
@@ -121,24 +79,7 @@ std::string CreateRouteEntryRequest::getNextHopType()const
 void CreateRouteEntryRequest::setNextHopType(const std::string& nextHopType)
 {
 	nextHopType_ = nextHopType;
-	setCoreParameter("NextHopType", nextHopType);
-}
-
-std::vector<CreateRouteEntryRequest::NextHopList> CreateRouteEntryRequest::getNextHopList()const
-{
-	return nextHopList_;
-}
-
-void CreateRouteEntryRequest::setNextHopList(const std::vector<NextHopList>& nextHopList)
-{
-	nextHopList_ = nextHopList;
-	int i = 0;
-	for(int i = 0; i!= nextHopList.size(); i++)	{
-		auto obj = nextHopList.at(i);
-		std::string str ="NextHopList."+ std::to_string(i);
-		setCoreParameter(str + ".NextHopId", obj.nextHopId);
-		setCoreParameter(str + ".NextHopType", obj.nextHopType);
-	}
+	setParameter("NextHopType", nextHopType);
 }
 
 std::string CreateRouteEntryRequest::getRouteTableId()const
@@ -149,6 +90,66 @@ std::string CreateRouteEntryRequest::getRouteTableId()const
 void CreateRouteEntryRequest::setRouteTableId(const std::string& routeTableId)
 {
 	routeTableId_ = routeTableId;
-	setCoreParameter("RouteTableId", routeTableId);
+	setParameter("RouteTableId", routeTableId);
+}
+
+std::string CreateRouteEntryRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateRouteEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateRouteEntryRequest::getDestinationCidrBlock()const
+{
+	return destinationCidrBlock_;
+}
+
+void CreateRouteEntryRequest::setDestinationCidrBlock(const std::string& destinationCidrBlock)
+{
+	destinationCidrBlock_ = destinationCidrBlock;
+	setParameter("DestinationCidrBlock", destinationCidrBlock);
+}
+
+std::string CreateRouteEntryRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateRouteEntryRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long CreateRouteEntryRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void CreateRouteEntryRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<CreateRouteEntryRequest::NextHopList> CreateRouteEntryRequest::getNextHopList()const
+{
+	return nextHopList_;
+}
+
+void CreateRouteEntryRequest::setNextHopList(const std::vector<NextHopList>& nextHopList)
+{
+	nextHopList_ = nextHopList;
+	for(int dep1 = 0; dep1!= nextHopList.size(); dep1++) {
+		auto nextHopListObj = nextHopList.at(dep1);
+		std::string nextHopListObjStr = "NextHopList." + std::to_string(dep1 + 1);
+		setParameter(nextHopListObjStr + ".NextHopId", nextHopListObj.nextHopId);
+		setParameter(nextHopListObjStr + ".NextHopType", nextHopListObj.nextHopType);
+	}
 }
 

@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ListTagResourcesRequest;
 
 ListTagResourcesRequest::ListTagResourcesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ListTagResources")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ListTagResourcesRequest::~ListTagResourcesRequest()
 {}
@@ -33,84 +35,7 @@ long ListTagResourcesRequest::getResourceOwnerId()const
 void ListTagResourcesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-long ListTagResourcesRequest::getCallerParentId()const
-{
-	return callerParentId_;
-}
-
-void ListTagResourcesRequest::setCallerParentId(long callerParentId)
-{
-	callerParentId_ = callerParentId;
-	setCoreParameter("CallerParentId", std::to_string(callerParentId));
-}
-
-bool ListTagResourcesRequest::getProxy_original_security_transport()const
-{
-	return proxy_original_security_transport_;
-}
-
-void ListTagResourcesRequest::setProxy_original_security_transport(bool proxy_original_security_transport)
-{
-	proxy_original_security_transport_ = proxy_original_security_transport;
-	setCoreParameter("Proxy_original_security_transport", proxy_original_security_transport ? "true" : "false");
-}
-
-std::string ListTagResourcesRequest::getProxy_original_source_ip()const
-{
-	return proxy_original_source_ip_;
-}
-
-void ListTagResourcesRequest::setProxy_original_source_ip(const std::string& proxy_original_source_ip)
-{
-	proxy_original_source_ip_ = proxy_original_source_ip;
-	setCoreParameter("Proxy_original_source_ip", proxy_original_source_ip);
-}
-
-std::string ListTagResourcesRequest::getOwnerIdLoginEmail()const
-{
-	return ownerIdLoginEmail_;
-}
-
-void ListTagResourcesRequest::setOwnerIdLoginEmail(const std::string& ownerIdLoginEmail)
-{
-	ownerIdLoginEmail_ = ownerIdLoginEmail;
-	setCoreParameter("OwnerIdLoginEmail", ownerIdLoginEmail);
-}
-
-std::string ListTagResourcesRequest::getCallerType()const
-{
-	return callerType_;
-}
-
-void ListTagResourcesRequest::setCallerType(const std::string& callerType)
-{
-	callerType_ = callerType;
-	setCoreParameter("CallerType", callerType);
-}
-
-std::string ListTagResourcesRequest::getAccessKeyId()const
-{
-	return accessKeyId_;
-}
-
-void ListTagResourcesRequest::setAccessKeyId(const std::string& accessKeyId)
-{
-	accessKeyId_ = accessKeyId;
-	setCoreParameter("AccessKeyId", accessKeyId);
-}
-
-std::string ListTagResourcesRequest::getSecurityToken()const
-{
-	return securityToken_;
-}
-
-void ListTagResourcesRequest::setSecurityToken(const std::string& securityToken)
-{
-	securityToken_ = securityToken;
-	setCoreParameter("SecurityToken", securityToken);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ListTagResourcesRequest::getRegionId()const
@@ -121,7 +46,7 @@ std::string ListTagResourcesRequest::getRegionId()const
 void ListTagResourcesRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 std::string ListTagResourcesRequest::getNextToken()const
@@ -132,40 +57,7 @@ std::string ListTagResourcesRequest::getNextToken()const
 void ListTagResourcesRequest::setNextToken(const std::string& nextToken)
 {
 	nextToken_ = nextToken;
-	setCoreParameter("NextToken", nextToken);
-}
-
-bool ListTagResourcesRequest::getEnable()const
-{
-	return enable_;
-}
-
-void ListTagResourcesRequest::setEnable(bool enable)
-{
-	enable_ = enable;
-	setCoreParameter("Enable", enable ? "true" : "false");
-}
-
-std::string ListTagResourcesRequest::getRequestContent()const
-{
-	return requestContent_;
-}
-
-void ListTagResourcesRequest::setRequestContent(const std::string& requestContent)
-{
-	requestContent_ = requestContent;
-	setCoreParameter("RequestContent", requestContent);
-}
-
-std::string ListTagResourcesRequest::getCallerBidEmail()const
-{
-	return callerBidEmail_;
-}
-
-void ListTagResourcesRequest::setCallerBidEmail(const std::string& callerBidEmail)
-{
-	callerBidEmail_ = callerBidEmail;
-	setCoreParameter("CallerBidEmail", callerBidEmail);
+	setParameter("NextToken", nextToken);
 }
 
 std::vector<ListTagResourcesRequest::Tag> ListTagResourcesRequest::getTag()const
@@ -176,46 +68,12 @@ std::vector<ListTagResourcesRequest::Tag> ListTagResourcesRequest::getTag()const
 void ListTagResourcesRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Key", obj.key);
-		setCoreParameter(str + ".Value", obj.value);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Key", tagObj.key);
+		setParameter(tagObjStr + ".Value", tagObj.value);
 	}
-}
-
-std::string ListTagResourcesRequest::getCallerUidEmail()const
-{
-	return callerUidEmail_;
-}
-
-void ListTagResourcesRequest::setCallerUidEmail(const std::string& callerUidEmail)
-{
-	callerUidEmail_ = callerUidEmail;
-	setCoreParameter("CallerUidEmail", callerUidEmail);
-}
-
-long ListTagResourcesRequest::getCallerUid()const
-{
-	return callerUid_;
-}
-
-void ListTagResourcesRequest::setCallerUid(long callerUid)
-{
-	callerUid_ = callerUid;
-	setCoreParameter("CallerUid", std::to_string(callerUid));
-}
-
-std::string ListTagResourcesRequest::getApp_ip()const
-{
-	return app_ip_;
-}
-
-void ListTagResourcesRequest::setApp_ip(const std::string& app_ip)
-{
-	app_ip_ = app_ip;
-	setCoreParameter("App_ip", app_ip);
 }
 
 std::vector<std::string> ListTagResourcesRequest::getResourceId()const
@@ -226,8 +84,9 @@ std::vector<std::string> ListTagResourcesRequest::getResourceId()const
 void ListTagResourcesRequest::setResourceId(const std::vector<std::string>& resourceId)
 {
 	resourceId_ = resourceId;
-	for(int i = 0; i!= resourceId.size(); i++)
-		setCoreParameter("ResourceId."+ std::to_string(i), resourceId.at(i));
+	for(int dep1 = 0; dep1!= resourceId.size(); dep1++) {
+		setParameter("ResourceId."+ std::to_string(dep1), resourceId.at(dep1));
+	}
 }
 
 std::string ListTagResourcesRequest::getResourceOwnerAccount()const
@@ -238,7 +97,7 @@ std::string ListTagResourcesRequest::getResourceOwnerAccount()const
 void ListTagResourcesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string ListTagResourcesRequest::getOwnerAccount()const
@@ -249,18 +108,7 @@ std::string ListTagResourcesRequest::getOwnerAccount()const
 void ListTagResourcesRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string ListTagResourcesRequest::getCallerBid()const
-{
-	return callerBid_;
-}
-
-void ListTagResourcesRequest::setCallerBid(const std::string& callerBid)
-{
-	callerBid_ = callerBid;
-	setCoreParameter("CallerBid", callerBid);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ListTagResourcesRequest::getOwnerId()const
@@ -271,7 +119,25 @@ long ListTagResourcesRequest::getOwnerId()const
 void ListTagResourcesRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<ListTagResourcesRequest::TagFilter> ListTagResourcesRequest::getTagFilter()const
+{
+	return tagFilter_;
+}
+
+void ListTagResourcesRequest::setTagFilter(const std::vector<TagFilter>& tagFilter)
+{
+	tagFilter_ = tagFilter;
+	for(int dep1 = 0; dep1!= tagFilter.size(); dep1++) {
+		auto tagFilterObj = tagFilter.at(dep1);
+		std::string tagFilterObjStr = "TagFilter." + std::to_string(dep1 + 1);
+		setParameter(tagFilterObjStr + ".TagKey", tagFilterObj.tagKey);
+		for(int dep2 = 0; dep2!= tagFilterObj.tagValues.size(); dep2++) {
+			setParameter(tagFilterObjStr + ".TagValues."+ std::to_string(dep2), tagFilterObj.tagValues.at(dep2));
+		}
+	}
 }
 
 std::string ListTagResourcesRequest::getResourceType()const
@@ -282,50 +148,6 @@ std::string ListTagResourcesRequest::getResourceType()const
 void ListTagResourcesRequest::setResourceType(const std::string& resourceType)
 {
 	resourceType_ = resourceType;
-	setCoreParameter("ResourceType", resourceType);
-}
-
-bool ListTagResourcesRequest::getProxy_trust_transport_info()const
-{
-	return proxy_trust_transport_info_;
-}
-
-void ListTagResourcesRequest::setProxy_trust_transport_info(bool proxy_trust_transport_info)
-{
-	proxy_trust_transport_info_ = proxy_trust_transport_info;
-	setCoreParameter("Proxy_trust_transport_info", proxy_trust_transport_info ? "true" : "false");
-}
-
-bool ListTagResourcesRequest::getAk_mfa_present()const
-{
-	return ak_mfa_present_;
-}
-
-void ListTagResourcesRequest::setAk_mfa_present(bool ak_mfa_present)
-{
-	ak_mfa_present_ = ak_mfa_present;
-	setCoreParameter("Ak_mfa_present", ak_mfa_present ? "true" : "false");
-}
-
-bool ListTagResourcesRequest::getSecurity_transport()const
-{
-	return security_transport_;
-}
-
-void ListTagResourcesRequest::setSecurity_transport(bool security_transport)
-{
-	security_transport_ = security_transport;
-	setCoreParameter("Security_transport", security_transport ? "true" : "false");
-}
-
-std::string ListTagResourcesRequest::getRequestId()const
-{
-	return requestId_;
-}
-
-void ListTagResourcesRequest::setRequestId(const std::string& requestId)
-{
-	requestId_ = requestId;
-	setCoreParameter("RequestId", requestId);
+	setParameter("ResourceType", resourceType);
 }
 

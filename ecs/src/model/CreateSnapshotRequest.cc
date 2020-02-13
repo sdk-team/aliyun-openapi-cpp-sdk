@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::CreateSnapshotRequest;
 
 CreateSnapshotRequest::CreateSnapshotRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateSnapshot")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateSnapshotRequest::~CreateSnapshotRequest()
 {}
-
-std::string CreateSnapshotRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void CreateSnapshotRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long CreateSnapshotRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long CreateSnapshotRequest::getResourceOwnerId()const
 void CreateSnapshotRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateSnapshotRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateSnapshotRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateSnapshotRequest::getClientToken()const
@@ -66,18 +46,7 @@ std::string CreateSnapshotRequest::getClientToken()const
 void CreateSnapshotRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string CreateSnapshotRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateSnapshotRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string CreateSnapshotRequest::getDescription()const
@@ -88,18 +57,7 @@ std::string CreateSnapshotRequest::getDescription()const
 void CreateSnapshotRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-std::string CreateSnapshotRequest::getDiskId()const
-{
-	return diskId_;
-}
-
-void CreateSnapshotRequest::setDiskId(const std::string& diskId)
-{
-	diskId_ = diskId;
-	setCoreParameter("DiskId", diskId);
+	setParameter("Description", description);
 }
 
 std::string CreateSnapshotRequest::getSnapshotName()const
@@ -110,7 +68,18 @@ std::string CreateSnapshotRequest::getSnapshotName()const
 void CreateSnapshotRequest::setSnapshotName(const std::string& snapshotName)
 {
 	snapshotName_ = snapshotName;
-	setCoreParameter("SnapshotName", snapshotName);
+	setParameter("SnapshotName", snapshotName);
+}
+
+std::string CreateSnapshotRequest::getDiskId()const
+{
+	return diskId_;
+}
+
+void CreateSnapshotRequest::setDiskId(const std::string& diskId)
+{
+	diskId_ = diskId;
+	setParameter("DiskId", diskId);
 }
 
 std::vector<CreateSnapshotRequest::Tag> CreateSnapshotRequest::getTag()const
@@ -121,13 +90,34 @@ std::vector<CreateSnapshotRequest::Tag> CreateSnapshotRequest::getTag()const
 void CreateSnapshotRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Value", tagObj.value);
+		setParameter(tagObjStr + ".Key", tagObj.key);
 	}
+}
+
+std::string CreateSnapshotRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateSnapshotRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateSnapshotRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateSnapshotRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long CreateSnapshotRequest::getOwnerId()const
@@ -138,6 +128,28 @@ long CreateSnapshotRequest::getOwnerId()const
 void CreateSnapshotRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+int CreateSnapshotRequest::getRetentionDays()const
+{
+	return retentionDays_;
+}
+
+void CreateSnapshotRequest::setRetentionDays(int retentionDays)
+{
+	retentionDays_ = retentionDays;
+	setParameter("RetentionDays", std::to_string(retentionDays));
+}
+
+std::string CreateSnapshotRequest::getCategory()const
+{
+	return category_;
+}
+
+void CreateSnapshotRequest::setCategory(const std::string& category)
+{
+	category_ = category;
+	setParameter("Category", category);
 }
 

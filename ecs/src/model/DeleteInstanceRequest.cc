@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteInstanceRequest;
 
 DeleteInstanceRequest::DeleteInstanceRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteInstance")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteInstanceRequest::~DeleteInstanceRequest()
 {}
-
-std::string DeleteInstanceRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DeleteInstanceRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DeleteInstanceRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long DeleteInstanceRequest::getResourceOwnerId()const
 void DeleteInstanceRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteInstanceRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void DeleteInstanceRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string DeleteInstanceRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteInstanceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DeleteInstanceRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DeleteInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 bool DeleteInstanceRequest::getTerminateSubscription()const
@@ -88,18 +46,29 @@ bool DeleteInstanceRequest::getTerminateSubscription()const
 void DeleteInstanceRequest::setTerminateSubscription(bool terminateSubscription)
 {
 	terminateSubscription_ = terminateSubscription;
-	setCoreParameter("TerminateSubscription", terminateSubscription ? "true" : "false");
+	setParameter("TerminateSubscription", terminateSubscription ? "true" : "false");
 }
 
-bool DeleteInstanceRequest::getForce()const
+std::string DeleteInstanceRequest::getResourceOwnerAccount()const
 {
-	return force_;
+	return resourceOwnerAccount_;
 }
 
-void DeleteInstanceRequest::setForce(bool force)
+void DeleteInstanceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
-	force_ = force;
-	setCoreParameter("Force", force ? "true" : "false");
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DeleteInstanceRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DeleteInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteInstanceRequest::getOwnerId()const
@@ -110,6 +79,28 @@ long DeleteInstanceRequest::getOwnerId()const
 void DeleteInstanceRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DeleteInstanceRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void DeleteInstanceRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
+}
+
+bool DeleteInstanceRequest::getForce()const
+{
+	return force_;
+}
+
+void DeleteInstanceRequest::setForce(bool force)
+{
+	force_ = force;
+	setParameter("Force", force ? "true" : "false");
 }
 

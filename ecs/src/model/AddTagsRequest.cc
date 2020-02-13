@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::AddTagsRequest;
 
 AddTagsRequest::AddTagsRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "AddTags")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 AddTagsRequest::~AddTagsRequest()
 {}
-
-std::string AddTagsRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void AddTagsRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long AddTagsRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long AddTagsRequest::getResourceOwnerId()const
 void AddTagsRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string AddTagsRequest::getResourceId()const
-{
-	return resourceId_;
-}
-
-void AddTagsRequest::setResourceId(const std::string& resourceId)
-{
-	resourceId_ = resourceId;
-	setCoreParameter("ResourceId", resourceId);
-}
-
-std::string AddTagsRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void AddTagsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string AddTagsRequest::getRegionId()const
@@ -77,7 +46,7 @@ std::string AddTagsRequest::getRegionId()const
 void AddTagsRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 std::vector<AddTagsRequest::Tag> AddTagsRequest::getTag()const
@@ -88,13 +57,34 @@ std::vector<AddTagsRequest::Tag> AddTagsRequest::getTag()const
 void AddTagsRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Value", tagObj.value);
+		setParameter(tagObjStr + ".Key", tagObj.key);
 	}
+}
+
+std::string AddTagsRequest::getResourceId()const
+{
+	return resourceId_;
+}
+
+void AddTagsRequest::setResourceId(const std::string& resourceId)
+{
+	resourceId_ = resourceId;
+	setParameter("ResourceId", resourceId);
+}
+
+std::string AddTagsRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void AddTagsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long AddTagsRequest::getOwnerId()const
@@ -105,7 +95,7 @@ long AddTagsRequest::getOwnerId()const
 void AddTagsRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string AddTagsRequest::getResourceType()const
@@ -116,6 +106,6 @@ std::string AddTagsRequest::getResourceType()const
 void AddTagsRequest::setResourceType(const std::string& resourceType)
 {
 	resourceType_ = resourceType;
-	setCoreParameter("ResourceType", resourceType);
+	setParameter("ResourceType", resourceType);
 }
 

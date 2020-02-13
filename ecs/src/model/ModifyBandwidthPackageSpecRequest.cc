@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ModifyBandwidthPackageSpecRequest;
 
 ModifyBandwidthPackageSpecRequest::ModifyBandwidthPackageSpecRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyBandwidthPackageSpec")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyBandwidthPackageSpecRequest::~ModifyBandwidthPackageSpecRequest()
 {}
@@ -33,29 +35,7 @@ long ModifyBandwidthPackageSpecRequest::getResourceOwnerId()const
 void ModifyBandwidthPackageSpecRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyBandwidthPackageSpecRequest::getBandwidthPackageId()const
-{
-	return bandwidthPackageId_;
-}
-
-void ModifyBandwidthPackageSpecRequest::setBandwidthPackageId(const std::string& bandwidthPackageId)
-{
-	bandwidthPackageId_ = bandwidthPackageId;
-	setCoreParameter("BandwidthPackageId", bandwidthPackageId);
-}
-
-std::string ModifyBandwidthPackageSpecRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyBandwidthPackageSpecRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyBandwidthPackageSpecRequest::getRegionId()const
@@ -66,7 +46,29 @@ std::string ModifyBandwidthPackageSpecRequest::getRegionId()const
 void ModifyBandwidthPackageSpecRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string ModifyBandwidthPackageSpecRequest::getBandwidthPackageId()const
+{
+	return bandwidthPackageId_;
+}
+
+void ModifyBandwidthPackageSpecRequest::setBandwidthPackageId(const std::string& bandwidthPackageId)
+{
+	bandwidthPackageId_ = bandwidthPackageId;
+	setParameter("BandwidthPackageId", bandwidthPackageId);
+}
+
+std::string ModifyBandwidthPackageSpecRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyBandwidthPackageSpecRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string ModifyBandwidthPackageSpecRequest::getBandwidth()const
@@ -77,7 +79,7 @@ std::string ModifyBandwidthPackageSpecRequest::getBandwidth()const
 void ModifyBandwidthPackageSpecRequest::setBandwidth(const std::string& bandwidth)
 {
 	bandwidth_ = bandwidth;
-	setCoreParameter("Bandwidth", bandwidth);
+	setParameter("Bandwidth", bandwidth);
 }
 
 std::string ModifyBandwidthPackageSpecRequest::getOwnerAccount()const
@@ -88,7 +90,7 @@ std::string ModifyBandwidthPackageSpecRequest::getOwnerAccount()const
 void ModifyBandwidthPackageSpecRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyBandwidthPackageSpecRequest::getOwnerId()const
@@ -99,6 +101,6 @@ long ModifyBandwidthPackageSpecRequest::getOwnerId()const
 void ModifyBandwidthPackageSpecRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

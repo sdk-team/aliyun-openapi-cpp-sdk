@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeRecommendInstanceTypeRequest;
 
 DescribeRecommendInstanceTypeRequest::DescribeRecommendInstanceTypeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeRecommendInstanceType")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeRecommendInstanceTypeRequest::~DescribeRecommendInstanceTypeRequest()
 {}
@@ -33,40 +35,51 @@ long DescribeRecommendInstanceTypeRequest::getResourceOwnerId()const
 void DescribeRecommendInstanceTypeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
-std::string DescribeRecommendInstanceTypeRequest::getResourceOwnerAccount()const
+int DescribeRecommendInstanceTypeRequest::getInstancePpsRx()const
 {
-	return resourceOwnerAccount_;
+	return instancePpsRx_;
 }
 
-void DescribeRecommendInstanceTypeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+void DescribeRecommendInstanceTypeRequest::setInstancePpsRx(int instancePpsRx)
 {
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	instancePpsRx_ = instancePpsRx;
+	setParameter("InstancePpsRx", std::to_string(instancePpsRx));
 }
 
-std::string DescribeRecommendInstanceTypeRequest::getOwnerAccount()const
+float DescribeRecommendInstanceTypeRequest::getMemory()const
 {
-	return ownerAccount_;
+	return memory_;
 }
 
-void DescribeRecommendInstanceTypeRequest::setOwnerAccount(const std::string& ownerAccount)
+void DescribeRecommendInstanceTypeRequest::setMemory(float memory)
 {
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	memory_ = memory;
+	setParameter("Memory", std::to_string(memory));
 }
 
-std::string DescribeRecommendInstanceTypeRequest::getChannel()const
+int DescribeRecommendInstanceTypeRequest::getInstancePpsTx()const
 {
-	return channel_;
+	return instancePpsTx_;
 }
 
-void DescribeRecommendInstanceTypeRequest::setChannel(const std::string& channel)
+void DescribeRecommendInstanceTypeRequest::setInstancePpsTx(int instancePpsTx)
 {
-	channel_ = channel;
-	setCoreParameter("Channel", channel);
+	instancePpsTx_ = instancePpsTx;
+	setParameter("InstancePpsTx", std::to_string(instancePpsTx));
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getIoOptimized()const
+{
+	return ioOptimized_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setIoOptimized(const std::string& ioOptimized)
+{
+	ioOptimized_ = ioOptimized;
+	setParameter("IoOptimized", ioOptimized);
 }
 
 std::string DescribeRecommendInstanceTypeRequest::getNetworkType()const
@@ -77,40 +90,7 @@ std::string DescribeRecommendInstanceTypeRequest::getNetworkType()const
 void DescribeRecommendInstanceTypeRequest::setNetworkType(const std::string& networkType)
 {
 	networkType_ = networkType;
-	setCoreParameter("NetworkType", networkType);
-}
-
-long DescribeRecommendInstanceTypeRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeRecommendInstanceTypeRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::string DescribeRecommendInstanceTypeRequest::get_Operator()const
-{
-	return _operator_;
-}
-
-void DescribeRecommendInstanceTypeRequest::set_Operator(const std::string& _operator)
-{
-	_operator_ = _operator;
-	setCoreParameter("_Operator", _operator);
-}
-
-std::string DescribeRecommendInstanceTypeRequest::getToken()const
-{
-	return token_;
-}
-
-void DescribeRecommendInstanceTypeRequest::setToken(const std::string& token)
-{
-	token_ = token;
-	setCoreParameter("Token", token);
+	setParameter("NetworkType", networkType);
 }
 
 std::string DescribeRecommendInstanceTypeRequest::getScene()const
@@ -121,18 +101,40 @@ std::string DescribeRecommendInstanceTypeRequest::getScene()const
 void DescribeRecommendInstanceTypeRequest::setScene(const std::string& scene)
 {
 	scene_ = scene;
-	setCoreParameter("Scene", scene);
+	setParameter("Scene", scene);
 }
 
-std::string DescribeRecommendInstanceTypeRequest::getSourceRegionId()const
+int DescribeRecommendInstanceTypeRequest::getInstanceBandwidthTx()const
 {
-	return sourceRegionId_;
+	return instanceBandwidthTx_;
 }
 
-void DescribeRecommendInstanceTypeRequest::setSourceRegionId(const std::string& sourceRegionId)
+void DescribeRecommendInstanceTypeRequest::setInstanceBandwidthTx(int instanceBandwidthTx)
 {
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
+	instanceBandwidthTx_ = instanceBandwidthTx;
+	setParameter("InstanceBandwidthTx", std::to_string(instanceBandwidthTx));
+}
+
+int DescribeRecommendInstanceTypeRequest::getCores()const
+{
+	return cores_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setCores(int cores)
+{
+	cores_ = cores;
+	setParameter("Cores", std::to_string(cores));
+}
+
+int DescribeRecommendInstanceTypeRequest::getInstanceBandwidthRx()const
+{
+	return instanceBandwidthRx_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setInstanceBandwidthRx(int instanceBandwidthRx)
+{
+	instanceBandwidthRx_ = instanceBandwidthRx;
+	setParameter("InstanceBandwidthRx", std::to_string(instanceBandwidthRx));
 }
 
 std::string DescribeRecommendInstanceTypeRequest::getRegionId()const
@@ -143,7 +145,18 @@ std::string DescribeRecommendInstanceTypeRequest::getRegionId()const
 void DescribeRecommendInstanceTypeRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getSystemDiskCategory()const
+{
+	return systemDiskCategory_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setSystemDiskCategory(const std::string& systemDiskCategory)
+{
+	systemDiskCategory_ = systemDiskCategory;
+	setParameter("SystemDiskCategory", systemDiskCategory);
 }
 
 std::string DescribeRecommendInstanceTypeRequest::getInstanceType()const
@@ -154,17 +167,118 @@ std::string DescribeRecommendInstanceTypeRequest::getInstanceType()const
 void DescribeRecommendInstanceTypeRequest::setInstanceType(const std::string& instanceType)
 {
 	instanceType_ = instanceType;
-	setCoreParameter("InstanceType", instanceType);
+	setParameter("InstanceType", instanceType);
 }
 
-std::string DescribeRecommendInstanceTypeRequest::getProxyId()const
+std::string DescribeRecommendInstanceTypeRequest::getInstanceChargeType()const
 {
-	return proxyId_;
+	return instanceChargeType_;
 }
 
-void DescribeRecommendInstanceTypeRequest::setProxyId(const std::string& proxyId)
+void DescribeRecommendInstanceTypeRequest::setInstanceChargeType(const std::string& instanceChargeType)
 {
-	proxyId_ = proxyId;
-	setCoreParameter("ProxyId", proxyId);
+	instanceChargeType_ = instanceChargeType;
+	setParameter("InstanceChargeType", instanceChargeType);
+}
+
+float DescribeRecommendInstanceTypeRequest::getMaxPrice()const
+{
+	return maxPrice_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setMaxPrice(float maxPrice)
+{
+	maxPrice_ = maxPrice;
+	setParameter("MaxPrice", std::to_string(maxPrice));
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::vector<std::string> DescribeRecommendInstanceTypeRequest::getInstanceTypeFamily()const
+{
+	return instanceTypeFamily_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setInstanceTypeFamily(const std::vector<std::string>& instanceTypeFamily)
+{
+	instanceTypeFamily_ = instanceTypeFamily;
+	for(int dep1 = 0; dep1!= instanceTypeFamily.size(); dep1++) {
+		setParameter("InstanceTypeFamily."+ std::to_string(dep1), instanceTypeFamily.at(dep1));
+	}
+}
+
+long DescribeRecommendInstanceTypeRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getSpotStrategy()const
+{
+	return spotStrategy_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setSpotStrategy(const std::string& spotStrategy)
+{
+	spotStrategy_ = spotStrategy;
+	setParameter("SpotStrategy", spotStrategy);
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getPriorityStrategy()const
+{
+	return priorityStrategy_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setPriorityStrategy(const std::string& priorityStrategy)
+{
+	priorityStrategy_ = priorityStrategy;
+	setParameter("PriorityStrategy", priorityStrategy);
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getInstanceFamilyLevel()const
+{
+	return instanceFamilyLevel_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setInstanceFamilyLevel(const std::string& instanceFamilyLevel)
+{
+	instanceFamilyLevel_ = instanceFamilyLevel;
+	setParameter("InstanceFamilyLevel", instanceFamilyLevel);
+}
+
+std::string DescribeRecommendInstanceTypeRequest::getZoneId()const
+{
+	return zoneId_;
+}
+
+void DescribeRecommendInstanceTypeRequest::setZoneId(const std::string& zoneId)
+{
+	zoneId_ = zoneId;
+	setParameter("ZoneId", zoneId);
 }
 

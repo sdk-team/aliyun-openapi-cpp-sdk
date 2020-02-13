@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeTaskAttributeRequest;
 
 DescribeTaskAttributeRequest::DescribeTaskAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeTaskAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeTaskAttributeRequest::~DescribeTaskAttributeRequest()
 {}
@@ -33,18 +35,7 @@ long DescribeTaskAttributeRequest::getResourceOwnerId()const
 void DescribeTaskAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeTaskAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeTaskAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeTaskAttributeRequest::getRegionId()const
@@ -55,18 +46,7 @@ std::string DescribeTaskAttributeRequest::getRegionId()const
 void DescribeTaskAttributeRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-long DescribeTaskAttributeRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeTaskAttributeRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("RegionId", regionId);
 }
 
 std::string DescribeTaskAttributeRequest::getTaskId()const
@@ -77,6 +57,28 @@ std::string DescribeTaskAttributeRequest::getTaskId()const
 void DescribeTaskAttributeRequest::setTaskId(const std::string& taskId)
 {
 	taskId_ = taskId;
-	setCoreParameter("TaskId", taskId);
+	setParameter("TaskId", taskId);
+}
+
+std::string DescribeTaskAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeTaskAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+long DescribeTaskAttributeRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeTaskAttributeRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

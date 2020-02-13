@@ -38,7 +38,6 @@ void CreateDeploymentSetResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
 	if(!value["DeploymentSetId"].isNull())
 		deploymentSetId_ = value["DeploymentSetId"].asString();

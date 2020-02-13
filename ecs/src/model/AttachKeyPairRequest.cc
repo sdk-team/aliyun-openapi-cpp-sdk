@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::AttachKeyPairRequest;
 
 AttachKeyPairRequest::AttachKeyPairRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "AttachKeyPair")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 AttachKeyPairRequest::~AttachKeyPairRequest()
 {}
@@ -33,40 +35,7 @@ long AttachKeyPairRequest::getResourceOwnerId()const
 void AttachKeyPairRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string AttachKeyPairRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void AttachKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string AttachKeyPairRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void AttachKeyPairRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string AttachKeyPairRequest::getInstanceIds()const
-{
-	return instanceIds_;
-}
-
-void AttachKeyPairRequest::setInstanceIds(const std::string& instanceIds)
-{
-	instanceIds_ = instanceIds;
-	setCoreParameter("InstanceIds", instanceIds);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string AttachKeyPairRequest::getKeyPairName()const
@@ -77,7 +46,29 @@ std::string AttachKeyPairRequest::getKeyPairName()const
 void AttachKeyPairRequest::setKeyPairName(const std::string& keyPairName)
 {
 	keyPairName_ = keyPairName;
-	setCoreParameter("KeyPairName", keyPairName);
+	setParameter("KeyPairName", keyPairName);
+}
+
+std::string AttachKeyPairRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void AttachKeyPairRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string AttachKeyPairRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void AttachKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long AttachKeyPairRequest::getOwnerId()const
@@ -88,6 +79,17 @@ long AttachKeyPairRequest::getOwnerId()const
 void AttachKeyPairRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string AttachKeyPairRequest::getInstanceIds()const
+{
+	return instanceIds_;
+}
+
+void AttachKeyPairRequest::setInstanceIds(const std::string& instanceIds)
+{
+	instanceIds_ = instanceIds;
+	setParameter("InstanceIds", instanceIds);
 }
 

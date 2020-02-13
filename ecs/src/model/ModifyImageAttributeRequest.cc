@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifyImageAttributeRequest;
 
 ModifyImageAttributeRequest::ModifyImageAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyImageAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyImageAttributeRequest::~ModifyImageAttributeRequest()
 {}
-
-std::string ModifyImageAttributeRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ModifyImageAttributeRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ModifyImageAttributeRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long ModifyImageAttributeRequest::getResourceOwnerId()const
 void ModifyImageAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyImageAttributeRequest::getImageId()const
@@ -55,51 +46,7 @@ std::string ModifyImageAttributeRequest::getImageId()const
 void ModifyImageAttributeRequest::setImageId(const std::string& imageId)
 {
 	imageId_ = imageId;
-	setCoreParameter("ImageId", imageId);
-}
-
-std::string ModifyImageAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyImageAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifyImageAttributeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ModifyImageAttributeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string ModifyImageAttributeRequest::getImageName()const
-{
-	return imageName_;
-}
-
-void ModifyImageAttributeRequest::setImageName(const std::string& imageName)
-{
-	imageName_ = imageName;
-	setCoreParameter("ImageName", imageName);
-}
-
-std::string ModifyImageAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifyImageAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ImageId", imageId);
 }
 
 std::string ModifyImageAttributeRequest::getDescription()const
@@ -110,7 +57,51 @@ std::string ModifyImageAttributeRequest::getDescription()const
 void ModifyImageAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string ModifyImageAttributeRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ModifyImageAttributeRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string ModifyImageAttributeRequest::getImageName()const
+{
+	return imageName_;
+}
+
+void ModifyImageAttributeRequest::setImageName(const std::string& imageName)
+{
+	imageName_ = imageName;
+	setParameter("ImageName", imageName);
+}
+
+std::string ModifyImageAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyImageAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyImageAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyImageAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyImageAttributeRequest::getOwnerId()const
@@ -121,6 +112,6 @@ long ModifyImageAttributeRequest::getOwnerId()const
 void ModifyImageAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

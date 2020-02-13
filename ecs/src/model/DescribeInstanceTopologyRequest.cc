@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeInstanceTopologyRequest;
 
 DescribeInstanceTopologyRequest::DescribeInstanceTopologyRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeInstanceTopology")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeInstanceTopologyRequest::~DescribeInstanceTopologyRequest()
 {}
-
-std::string DescribeInstanceTopologyRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeInstanceTopologyRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeInstanceTopologyRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long DescribeInstanceTopologyRequest::getResourceOwnerId()const
 void DescribeInstanceTopologyRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeInstanceTopologyRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeInstanceTopologyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeInstanceTopologyRequest::getRegionId()const
@@ -66,18 +46,18 @@ std::string DescribeInstanceTopologyRequest::getRegionId()const
 void DescribeInstanceTopologyRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
-std::string DescribeInstanceTopologyRequest::getInstanceIds()const
+std::string DescribeInstanceTopologyRequest::getResourceOwnerAccount()const
 {
-	return instanceIds_;
+	return resourceOwnerAccount_;
 }
 
-void DescribeInstanceTopologyRequest::setInstanceIds(const std::string& instanceIds)
+void DescribeInstanceTopologyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
-	instanceIds_ = instanceIds;
-	setCoreParameter("InstanceIds", instanceIds);
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long DescribeInstanceTopologyRequest::getOwnerId()const
@@ -88,6 +68,17 @@ long DescribeInstanceTopologyRequest::getOwnerId()const
 void DescribeInstanceTopologyRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeInstanceTopologyRequest::getInstanceIds()const
+{
+	return instanceIds_;
+}
+
+void DescribeInstanceTopologyRequest::setInstanceIds(const std::string& instanceIds)
+{
+	instanceIds_ = instanceIds;
+	setParameter("InstanceIds", instanceIds);
 }
 

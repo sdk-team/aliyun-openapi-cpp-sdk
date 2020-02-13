@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeDedicatedHostsRequest;
 
 DescribeDedicatedHostsRequest::DescribeDedicatedHostsRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeDedicatedHosts")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeDedicatedHostsRequest::~DescribeDedicatedHostsRequest()
 {}
@@ -33,7 +35,7 @@ std::string DescribeDedicatedHostsRequest::getDedicatedHostIds()const
 void DescribeDedicatedHostsRequest::setDedicatedHostIds(const std::string& dedicatedHostIds)
 {
 	dedicatedHostIds_ = dedicatedHostIds;
-	setCoreParameter("DedicatedHostIds", dedicatedHostIds);
+	setParameter("DedicatedHostIds", dedicatedHostIds);
 }
 
 long DescribeDedicatedHostsRequest::getResourceOwnerId()const
@@ -44,51 +46,7 @@ long DescribeDedicatedHostsRequest::getResourceOwnerId()const
 void DescribeDedicatedHostsRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeDedicatedHostsRequest::getDedicatedHostName()const
-{
-	return dedicatedHostName_;
-}
-
-void DescribeDedicatedHostsRequest::setDedicatedHostName(const std::string& dedicatedHostName)
-{
-	dedicatedHostName_ = dedicatedHostName;
-	setCoreParameter("DedicatedHostName", dedicatedHostName);
-}
-
-std::string DescribeDedicatedHostsRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeDedicatedHostsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeDedicatedHostsRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeDedicatedHostsRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-long DescribeDedicatedHostsRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeDedicatedHostsRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 int DescribeDedicatedHostsRequest::getPageNumber()const
@@ -99,7 +57,7 @@ int DescribeDedicatedHostsRequest::getPageNumber()const
 void DescribeDedicatedHostsRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
 }
 
 std::string DescribeDedicatedHostsRequest::getResourceGroupId()const
@@ -110,7 +68,7 @@ std::string DescribeDedicatedHostsRequest::getResourceGroupId()const
 void DescribeDedicatedHostsRequest::setResourceGroupId(const std::string& resourceGroupId)
 {
 	resourceGroupId_ = resourceGroupId;
-	setCoreParameter("ResourceGroupId", resourceGroupId);
+	setParameter("ResourceGroupId", resourceGroupId);
 }
 
 std::string DescribeDedicatedHostsRequest::getLockReason()const
@@ -121,7 +79,7 @@ std::string DescribeDedicatedHostsRequest::getLockReason()const
 void DescribeDedicatedHostsRequest::setLockReason(const std::string& lockReason)
 {
 	lockReason_ = lockReason;
-	setCoreParameter("LockReason", lockReason);
+	setParameter("LockReason", lockReason);
 }
 
 std::string DescribeDedicatedHostsRequest::getRegionId()const
@@ -132,7 +90,7 @@ std::string DescribeDedicatedHostsRequest::getRegionId()const
 void DescribeDedicatedHostsRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 int DescribeDedicatedHostsRequest::getPageSize()const
@@ -143,18 +101,7 @@ int DescribeDedicatedHostsRequest::getPageSize()const
 void DescribeDedicatedHostsRequest::setPageSize(int pageSize)
 {
 	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-std::string DescribeDedicatedHostsRequest::getZoneId()const
-{
-	return zoneId_;
-}
-
-void DescribeDedicatedHostsRequest::setZoneId(const std::string& zoneId)
-{
-	zoneId_ = zoneId;
-	setCoreParameter("ZoneId", zoneId);
+	setParameter("PageSize", std::to_string(pageSize));
 }
 
 std::string DescribeDedicatedHostsRequest::getDedicatedHostType()const
@@ -165,7 +112,7 @@ std::string DescribeDedicatedHostsRequest::getDedicatedHostType()const
 void DescribeDedicatedHostsRequest::setDedicatedHostType(const std::string& dedicatedHostType)
 {
 	dedicatedHostType_ = dedicatedHostType;
-	setCoreParameter("DedicatedHostType", dedicatedHostType);
+	setParameter("DedicatedHostType", dedicatedHostType);
 }
 
 std::vector<DescribeDedicatedHostsRequest::Tag> DescribeDedicatedHostsRequest::getTag()const
@@ -176,13 +123,67 @@ std::vector<DescribeDedicatedHostsRequest::Tag> DescribeDedicatedHostsRequest::g
 void DescribeDedicatedHostsRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Value", tagObj.value);
+		setParameter(tagObjStr + ".Key", tagObj.key);
 	}
+}
+
+std::string DescribeDedicatedHostsRequest::getDedicatedHostName()const
+{
+	return dedicatedHostName_;
+}
+
+void DescribeDedicatedHostsRequest::setDedicatedHostName(const std::string& dedicatedHostName)
+{
+	dedicatedHostName_ = dedicatedHostName;
+	setParameter("DedicatedHostName", dedicatedHostName);
+}
+
+std::string DescribeDedicatedHostsRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeDedicatedHostsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeDedicatedHostsRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeDedicatedHostsRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeDedicatedHostsRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeDedicatedHostsRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeDedicatedHostsRequest::getZoneId()const
+{
+	return zoneId_;
+}
+
+void DescribeDedicatedHostsRequest::setZoneId(const std::string& zoneId)
+{
+	zoneId_ = zoneId;
+	setParameter("ZoneId", zoneId);
 }
 
 std::string DescribeDedicatedHostsRequest::getStatus()const
@@ -193,6 +194,6 @@ std::string DescribeDedicatedHostsRequest::getStatus()const
 void DescribeDedicatedHostsRequest::setStatus(const std::string& status)
 {
 	status_ = status;
-	setCoreParameter("Status", status);
+	setParameter("Status", status);
 }
 

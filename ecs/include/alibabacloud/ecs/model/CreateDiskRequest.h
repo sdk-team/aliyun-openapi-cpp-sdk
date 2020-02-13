@@ -30,6 +30,7 @@ namespace AlibabaCloud
 		{
 			class ALIBABACLOUD_ECS_EXPORT CreateDiskRequest : public RpcServiceRequest
 			{
+			public:
 				struct Tag
 				{
 					std::string value;
@@ -50,61 +51,70 @@ namespace AlibabaCloud
 				void setResourceOwnerId(long resourceOwnerId);
 				std::string getSnapshotId()const;
 				void setSnapshotId(const std::string& snapshotId);
-				std::string getResourceOwnerAccount()const;
-				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getClientToken()const;
 				void setClientToken(const std::string& clientToken);
-				std::string getOwnerAccount()const;
-				void setOwnerAccount(const std::string& ownerAccount);
 				std::string getDescription()const;
 				void setDescription(const std::string& description);
-				long getOwnerId()const;
-				void setOwnerId(long ownerId);
-				std::string getSourceRegionId()const;
-				void setSourceRegionId(const std::string& sourceRegionId);
 				std::string getDiskName()const;
 				void setDiskName(const std::string& diskName);
 				std::string getResourceGroupId()const;
 				void setResourceGroupId(const std::string& resourceGroupId);
-				int getSize()const;
-				void setSize(int size);
-				bool getEncrypted()const;
-				void setEncrypted(bool encrypted);
 				std::string getRegionId()const;
 				void setRegionId(const std::string& regionId);
 				std::string getDiskCategory()const;
 				void setDiskCategory(const std::string& diskCategory);
-				std::string getZoneId()const;
-				void setZoneId(const std::string& zoneId);
+				int getStorageSetPartitionNumber()const;
+				void setStorageSetPartitionNumber(int storageSetPartitionNumber);
 				std::vector<Tag> getTag()const;
 				void setTag(const std::vector<Tag>& tag);
 				std::vector<Arn> getArn()const;
 				void setArn(const std::vector<Arn>& arn);
-				std::string getKMSKeyId()const;
-				void setKMSKeyId(const std::string& kMSKeyId);
 				std::string getAdvancedFeatures()const;
 				void setAdvancedFeatures(const std::string& advancedFeatures);
+				std::string getResourceOwnerAccount()const;
+				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
+				std::string getPerformanceLevel()const;
+				void setPerformanceLevel(const std::string& performanceLevel);
+				std::string getOwnerAccount()const;
+				void setOwnerAccount(const std::string& ownerAccount);
+				long getOwnerId()const;
+				void setOwnerId(long ownerId);
+				std::string getInstanceId()const;
+				void setInstanceId(const std::string& instanceId);
+				std::string getStorageSetId()const;
+				void setStorageSetId(const std::string& storageSetId);
+				int getSize()const;
+				void setSize(int size);
+				bool getEncrypted()const;
+				void setEncrypted(bool encrypted);
+				std::string getZoneId()const;
+				void setZoneId(const std::string& zoneId);
+				std::string getKMSKeyId()const;
+				void setKMSKeyId(const std::string& kMSKeyId);
 
             private:
 				long resourceOwnerId_;
 				std::string snapshotId_;
-				std::string resourceOwnerAccount_;
 				std::string clientToken_;
-				std::string ownerAccount_;
 				std::string description_;
-				long ownerId_;
-				std::string sourceRegionId_;
 				std::string diskName_;
 				std::string resourceGroupId_;
-				int size_;
-				bool encrypted_;
 				std::string regionId_;
 				std::string diskCategory_;
-				std::string zoneId_;
+				int storageSetPartitionNumber_;
 				std::vector<Tag> tag_;
 				std::vector<Arn> arn_;
-				std::string kMSKeyId_;
 				std::string advancedFeatures_;
+				std::string resourceOwnerAccount_;
+				std::string performanceLevel_;
+				std::string ownerAccount_;
+				long ownerId_;
+				std::string instanceId_;
+				std::string storageSetId_;
+				int size_;
+				bool encrypted_;
+				std::string zoneId_;
+				std::string kMSKeyId_;
 
 			};
 		}

@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::EipFillProductRequest;
 
 EipFillProductRequest::EipFillProductRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "EipFillProduct")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 EipFillProductRequest::~EipFillProductRequest()
 {}
@@ -33,7 +35,7 @@ long EipFillProductRequest::getResourceOwnerId()const
 void EipFillProductRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string EipFillProductRequest::getData()const
@@ -44,18 +46,7 @@ std::string EipFillProductRequest::getData()const
 void EipFillProductRequest::setData(const std::string& data)
 {
 	data_ = data;
-	setCoreParameter("Data", data);
-}
-
-std::string EipFillProductRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void EipFillProductRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("Data", data);
 }
 
 std::string EipFillProductRequest::getClientToken()const
@@ -66,18 +57,7 @@ std::string EipFillProductRequest::getClientToken()const
 void EipFillProductRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string EipFillProductRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void EipFillProductRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string EipFillProductRequest::getUserCidr()const
@@ -88,7 +68,29 @@ std::string EipFillProductRequest::getUserCidr()const
 void EipFillProductRequest::setUserCidr(const std::string& userCidr)
 {
 	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
+	setParameter("UserCidr", userCidr);
+}
+
+std::string EipFillProductRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void EipFillProductRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string EipFillProductRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void EipFillProductRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long EipFillProductRequest::getOwnerId()const
@@ -99,6 +101,6 @@ long EipFillProductRequest::getOwnerId()const
 void EipFillProductRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeClustersRequest;
 
 DescribeClustersRequest::DescribeClustersRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeClusters")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeClustersRequest::~DescribeClustersRequest()
 {}
-
-std::string DescribeClustersRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeClustersRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeClustersRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long DescribeClustersRequest::getResourceOwnerId()const
 void DescribeClustersRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeClustersRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeClustersRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeClustersRequest::getRegionId()const
@@ -66,7 +46,18 @@ std::string DescribeClustersRequest::getRegionId()const
 void DescribeClustersRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeClustersRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeClustersRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DescribeClustersRequest::getOwnerAccount()const
@@ -77,7 +68,7 @@ std::string DescribeClustersRequest::getOwnerAccount()const
 void DescribeClustersRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DescribeClustersRequest::getOwnerId()const
@@ -88,6 +79,6 @@ long DescribeClustersRequest::getOwnerId()const
 void DescribeClustersRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::RenewInstanceRequest;
 
 RenewInstanceRequest::RenewInstanceRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "RenewInstance")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 RenewInstanceRequest::~RenewInstanceRequest()
 {}
-
-std::string RenewInstanceRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void RenewInstanceRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long RenewInstanceRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long RenewInstanceRequest::getResourceOwnerId()const
 void RenewInstanceRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-int RenewInstanceRequest::getPeriod()const
-{
-	return period_;
-}
-
-void RenewInstanceRequest::setPeriod(int period)
-{
-	period_ = period;
-	setCoreParameter("Period", std::to_string(period));
-}
-
-std::string RenewInstanceRequest::getPeriodUnit()const
-{
-	return periodUnit_;
-}
-
-void RenewInstanceRequest::setPeriodUnit(const std::string& periodUnit)
-{
-	periodUnit_ = periodUnit;
-	setCoreParameter("PeriodUnit", periodUnit);
-}
-
-std::string RenewInstanceRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void RenewInstanceRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string RenewInstanceRequest::getClientToken()const
@@ -88,7 +46,18 @@ std::string RenewInstanceRequest::getClientToken()const
 void RenewInstanceRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
+	setParameter("ClientToken", clientToken);
+}
+
+int RenewInstanceRequest::getPeriod()const
+{
+	return period_;
+}
+
+void RenewInstanceRequest::setPeriod(int period)
+{
+	period_ = period;
+	setParameter("Period", std::to_string(period));
 }
 
 std::string RenewInstanceRequest::getResourceOwnerAccount()const
@@ -99,7 +68,7 @@ std::string RenewInstanceRequest::getResourceOwnerAccount()const
 void RenewInstanceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string RenewInstanceRequest::getOwnerAccount()const
@@ -110,7 +79,7 @@ std::string RenewInstanceRequest::getOwnerAccount()const
 void RenewInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long RenewInstanceRequest::getOwnerId()const
@@ -121,6 +90,28 @@ long RenewInstanceRequest::getOwnerId()const
 void RenewInstanceRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string RenewInstanceRequest::getPeriodUnit()const
+{
+	return periodUnit_;
+}
+
+void RenewInstanceRequest::setPeriodUnit(const std::string& periodUnit)
+{
+	periodUnit_ = periodUnit;
+	setParameter("PeriodUnit", periodUnit);
+}
+
+std::string RenewInstanceRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void RenewInstanceRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

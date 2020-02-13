@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteDiskRequest;
 
 DeleteDiskRequest::DeleteDiskRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteDisk")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteDiskRequest::~DeleteDiskRequest()
 {}
-
-std::string DeleteDiskRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DeleteDiskRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DeleteDiskRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long DeleteDiskRequest::getResourceOwnerId()const
 void DeleteDiskRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteDiskRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DeleteDiskRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DeleteDiskRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteDiskRequest::getDiskId()const
@@ -77,7 +46,29 @@ std::string DeleteDiskRequest::getDiskId()const
 void DeleteDiskRequest::setDiskId(const std::string& diskId)
 {
 	diskId_ = diskId;
-	setCoreParameter("DiskId", diskId);
+	setParameter("DiskId", diskId);
+}
+
+std::string DeleteDiskRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DeleteDiskRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DeleteDiskRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteDiskRequest::getOwnerId()const
@@ -88,6 +79,6 @@ long DeleteDiskRequest::getOwnerId()const
 void DeleteDiskRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

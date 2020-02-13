@@ -38,7 +38,6 @@ void CreateNetworkInterfacePermissionResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
 	auto networkInterfacePermissionNode = value["NetworkInterfacePermission"];
 	if(!networkInterfacePermissionNode["AccountId"].isNull())

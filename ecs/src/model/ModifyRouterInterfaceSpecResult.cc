@@ -38,7 +38,6 @@ void ModifyRouterInterfaceSpecResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
 	if(!value["Spec"].isNull())
 		spec_ = value["Spec"].asString();

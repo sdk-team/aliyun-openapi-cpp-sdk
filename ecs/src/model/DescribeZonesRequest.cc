@@ -20,32 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeZonesRequest;
 
 DescribeZonesRequest::DescribeZonesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeZones")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeZonesRequest::~DescribeZonesRequest()
 {}
-
-std::string DescribeZonesRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeZonesRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
-
-std::string DescribeZonesRequest::getSpotStrategy()const
-{
-	return spotStrategy_;
-}
-
-void DescribeZonesRequest::setSpotStrategy(const std::string& spotStrategy)
-{
-	spotStrategy_ = spotStrategy;
-	setCoreParameter("SpotStrategy", spotStrategy);
-}
 
 long DescribeZonesRequest::getResourceOwnerId()const
 {
@@ -55,18 +35,7 @@ long DescribeZonesRequest::getResourceOwnerId()const
 void DescribeZonesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeZonesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeZonesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeZonesRequest::getRegionId()const
@@ -77,40 +46,7 @@ std::string DescribeZonesRequest::getRegionId()const
 void DescribeZonesRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeZonesRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeZonesRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string DescribeZonesRequest::getAcceptLanguage()const
-{
-	return acceptLanguage_;
-}
-
-void DescribeZonesRequest::setAcceptLanguage(const std::string& acceptLanguage)
-{
-	acceptLanguage_ = acceptLanguage;
-	setCoreParameter("AcceptLanguage", acceptLanguage);
-}
-
-long DescribeZonesRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeZonesRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("RegionId", regionId);
 }
 
 std::string DescribeZonesRequest::getInstanceChargeType()const
@@ -121,7 +57,40 @@ std::string DescribeZonesRequest::getInstanceChargeType()const
 void DescribeZonesRequest::setInstanceChargeType(const std::string& instanceChargeType)
 {
 	instanceChargeType_ = instanceChargeType;
-	setCoreParameter("InstanceChargeType", instanceChargeType);
+	setParameter("InstanceChargeType", instanceChargeType);
+}
+
+std::string DescribeZonesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeZonesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeZonesRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeZonesRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeZonesRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeZonesRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 bool DescribeZonesRequest::getVerbose()const
@@ -132,6 +101,28 @@ bool DescribeZonesRequest::getVerbose()const
 void DescribeZonesRequest::setVerbose(bool verbose)
 {
 	verbose_ = verbose;
-	setCoreParameter("Verbose", verbose ? "true" : "false");
+	setParameter("Verbose", verbose ? "true" : "false");
+}
+
+std::string DescribeZonesRequest::getSpotStrategy()const
+{
+	return spotStrategy_;
+}
+
+void DescribeZonesRequest::setSpotStrategy(const std::string& spotStrategy)
+{
+	spotStrategy_ = spotStrategy;
+	setParameter("SpotStrategy", spotStrategy);
+}
+
+std::string DescribeZonesRequest::getAcceptLanguage()const
+{
+	return acceptLanguage_;
+}
+
+void DescribeZonesRequest::setAcceptLanguage(const std::string& acceptLanguage)
+{
+	acceptLanguage_ = acceptLanguage;
+	setParameter("AcceptLanguage", acceptLanguage);
 }
 

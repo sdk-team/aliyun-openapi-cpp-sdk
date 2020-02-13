@@ -38,7 +38,6 @@ void CreateNatGatewayResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
 	auto allForwardTableIds = value["ForwardTableIds"]["ForwardTableId"];
 	for (const auto &item : allForwardTableIds)

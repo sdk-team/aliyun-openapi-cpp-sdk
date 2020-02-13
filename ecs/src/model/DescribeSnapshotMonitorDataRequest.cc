@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeSnapshotMonitorDataRequest;
 
 DescribeSnapshotMonitorDataRequest::DescribeSnapshotMonitorDataRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeSnapshotMonitorData")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeSnapshotMonitorDataRequest::~DescribeSnapshotMonitorDataRequest()
 {}
-
-std::string DescribeSnapshotMonitorDataRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeSnapshotMonitorDataRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeSnapshotMonitorDataRequest::getResourceOwnerId()const
 {
@@ -44,62 +35,7 @@ long DescribeSnapshotMonitorDataRequest::getResourceOwnerId()const
 void DescribeSnapshotMonitorDataRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-int DescribeSnapshotMonitorDataRequest::getPeriod()const
-{
-	return period_;
-}
-
-void DescribeSnapshotMonitorDataRequest::setPeriod(int period)
-{
-	period_ = period;
-	setCoreParameter("Period", std::to_string(period));
-}
-
-std::string DescribeSnapshotMonitorDataRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeSnapshotMonitorDataRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeSnapshotMonitorDataRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeSnapshotMonitorDataRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeSnapshotMonitorDataRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeSnapshotMonitorDataRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string DescribeSnapshotMonitorDataRequest::getEndTime()const
-{
-	return endTime_;
-}
-
-void DescribeSnapshotMonitorDataRequest::setEndTime(const std::string& endTime)
-{
-	endTime_ = endTime;
-	setCoreParameter("EndTime", endTime);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeSnapshotMonitorDataRequest::getStartTime()const
@@ -110,7 +46,62 @@ std::string DescribeSnapshotMonitorDataRequest::getStartTime()const
 void DescribeSnapshotMonitorDataRequest::setStartTime(const std::string& startTime)
 {
 	startTime_ = startTime;
-	setCoreParameter("StartTime", startTime);
+	setParameter("StartTime", startTime);
+}
+
+std::string DescribeSnapshotMonitorDataRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeSnapshotMonitorDataRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeSnapshotMonitorDataRequest::getPeriod()const
+{
+	return period_;
+}
+
+void DescribeSnapshotMonitorDataRequest::setPeriod(int period)
+{
+	period_ = period;
+	setParameter("Period", std::to_string(period));
+}
+
+std::string DescribeSnapshotMonitorDataRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeSnapshotMonitorDataRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeSnapshotMonitorDataRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeSnapshotMonitorDataRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::string DescribeSnapshotMonitorDataRequest::getEndTime()const
+{
+	return endTime_;
+}
+
+void DescribeSnapshotMonitorDataRequest::setEndTime(const std::string& endTime)
+{
+	endTime_ = endTime;
+	setParameter("EndTime", endTime);
 }
 
 long DescribeSnapshotMonitorDataRequest::getOwnerId()const
@@ -121,6 +112,17 @@ long DescribeSnapshotMonitorDataRequest::getOwnerId()const
 void DescribeSnapshotMonitorDataRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeSnapshotMonitorDataRequest::getCategory()const
+{
+	return category_;
+}
+
+void DescribeSnapshotMonitorDataRequest::setCategory(const std::string& category)
+{
+	category_ = category;
+	setParameter("Category", category);
 }
 

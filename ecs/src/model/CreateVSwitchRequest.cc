@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CreateVSwitchRequest;
 
 CreateVSwitchRequest::CreateVSwitchRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateVSwitch")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateVSwitchRequest::~CreateVSwitchRequest()
 {}
@@ -33,29 +35,7 @@ long CreateVSwitchRequest::getResourceOwnerId()const
 void CreateVSwitchRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateVSwitchRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateVSwitchRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string CreateVSwitchRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateVSwitchRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateVSwitchRequest::getClientToken()const
@@ -66,62 +46,7 @@ std::string CreateVSwitchRequest::getClientToken()const
 void CreateVSwitchRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string CreateVSwitchRequest::getVpcId()const
-{
-	return vpcId_;
-}
-
-void CreateVSwitchRequest::setVpcId(const std::string& vpcId)
-{
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
-}
-
-std::string CreateVSwitchRequest::getVSwitchName()const
-{
-	return vSwitchName_;
-}
-
-void CreateVSwitchRequest::setVSwitchName(const std::string& vSwitchName)
-{
-	vSwitchName_ = vSwitchName;
-	setCoreParameter("VSwitchName", vSwitchName);
-}
-
-std::string CreateVSwitchRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateVSwitchRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string CreateVSwitchRequest::getCidrBlock()const
-{
-	return cidrBlock_;
-}
-
-void CreateVSwitchRequest::setCidrBlock(const std::string& cidrBlock)
-{
-	cidrBlock_ = cidrBlock;
-	setCoreParameter("CidrBlock", cidrBlock);
-}
-
-std::string CreateVSwitchRequest::getZoneId()const
-{
-	return zoneId_;
-}
-
-void CreateVSwitchRequest::setZoneId(const std::string& zoneId)
-{
-	zoneId_ = zoneId;
-	setCoreParameter("ZoneId", zoneId);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string CreateVSwitchRequest::getDescription()const
@@ -132,7 +57,40 @@ std::string CreateVSwitchRequest::getDescription()const
 void CreateVSwitchRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string CreateVSwitchRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void CreateVSwitchRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string CreateVSwitchRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateVSwitchRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateVSwitchRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateVSwitchRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long CreateVSwitchRequest::getOwnerId()const
@@ -143,6 +101,50 @@ long CreateVSwitchRequest::getOwnerId()const
 void CreateVSwitchRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string CreateVSwitchRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void CreateVSwitchRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
+}
+
+std::string CreateVSwitchRequest::getVSwitchName()const
+{
+	return vSwitchName_;
+}
+
+void CreateVSwitchRequest::setVSwitchName(const std::string& vSwitchName)
+{
+	vSwitchName_ = vSwitchName;
+	setParameter("VSwitchName", vSwitchName);
+}
+
+std::string CreateVSwitchRequest::getCidrBlock()const
+{
+	return cidrBlock_;
+}
+
+void CreateVSwitchRequest::setCidrBlock(const std::string& cidrBlock)
+{
+	cidrBlock_ = cidrBlock;
+	setParameter("CidrBlock", cidrBlock);
+}
+
+std::string CreateVSwitchRequest::getZoneId()const
+{
+	return zoneId_;
+}
+
+void CreateVSwitchRequest::setZoneId(const std::string& zoneId)
+{
+	zoneId_ = zoneId;
+	setParameter("ZoneId", zoneId);
 }
 

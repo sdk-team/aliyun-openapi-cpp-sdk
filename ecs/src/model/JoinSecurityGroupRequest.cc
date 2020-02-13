@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::JoinSecurityGroupRequest;
 
 JoinSecurityGroupRequest::JoinSecurityGroupRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "JoinSecurityGroup")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 JoinSecurityGroupRequest::~JoinSecurityGroupRequest()
 {}
-
-std::string JoinSecurityGroupRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void JoinSecurityGroupRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long JoinSecurityGroupRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long JoinSecurityGroupRequest::getResourceOwnerId()const
 void JoinSecurityGroupRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string JoinSecurityGroupRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void JoinSecurityGroupRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string JoinSecurityGroupRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void JoinSecurityGroupRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string JoinSecurityGroupRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void JoinSecurityGroupRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string JoinSecurityGroupRequest::getSecurityGroupId()const
@@ -88,7 +46,29 @@ std::string JoinSecurityGroupRequest::getSecurityGroupId()const
 void JoinSecurityGroupRequest::setSecurityGroupId(const std::string& securityGroupId)
 {
 	securityGroupId_ = securityGroupId;
-	setCoreParameter("SecurityGroupId", securityGroupId);
+	setParameter("SecurityGroupId", securityGroupId);
+}
+
+std::string JoinSecurityGroupRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void JoinSecurityGroupRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string JoinSecurityGroupRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void JoinSecurityGroupRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long JoinSecurityGroupRequest::getOwnerId()const
@@ -99,6 +79,17 @@ long JoinSecurityGroupRequest::getOwnerId()const
 void JoinSecurityGroupRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string JoinSecurityGroupRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void JoinSecurityGroupRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

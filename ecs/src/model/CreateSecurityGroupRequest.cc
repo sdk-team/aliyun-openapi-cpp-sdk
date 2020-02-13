@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CreateSecurityGroupRequest;
 
 CreateSecurityGroupRequest::CreateSecurityGroupRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateSecurityGroup")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateSecurityGroupRequest::~CreateSecurityGroupRequest()
 {}
@@ -33,18 +35,7 @@ long CreateSecurityGroupRequest::getResourceOwnerId()const
 void CreateSecurityGroupRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateSecurityGroupRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateSecurityGroupRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateSecurityGroupRequest::getClientToken()const
@@ -55,18 +46,7 @@ std::string CreateSecurityGroupRequest::getClientToken()const
 void CreateSecurityGroupRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string CreateSecurityGroupRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateSecurityGroupRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string CreateSecurityGroupRequest::getDescription()const
@@ -77,18 +57,7 @@ std::string CreateSecurityGroupRequest::getDescription()const
 void CreateSecurityGroupRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-long CreateSecurityGroupRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void CreateSecurityGroupRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("Description", description);
 }
 
 std::string CreateSecurityGroupRequest::getSecurityGroupName()const
@@ -99,18 +68,7 @@ std::string CreateSecurityGroupRequest::getSecurityGroupName()const
 void CreateSecurityGroupRequest::setSecurityGroupName(const std::string& securityGroupName)
 {
 	securityGroupName_ = securityGroupName;
-	setCoreParameter("SecurityGroupName", securityGroupName);
-}
-
-std::string CreateSecurityGroupRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void CreateSecurityGroupRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
+	setParameter("SecurityGroupName", securityGroupName);
 }
 
 std::string CreateSecurityGroupRequest::getResourceGroupId()const
@@ -121,7 +79,7 @@ std::string CreateSecurityGroupRequest::getResourceGroupId()const
 void CreateSecurityGroupRequest::setResourceGroupId(const std::string& resourceGroupId)
 {
 	resourceGroupId_ = resourceGroupId;
-	setCoreParameter("ResourceGroupId", resourceGroupId);
+	setParameter("ResourceGroupId", resourceGroupId);
 }
 
 std::string CreateSecurityGroupRequest::getRegionId()const
@@ -132,18 +90,7 @@ std::string CreateSecurityGroupRequest::getRegionId()const
 void CreateSecurityGroupRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string CreateSecurityGroupRequest::getVpcId()const
-{
-	return vpcId_;
-}
-
-void CreateSecurityGroupRequest::setVpcId(const std::string& vpcId)
-{
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
+	setParameter("RegionId", regionId);
 }
 
 std::vector<CreateSecurityGroupRequest::Tag> CreateSecurityGroupRequest::getTag()const
@@ -154,12 +101,66 @@ std::vector<CreateSecurityGroupRequest::Tag> CreateSecurityGroupRequest::getTag(
 void CreateSecurityGroupRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Value", tagObj.value);
+		setParameter(tagObjStr + ".Key", tagObj.key);
 	}
+}
+
+std::string CreateSecurityGroupRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateSecurityGroupRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateSecurityGroupRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateSecurityGroupRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long CreateSecurityGroupRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void CreateSecurityGroupRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string CreateSecurityGroupRequest::getSecurityGroupType()const
+{
+	return securityGroupType_;
+}
+
+void CreateSecurityGroupRequest::setSecurityGroupType(const std::string& securityGroupType)
+{
+	securityGroupType_ = securityGroupType;
+	setParameter("SecurityGroupType", securityGroupType);
+}
+
+std::string CreateSecurityGroupRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void CreateSecurityGroupRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
 }
 

@@ -30,6 +30,7 @@ namespace AlibabaCloud
 		{
 			class ALIBABACLOUD_ECS_EXPORT CreateInstanceRequest : public RpcServiceRequest
 			{
+			public:
 				struct Tag
 				{
 					std::string value;
@@ -47,6 +48,7 @@ namespace AlibabaCloud
 					std::string snapshotId;
 					int size;
 					bool encrypted;
+					std::string performanceLevel;
 					std::string description;
 					std::string category;
 					std::string kMSKeyId;
@@ -68,8 +70,6 @@ namespace AlibabaCloud
 				void setKeyPairName(const std::string& keyPairName);
 				float getSpotPriceLimit()const;
 				void setSpotPriceLimit(float spotPriceLimit);
-				std::string getSourceRegionId()const;
-				void setSourceRegionId(const std::string& sourceRegionId);
 				bool getDeletionProtection()const;
 				void setDeletionProtection(bool deletionProtection);
 				std::string getResourceGroupId()const;
@@ -78,6 +78,8 @@ namespace AlibabaCloud
 				void setHostName(const std::string& hostName);
 				std::string getPassword()const;
 				void setPassword(const std::string& password);
+				int getStorageSetPartitionNumber()const;
+				void setStorageSetPartitionNumber(int storageSetPartitionNumber);
 				std::vector<Tag> getTag()const;
 				void setTag(const std::vector<Tag>& tag);
 				int getAutoRenewPeriod()const;
@@ -112,6 +114,8 @@ namespace AlibabaCloud
 				void setInternetMaxBandwidthIn(int internetMaxBandwidthIn);
 				bool getUseAdditionalService()const;
 				void setUseAdditionalService(bool useAdditionalService);
+				std::string getAffinity()const;
+				void setAffinity(const std::string& affinity);
 				std::string getImageId()const;
 				void setImageId(const std::string& imageId);
 				std::string getClientToken()const;
@@ -132,6 +136,8 @@ namespace AlibabaCloud
 				void setSystemDiskCategory(const std::string& systemDiskCategory);
 				std::string getCapacityReservationId()const;
 				void setCapacityReservationId(const std::string& capacityReservationId);
+				std::string getSystemDiskPerformanceLevel()const;
+				void setSystemDiskPerformanceLevel(const std::string& systemDiskPerformanceLevel);
 				std::string getUserData()const;
 				void setUserData(const std::string& userData);
 				bool getPasswordInherit()const;
@@ -152,6 +158,8 @@ namespace AlibabaCloud
 				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getOwnerAccount()const;
 				void setOwnerAccount(const std::string& ownerAccount);
+				std::string getTenancy()const;
+				void setTenancy(const std::string& tenancy);
 				std::string getSystemDiskDiskName()const;
 				void setSystemDiskDiskName(const std::string& systemDiskDiskName);
 				std::string getRamRoleName()const;
@@ -162,8 +170,12 @@ namespace AlibabaCloud
 				void setClusterId(const std::string& clusterId);
 				std::string getCreditSpecification()const;
 				void setCreditSpecification(const std::string& creditSpecification);
+				int getSpotDuration()const;
+				void setSpotDuration(int spotDuration);
 				std::vector<DataDisk> getDataDisk()const;
 				void setDataDisk(const std::vector<DataDisk>& dataDisk);
+				std::string getStorageSetId()const;
+				void setStorageSetId(const std::string& storageSetId);
 				int getSystemDiskSize()const;
 				void setSystemDiskSize(int systemDiskSize);
 				std::string getSystemDiskDescription()const;
@@ -175,11 +187,11 @@ namespace AlibabaCloud
 				std::string securityEnhancementStrategy_;
 				std::string keyPairName_;
 				float spotPriceLimit_;
-				std::string sourceRegionId_;
 				bool deletionProtection_;
 				std::string resourceGroupId_;
 				std::string hostName_;
 				std::string password_;
+				int storageSetPartitionNumber_;
 				std::vector<Tag> tag_;
 				int autoRenewPeriod_;
 				std::string nodeControllerId_;
@@ -197,6 +209,7 @@ namespace AlibabaCloud
 				std::string zoneId_;
 				int internetMaxBandwidthIn_;
 				bool useAdditionalService_;
+				std::string affinity_;
 				std::string imageId_;
 				std::string clientToken_;
 				std::string vlanId_;
@@ -207,6 +220,7 @@ namespace AlibabaCloud
 				std::string description_;
 				std::string systemDiskCategory_;
 				std::string capacityReservationId_;
+				std::string systemDiskPerformanceLevel_;
 				std::string userData_;
 				bool passwordInherit_;
 				std::string regionId_;
@@ -217,12 +231,15 @@ namespace AlibabaCloud
 				std::string innerIpAddress_;
 				std::string resourceOwnerAccount_;
 				std::string ownerAccount_;
+				std::string tenancy_;
 				std::string systemDiskDiskName_;
 				std::string ramRoleName_;
 				std::string dedicatedHostId_;
 				std::string clusterId_;
 				std::string creditSpecification_;
+				int spotDuration_;
 				std::vector<DataDisk> dataDisk_;
+				std::string storageSetId_;
 				int systemDiskSize_;
 				std::string systemDiskDescription_;
 

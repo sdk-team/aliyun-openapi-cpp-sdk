@@ -20,32 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeInstanceTypeFamiliesRequest;
 
 DescribeInstanceTypeFamiliesRequest::DescribeInstanceTypeFamiliesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeInstanceTypeFamilies")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeInstanceTypeFamiliesRequest::~DescribeInstanceTypeFamiliesRequest()
 {}
-
-std::string DescribeInstanceTypeFamiliesRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeInstanceTypeFamiliesRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
-
-std::string DescribeInstanceTypeFamiliesRequest::getGeneration()const
-{
-	return generation_;
-}
-
-void DescribeInstanceTypeFamiliesRequest::setGeneration(const std::string& generation)
-{
-	generation_ = generation;
-	setCoreParameter("Generation", generation);
-}
 
 long DescribeInstanceTypeFamiliesRequest::getResourceOwnerId()const
 {
@@ -55,18 +35,7 @@ long DescribeInstanceTypeFamiliesRequest::getResourceOwnerId()const
 void DescribeInstanceTypeFamiliesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeInstanceTypeFamiliesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeInstanceTypeFamiliesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeInstanceTypeFamiliesRequest::getRegionId()const
@@ -77,7 +46,29 @@ std::string DescribeInstanceTypeFamiliesRequest::getRegionId()const
 void DescribeInstanceTypeFamiliesRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeInstanceTypeFamiliesRequest::getGeneration()const
+{
+	return generation_;
+}
+
+void DescribeInstanceTypeFamiliesRequest::setGeneration(const std::string& generation)
+{
+	generation_ = generation;
+	setParameter("Generation", generation);
+}
+
+std::string DescribeInstanceTypeFamiliesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeInstanceTypeFamiliesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DescribeInstanceTypeFamiliesRequest::getOwnerAccount()const
@@ -88,7 +79,7 @@ std::string DescribeInstanceTypeFamiliesRequest::getOwnerAccount()const
 void DescribeInstanceTypeFamiliesRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DescribeInstanceTypeFamiliesRequest::getOwnerId()const
@@ -99,6 +90,6 @@ long DescribeInstanceTypeFamiliesRequest::getOwnerId()const
 void DescribeInstanceTypeFamiliesRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ConnectRouterInterfaceRequest;
 
 ConnectRouterInterfaceRequest::ConnectRouterInterfaceRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ConnectRouterInterface")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ConnectRouterInterfaceRequest::~ConnectRouterInterfaceRequest()
 {}
@@ -33,7 +35,7 @@ long ConnectRouterInterfaceRequest::getResourceOwnerId()const
 void ConnectRouterInterfaceRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ConnectRouterInterfaceRequest::getResourceOwnerAccount()const
@@ -44,18 +46,7 @@ std::string ConnectRouterInterfaceRequest::getResourceOwnerAccount()const
 void ConnectRouterInterfaceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ConnectRouterInterfaceRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ConnectRouterInterfaceRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long ConnectRouterInterfaceRequest::getOwnerId()const
@@ -66,7 +57,7 @@ long ConnectRouterInterfaceRequest::getOwnerId()const
 void ConnectRouterInterfaceRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string ConnectRouterInterfaceRequest::getRouterInterfaceId()const
@@ -77,6 +68,17 @@ std::string ConnectRouterInterfaceRequest::getRouterInterfaceId()const
 void ConnectRouterInterfaceRequest::setRouterInterfaceId(const std::string& routerInterfaceId)
 {
 	routerInterfaceId_ = routerInterfaceId;
-	setCoreParameter("RouterInterfaceId", routerInterfaceId);
+	setParameter("RouterInterfaceId", routerInterfaceId);
+}
+
+std::string ConnectRouterInterfaceRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ConnectRouterInterfaceRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 

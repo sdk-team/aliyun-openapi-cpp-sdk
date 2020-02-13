@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteImageRequest;
 
 DeleteImageRequest::DeleteImageRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteImage")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteImageRequest::~DeleteImageRequest()
 {}
-
-std::string DeleteImageRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DeleteImageRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DeleteImageRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long DeleteImageRequest::getResourceOwnerId()const
 void DeleteImageRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteImageRequest::getImageId()const
@@ -55,18 +46,7 @@ std::string DeleteImageRequest::getImageId()const
 void DeleteImageRequest::setImageId(const std::string& imageId)
 {
 	imageId_ = imageId;
-	setCoreParameter("ImageId", imageId);
-}
-
-std::string DeleteImageRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteImageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ImageId", imageId);
 }
 
 std::string DeleteImageRequest::getRegionId()const
@@ -77,7 +57,18 @@ std::string DeleteImageRequest::getRegionId()const
 void DeleteImageRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DeleteImageRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteImageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DeleteImageRequest::getOwnerAccount()const
@@ -88,18 +79,7 @@ std::string DeleteImageRequest::getOwnerAccount()const
 void DeleteImageRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-bool DeleteImageRequest::getForce()const
-{
-	return force_;
-}
-
-void DeleteImageRequest::setForce(bool force)
-{
-	force_ = force;
-	setCoreParameter("Force", force ? "true" : "false");
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteImageRequest::getOwnerId()const
@@ -110,6 +90,17 @@ long DeleteImageRequest::getOwnerId()const
 void DeleteImageRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+bool DeleteImageRequest::getForce()const
+{
+	return force_;
+}
+
+void DeleteImageRequest::setForce(bool force)
+{
+	force_ = force;
+	setParameter("Force", force ? "true" : "false");
 }
 

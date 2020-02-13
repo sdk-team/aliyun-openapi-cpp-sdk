@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeForwardTableEntriesRequest;
 
 DescribeForwardTableEntriesRequest::DescribeForwardTableEntriesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeForwardTableEntries")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeForwardTableEntriesRequest::~DescribeForwardTableEntriesRequest()
 {}
@@ -33,51 +35,7 @@ long DescribeForwardTableEntriesRequest::getResourceOwnerId()const
 void DescribeForwardTableEntriesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeForwardTableEntriesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeForwardTableEntriesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeForwardTableEntriesRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeForwardTableEntriesRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeForwardTableEntriesRequest::getForwardEntryId()const
-{
-	return forwardEntryId_;
-}
-
-void DescribeForwardTableEntriesRequest::setForwardEntryId(const std::string& forwardEntryId)
-{
-	forwardEntryId_ = forwardEntryId;
-	setCoreParameter("ForwardEntryId", forwardEntryId);
-}
-
-std::string DescribeForwardTableEntriesRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeForwardTableEntriesRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeForwardTableEntriesRequest::getForwardTableId()const
@@ -88,29 +46,7 @@ std::string DescribeForwardTableEntriesRequest::getForwardTableId()const
 void DescribeForwardTableEntriesRequest::setForwardTableId(const std::string& forwardTableId)
 {
 	forwardTableId_ = forwardTableId;
-	setCoreParameter("ForwardTableId", forwardTableId);
-}
-
-int DescribeForwardTableEntriesRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeForwardTableEntriesRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-long DescribeForwardTableEntriesRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeForwardTableEntriesRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ForwardTableId", forwardTableId);
 }
 
 int DescribeForwardTableEntriesRequest::getPageNumber()const
@@ -121,6 +57,72 @@ int DescribeForwardTableEntriesRequest::getPageNumber()const
 void DescribeForwardTableEntriesRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeForwardTableEntriesRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeForwardTableEntriesRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeForwardTableEntriesRequest::getForwardEntryId()const
+{
+	return forwardEntryId_;
+}
+
+void DescribeForwardTableEntriesRequest::setForwardEntryId(const std::string& forwardEntryId)
+{
+	forwardEntryId_ = forwardEntryId;
+	setParameter("ForwardEntryId", forwardEntryId);
+}
+
+int DescribeForwardTableEntriesRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeForwardTableEntriesRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeForwardTableEntriesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeForwardTableEntriesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeForwardTableEntriesRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeForwardTableEntriesRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeForwardTableEntriesRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeForwardTableEntriesRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

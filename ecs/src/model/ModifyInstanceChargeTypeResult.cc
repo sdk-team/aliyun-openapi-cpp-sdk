@@ -38,11 +38,27 @@ void ModifyInstanceChargeTypeResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
+	auto allFeeOfInstancesNode = value["FeeOfInstances"]["FeeOfInstance"];
+	for (auto valueFeeOfInstancesFeeOfInstance : allFeeOfInstancesNode)
+	{
+		FeeOfInstance feeOfInstancesObject;
+		if(!valueFeeOfInstancesFeeOfInstance["InstanceId"].isNull())
+			feeOfInstancesObject.instanceId = valueFeeOfInstancesFeeOfInstance["InstanceId"].asString();
+		if(!valueFeeOfInstancesFeeOfInstance["Fee"].isNull())
+			feeOfInstancesObject.fee = valueFeeOfInstancesFeeOfInstance["Fee"].asString();
+		if(!valueFeeOfInstancesFeeOfInstance["Currency"].isNull())
+			feeOfInstancesObject.currency = valueFeeOfInstancesFeeOfInstance["Currency"].asString();
+		feeOfInstances_.push_back(feeOfInstancesObject);
+	}
 	if(!value["OrderId"].isNull())
 		orderId_ = value["OrderId"].asString();
 
+}
+
+std::vector<ModifyInstanceChargeTypeResult::FeeOfInstance> ModifyInstanceChargeTypeResult::getFeeOfInstances()const
+{
+	return feeOfInstances_;
 }
 
 std::string ModifyInstanceChargeTypeResult::getOrderId()const

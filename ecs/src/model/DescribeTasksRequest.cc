@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeTasksRequest;
 
 DescribeTasksRequest::DescribeTasksRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeTasks")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeTasksRequest::~DescribeTasksRequest()
 {}
@@ -33,40 +35,7 @@ long DescribeTasksRequest::getResourceOwnerId()const
 void DescribeTasksRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeTasksRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeTasksRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeTasksRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeTasksRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string DescribeTasksRequest::getEndTime()const
-{
-	return endTime_;
-}
-
-void DescribeTasksRequest::setEndTime(const std::string& endTime)
-{
-	endTime_ = endTime;
-	setCoreParameter("EndTime", endTime);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeTasksRequest::getStartTime()const
@@ -77,18 +46,7 @@ std::string DescribeTasksRequest::getStartTime()const
 void DescribeTasksRequest::setStartTime(const std::string& startTime)
 {
 	startTime_ = startTime;
-	setCoreParameter("StartTime", startTime);
-}
-
-long DescribeTasksRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeTasksRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("StartTime", startTime);
 }
 
 std::string DescribeTasksRequest::getTaskIds()const
@@ -99,7 +57,7 @@ std::string DescribeTasksRequest::getTaskIds()const
 void DescribeTasksRequest::setTaskIds(const std::string& taskIds)
 {
 	taskIds_ = taskIds;
-	setCoreParameter("TaskIds", taskIds);
+	setParameter("TaskIds", taskIds);
 }
 
 int DescribeTasksRequest::getPageNumber()const
@@ -110,18 +68,7 @@ int DescribeTasksRequest::getPageNumber()const
 void DescribeTasksRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
-}
-
-std::string DescribeTasksRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeTasksRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
+	setParameter("PageNumber", std::to_string(pageNumber));
 }
 
 std::string DescribeTasksRequest::getTaskStatus()const
@@ -132,7 +79,7 @@ std::string DescribeTasksRequest::getTaskStatus()const
 void DescribeTasksRequest::setTaskStatus(const std::string& taskStatus)
 {
 	taskStatus_ = taskStatus;
-	setCoreParameter("TaskStatus", taskStatus);
+	setParameter("TaskStatus", taskStatus);
 }
 
 std::string DescribeTasksRequest::getRegionId()const
@@ -143,7 +90,7 @@ std::string DescribeTasksRequest::getRegionId()const
 void DescribeTasksRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 int DescribeTasksRequest::getPageSize()const
@@ -154,7 +101,51 @@ int DescribeTasksRequest::getPageSize()const
 void DescribeTasksRequest::setPageSize(int pageSize)
 {
 	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeTasksRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeTasksRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeTasksRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeTasksRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::string DescribeTasksRequest::getEndTime()const
+{
+	return endTime_;
+}
+
+void DescribeTasksRequest::setEndTime(const std::string& endTime)
+{
+	endTime_ = endTime;
+	setParameter("EndTime", endTime);
+}
+
+long DescribeTasksRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeTasksRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string DescribeTasksRequest::getTaskAction()const
@@ -165,6 +156,6 @@ std::string DescribeTasksRequest::getTaskAction()const
 void DescribeTasksRequest::setTaskAction(const std::string& taskAction)
 {
 	taskAction_ = taskAction;
-	setCoreParameter("TaskAction", taskAction);
+	setParameter("TaskAction", taskAction);
 }
 

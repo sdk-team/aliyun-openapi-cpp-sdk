@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::CreateVpcRequest;
 
 CreateVpcRequest::CreateVpcRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateVpc")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateVpcRequest::~CreateVpcRequest()
 {}
-
-std::string CreateVpcRequest::getVpcName()const
-{
-	return vpcName_;
-}
-
-void CreateVpcRequest::setVpcName(const std::string& vpcName)
-{
-	vpcName_ = vpcName;
-	setCoreParameter("VpcName", vpcName);
-}
 
 long CreateVpcRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long CreateVpcRequest::getResourceOwnerId()const
 void CreateVpcRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateVpcRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateVpcRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string CreateVpcRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateVpcRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateVpcRequest::getClientToken()const
@@ -77,29 +46,7 @@ std::string CreateVpcRequest::getClientToken()const
 void CreateVpcRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string CreateVpcRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateVpcRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string CreateVpcRequest::getCidrBlock()const
-{
-	return cidrBlock_;
-}
-
-void CreateVpcRequest::setCidrBlock(const std::string& cidrBlock)
-{
-	cidrBlock_ = cidrBlock;
-	setCoreParameter("CidrBlock", cidrBlock);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string CreateVpcRequest::getDescription()const
@@ -110,7 +57,29 @@ std::string CreateVpcRequest::getDescription()const
 void CreateVpcRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string CreateVpcRequest::getVpcName()const
+{
+	return vpcName_;
+}
+
+void CreateVpcRequest::setVpcName(const std::string& vpcName)
+{
+	vpcName_ = vpcName;
+	setParameter("VpcName", vpcName);
+}
+
+std::string CreateVpcRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void CreateVpcRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string CreateVpcRequest::getUserCidr()const
@@ -121,7 +90,29 @@ std::string CreateVpcRequest::getUserCidr()const
 void CreateVpcRequest::setUserCidr(const std::string& userCidr)
 {
 	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
+	setParameter("UserCidr", userCidr);
+}
+
+std::string CreateVpcRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateVpcRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateVpcRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateVpcRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long CreateVpcRequest::getOwnerId()const
@@ -132,6 +123,17 @@ long CreateVpcRequest::getOwnerId()const
 void CreateVpcRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string CreateVpcRequest::getCidrBlock()const
+{
+	return cidrBlock_;
+}
+
+void CreateVpcRequest::setCidrBlock(const std::string& cidrBlock)
+{
+	cidrBlock_ = cidrBlock;
+	setParameter("CidrBlock", cidrBlock);
 }
 

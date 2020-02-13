@@ -41,6 +41,8 @@ namespace AlibabaCloud
 						int amount;
 						std::string supplyEndTime;
 					};
+					std::string demandDescription;
+					std::string comment;
 					std::string zoneId;
 					std::string demandTime;
 					std::string endTime;
@@ -48,9 +50,11 @@ namespace AlibabaCloud
 					std::string instanceChargeType;
 					std::vector<Demand::SupplyInfo> supplyInfos;
 					std::string startTime;
+					std::string demandId;
 					int period;
 					int availableAmount;
 					int totalAmount;
+					std::string demandName;
 					int usedAmount;
 					int deliveringAmount;
 					std::string instanceType;

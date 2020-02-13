@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::CancelCopyImageRequest;
 
 CancelCopyImageRequest::CancelCopyImageRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CancelCopyImage")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CancelCopyImageRequest::~CancelCopyImageRequest()
 {}
-
-std::string CancelCopyImageRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void CancelCopyImageRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long CancelCopyImageRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long CancelCopyImageRequest::getResourceOwnerId()const
 void CancelCopyImageRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CancelCopyImageRequest::getImageId()const
@@ -55,18 +46,7 @@ std::string CancelCopyImageRequest::getImageId()const
 void CancelCopyImageRequest::setImageId(const std::string& imageId)
 {
 	imageId_ = imageId;
-	setCoreParameter("ImageId", imageId);
-}
-
-std::string CancelCopyImageRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CancelCopyImageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ImageId", imageId);
 }
 
 std::string CancelCopyImageRequest::getRegionId()const
@@ -77,7 +57,18 @@ std::string CancelCopyImageRequest::getRegionId()const
 void CancelCopyImageRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string CancelCopyImageRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CancelCopyImageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string CancelCopyImageRequest::getOwnerAccount()const
@@ -88,7 +79,7 @@ std::string CancelCopyImageRequest::getOwnerAccount()const
 void CancelCopyImageRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long CancelCopyImageRequest::getOwnerId()const
@@ -99,6 +90,6 @@ long CancelCopyImageRequest::getOwnerId()const
 void CancelCopyImageRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

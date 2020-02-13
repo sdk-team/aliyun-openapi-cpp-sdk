@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ApplyAutoSnapshotPolicyRequest;
 
 ApplyAutoSnapshotPolicyRequest::ApplyAutoSnapshotPolicyRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ApplyAutoSnapshotPolicy")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ApplyAutoSnapshotPolicyRequest::~ApplyAutoSnapshotPolicyRequest()
 {}
-
-std::string ApplyAutoSnapshotPolicyRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ApplyAutoSnapshotPolicyRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ApplyAutoSnapshotPolicyRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long ApplyAutoSnapshotPolicyRequest::getResourceOwnerId()const
 void ApplyAutoSnapshotPolicyRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ApplyAutoSnapshotPolicyRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ApplyAutoSnapshotPolicyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ApplyAutoSnapshotPolicyRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ApplyAutoSnapshotPolicyRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ApplyAutoSnapshotPolicyRequest::getAutoSnapshotPolicyId()const
@@ -77,7 +46,18 @@ std::string ApplyAutoSnapshotPolicyRequest::getAutoSnapshotPolicyId()const
 void ApplyAutoSnapshotPolicyRequest::setAutoSnapshotPolicyId(const std::string& autoSnapshotPolicyId)
 {
 	autoSnapshotPolicyId_ = autoSnapshotPolicyId;
-	setCoreParameter("AutoSnapshotPolicyId", autoSnapshotPolicyId);
+	setParameter("AutoSnapshotPolicyId", autoSnapshotPolicyId);
+}
+
+std::string ApplyAutoSnapshotPolicyRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ApplyAutoSnapshotPolicyRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string ApplyAutoSnapshotPolicyRequest::getDiskIds()const
@@ -88,7 +68,18 @@ std::string ApplyAutoSnapshotPolicyRequest::getDiskIds()const
 void ApplyAutoSnapshotPolicyRequest::setDiskIds(const std::string& diskIds)
 {
 	diskIds_ = diskIds;
-	setCoreParameter("DiskIds", diskIds);
+	setParameter("DiskIds", diskIds);
+}
+
+std::string ApplyAutoSnapshotPolicyRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ApplyAutoSnapshotPolicyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long ApplyAutoSnapshotPolicyRequest::getOwnerId()const
@@ -99,6 +90,6 @@ long ApplyAutoSnapshotPolicyRequest::getOwnerId()const
 void ApplyAutoSnapshotPolicyRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

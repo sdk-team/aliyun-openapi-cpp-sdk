@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ModifyDedicatedHostAttributeRequest;
 
 ModifyDedicatedHostAttributeRequest::ModifyDedicatedHostAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyDedicatedHostAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyDedicatedHostAttributeRequest::~ModifyDedicatedHostAttributeRequest()
 {}
@@ -33,29 +35,7 @@ long ModifyDedicatedHostAttributeRequest::getResourceOwnerId()const
 void ModifyDedicatedHostAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-long ModifyDedicatedHostAttributeRequest::getCallerParentId()const
-{
-	return callerParentId_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setCallerParentId(long callerParentId)
-{
-	callerParentId_ = callerParentId;
-	setCoreParameter("CallerParentId", std::to_string(callerParentId));
-}
-
-bool ModifyDedicatedHostAttributeRequest::getProxy_original_security_transport()const
-{
-	return proxy_original_security_transport_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setProxy_original_security_transport(bool proxy_original_security_transport)
-{
-	proxy_original_security_transport_ = proxy_original_security_transport;
-	setCoreParameter("Proxy_original_security_transport", proxy_original_security_transport ? "true" : "false");
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getDescription()const
@@ -66,62 +46,7 @@ std::string ModifyDedicatedHostAttributeRequest::getDescription()const
 void ModifyDedicatedHostAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getProxy_original_source_ip()const
-{
-	return proxy_original_source_ip_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setProxy_original_source_ip(const std::string& proxy_original_source_ip)
-{
-	proxy_original_source_ip_ = proxy_original_source_ip;
-	setCoreParameter("Proxy_original_source_ip", proxy_original_source_ip);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getOwnerIdLoginEmail()const
-{
-	return ownerIdLoginEmail_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setOwnerIdLoginEmail(const std::string& ownerIdLoginEmail)
-{
-	ownerIdLoginEmail_ = ownerIdLoginEmail;
-	setCoreParameter("OwnerIdLoginEmail", ownerIdLoginEmail);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getCallerType()const
-{
-	return callerType_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setCallerType(const std::string& callerType)
-{
-	callerType_ = callerType;
-	setCoreParameter("CallerType", callerType);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getAccessKeyId()const
-{
-	return accessKeyId_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setAccessKeyId(const std::string& accessKeyId)
-{
-	accessKeyId_ = accessKeyId;
-	setCoreParameter("AccessKeyId", accessKeyId);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getSecurityToken()const
-{
-	return securityToken_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setSecurityToken(const std::string& securityToken)
-{
-	securityToken_ = securityToken;
-	setCoreParameter("SecurityToken", securityToken);
+	setParameter("Description", description);
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getRegionId()const
@@ -132,29 +57,7 @@ std::string ModifyDedicatedHostAttributeRequest::getRegionId()const
 void ModifyDedicatedHostAttributeRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-bool ModifyDedicatedHostAttributeRequest::getEnable()const
-{
-	return enable_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setEnable(bool enable)
-{
-	enable_ = enable;
-	setCoreParameter("Enable", enable ? "true" : "false");
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getRequestContent()const
-{
-	return requestContent_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setRequestContent(const std::string& requestContent)
-{
-	requestContent_ = requestContent;
-	setCoreParameter("RequestContent", requestContent);
+	setParameter("RegionId", regionId);
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getActionOnMaintenance()const
@@ -165,51 +68,7 @@ std::string ModifyDedicatedHostAttributeRequest::getActionOnMaintenance()const
 void ModifyDedicatedHostAttributeRequest::setActionOnMaintenance(const std::string& actionOnMaintenance)
 {
 	actionOnMaintenance_ = actionOnMaintenance;
-	setCoreParameter("ActionOnMaintenance", actionOnMaintenance);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getCallerBidEmail()const
-{
-	return callerBidEmail_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setCallerBidEmail(const std::string& callerBidEmail)
-{
-	callerBidEmail_ = callerBidEmail;
-	setCoreParameter("CallerBidEmail", callerBidEmail);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getCallerUidEmail()const
-{
-	return callerUidEmail_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setCallerUidEmail(const std::string& callerUidEmail)
-{
-	callerUidEmail_ = callerUidEmail;
-	setCoreParameter("CallerUidEmail", callerUidEmail);
-}
-
-long ModifyDedicatedHostAttributeRequest::getCallerUid()const
-{
-	return callerUid_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setCallerUid(long callerUid)
-{
-	callerUid_ = callerUid;
-	setCoreParameter("CallerUid", std::to_string(callerUid));
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getApp_ip()const
-{
-	return app_ip_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setApp_ip(const std::string& app_ip)
-{
-	app_ip_ = app_ip;
-	setCoreParameter("App_ip", app_ip);
+	setParameter("ActionOnMaintenance", actionOnMaintenance);
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getDedicatedHostName()const
@@ -220,7 +79,7 @@ std::string ModifyDedicatedHostAttributeRequest::getDedicatedHostName()const
 void ModifyDedicatedHostAttributeRequest::setDedicatedHostName(const std::string& dedicatedHostName)
 {
 	dedicatedHostName_ = dedicatedHostName;
-	setCoreParameter("DedicatedHostName", dedicatedHostName);
+	setParameter("DedicatedHostName", dedicatedHostName);
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getResourceOwnerAccount()const
@@ -231,7 +90,7 @@ std::string ModifyDedicatedHostAttributeRequest::getResourceOwnerAccount()const
 void ModifyDedicatedHostAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getOwnerAccount()const
@@ -242,7 +101,7 @@ std::string ModifyDedicatedHostAttributeRequest::getOwnerAccount()const
 void ModifyDedicatedHostAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 std::string ModifyDedicatedHostAttributeRequest::getDedicatedHostId()const
@@ -253,18 +112,7 @@ std::string ModifyDedicatedHostAttributeRequest::getDedicatedHostId()const
 void ModifyDedicatedHostAttributeRequest::setDedicatedHostId(const std::string& dedicatedHostId)
 {
 	dedicatedHostId_ = dedicatedHostId;
-	setCoreParameter("DedicatedHostId", dedicatedHostId);
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getCallerBid()const
-{
-	return callerBid_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setCallerBid(const std::string& callerBid)
-{
-	callerBid_ = callerBid;
-	setCoreParameter("CallerBid", callerBid);
+	setParameter("DedicatedHostId", dedicatedHostId);
 }
 
 long ModifyDedicatedHostAttributeRequest::getOwnerId()const
@@ -275,51 +123,7 @@ long ModifyDedicatedHostAttributeRequest::getOwnerId()const
 void ModifyDedicatedHostAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-bool ModifyDedicatedHostAttributeRequest::getProxy_trust_transport_info()const
-{
-	return proxy_trust_transport_info_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setProxy_trust_transport_info(bool proxy_trust_transport_info)
-{
-	proxy_trust_transport_info_ = proxy_trust_transport_info;
-	setCoreParameter("Proxy_trust_transport_info", proxy_trust_transport_info ? "true" : "false");
-}
-
-bool ModifyDedicatedHostAttributeRequest::getAk_mfa_present()const
-{
-	return ak_mfa_present_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setAk_mfa_present(bool ak_mfa_present)
-{
-	ak_mfa_present_ = ak_mfa_present;
-	setCoreParameter("Ak_mfa_present", ak_mfa_present ? "true" : "false");
-}
-
-bool ModifyDedicatedHostAttributeRequest::getSecurity_transport()const
-{
-	return security_transport_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setSecurity_transport(bool security_transport)
-{
-	security_transport_ = security_transport;
-	setCoreParameter("Security_transport", security_transport ? "true" : "false");
-}
-
-std::string ModifyDedicatedHostAttributeRequest::getRequestId()const
-{
-	return requestId_;
-}
-
-void ModifyDedicatedHostAttributeRequest::setRequestId(const std::string& requestId)
-{
-	requestId_ = requestId;
-	setCoreParameter("RequestId", requestId);
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 int ModifyDedicatedHostAttributeRequest::getNetworkAttributesSlbUdpTimeout()const
@@ -330,7 +134,18 @@ int ModifyDedicatedHostAttributeRequest::getNetworkAttributesSlbUdpTimeout()cons
 void ModifyDedicatedHostAttributeRequest::setNetworkAttributesSlbUdpTimeout(int networkAttributesSlbUdpTimeout)
 {
 	networkAttributesSlbUdpTimeout_ = networkAttributesSlbUdpTimeout;
-	setCoreParameter("NetworkAttributesSlbUdpTimeout", std::to_string(networkAttributesSlbUdpTimeout));
+	setParameter("NetworkAttributesSlbUdpTimeout", std::to_string(networkAttributesSlbUdpTimeout));
+}
+
+std::string ModifyDedicatedHostAttributeRequest::getAutoPlacement()const
+{
+	return autoPlacement_;
+}
+
+void ModifyDedicatedHostAttributeRequest::setAutoPlacement(const std::string& autoPlacement)
+{
+	autoPlacement_ = autoPlacement;
+	setParameter("AutoPlacement", autoPlacement);
 }
 
 int ModifyDedicatedHostAttributeRequest::getNetworkAttributesUdpTimeout()const
@@ -341,6 +156,6 @@ int ModifyDedicatedHostAttributeRequest::getNetworkAttributesUdpTimeout()const
 void ModifyDedicatedHostAttributeRequest::setNetworkAttributesUdpTimeout(int networkAttributesUdpTimeout)
 {
 	networkAttributesUdpTimeout_ = networkAttributesUdpTimeout;
-	setCoreParameter("NetworkAttributesUdpTimeout", std::to_string(networkAttributesUdpTimeout));
+	setParameter("NetworkAttributesUdpTimeout", std::to_string(networkAttributesUdpTimeout));
 }
 

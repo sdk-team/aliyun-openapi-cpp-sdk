@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DeleteRouteEntryRequest;
 
 DeleteRouteEntryRequest::DeleteRouteEntryRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteRouteEntry")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteRouteEntryRequest::~DeleteRouteEntryRequest()
 {}
@@ -33,18 +35,7 @@ long DeleteRouteEntryRequest::getResourceOwnerId()const
 void DeleteRouteEntryRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteRouteEntryRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteRouteEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteRouteEntryRequest::getRegionId()const
@@ -55,29 +46,7 @@ std::string DeleteRouteEntryRequest::getRegionId()const
 void DeleteRouteEntryRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DeleteRouteEntryRequest::getDestinationCidrBlock()const
-{
-	return destinationCidrBlock_;
-}
-
-void DeleteRouteEntryRequest::setDestinationCidrBlock(const std::string& destinationCidrBlock)
-{
-	destinationCidrBlock_ = destinationCidrBlock;
-	setCoreParameter("DestinationCidrBlock", destinationCidrBlock);
-}
-
-std::string DeleteRouteEntryRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DeleteRouteEntryRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("RegionId", regionId);
 }
 
 std::string DeleteRouteEntryRequest::getNextHopId()const
@@ -88,35 +57,7 @@ std::string DeleteRouteEntryRequest::getNextHopId()const
 void DeleteRouteEntryRequest::setNextHopId(const std::string& nextHopId)
 {
 	nextHopId_ = nextHopId;
-	setCoreParameter("NextHopId", nextHopId);
-}
-
-long DeleteRouteEntryRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DeleteRouteEntryRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::vector<DeleteRouteEntryRequest::NextHopList> DeleteRouteEntryRequest::getNextHopList()const
-{
-	return nextHopList_;
-}
-
-void DeleteRouteEntryRequest::setNextHopList(const std::vector<NextHopList>& nextHopList)
-{
-	nextHopList_ = nextHopList;
-	int i = 0;
-	for(int i = 0; i!= nextHopList.size(); i++)	{
-		auto obj = nextHopList.at(i);
-		std::string str ="NextHopList."+ std::to_string(i);
-		setCoreParameter(str + ".NextHopId", obj.nextHopId);
-		setCoreParameter(str + ".NextHopType", obj.nextHopType);
-	}
+	setParameter("NextHopId", nextHopId);
 }
 
 std::string DeleteRouteEntryRequest::getRouteTableId()const
@@ -127,6 +68,66 @@ std::string DeleteRouteEntryRequest::getRouteTableId()const
 void DeleteRouteEntryRequest::setRouteTableId(const std::string& routeTableId)
 {
 	routeTableId_ = routeTableId;
-	setCoreParameter("RouteTableId", routeTableId);
+	setParameter("RouteTableId", routeTableId);
+}
+
+std::string DeleteRouteEntryRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteRouteEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DeleteRouteEntryRequest::getDestinationCidrBlock()const
+{
+	return destinationCidrBlock_;
+}
+
+void DeleteRouteEntryRequest::setDestinationCidrBlock(const std::string& destinationCidrBlock)
+{
+	destinationCidrBlock_ = destinationCidrBlock;
+	setParameter("DestinationCidrBlock", destinationCidrBlock);
+}
+
+std::string DeleteRouteEntryRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DeleteRouteEntryRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DeleteRouteEntryRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DeleteRouteEntryRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<DeleteRouteEntryRequest::NextHopList> DeleteRouteEntryRequest::getNextHopList()const
+{
+	return nextHopList_;
+}
+
+void DeleteRouteEntryRequest::setNextHopList(const std::vector<NextHopList>& nextHopList)
+{
+	nextHopList_ = nextHopList;
+	for(int dep1 = 0; dep1!= nextHopList.size(); dep1++) {
+		auto nextHopListObj = nextHopList.at(dep1);
+		std::string nextHopListObjStr = "NextHopList." + std::to_string(dep1 + 1);
+		setParameter(nextHopListObjStr + ".NextHopId", nextHopListObj.nextHopId);
+		setParameter(nextHopListObjStr + ".NextHopType", nextHopListObj.nextHopType);
+	}
 }
 

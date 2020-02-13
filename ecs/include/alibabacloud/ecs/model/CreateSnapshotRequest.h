@@ -30,6 +30,7 @@ namespace AlibabaCloud
 		{
 			class ALIBABACLOUD_ECS_EXPORT CreateSnapshotRequest : public RpcServiceRequest
 			{
+			public:
 				struct Tag
 				{
 					std::string value;
@@ -40,38 +41,41 @@ namespace AlibabaCloud
 				CreateSnapshotRequest();
 				~CreateSnapshotRequest();
 
-				std::string getSourceRegionId()const;
-				void setSourceRegionId(const std::string& sourceRegionId);
 				long getResourceOwnerId()const;
 				void setResourceOwnerId(long resourceOwnerId);
-				std::string getResourceOwnerAccount()const;
-				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getClientToken()const;
 				void setClientToken(const std::string& clientToken);
-				std::string getOwnerAccount()const;
-				void setOwnerAccount(const std::string& ownerAccount);
 				std::string getDescription()const;
 				void setDescription(const std::string& description);
-				std::string getDiskId()const;
-				void setDiskId(const std::string& diskId);
 				std::string getSnapshotName()const;
 				void setSnapshotName(const std::string& snapshotName);
+				std::string getDiskId()const;
+				void setDiskId(const std::string& diskId);
 				std::vector<Tag> getTag()const;
 				void setTag(const std::vector<Tag>& tag);
+				std::string getResourceOwnerAccount()const;
+				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
+				std::string getOwnerAccount()const;
+				void setOwnerAccount(const std::string& ownerAccount);
 				long getOwnerId()const;
 				void setOwnerId(long ownerId);
+				int getRetentionDays()const;
+				void setRetentionDays(int retentionDays);
+				std::string getCategory()const;
+				void setCategory(const std::string& category);
 
             private:
-				std::string sourceRegionId_;
 				long resourceOwnerId_;
-				std::string resourceOwnerAccount_;
 				std::string clientToken_;
-				std::string ownerAccount_;
 				std::string description_;
-				std::string diskId_;
 				std::string snapshotName_;
+				std::string diskId_;
 				std::vector<Tag> tag_;
+				std::string resourceOwnerAccount_;
+				std::string ownerAccount_;
 				long ownerId_;
+				int retentionDays_;
+				std::string category_;
 
 			};
 		}

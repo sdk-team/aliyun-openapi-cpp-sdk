@@ -30,6 +30,7 @@ namespace AlibabaCloud
 		{
 			class ALIBABACLOUD_ECS_EXPORT DescribeImageSupportInstanceTypesRequest : public RpcServiceRequest
 			{
+			public:
 				struct Filter
 				{
 					std::string value;
@@ -42,27 +43,27 @@ namespace AlibabaCloud
 
 				std::string getActionType()const;
 				void setActionType(const std::string& actionType);
-				std::vector<Filter> getFilter()const;
-				void setFilter(const std::vector<Filter>& filter);
 				long getResourceOwnerId()const;
 				void setResourceOwnerId(long resourceOwnerId);
 				std::string getImageId()const;
 				void setImageId(const std::string& imageId);
-				std::string getResourceOwnerAccount()const;
-				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getRegionId()const;
 				void setRegionId(const std::string& regionId);
+				std::string getResourceOwnerAccount()const;
+				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				long getOwnerId()const;
 				void setOwnerId(long ownerId);
+				std::vector<Filter> getFilter()const;
+				void setFilter(const std::vector<Filter>& filter);
 
             private:
 				std::string actionType_;
-				std::vector<Filter> filter_;
 				long resourceOwnerId_;
 				std::string imageId_;
-				std::string resourceOwnerAccount_;
 				std::string regionId_;
+				std::string resourceOwnerAccount_;
 				long ownerId_;
+				std::vector<Filter> filter_;
 
 			};
 		}

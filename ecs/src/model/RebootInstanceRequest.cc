@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::RebootInstanceRequest;
 
 RebootInstanceRequest::RebootInstanceRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "RebootInstance")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 RebootInstanceRequest::~RebootInstanceRequest()
 {}
-
-std::string RebootInstanceRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void RebootInstanceRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long RebootInstanceRequest::getResourceOwnerId()const
 {
@@ -44,62 +35,7 @@ long RebootInstanceRequest::getResourceOwnerId()const
 void RebootInstanceRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string RebootInstanceRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void RebootInstanceRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-bool RebootInstanceRequest::getDryRun()const
-{
-	return dryRun_;
-}
-
-void RebootInstanceRequest::setDryRun(bool dryRun)
-{
-	dryRun_ = dryRun;
-	setCoreParameter("DryRun", dryRun ? "true" : "false");
-}
-
-std::string RebootInstanceRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void RebootInstanceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string RebootInstanceRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void RebootInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-long RebootInstanceRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void RebootInstanceRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 bool RebootInstanceRequest::getForceStop()const
@@ -110,6 +46,61 @@ bool RebootInstanceRequest::getForceStop()const
 void RebootInstanceRequest::setForceStop(bool forceStop)
 {
 	forceStop_ = forceStop;
-	setCoreParameter("ForceStop", forceStop ? "true" : "false");
+	setParameter("ForceStop", forceStop ? "true" : "false");
+}
+
+bool RebootInstanceRequest::getDryRun()const
+{
+	return dryRun_;
+}
+
+void RebootInstanceRequest::setDryRun(bool dryRun)
+{
+	dryRun_ = dryRun;
+	setParameter("DryRun", dryRun ? "true" : "false");
+}
+
+std::string RebootInstanceRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void RebootInstanceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string RebootInstanceRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void RebootInstanceRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long RebootInstanceRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void RebootInstanceRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string RebootInstanceRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void RebootInstanceRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

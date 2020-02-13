@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeUserDataRequest;
 
 DescribeUserDataRequest::DescribeUserDataRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeUserData")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeUserDataRequest::~DescribeUserDataRequest()
 {}
-
-std::string DescribeUserDataRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeUserDataRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeUserDataRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long DescribeUserDataRequest::getResourceOwnerId()const
 void DescribeUserDataRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeUserDataRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void DescribeUserDataRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string DescribeUserDataRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeUserDataRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeUserDataRequest::getRegionId()const
@@ -77,7 +46,18 @@ std::string DescribeUserDataRequest::getRegionId()const
 void DescribeUserDataRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeUserDataRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeUserDataRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long DescribeUserDataRequest::getOwnerId()const
@@ -88,6 +68,17 @@ long DescribeUserDataRequest::getOwnerId()const
 void DescribeUserDataRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeUserDataRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void DescribeUserDataRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

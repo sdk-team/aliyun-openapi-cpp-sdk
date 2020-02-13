@@ -38,16 +38,22 @@ void RunInstancesResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
 	auto allInstanceIdSets = value["InstanceIdSets"]["InstanceIdSet"];
 	for (const auto &item : allInstanceIdSets)
 		instanceIdSets_.push_back(item.asString());
+	if(!value["TradePrice"].isNull())
+		tradePrice_ = std::stof(value["TradePrice"].asString());
 
 }
 
 std::vector<std::string> RunInstancesResult::getInstanceIdSets()const
 {
 	return instanceIdSets_;
+}
+
+float RunInstancesResult::getTradePrice()const
+{
+	return tradePrice_;
 }
 

@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeInstanceRamRoleRequest;
 
 DescribeInstanceRamRoleRequest::DescribeInstanceRamRoleRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeInstanceRamRole")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeInstanceRamRoleRequest::~DescribeInstanceRamRoleRequest()
 {}
-
-std::string DescribeInstanceRamRoleRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeInstanceRamRoleRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeInstanceRamRoleRequest::getResourceOwnerId()const
 {
@@ -44,73 +35,7 @@ long DescribeInstanceRamRoleRequest::getResourceOwnerId()const
 void DescribeInstanceRamRoleRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeInstanceRamRoleRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeInstanceRamRoleRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeInstanceRamRoleRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeInstanceRamRoleRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeInstanceRamRoleRequest::getInstanceIds()const
-{
-	return instanceIds_;
-}
-
-void DescribeInstanceRamRoleRequest::setInstanceIds(const std::string& instanceIds)
-{
-	instanceIds_ = instanceIds;
-	setCoreParameter("InstanceIds", instanceIds);
-}
-
-int DescribeInstanceRamRoleRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeInstanceRamRoleRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-std::string DescribeInstanceRamRoleRequest::getRamRoleName()const
-{
-	return ramRoleName_;
-}
-
-void DescribeInstanceRamRoleRequest::setRamRoleName(const std::string& ramRoleName)
-{
-	ramRoleName_ = ramRoleName;
-	setCoreParameter("RamRoleName", ramRoleName);
-}
-
-long DescribeInstanceRamRoleRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeInstanceRamRoleRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 int DescribeInstanceRamRoleRequest::getPageNumber()const
@@ -121,6 +46,72 @@ int DescribeInstanceRamRoleRequest::getPageNumber()const
 void DescribeInstanceRamRoleRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeInstanceRamRoleRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeInstanceRamRoleRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeInstanceRamRoleRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeInstanceRamRoleRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeInstanceRamRoleRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeInstanceRamRoleRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeInstanceRamRoleRequest::getRamRoleName()const
+{
+	return ramRoleName_;
+}
+
+void DescribeInstanceRamRoleRequest::setRamRoleName(const std::string& ramRoleName)
+{
+	ramRoleName_ = ramRoleName;
+	setParameter("RamRoleName", ramRoleName);
+}
+
+long DescribeInstanceRamRoleRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeInstanceRamRoleRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeInstanceRamRoleRequest::getInstanceIds()const
+{
+	return instanceIds_;
+}
+
+void DescribeInstanceRamRoleRequest::setInstanceIds(const std::string& instanceIds)
+{
+	instanceIds_ = instanceIds;
+	setParameter("InstanceIds", instanceIds);
 }
 

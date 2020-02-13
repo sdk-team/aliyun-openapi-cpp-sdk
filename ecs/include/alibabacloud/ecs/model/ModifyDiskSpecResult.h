@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_ECS_MODEL_DESCRIBEINSTANCEPHYSICALATTRIBUTERESULT_H_
-#define ALIBABACLOUD_ECS_MODEL_DESCRIBEINSTANCEPHYSICALATTRIBUTERESULT_H_
+#ifndef ALIBABACLOUD_ECS_MODEL_MODIFYDISKSPECRESULT_H_
+#define ALIBABACLOUD_ECS_MODEL_MODIFYDISKSPECRESULT_H_
 
 #include <string>
 #include <vector>
@@ -29,29 +29,21 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_ECS_EXPORT DescribeInstancePhysicalAttributeResult : public ServiceResult
+			class ALIBABACLOUD_ECS_EXPORT ModifyDiskSpecResult : public ServiceResult
 			{
 			public:
 
 
-				DescribeInstancePhysicalAttributeResult();
-				explicit DescribeInstancePhysicalAttributeResult(const std::string &payload);
-				~DescribeInstancePhysicalAttributeResult();
-				std::string getRackId()const;
-				std::string getNodeControllerId()const;
-				std::string getInstanceId()const;
-				std::string getVlanId()const;
+				ModifyDiskSpecResult();
+				explicit ModifyDiskSpecResult(const std::string &payload);
+				~ModifyDiskSpecResult();
 
 			protected:
 				void parse(const std::string &payload);
 			private:
-				std::string rackId_;
-				std::string nodeControllerId_;
-				std::string instanceId_;
-				std::string vlanId_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_ECS_MODEL_DESCRIBEINSTANCEPHYSICALATTRIBUTERESULT_H_
+#endif // !ALIBABACLOUD_ECS_MODEL_MODIFYDISKSPECRESULT_H_

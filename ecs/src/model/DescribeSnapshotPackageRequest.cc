@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeSnapshotPackageRequest;
 
 DescribeSnapshotPackageRequest::DescribeSnapshotPackageRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeSnapshotPackage")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeSnapshotPackageRequest::~DescribeSnapshotPackageRequest()
 {}
-
-std::string DescribeSnapshotPackageRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeSnapshotPackageRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeSnapshotPackageRequest::getResourceOwnerId()const
 {
@@ -44,62 +35,7 @@ long DescribeSnapshotPackageRequest::getResourceOwnerId()const
 void DescribeSnapshotPackageRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeSnapshotPackageRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeSnapshotPackageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeSnapshotPackageRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeSnapshotPackageRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeSnapshotPackageRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeSnapshotPackageRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-int DescribeSnapshotPackageRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeSnapshotPackageRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-long DescribeSnapshotPackageRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeSnapshotPackageRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 int DescribeSnapshotPackageRequest::getPageNumber()const
@@ -110,6 +46,61 @@ int DescribeSnapshotPackageRequest::getPageNumber()const
 void DescribeSnapshotPackageRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeSnapshotPackageRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeSnapshotPackageRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeSnapshotPackageRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeSnapshotPackageRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeSnapshotPackageRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeSnapshotPackageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeSnapshotPackageRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeSnapshotPackageRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeSnapshotPackageRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeSnapshotPackageRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

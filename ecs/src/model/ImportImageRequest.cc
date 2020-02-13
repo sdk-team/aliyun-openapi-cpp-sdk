@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ImportImageRequest;
 
 ImportImageRequest::ImportImageRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ImportImage")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ImportImageRequest::~ImportImageRequest()
 {}
@@ -33,16 +35,15 @@ std::vector<ImportImageRequest::DiskDeviceMapping> ImportImageRequest::getDiskDe
 void ImportImageRequest::setDiskDeviceMapping(const std::vector<DiskDeviceMapping>& diskDeviceMapping)
 {
 	diskDeviceMapping_ = diskDeviceMapping;
-	int i = 0;
-	for(int i = 0; i!= diskDeviceMapping.size(); i++)	{
-		auto obj = diskDeviceMapping.at(i);
-		std::string str ="DiskDeviceMapping."+ std::to_string(i);
-		setCoreParameter(str + ".OSSBucket", obj.oSSBucket);
-		setCoreParameter(str + ".DiskImSize", std::to_string(obj.diskImSize));
-		setCoreParameter(str + ".Format", obj.format);
-		setCoreParameter(str + ".Device", obj.device);
-		setCoreParameter(str + ".OSSObject", obj.oSSObject);
-		setCoreParameter(str + ".DiskImageSize", std::to_string(obj.diskImageSize));
+	for(int dep1 = 0; dep1!= diskDeviceMapping.size(); dep1++) {
+		auto diskDeviceMappingObj = diskDeviceMapping.at(dep1);
+		std::string diskDeviceMappingObjStr = "DiskDeviceMapping." + std::to_string(dep1 + 1);
+		setParameter(diskDeviceMappingObjStr + ".OSSBucket", diskDeviceMappingObj.oSSBucket);
+		setParameter(diskDeviceMappingObjStr + ".DiskImSize", std::to_string(diskDeviceMappingObj.diskImSize));
+		setParameter(diskDeviceMappingObjStr + ".Format", diskDeviceMappingObj.format);
+		setParameter(diskDeviceMappingObjStr + ".Device", diskDeviceMappingObj.device);
+		setParameter(diskDeviceMappingObjStr + ".OSSObject", diskDeviceMappingObj.oSSObject);
+		setParameter(diskDeviceMappingObjStr + ".DiskImageSize", std::to_string(diskDeviceMappingObj.diskImageSize));
 	}
 }
 
@@ -54,29 +55,7 @@ long ImportImageRequest::getResourceOwnerId()const
 void ImportImageRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ImportImageRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ImportImageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ImportImageRequest::getRoleName()const
-{
-	return roleName_;
-}
-
-void ImportImageRequest::setRoleName(const std::string& roleName)
-{
-	roleName_ = roleName;
-	setCoreParameter("RoleName", roleName);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ImportImageRequest::getDescription()const
@@ -87,29 +66,7 @@ std::string ImportImageRequest::getDescription()const
 void ImportImageRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-std::string ImportImageRequest::getOSType()const
-{
-	return oSType_;
-}
-
-void ImportImageRequest::setOSType(const std::string& oSType)
-{
-	oSType_ = oSType;
-	setCoreParameter("OSType", oSType);
-}
-
-long ImportImageRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void ImportImageRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("Description", description);
 }
 
 std::string ImportImageRequest::getPlatform()const
@@ -120,18 +77,7 @@ std::string ImportImageRequest::getPlatform()const
 void ImportImageRequest::setPlatform(const std::string& platform)
 {
 	platform_ = platform;
-	setCoreParameter("Platform", platform);
-}
-
-std::string ImportImageRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ImportImageRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
+	setParameter("Platform", platform);
 }
 
 std::string ImportImageRequest::getRegionId()const
@@ -142,7 +88,7 @@ std::string ImportImageRequest::getRegionId()const
 void ImportImageRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 std::string ImportImageRequest::getImageName()const
@@ -153,7 +99,7 @@ std::string ImportImageRequest::getImageName()const
 void ImportImageRequest::setImageName(const std::string& imageName)
 {
 	imageName_ = imageName;
-	setCoreParameter("ImageName", imageName);
+	setParameter("ImageName", imageName);
 }
 
 std::string ImportImageRequest::getArchitecture()const
@@ -164,6 +110,61 @@ std::string ImportImageRequest::getArchitecture()const
 void ImportImageRequest::setArchitecture(const std::string& architecture)
 {
 	architecture_ = architecture;
-	setCoreParameter("Architecture", architecture);
+	setParameter("Architecture", architecture);
+}
+
+std::string ImportImageRequest::getLicenseType()const
+{
+	return licenseType_;
+}
+
+void ImportImageRequest::setLicenseType(const std::string& licenseType)
+{
+	licenseType_ = licenseType;
+	setParameter("LicenseType", licenseType);
+}
+
+std::string ImportImageRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ImportImageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ImportImageRequest::getRoleName()const
+{
+	return roleName_;
+}
+
+void ImportImageRequest::setRoleName(const std::string& roleName)
+{
+	roleName_ = roleName;
+	setParameter("RoleName", roleName);
+}
+
+std::string ImportImageRequest::getOSType()const
+{
+	return oSType_;
+}
+
+void ImportImageRequest::setOSType(const std::string& oSType)
+{
+	oSType_ = oSType;
+	setParameter("OSType", oSType);
+}
+
+long ImportImageRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void ImportImageRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ResetDiskRequest;
 
 ResetDiskRequest::ResetDiskRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ResetDisk")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ResetDiskRequest::~ResetDiskRequest()
 {}
-
-std::string ResetDiskRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ResetDiskRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ResetDiskRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long ResetDiskRequest::getResourceOwnerId()const
 void ResetDiskRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ResetDiskRequest::getSnapshotId()const
@@ -55,29 +46,7 @@ std::string ResetDiskRequest::getSnapshotId()const
 void ResetDiskRequest::setSnapshotId(const std::string& snapshotId)
 {
 	snapshotId_ = snapshotId;
-	setCoreParameter("SnapshotId", snapshotId);
-}
-
-std::string ResetDiskRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ResetDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ResetDiskRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ResetDiskRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("SnapshotId", snapshotId);
 }
 
 std::string ResetDiskRequest::getDiskId()const
@@ -88,7 +57,29 @@ std::string ResetDiskRequest::getDiskId()const
 void ResetDiskRequest::setDiskId(const std::string& diskId)
 {
 	diskId_ = diskId;
-	setCoreParameter("DiskId", diskId);
+	setParameter("DiskId", diskId);
+}
+
+std::string ResetDiskRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ResetDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ResetDiskRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ResetDiskRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ResetDiskRequest::getOwnerId()const
@@ -99,6 +90,6 @@ long ResetDiskRequest::getOwnerId()const
 void ResetDiskRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

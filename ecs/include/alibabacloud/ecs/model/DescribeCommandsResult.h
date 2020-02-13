@@ -38,8 +38,11 @@ namespace AlibabaCloud
 					std::string workingDir;
 					std::string type;
 					std::string description;
+					std::vector<std::string> parameterNames;
 					long timeout;
+					int invokeTimes;
 					std::string creationTime;
+					bool enableParameter;
 					std::string commandId;
 					std::string name;
 				};

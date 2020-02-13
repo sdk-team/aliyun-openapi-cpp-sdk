@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CreateDeploymentSetRequest;
 
 CreateDeploymentSetRequest::CreateDeploymentSetRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateDeploymentSet")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateDeploymentSetRequest::~CreateDeploymentSetRequest()
 {}
@@ -33,18 +35,7 @@ long CreateDeploymentSetRequest::getResourceOwnerId()const
 void CreateDeploymentSetRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateDeploymentSetRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateDeploymentSetRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateDeploymentSetRequest::getClientToken()const
@@ -55,18 +46,7 @@ std::string CreateDeploymentSetRequest::getClientToken()const
 void CreateDeploymentSetRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string CreateDeploymentSetRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateDeploymentSetRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string CreateDeploymentSetRequest::getDescription()const
@@ -77,40 +57,7 @@ std::string CreateDeploymentSetRequest::getDescription()const
 void CreateDeploymentSetRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-std::string CreateDeploymentSetRequest::getDeploymentSetName()const
-{
-	return deploymentSetName_;
-}
-
-void CreateDeploymentSetRequest::setDeploymentSetName(const std::string& deploymentSetName)
-{
-	deploymentSetName_ = deploymentSetName;
-	setCoreParameter("DeploymentSetName", deploymentSetName);
-}
-
-long CreateDeploymentSetRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void CreateDeploymentSetRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::string CreateDeploymentSetRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void CreateDeploymentSetRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
+	setParameter("Description", description);
 }
 
 std::string CreateDeploymentSetRequest::getRegionId()const
@@ -121,7 +68,51 @@ std::string CreateDeploymentSetRequest::getRegionId()const
 void CreateDeploymentSetRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string CreateDeploymentSetRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateDeploymentSetRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateDeploymentSetRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateDeploymentSetRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::string CreateDeploymentSetRequest::getDeploymentSetName()const
+{
+	return deploymentSetName_;
+}
+
+void CreateDeploymentSetRequest::setDeploymentSetName(const std::string& deploymentSetName)
+{
+	deploymentSetName_ = deploymentSetName;
+	setParameter("DeploymentSetName", deploymentSetName);
+}
+
+long CreateDeploymentSetRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void CreateDeploymentSetRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string CreateDeploymentSetRequest::getOnUnableToRedeployFailedInstance()const
@@ -132,7 +123,7 @@ std::string CreateDeploymentSetRequest::getOnUnableToRedeployFailedInstance()con
 void CreateDeploymentSetRequest::setOnUnableToRedeployFailedInstance(const std::string& onUnableToRedeployFailedInstance)
 {
 	onUnableToRedeployFailedInstance_ = onUnableToRedeployFailedInstance;
-	setCoreParameter("OnUnableToRedeployFailedInstance", onUnableToRedeployFailedInstance);
+	setParameter("OnUnableToRedeployFailedInstance", onUnableToRedeployFailedInstance);
 }
 
 std::string CreateDeploymentSetRequest::getGranularity()const
@@ -143,7 +134,7 @@ std::string CreateDeploymentSetRequest::getGranularity()const
 void CreateDeploymentSetRequest::setGranularity(const std::string& granularity)
 {
 	granularity_ = granularity;
-	setCoreParameter("Granularity", granularity);
+	setParameter("Granularity", granularity);
 }
 
 std::string CreateDeploymentSetRequest::getDomain()const
@@ -154,7 +145,7 @@ std::string CreateDeploymentSetRequest::getDomain()const
 void CreateDeploymentSetRequest::setDomain(const std::string& domain)
 {
 	domain_ = domain;
-	setCoreParameter("Domain", domain);
+	setParameter("Domain", domain);
 }
 
 std::string CreateDeploymentSetRequest::getStrategy()const
@@ -165,6 +156,6 @@ std::string CreateDeploymentSetRequest::getStrategy()const
 void CreateDeploymentSetRequest::setStrategy(const std::string& strategy)
 {
 	strategy_ = strategy;
-	setCoreParameter("Strategy", strategy);
+	setParameter("Strategy", strategy);
 }
 

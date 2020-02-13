@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::AllocatePublicIpAddressRequest;
 
 AllocatePublicIpAddressRequest::AllocatePublicIpAddressRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "AllocatePublicIpAddress")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 AllocatePublicIpAddressRequest::~AllocatePublicIpAddressRequest()
 {}
-
-std::string AllocatePublicIpAddressRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void AllocatePublicIpAddressRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 std::string AllocatePublicIpAddressRequest::getIpAddress()const
 {
@@ -44,7 +35,7 @@ std::string AllocatePublicIpAddressRequest::getIpAddress()const
 void AllocatePublicIpAddressRequest::setIpAddress(const std::string& ipAddress)
 {
 	ipAddress_ = ipAddress;
-	setCoreParameter("IpAddress", ipAddress);
+	setParameter("IpAddress", ipAddress);
 }
 
 long AllocatePublicIpAddressRequest::getResourceOwnerId()const
@@ -55,29 +46,7 @@ long AllocatePublicIpAddressRequest::getResourceOwnerId()const
 void AllocatePublicIpAddressRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string AllocatePublicIpAddressRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void AllocatePublicIpAddressRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string AllocatePublicIpAddressRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void AllocatePublicIpAddressRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string AllocatePublicIpAddressRequest::getVlanId()const
@@ -88,7 +57,18 @@ std::string AllocatePublicIpAddressRequest::getVlanId()const
 void AllocatePublicIpAddressRequest::setVlanId(const std::string& vlanId)
 {
 	vlanId_ = vlanId;
-	setCoreParameter("VlanId", vlanId);
+	setParameter("VlanId", vlanId);
+}
+
+std::string AllocatePublicIpAddressRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void AllocatePublicIpAddressRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string AllocatePublicIpAddressRequest::getOwnerAccount()const
@@ -99,7 +79,7 @@ std::string AllocatePublicIpAddressRequest::getOwnerAccount()const
 void AllocatePublicIpAddressRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long AllocatePublicIpAddressRequest::getOwnerId()const
@@ -110,6 +90,17 @@ long AllocatePublicIpAddressRequest::getOwnerId()const
 void AllocatePublicIpAddressRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string AllocatePublicIpAddressRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void AllocatePublicIpAddressRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

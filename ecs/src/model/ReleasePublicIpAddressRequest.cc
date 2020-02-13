@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ReleasePublicIpAddressRequest;
 
 ReleasePublicIpAddressRequest::ReleasePublicIpAddressRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ReleasePublicIpAddress")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ReleasePublicIpAddressRequest::~ReleasePublicIpAddressRequest()
 {}
-
-std::string ReleasePublicIpAddressRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ReleasePublicIpAddressRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ReleasePublicIpAddressRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long ReleasePublicIpAddressRequest::getResourceOwnerId()const
 void ReleasePublicIpAddressRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ReleasePublicIpAddressRequest::getPublicIpAddress()const
-{
-	return publicIpAddress_;
-}
-
-void ReleasePublicIpAddressRequest::setPublicIpAddress(const std::string& publicIpAddress)
-{
-	publicIpAddress_ = publicIpAddress;
-	setCoreParameter("PublicIpAddress", publicIpAddress);
-}
-
-std::string ReleasePublicIpAddressRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void ReleasePublicIpAddressRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ReleasePublicIpAddressRequest::getResourceOwnerAccount()const
@@ -77,7 +46,7 @@ std::string ReleasePublicIpAddressRequest::getResourceOwnerAccount()const
 void ReleasePublicIpAddressRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string ReleasePublicIpAddressRequest::getOwnerAccount()const
@@ -88,7 +57,7 @@ std::string ReleasePublicIpAddressRequest::getOwnerAccount()const
 void ReleasePublicIpAddressRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ReleasePublicIpAddressRequest::getOwnerId()const
@@ -99,6 +68,28 @@ long ReleasePublicIpAddressRequest::getOwnerId()const
 void ReleasePublicIpAddressRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ReleasePublicIpAddressRequest::getPublicIpAddress()const
+{
+	return publicIpAddress_;
+}
+
+void ReleasePublicIpAddressRequest::setPublicIpAddress(const std::string& publicIpAddress)
+{
+	publicIpAddress_ = publicIpAddress;
+	setParameter("PublicIpAddress", publicIpAddress);
+}
+
+std::string ReleasePublicIpAddressRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void ReleasePublicIpAddressRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

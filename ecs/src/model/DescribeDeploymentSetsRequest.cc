@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeDeploymentSetsRequest;
 
 DescribeDeploymentSetsRequest::DescribeDeploymentSetsRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeDeploymentSets")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeDeploymentSetsRequest::~DescribeDeploymentSetsRequest()
 {}
@@ -33,29 +35,7 @@ long DescribeDeploymentSetsRequest::getResourceOwnerId()const
 void DescribeDeploymentSetsRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeDeploymentSetsRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeDeploymentSetsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeDeploymentSetsRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeDeploymentSetsRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeDeploymentSetsRequest::getNetworkType()const
@@ -66,29 +46,7 @@ std::string DescribeDeploymentSetsRequest::getNetworkType()const
 void DescribeDeploymentSetsRequest::setNetworkType(const std::string& networkType)
 {
 	networkType_ = networkType;
-	setCoreParameter("NetworkType", networkType);
-}
-
-std::string DescribeDeploymentSetsRequest::getDeploymentSetName()const
-{
-	return deploymentSetName_;
-}
-
-void DescribeDeploymentSetsRequest::setDeploymentSetName(const std::string& deploymentSetName)
-{
-	deploymentSetName_ = deploymentSetName;
-	setCoreParameter("DeploymentSetName", deploymentSetName);
-}
-
-long DescribeDeploymentSetsRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeDeploymentSetsRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("NetworkType", networkType);
 }
 
 int DescribeDeploymentSetsRequest::getPageNumber()const
@@ -99,7 +57,7 @@ int DescribeDeploymentSetsRequest::getPageNumber()const
 void DescribeDeploymentSetsRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
 }
 
 std::string DescribeDeploymentSetsRequest::getDeploymentSetIds()const
@@ -110,7 +68,7 @@ std::string DescribeDeploymentSetsRequest::getDeploymentSetIds()const
 void DescribeDeploymentSetsRequest::setDeploymentSetIds(const std::string& deploymentSetIds)
 {
 	deploymentSetIds_ = deploymentSetIds;
-	setCoreParameter("DeploymentSetIds", deploymentSetIds);
+	setParameter("DeploymentSetIds", deploymentSetIds);
 }
 
 std::string DescribeDeploymentSetsRequest::getRegionId()const
@@ -121,29 +79,7 @@ std::string DescribeDeploymentSetsRequest::getRegionId()const
 void DescribeDeploymentSetsRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeDeploymentSetsRequest::getGranularity()const
-{
-	return granularity_;
-}
-
-void DescribeDeploymentSetsRequest::setGranularity(const std::string& granularity)
-{
-	granularity_ = granularity;
-	setCoreParameter("Granularity", granularity);
-}
-
-std::string DescribeDeploymentSetsRequest::getDomain()const
-{
-	return domain_;
-}
-
-void DescribeDeploymentSetsRequest::setDomain(const std::string& domain)
-{
-	domain_ = domain;
-	setCoreParameter("Domain", domain);
+	setParameter("RegionId", regionId);
 }
 
 int DescribeDeploymentSetsRequest::getPageSize()const
@@ -154,7 +90,73 @@ int DescribeDeploymentSetsRequest::getPageSize()const
 void DescribeDeploymentSetsRequest::setPageSize(int pageSize)
 {
 	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeDeploymentSetsRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeDeploymentSetsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeDeploymentSetsRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeDeploymentSetsRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::string DescribeDeploymentSetsRequest::getDeploymentSetName()const
+{
+	return deploymentSetName_;
+}
+
+void DescribeDeploymentSetsRequest::setDeploymentSetName(const std::string& deploymentSetName)
+{
+	deploymentSetName_ = deploymentSetName;
+	setParameter("DeploymentSetName", deploymentSetName);
+}
+
+long DescribeDeploymentSetsRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeDeploymentSetsRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeDeploymentSetsRequest::getGranularity()const
+{
+	return granularity_;
+}
+
+void DescribeDeploymentSetsRequest::setGranularity(const std::string& granularity)
+{
+	granularity_ = granularity;
+	setParameter("Granularity", granularity);
+}
+
+std::string DescribeDeploymentSetsRequest::getDomain()const
+{
+	return domain_;
+}
+
+void DescribeDeploymentSetsRequest::setDomain(const std::string& domain)
+{
+	domain_ = domain;
+	setParameter("Domain", domain);
 }
 
 std::string DescribeDeploymentSetsRequest::getStrategy()const
@@ -165,6 +167,6 @@ std::string DescribeDeploymentSetsRequest::getStrategy()const
 void DescribeDeploymentSetsRequest::setStrategy(const std::string& strategy)
 {
 	strategy_ = strategy;
-	setCoreParameter("Strategy", strategy);
+	setParameter("Strategy", strategy);
 }
 

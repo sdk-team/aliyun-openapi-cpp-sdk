@@ -44,6 +44,7 @@ namespace AlibabaCloud
 					std::string usage;
 					std::string description;
 					std::string kMSKeyId;
+					std::string category;
 					std::string resourceGroupId;
 					std::string productCode;
 					bool encrypted;
@@ -52,8 +53,10 @@ namespace AlibabaCloud
 					std::string sourceDiskId;
 					std::string sourceStorageType;
 					std::string snapshotId;
+					std::string snapshotSN;
 					std::string sourceDiskSize;
 					std::string creationTime;
+					std::string lastModifiedTime;
 					std::string sourceDiskType;
 					int remainTime;
 					std::vector<Snapshot::Tag> tags;

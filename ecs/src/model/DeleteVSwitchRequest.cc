@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteVSwitchRequest;
 
 DeleteVSwitchRequest::DeleteVSwitchRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteVSwitch")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteVSwitchRequest::~DeleteVSwitchRequest()
 {}
-
-std::string DeleteVSwitchRequest::getVSwitchId()const
-{
-	return vSwitchId_;
-}
-
-void DeleteVSwitchRequest::setVSwitchId(const std::string& vSwitchId)
-{
-	vSwitchId_ = vSwitchId;
-	setCoreParameter("VSwitchId", vSwitchId);
-}
 
 long DeleteVSwitchRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long DeleteVSwitchRequest::getResourceOwnerId()const
 void DeleteVSwitchRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteVSwitchRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteVSwitchRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteVSwitchRequest::getRegionId()const
@@ -66,7 +46,18 @@ std::string DeleteVSwitchRequest::getRegionId()const
 void DeleteVSwitchRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DeleteVSwitchRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteVSwitchRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DeleteVSwitchRequest::getOwnerAccount()const
@@ -77,7 +68,7 @@ std::string DeleteVSwitchRequest::getOwnerAccount()const
 void DeleteVSwitchRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteVSwitchRequest::getOwnerId()const
@@ -88,6 +79,17 @@ long DeleteVSwitchRequest::getOwnerId()const
 void DeleteVSwitchRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DeleteVSwitchRequest::getVSwitchId()const
+{
+	return vSwitchId_;
+}
+
+void DeleteVSwitchRequest::setVSwitchId(const std::string& vSwitchId)
+{
+	vSwitchId_ = vSwitchId;
+	setParameter("VSwitchId", vSwitchId);
 }
 

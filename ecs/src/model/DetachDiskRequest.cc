@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DetachDiskRequest;
 
 DetachDiskRequest::DetachDiskRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DetachDisk")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DetachDiskRequest::~DetachDiskRequest()
 {}
-
-std::string DetachDiskRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DetachDiskRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DetachDiskRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long DetachDiskRequest::getResourceOwnerId()const
 void DetachDiskRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DetachDiskRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void DetachDiskRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string DetachDiskRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DetachDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DetachDiskRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DetachDiskRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DetachDiskRequest::getDiskId()const
@@ -88,7 +46,40 @@ std::string DetachDiskRequest::getDiskId()const
 void DetachDiskRequest::setDiskId(const std::string& diskId)
 {
 	diskId_ = diskId;
-	setCoreParameter("DiskId", diskId);
+	setParameter("DiskId", diskId);
+}
+
+bool DetachDiskRequest::getDeleteWithInstance()const
+{
+	return deleteWithInstance_;
+}
+
+void DetachDiskRequest::setDeleteWithInstance(bool deleteWithInstance)
+{
+	deleteWithInstance_ = deleteWithInstance;
+	setParameter("DeleteWithInstance", deleteWithInstance ? "true" : "false");
+}
+
+std::string DetachDiskRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DetachDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DetachDiskRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DetachDiskRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DetachDiskRequest::getOwnerId()const
@@ -99,6 +90,17 @@ long DetachDiskRequest::getOwnerId()const
 void DetachDiskRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DetachDiskRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void DetachDiskRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

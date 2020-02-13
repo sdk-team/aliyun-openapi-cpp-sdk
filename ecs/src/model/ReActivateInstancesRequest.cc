@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ReActivateInstancesRequest;
 
 ReActivateInstancesRequest::ReActivateInstancesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ReActivateInstances")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ReActivateInstancesRequest::~ReActivateInstancesRequest()
 {}
-
-std::string ReActivateInstancesRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ReActivateInstancesRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ReActivateInstancesRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long ReActivateInstancesRequest::getResourceOwnerId()const
 void ReActivateInstancesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ReActivateInstancesRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void ReActivateInstancesRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string ReActivateInstancesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ReActivateInstancesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ReActivateInstancesRequest::getRegionId()const
@@ -77,7 +46,18 @@ std::string ReActivateInstancesRequest::getRegionId()const
 void ReActivateInstancesRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string ReActivateInstancesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ReActivateInstancesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string ReActivateInstancesRequest::getOwnerAccount()const
@@ -88,7 +68,7 @@ std::string ReActivateInstancesRequest::getOwnerAccount()const
 void ReActivateInstancesRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ReActivateInstancesRequest::getOwnerId()const
@@ -99,6 +79,17 @@ long ReActivateInstancesRequest::getOwnerId()const
 void ReActivateInstancesRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ReActivateInstancesRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void ReActivateInstancesRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

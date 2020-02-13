@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifyDiskChargeTypeRequest;
 
 ModifyDiskChargeTypeRequest::ModifyDiskChargeTypeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyDiskChargeType")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyDiskChargeTypeRequest::~ModifyDiskChargeTypeRequest()
 {}
-
-std::string ModifyDiskChargeTypeRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ModifyDiskChargeTypeRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ModifyDiskChargeTypeRequest::getResourceOwnerId()const
 {
@@ -44,62 +35,7 @@ long ModifyDiskChargeTypeRequest::getResourceOwnerId()const
 void ModifyDiskChargeTypeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyDiskChargeTypeRequest::getDiskChargeType()const
-{
-	return diskChargeType_;
-}
-
-void ModifyDiskChargeTypeRequest::setDiskChargeType(const std::string& diskChargeType)
-{
-	diskChargeType_ = diskChargeType;
-	setCoreParameter("DiskChargeType", diskChargeType);
-}
-
-std::string ModifyDiskChargeTypeRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void ModifyDiskChargeTypeRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-bool ModifyDiskChargeTypeRequest::getAutoPay()const
-{
-	return autoPay_;
-}
-
-void ModifyDiskChargeTypeRequest::setAutoPay(bool autoPay)
-{
-	autoPay_ = autoPay;
-	setCoreParameter("AutoPay", autoPay ? "true" : "false");
-}
-
-std::string ModifyDiskChargeTypeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyDiskChargeTypeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifyDiskChargeTypeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ModifyDiskChargeTypeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyDiskChargeTypeRequest::getClientToken()const
@@ -110,18 +46,29 @@ std::string ModifyDiskChargeTypeRequest::getClientToken()const
 void ModifyDiskChargeTypeRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
+	setParameter("ClientToken", clientToken);
 }
 
-std::string ModifyDiskChargeTypeRequest::getOwnerAccount()const
+std::string ModifyDiskChargeTypeRequest::getDiskChargeType()const
 {
-	return ownerAccount_;
+	return diskChargeType_;
 }
 
-void ModifyDiskChargeTypeRequest::setOwnerAccount(const std::string& ownerAccount)
+void ModifyDiskChargeTypeRequest::setDiskChargeType(const std::string& diskChargeType)
 {
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	diskChargeType_ = diskChargeType;
+	setParameter("DiskChargeType", diskChargeType);
+}
+
+std::string ModifyDiskChargeTypeRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ModifyDiskChargeTypeRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string ModifyDiskChargeTypeRequest::getDiskIds()const
@@ -132,7 +79,40 @@ std::string ModifyDiskChargeTypeRequest::getDiskIds()const
 void ModifyDiskChargeTypeRequest::setDiskIds(const std::string& diskIds)
 {
 	diskIds_ = diskIds;
-	setCoreParameter("DiskIds", diskIds);
+	setParameter("DiskIds", diskIds);
+}
+
+bool ModifyDiskChargeTypeRequest::getAutoPay()const
+{
+	return autoPay_;
+}
+
+void ModifyDiskChargeTypeRequest::setAutoPay(bool autoPay)
+{
+	autoPay_ = autoPay;
+	setParameter("AutoPay", autoPay ? "true" : "false");
+}
+
+std::string ModifyDiskChargeTypeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyDiskChargeTypeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyDiskChargeTypeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyDiskChargeTypeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyDiskChargeTypeRequest::getOwnerId()const
@@ -143,6 +123,17 @@ long ModifyDiskChargeTypeRequest::getOwnerId()const
 void ModifyDiskChargeTypeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ModifyDiskChargeTypeRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void ModifyDiskChargeTypeRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::AttachDiskRequest;
 
 AttachDiskRequest::AttachDiskRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "AttachDisk")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 AttachDiskRequest::~AttachDiskRequest()
 {}
-
-std::string AttachDiskRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void AttachDiskRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long AttachDiskRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,40 @@ long AttachDiskRequest::getResourceOwnerId()const
 void AttachDiskRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
-std::string AttachDiskRequest::getInstanceId()const
+std::string AttachDiskRequest::getKeyPairName()const
 {
-	return instanceId_;
+	return keyPairName_;
 }
 
-void AttachDiskRequest::setInstanceId(const std::string& instanceId)
+void AttachDiskRequest::setKeyPairName(const std::string& keyPairName)
 {
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
+	keyPairName_ = keyPairName;
+	setParameter("KeyPairName", keyPairName);
 }
 
-std::string AttachDiskRequest::getResourceOwnerAccount()const
+bool AttachDiskRequest::getBootable()const
 {
-	return resourceOwnerAccount_;
+	return bootable_;
 }
 
-void AttachDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+void AttachDiskRequest::setBootable(bool bootable)
 {
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	bootable_ = bootable;
+	setParameter("Bootable", bootable ? "true" : "false");
 }
 
-std::string AttachDiskRequest::getOwnerAccount()const
+std::string AttachDiskRequest::getPassword()const
 {
-	return ownerAccount_;
+	return password_;
 }
 
-void AttachDiskRequest::setOwnerAccount(const std::string& ownerAccount)
+void AttachDiskRequest::setPassword(const std::string& password)
 {
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	password_ = password;
+	setParameter("Password", password);
 }
 
 std::string AttachDiskRequest::getDiskId()const
@@ -88,29 +79,7 @@ std::string AttachDiskRequest::getDiskId()const
 void AttachDiskRequest::setDiskId(const std::string& diskId)
 {
 	diskId_ = diskId;
-	setCoreParameter("DiskId", diskId);
-}
-
-long AttachDiskRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void AttachDiskRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::string AttachDiskRequest::getDevice()const
-{
-	return device_;
-}
-
-void AttachDiskRequest::setDevice(const std::string& device)
-{
-	device_ = device;
-	setCoreParameter("Device", device);
+	setParameter("DiskId", diskId);
 }
 
 bool AttachDiskRequest::getDeleteWithInstance()const
@@ -121,6 +90,61 @@ bool AttachDiskRequest::getDeleteWithInstance()const
 void AttachDiskRequest::setDeleteWithInstance(bool deleteWithInstance)
 {
 	deleteWithInstance_ = deleteWithInstance;
-	setCoreParameter("DeleteWithInstance", deleteWithInstance ? "true" : "false");
+	setParameter("DeleteWithInstance", deleteWithInstance ? "true" : "false");
+}
+
+std::string AttachDiskRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void AttachDiskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string AttachDiskRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void AttachDiskRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long AttachDiskRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void AttachDiskRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string AttachDiskRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void AttachDiskRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
+}
+
+std::string AttachDiskRequest::getDevice()const
+{
+	return device_;
+}
+
+void AttachDiskRequest::setDevice(const std::string& device)
+{
+	device_ = device;
+	setParameter("Device", device);
 }
 

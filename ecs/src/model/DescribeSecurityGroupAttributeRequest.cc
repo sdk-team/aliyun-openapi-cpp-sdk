@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeSecurityGroupAttributeRequest;
 
 DescribeSecurityGroupAttributeRequest::DescribeSecurityGroupAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeSecurityGroupAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeSecurityGroupAttributeRequest::~DescribeSecurityGroupAttributeRequest()
 {}
@@ -33,7 +35,7 @@ std::string DescribeSecurityGroupAttributeRequest::getNicType()const
 void DescribeSecurityGroupAttributeRequest::setNicType(const std::string& nicType)
 {
 	nicType_ = nicType;
-	setCoreParameter("NicType", nicType);
+	setParameter("NicType", nicType);
 }
 
 long DescribeSecurityGroupAttributeRequest::getResourceOwnerId()const
@@ -44,40 +46,7 @@ long DescribeSecurityGroupAttributeRequest::getResourceOwnerId()const
 void DescribeSecurityGroupAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeSecurityGroupAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeSecurityGroupAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeSecurityGroupAttributeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeSecurityGroupAttributeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeSecurityGroupAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeSecurityGroupAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeSecurityGroupAttributeRequest::getSecurityGroupId()const
@@ -88,18 +57,18 @@ std::string DescribeSecurityGroupAttributeRequest::getSecurityGroupId()const
 void DescribeSecurityGroupAttributeRequest::setSecurityGroupId(const std::string& securityGroupId)
 {
 	securityGroupId_ = securityGroupId;
-	setCoreParameter("SecurityGroupId", securityGroupId);
+	setParameter("SecurityGroupId", securityGroupId);
 }
 
-long DescribeSecurityGroupAttributeRequest::getOwnerId()const
+std::string DescribeSecurityGroupAttributeRequest::getRegionId()const
 {
-	return ownerId_;
+	return regionId_;
 }
 
-void DescribeSecurityGroupAttributeRequest::setOwnerId(long ownerId)
+void DescribeSecurityGroupAttributeRequest::setRegionId(const std::string& regionId)
 {
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string DescribeSecurityGroupAttributeRequest::getDirection()const
@@ -110,6 +79,39 @@ std::string DescribeSecurityGroupAttributeRequest::getDirection()const
 void DescribeSecurityGroupAttributeRequest::setDirection(const std::string& direction)
 {
 	direction_ = direction;
-	setCoreParameter("Direction", direction);
+	setParameter("Direction", direction);
+}
+
+std::string DescribeSecurityGroupAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeSecurityGroupAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeSecurityGroupAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeSecurityGroupAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeSecurityGroupAttributeRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeSecurityGroupAttributeRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

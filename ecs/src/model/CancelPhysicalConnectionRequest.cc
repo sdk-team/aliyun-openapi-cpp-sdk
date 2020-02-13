@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CancelPhysicalConnectionRequest;
 
 CancelPhysicalConnectionRequest::CancelPhysicalConnectionRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CancelPhysicalConnection")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CancelPhysicalConnectionRequest::~CancelPhysicalConnectionRequest()
 {}
@@ -33,29 +35,7 @@ long CancelPhysicalConnectionRequest::getResourceOwnerId()const
 void CancelPhysicalConnectionRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CancelPhysicalConnectionRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CancelPhysicalConnectionRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string CancelPhysicalConnectionRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CancelPhysicalConnectionRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CancelPhysicalConnectionRequest::getClientToken()const
@@ -66,29 +46,18 @@ std::string CancelPhysicalConnectionRequest::getClientToken()const
 void CancelPhysicalConnectionRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
+	setParameter("ClientToken", clientToken);
 }
 
-std::string CancelPhysicalConnectionRequest::getPhysicalConnectionId()const
+std::string CancelPhysicalConnectionRequest::getRegionId()const
 {
-	return physicalConnectionId_;
+	return regionId_;
 }
 
-void CancelPhysicalConnectionRequest::setPhysicalConnectionId(const std::string& physicalConnectionId)
+void CancelPhysicalConnectionRequest::setRegionId(const std::string& regionId)
 {
-	physicalConnectionId_ = physicalConnectionId;
-	setCoreParameter("PhysicalConnectionId", physicalConnectionId);
-}
-
-std::string CancelPhysicalConnectionRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CancelPhysicalConnectionRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string CancelPhysicalConnectionRequest::getUserCidr()const
@@ -99,7 +68,29 @@ std::string CancelPhysicalConnectionRequest::getUserCidr()const
 void CancelPhysicalConnectionRequest::setUserCidr(const std::string& userCidr)
 {
 	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
+	setParameter("UserCidr", userCidr);
+}
+
+std::string CancelPhysicalConnectionRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CancelPhysicalConnectionRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CancelPhysicalConnectionRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CancelPhysicalConnectionRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long CancelPhysicalConnectionRequest::getOwnerId()const
@@ -110,6 +101,17 @@ long CancelPhysicalConnectionRequest::getOwnerId()const
 void CancelPhysicalConnectionRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string CancelPhysicalConnectionRequest::getPhysicalConnectionId()const
+{
+	return physicalConnectionId_;
+}
+
+void CancelPhysicalConnectionRequest::setPhysicalConnectionId(const std::string& physicalConnectionId)
+{
+	physicalConnectionId_ = physicalConnectionId;
+	setParameter("PhysicalConnectionId", physicalConnectionId);
 }
 

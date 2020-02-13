@@ -35,38 +35,41 @@ namespace AlibabaCloud
 				ModifyDiskAttributeRequest();
 				~ModifyDiskAttributeRequest();
 
+				long getResourceOwnerId()const;
+				void setResourceOwnerId(long resourceOwnerId);
+				std::string getDescription()const;
+				void setDescription(const std::string& description);
 				std::string getDiskName()const;
 				void setDiskName(const std::string& diskName);
 				bool getDeleteAutoSnapshot()const;
 				void setDeleteAutoSnapshot(bool deleteAutoSnapshot);
-				long getResourceOwnerId()const;
-				void setResourceOwnerId(long resourceOwnerId);
+				std::vector<std::string> getDiskIds()const;
+				void setDiskIds(const std::vector<std::string>& diskIds);
+				std::string getDiskId()const;
+				void setDiskId(const std::string& diskId);
+				bool getDeleteWithInstance()const;
+				void setDeleteWithInstance(bool deleteWithInstance);
 				bool getEnableAutoSnapshot()const;
 				void setEnableAutoSnapshot(bool enableAutoSnapshot);
 				std::string getResourceOwnerAccount()const;
 				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getOwnerAccount()const;
 				void setOwnerAccount(const std::string& ownerAccount);
-				std::string getDescription()const;
-				void setDescription(const std::string& description);
-				std::string getDiskId()const;
-				void setDiskId(const std::string& diskId);
 				long getOwnerId()const;
 				void setOwnerId(long ownerId);
-				bool getDeleteWithInstance()const;
-				void setDeleteWithInstance(bool deleteWithInstance);
 
             private:
+				long resourceOwnerId_;
+				std::string description_;
 				std::string diskName_;
 				bool deleteAutoSnapshot_;
-				long resourceOwnerId_;
+				std::vector<std::string> diskIds_;
+				std::string diskId_;
+				bool deleteWithInstance_;
 				bool enableAutoSnapshot_;
 				std::string resourceOwnerAccount_;
 				std::string ownerAccount_;
-				std::string description_;
-				std::string diskId_;
 				long ownerId_;
-				bool deleteWithInstance_;
 
 			};
 		}

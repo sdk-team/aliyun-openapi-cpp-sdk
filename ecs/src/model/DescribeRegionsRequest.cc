@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeRegionsRequest;
 
 DescribeRegionsRequest::DescribeRegionsRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeRegions")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeRegionsRequest::~DescribeRegionsRequest()
 {}
-
-std::string DescribeRegionsRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeRegionsRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeRegionsRequest::getResourceOwnerId()const
 {
@@ -44,51 +35,7 @@ long DescribeRegionsRequest::getResourceOwnerId()const
 void DescribeRegionsRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeRegionsRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeRegionsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeRegionsRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeRegionsRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string DescribeRegionsRequest::getAcceptLanguage()const
-{
-	return acceptLanguage_;
-}
-
-void DescribeRegionsRequest::setAcceptLanguage(const std::string& acceptLanguage)
-{
-	acceptLanguage_ = acceptLanguage;
-	setCoreParameter("AcceptLanguage", acceptLanguage);
-}
-
-long DescribeRegionsRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeRegionsRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeRegionsRequest::getInstanceChargeType()const
@@ -99,7 +46,40 @@ std::string DescribeRegionsRequest::getInstanceChargeType()const
 void DescribeRegionsRequest::setInstanceChargeType(const std::string& instanceChargeType)
 {
 	instanceChargeType_ = instanceChargeType;
-	setCoreParameter("InstanceChargeType", instanceChargeType);
+	setParameter("InstanceChargeType", instanceChargeType);
+}
+
+std::string DescribeRegionsRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeRegionsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeRegionsRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeRegionsRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeRegionsRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeRegionsRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string DescribeRegionsRequest::getResourceType()const
@@ -110,6 +90,17 @@ std::string DescribeRegionsRequest::getResourceType()const
 void DescribeRegionsRequest::setResourceType(const std::string& resourceType)
 {
 	resourceType_ = resourceType;
-	setCoreParameter("ResourceType", resourceType);
+	setParameter("ResourceType", resourceType);
+}
+
+std::string DescribeRegionsRequest::getAcceptLanguage()const
+{
+	return acceptLanguage_;
+}
+
+void DescribeRegionsRequest::setAcceptLanguage(const std::string& acceptLanguage)
+{
+	acceptLanguage_ = acceptLanguage;
+	setParameter("AcceptLanguage", acceptLanguage);
 }
 

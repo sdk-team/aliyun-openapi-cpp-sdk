@@ -20,27 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeVirtualBorderRoutersRequest;
 
 DescribeVirtualBorderRoutersRequest::DescribeVirtualBorderRoutersRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeVirtualBorderRouters")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeVirtualBorderRoutersRequest::~DescribeVirtualBorderRoutersRequest()
 {}
-
-std::vector<DescribeVirtualBorderRoutersRequest::Filter> DescribeVirtualBorderRoutersRequest::getFilter()const
-{
-	return filter_;
-}
-
-void DescribeVirtualBorderRoutersRequest::setFilter(const std::vector<Filter>& filter)
-{
-	filter_ = filter;
-	int i = 0;
-	for(int i = 0; i!= filter.size(); i++)	{
-		auto obj = filter.at(i);
-		std::string str ="Filter."+ std::to_string(i);
-		for(int i = 0; i!= obj.value.size(); i++)				setCoreParameter(str + ".Value."+ std::to_string(i), obj.value.at(i));
-		setCoreParameter(str + ".Key", obj.key);
-	}
-}
 
 long DescribeVirtualBorderRoutersRequest::getResourceOwnerId()const
 {
@@ -50,51 +35,7 @@ long DescribeVirtualBorderRoutersRequest::getResourceOwnerId()const
 void DescribeVirtualBorderRoutersRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeVirtualBorderRoutersRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeVirtualBorderRoutersRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeVirtualBorderRoutersRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeVirtualBorderRoutersRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-int DescribeVirtualBorderRoutersRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeVirtualBorderRoutersRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-long DescribeVirtualBorderRoutersRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeVirtualBorderRoutersRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 int DescribeVirtualBorderRoutersRequest::getPageNumber()const
@@ -105,6 +46,68 @@ int DescribeVirtualBorderRoutersRequest::getPageNumber()const
 void DescribeVirtualBorderRoutersRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeVirtualBorderRoutersRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeVirtualBorderRoutersRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeVirtualBorderRoutersRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeVirtualBorderRoutersRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeVirtualBorderRoutersRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeVirtualBorderRoutersRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+long DescribeVirtualBorderRoutersRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeVirtualBorderRoutersRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<DescribeVirtualBorderRoutersRequest::Filter> DescribeVirtualBorderRoutersRequest::getFilter()const
+{
+	return filter_;
+}
+
+void DescribeVirtualBorderRoutersRequest::setFilter(const std::vector<Filter>& filter)
+{
+	filter_ = filter;
+	for(int dep1 = 0; dep1!= filter.size(); dep1++) {
+		auto filterObj = filter.at(dep1);
+		std::string filterObjStr = "Filter." + std::to_string(dep1 + 1);
+		for(int dep2 = 0; dep2!= filterObj.value.size(); dep2++) {
+			setParameter(filterObjStr + ".Value."+ std::to_string(dep2), filterObj.value.at(dep2));
+		}
+		setParameter(filterObjStr + ".Key", filterObj.key);
+	}
 }
 

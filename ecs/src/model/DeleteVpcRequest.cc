@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DeleteVpcRequest;
 
 DeleteVpcRequest::DeleteVpcRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteVpc")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteVpcRequest::~DeleteVpcRequest()
 {}
@@ -33,18 +35,7 @@ long DeleteVpcRequest::getResourceOwnerId()const
 void DeleteVpcRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteVpcRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteVpcRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteVpcRequest::getRegionId()const
@@ -55,18 +46,18 @@ std::string DeleteVpcRequest::getRegionId()const
 void DeleteVpcRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
-std::string DeleteVpcRequest::getVpcId()const
+std::string DeleteVpcRequest::getResourceOwnerAccount()const
 {
-	return vpcId_;
+	return resourceOwnerAccount_;
 }
 
-void DeleteVpcRequest::setVpcId(const std::string& vpcId)
+void DeleteVpcRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DeleteVpcRequest::getOwnerAccount()const
@@ -77,7 +68,7 @@ std::string DeleteVpcRequest::getOwnerAccount()const
 void DeleteVpcRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteVpcRequest::getOwnerId()const
@@ -88,6 +79,17 @@ long DeleteVpcRequest::getOwnerId()const
 void DeleteVpcRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DeleteVpcRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void DeleteVpcRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
 }
 

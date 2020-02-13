@@ -38,11 +38,13 @@ namespace AlibabaCloud
 				explicit RunInstancesResult(const std::string &payload);
 				~RunInstancesResult();
 				std::vector<std::string> getInstanceIdSets()const;
+				float getTradePrice()const;
 
 			protected:
 				void parse(const std::string &payload);
 			private:
 				std::vector<std::string> instanceIdSets_;
+				float tradePrice_;
 
 			};
 		}

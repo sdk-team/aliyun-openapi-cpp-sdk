@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeRenewalPriceRequest;
 
 DescribeRenewalPriceRequest::DescribeRenewalPriceRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeRenewalPrice")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeRenewalPriceRequest::~DescribeRenewalPriceRequest()
 {}
@@ -33,40 +35,7 @@ long DescribeRenewalPriceRequest::getResourceOwnerId()const
 void DescribeRenewalPriceRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeRenewalPriceRequest::getResourceId()const
-{
-	return resourceId_;
-}
-
-void DescribeRenewalPriceRequest::setResourceId(const std::string& resourceId)
-{
-	resourceId_ = resourceId;
-	setCoreParameter("ResourceId", resourceId);
-}
-
-int DescribeRenewalPriceRequest::getPeriod()const
-{
-	return period_;
-}
-
-void DescribeRenewalPriceRequest::setPeriod(int period)
-{
-	period_ = period;
-	setCoreParameter("Period", std::to_string(period));
-}
-
-std::string DescribeRenewalPriceRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeRenewalPriceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeRenewalPriceRequest::getRegionId()const
@@ -77,18 +46,7 @@ std::string DescribeRenewalPriceRequest::getRegionId()const
 void DescribeRenewalPriceRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeRenewalPriceRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeRenewalPriceRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("RegionId", regionId);
 }
 
 std::string DescribeRenewalPriceRequest::getPriceUnit()const
@@ -99,7 +57,51 @@ std::string DescribeRenewalPriceRequest::getPriceUnit()const
 void DescribeRenewalPriceRequest::setPriceUnit(const std::string& priceUnit)
 {
 	priceUnit_ = priceUnit;
-	setCoreParameter("PriceUnit", priceUnit);
+	setParameter("PriceUnit", priceUnit);
+}
+
+std::string DescribeRenewalPriceRequest::getResourceId()const
+{
+	return resourceId_;
+}
+
+void DescribeRenewalPriceRequest::setResourceId(const std::string& resourceId)
+{
+	resourceId_ = resourceId;
+	setParameter("ResourceId", resourceId);
+}
+
+int DescribeRenewalPriceRequest::getPeriod()const
+{
+	return period_;
+}
+
+void DescribeRenewalPriceRequest::setPeriod(int period)
+{
+	period_ = period;
+	setParameter("Period", std::to_string(period));
+}
+
+std::string DescribeRenewalPriceRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeRenewalPriceRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeRenewalPriceRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeRenewalPriceRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DescribeRenewalPriceRequest::getOwnerId()const
@@ -110,7 +112,7 @@ long DescribeRenewalPriceRequest::getOwnerId()const
 void DescribeRenewalPriceRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string DescribeRenewalPriceRequest::getResourceType()const
@@ -121,6 +123,6 @@ std::string DescribeRenewalPriceRequest::getResourceType()const
 void DescribeRenewalPriceRequest::setResourceType(const std::string& resourceType)
 {
 	resourceType_ = resourceType;
-	setCoreParameter("ResourceType", resourceType);
+	setParameter("ResourceType", resourceType);
 }
 

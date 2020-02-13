@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::CancelTaskRequest;
 
 CancelTaskRequest::CancelTaskRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CancelTask")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CancelTaskRequest::~CancelTaskRequest()
 {}
-
-std::string CancelTaskRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void CancelTaskRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long CancelTaskRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long CancelTaskRequest::getResourceOwnerId()const
 void CancelTaskRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CancelTaskRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CancelTaskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CancelTaskRequest::getRegionId()const
@@ -66,18 +46,7 @@ std::string CancelTaskRequest::getRegionId()const
 void CancelTaskRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-long CancelTaskRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void CancelTaskRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("RegionId", regionId);
 }
 
 std::string CancelTaskRequest::getTaskId()const
@@ -88,6 +57,28 @@ std::string CancelTaskRequest::getTaskId()const
 void CancelTaskRequest::setTaskId(const std::string& taskId)
 {
 	taskId_ = taskId;
-	setCoreParameter("TaskId", taskId);
+	setParameter("TaskId", taskId);
+}
+
+std::string CancelTaskRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CancelTaskRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+long CancelTaskRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void CancelTaskRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

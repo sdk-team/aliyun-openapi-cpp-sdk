@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteDeploymentSetRequest;
 
 DeleteDeploymentSetRequest::DeleteDeploymentSetRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteDeploymentSet")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteDeploymentSetRequest::~DeleteDeploymentSetRequest()
 {}
-
-std::string DeleteDeploymentSetRequest::getDeploymentSetId()const
-{
-	return deploymentSetId_;
-}
-
-void DeleteDeploymentSetRequest::setDeploymentSetId(const std::string& deploymentSetId)
-{
-	deploymentSetId_ = deploymentSetId;
-	setCoreParameter("DeploymentSetId", deploymentSetId);
-}
 
 long DeleteDeploymentSetRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long DeleteDeploymentSetRequest::getResourceOwnerId()const
 void DeleteDeploymentSetRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteDeploymentSetRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteDeploymentSetRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteDeploymentSetRequest::getRegionId()const
@@ -66,7 +46,29 @@ std::string DeleteDeploymentSetRequest::getRegionId()const
 void DeleteDeploymentSetRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DeleteDeploymentSetRequest::getDeploymentSetId()const
+{
+	return deploymentSetId_;
+}
+
+void DeleteDeploymentSetRequest::setDeploymentSetId(const std::string& deploymentSetId)
+{
+	deploymentSetId_ = deploymentSetId;
+	setParameter("DeploymentSetId", deploymentSetId);
+}
+
+std::string DeleteDeploymentSetRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteDeploymentSetRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DeleteDeploymentSetRequest::getOwnerAccount()const
@@ -77,7 +79,7 @@ std::string DeleteDeploymentSetRequest::getOwnerAccount()const
 void DeleteDeploymentSetRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteDeploymentSetRequest::getOwnerId()const
@@ -88,6 +90,6 @@ long DeleteDeploymentSetRequest::getOwnerId()const
 void DeleteDeploymentSetRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

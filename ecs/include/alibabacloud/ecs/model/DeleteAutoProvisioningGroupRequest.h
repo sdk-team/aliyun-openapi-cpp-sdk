@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_ECS_MODEL_DESCRIBEINSTANCEPHYSICALATTRIBUTEREQUEST_H_
-#define ALIBABACLOUD_ECS_MODEL_DESCRIBEINSTANCEPHYSICALATTRIBUTEREQUEST_H_
+#ifndef ALIBABACLOUD_ECS_MODEL_DELETEAUTOPROVISIONINGGROUPREQUEST_H_
+#define ALIBABACLOUD_ECS_MODEL_DELETEAUTOPROVISIONINGGROUPREQUEST_H_
 
 #include <string>
 #include <vector>
@@ -28,36 +28,39 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_ECS_EXPORT DescribeInstancePhysicalAttributeRequest : public RpcServiceRequest
+			class ALIBABACLOUD_ECS_EXPORT DeleteAutoProvisioningGroupRequest : public RpcServiceRequest
 			{
 
 			public:
-				DescribeInstancePhysicalAttributeRequest();
-				~DescribeInstancePhysicalAttributeRequest();
+				DeleteAutoProvisioningGroupRequest();
+				~DeleteAutoProvisioningGroupRequest();
 
-				std::string getSourceRegionId()const;
-				void setSourceRegionId(const std::string& sourceRegionId);
 				long getResourceOwnerId()const;
 				void setResourceOwnerId(long resourceOwnerId);
-				std::string getInstanceId()const;
-				void setInstanceId(const std::string& instanceId);
+				std::string getRegionId()const;
+				void setRegionId(const std::string& regionId);
+				bool getTerminateInstances()const;
+				void setTerminateInstances(bool terminateInstances);
 				std::string getResourceOwnerAccount()const;
 				void setResourceOwnerAccount(const std::string& resourceOwnerAccount);
 				std::string getOwnerAccount()const;
 				void setOwnerAccount(const std::string& ownerAccount);
 				long getOwnerId()const;
 				void setOwnerId(long ownerId);
+				std::string getAutoProvisioningGroupId()const;
+				void setAutoProvisioningGroupId(const std::string& autoProvisioningGroupId);
 
             private:
-				std::string sourceRegionId_;
 				long resourceOwnerId_;
-				std::string instanceId_;
+				std::string regionId_;
+				bool terminateInstances_;
 				std::string resourceOwnerAccount_;
 				std::string ownerAccount_;
 				long ownerId_;
+				std::string autoProvisioningGroupId_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_ECS_MODEL_DESCRIBEINSTANCEPHYSICALATTRIBUTEREQUEST_H_
+#endif // !ALIBABACLOUD_ECS_MODEL_DELETEAUTOPROVISIONINGGROUPREQUEST_H_

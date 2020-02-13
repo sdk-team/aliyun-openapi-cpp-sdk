@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifyVRouterAttributeRequest;
 
 ModifyVRouterAttributeRequest::ModifyVRouterAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyVRouterAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyVRouterAttributeRequest::~ModifyVRouterAttributeRequest()
 {}
-
-std::string ModifyVRouterAttributeRequest::getVRouterName()const
-{
-	return vRouterName_;
-}
-
-void ModifyVRouterAttributeRequest::setVRouterName(const std::string& vRouterName)
-{
-	vRouterName_ = vRouterName;
-	setCoreParameter("VRouterName", vRouterName);
-}
 
 long ModifyVRouterAttributeRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long ModifyVRouterAttributeRequest::getResourceOwnerId()const
 void ModifyVRouterAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyVRouterAttributeRequest::getVRouterId()const
@@ -55,40 +46,7 @@ std::string ModifyVRouterAttributeRequest::getVRouterId()const
 void ModifyVRouterAttributeRequest::setVRouterId(const std::string& vRouterId)
 {
 	vRouterId_ = vRouterId;
-	setCoreParameter("VRouterId", vRouterId);
-}
-
-std::string ModifyVRouterAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyVRouterAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifyVRouterAttributeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ModifyVRouterAttributeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string ModifyVRouterAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifyVRouterAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("VRouterId", vRouterId);
 }
 
 std::string ModifyVRouterAttributeRequest::getDescription()const
@@ -99,7 +57,51 @@ std::string ModifyVRouterAttributeRequest::getDescription()const
 void ModifyVRouterAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string ModifyVRouterAttributeRequest::getVRouterName()const
+{
+	return vRouterName_;
+}
+
+void ModifyVRouterAttributeRequest::setVRouterName(const std::string& vRouterName)
+{
+	vRouterName_ = vRouterName;
+	setParameter("VRouterName", vRouterName);
+}
+
+std::string ModifyVRouterAttributeRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ModifyVRouterAttributeRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string ModifyVRouterAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyVRouterAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyVRouterAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyVRouterAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyVRouterAttributeRequest::getOwnerId()const
@@ -110,6 +112,6 @@ long ModifyVRouterAttributeRequest::getOwnerId()const
 void ModifyVRouterAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

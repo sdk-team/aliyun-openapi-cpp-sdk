@@ -38,7 +38,6 @@ void DescribeUserBusinessBehaviorResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
 	if(!value["StatusValue"].isNull())
 		statusValue_ = value["StatusValue"].asString();

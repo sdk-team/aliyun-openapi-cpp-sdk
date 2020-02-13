@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteAutoSnapshotPolicyRequest;
 
 DeleteAutoSnapshotPolicyRequest::DeleteAutoSnapshotPolicyRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteAutoSnapshotPolicy")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteAutoSnapshotPolicyRequest::~DeleteAutoSnapshotPolicyRequest()
 {}
-
-std::string DeleteAutoSnapshotPolicyRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DeleteAutoSnapshotPolicyRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DeleteAutoSnapshotPolicyRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long DeleteAutoSnapshotPolicyRequest::getResourceOwnerId()const
 void DeleteAutoSnapshotPolicyRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteAutoSnapshotPolicyRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteAutoSnapshotPolicyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DeleteAutoSnapshotPolicyRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DeleteAutoSnapshotPolicyRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteAutoSnapshotPolicyRequest::getAutoSnapshotPolicyId()const
@@ -77,7 +46,29 @@ std::string DeleteAutoSnapshotPolicyRequest::getAutoSnapshotPolicyId()const
 void DeleteAutoSnapshotPolicyRequest::setAutoSnapshotPolicyId(const std::string& autoSnapshotPolicyId)
 {
 	autoSnapshotPolicyId_ = autoSnapshotPolicyId;
-	setCoreParameter("AutoSnapshotPolicyId", autoSnapshotPolicyId);
+	setParameter("AutoSnapshotPolicyId", autoSnapshotPolicyId);
+}
+
+std::string DeleteAutoSnapshotPolicyRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DeleteAutoSnapshotPolicyRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string DeleteAutoSnapshotPolicyRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteAutoSnapshotPolicyRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long DeleteAutoSnapshotPolicyRequest::getOwnerId()const
@@ -88,6 +79,6 @@ long DeleteAutoSnapshotPolicyRequest::getOwnerId()const
 void DeleteAutoSnapshotPolicyRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

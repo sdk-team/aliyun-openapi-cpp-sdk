@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::RevokeSecurityGroupEgressRequest;
 
 RevokeSecurityGroupEgressRequest::RevokeSecurityGroupEgressRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "RevokeSecurityGroupEgress")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 RevokeSecurityGroupEgressRequest::~RevokeSecurityGroupEgressRequest()
 {}
@@ -33,7 +35,7 @@ std::string RevokeSecurityGroupEgressRequest::getNicType()const
 void RevokeSecurityGroupEgressRequest::setNicType(const std::string& nicType)
 {
 	nicType_ = nicType;
-	setCoreParameter("NicType", nicType);
+	setParameter("NicType", nicType);
 }
 
 long RevokeSecurityGroupEgressRequest::getResourceOwnerId()const
@@ -44,7 +46,7 @@ long RevokeSecurityGroupEgressRequest::getResourceOwnerId()const
 void RevokeSecurityGroupEgressRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string RevokeSecurityGroupEgressRequest::getSourcePortRange()const
@@ -55,7 +57,7 @@ std::string RevokeSecurityGroupEgressRequest::getSourcePortRange()const
 void RevokeSecurityGroupEgressRequest::setSourcePortRange(const std::string& sourcePortRange)
 {
 	sourcePortRange_ = sourcePortRange;
-	setCoreParameter("SourcePortRange", sourcePortRange);
+	setParameter("SourcePortRange", sourcePortRange);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getClientToken()const
@@ -66,18 +68,7 @@ std::string RevokeSecurityGroupEgressRequest::getClientToken()const
 void RevokeSecurityGroupEgressRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-long RevokeSecurityGroupEgressRequest::getCallerParentId()const
-{
-	return callerParentId_;
-}
-
-void RevokeSecurityGroupEgressRequest::setCallerParentId(long callerParentId)
-{
-	callerParentId_ = callerParentId;
-	setCoreParameter("CallerParentId", std::to_string(callerParentId));
+	setParameter("ClientToken", clientToken);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getSecurityGroupId()const
@@ -88,18 +79,7 @@ std::string RevokeSecurityGroupEgressRequest::getSecurityGroupId()const
 void RevokeSecurityGroupEgressRequest::setSecurityGroupId(const std::string& securityGroupId)
 {
 	securityGroupId_ = securityGroupId;
-	setCoreParameter("SecurityGroupId", securityGroupId);
-}
-
-bool RevokeSecurityGroupEgressRequest::getProxy_original_security_transport()const
-{
-	return proxy_original_security_transport_;
-}
-
-void RevokeSecurityGroupEgressRequest::setProxy_original_security_transport(bool proxy_original_security_transport)
-{
-	proxy_original_security_transport_ = proxy_original_security_transport;
-	setCoreParameter("Proxy_original_security_transport", proxy_original_security_transport ? "true" : "false");
+	setParameter("SecurityGroupId", securityGroupId);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getDescription()const
@@ -110,73 +90,7 @@ std::string RevokeSecurityGroupEgressRequest::getDescription()const
 void RevokeSecurityGroupEgressRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getProxy_original_source_ip()const
-{
-	return proxy_original_source_ip_;
-}
-
-void RevokeSecurityGroupEgressRequest::setProxy_original_source_ip(const std::string& proxy_original_source_ip)
-{
-	proxy_original_source_ip_ = proxy_original_source_ip;
-	setCoreParameter("Proxy_original_source_ip", proxy_original_source_ip);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getOwnerIdLoginEmail()const
-{
-	return ownerIdLoginEmail_;
-}
-
-void RevokeSecurityGroupEgressRequest::setOwnerIdLoginEmail(const std::string& ownerIdLoginEmail)
-{
-	ownerIdLoginEmail_ = ownerIdLoginEmail;
-	setCoreParameter("OwnerIdLoginEmail", ownerIdLoginEmail);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getCallerType()const
-{
-	return callerType_;
-}
-
-void RevokeSecurityGroupEgressRequest::setCallerType(const std::string& callerType)
-{
-	callerType_ = callerType;
-	setCoreParameter("CallerType", callerType);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getAccessKeyId()const
-{
-	return accessKeyId_;
-}
-
-void RevokeSecurityGroupEgressRequest::setAccessKeyId(const std::string& accessKeyId)
-{
-	accessKeyId_ = accessKeyId;
-	setCoreParameter("AccessKeyId", accessKeyId);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void RevokeSecurityGroupEgressRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getSecurityToken()const
-{
-	return securityToken_;
-}
-
-void RevokeSecurityGroupEgressRequest::setSecurityToken(const std::string& securityToken)
-{
-	securityToken_ = securityToken;
-	setCoreParameter("SecurityToken", securityToken);
+	setParameter("Description", description);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getRegionId()const
@@ -187,62 +101,7 @@ std::string RevokeSecurityGroupEgressRequest::getRegionId()const
 void RevokeSecurityGroupEgressRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-bool RevokeSecurityGroupEgressRequest::getEnable()const
-{
-	return enable_;
-}
-
-void RevokeSecurityGroupEgressRequest::setEnable(bool enable)
-{
-	enable_ = enable;
-	setCoreParameter("Enable", enable ? "true" : "false");
-}
-
-std::string RevokeSecurityGroupEgressRequest::getRequestContent()const
-{
-	return requestContent_;
-}
-
-void RevokeSecurityGroupEgressRequest::setRequestContent(const std::string& requestContent)
-{
-	requestContent_ = requestContent;
-	setCoreParameter("RequestContent", requestContent);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getCallerBidEmail()const
-{
-	return callerBidEmail_;
-}
-
-void RevokeSecurityGroupEgressRequest::setCallerBidEmail(const std::string& callerBidEmail)
-{
-	callerBidEmail_ = callerBidEmail;
-	setCoreParameter("CallerBidEmail", callerBidEmail);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getCallerUidEmail()const
-{
-	return callerUidEmail_;
-}
-
-void RevokeSecurityGroupEgressRequest::setCallerUidEmail(const std::string& callerUidEmail)
-{
-	callerUidEmail_ = callerUidEmail;
-	setCoreParameter("CallerUidEmail", callerUidEmail);
-}
-
-long RevokeSecurityGroupEgressRequest::getCallerUid()const
-{
-	return callerUid_;
-}
-
-void RevokeSecurityGroupEgressRequest::setCallerUid(long callerUid)
-{
-	callerUid_ = callerUid;
-	setCoreParameter("CallerUid", std::to_string(callerUid));
+	setParameter("RegionId", regionId);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getIpv6DestCidrIp()const
@@ -253,7 +112,7 @@ std::string RevokeSecurityGroupEgressRequest::getIpv6DestCidrIp()const
 void RevokeSecurityGroupEgressRequest::setIpv6DestCidrIp(const std::string& ipv6DestCidrIp)
 {
 	ipv6DestCidrIp_ = ipv6DestCidrIp;
-	setCoreParameter("Ipv6DestCidrIp", ipv6DestCidrIp);
+	setParameter("Ipv6DestCidrIp", ipv6DestCidrIp);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getIpv6SourceCidrIp()const
@@ -264,7 +123,7 @@ std::string RevokeSecurityGroupEgressRequest::getIpv6SourceCidrIp()const
 void RevokeSecurityGroupEgressRequest::setIpv6SourceCidrIp(const std::string& ipv6SourceCidrIp)
 {
 	ipv6SourceCidrIp_ = ipv6SourceCidrIp;
-	setCoreParameter("Ipv6SourceCidrIp", ipv6SourceCidrIp);
+	setParameter("Ipv6SourceCidrIp", ipv6SourceCidrIp);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getPolicy()const
@@ -275,18 +134,7 @@ std::string RevokeSecurityGroupEgressRequest::getPolicy()const
 void RevokeSecurityGroupEgressRequest::setPolicy(const std::string& policy)
 {
 	policy_ = policy;
-	setCoreParameter("Policy", policy);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getApp_ip()const
-{
-	return app_ip_;
-}
-
-void RevokeSecurityGroupEgressRequest::setApp_ip(const std::string& app_ip)
-{
-	app_ip_ = app_ip;
-	setCoreParameter("App_ip", app_ip);
+	setParameter("Policy", policy);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getPortRange()const
@@ -297,7 +145,7 @@ std::string RevokeSecurityGroupEgressRequest::getPortRange()const
 void RevokeSecurityGroupEgressRequest::setPortRange(const std::string& portRange)
 {
 	portRange_ = portRange;
-	setCoreParameter("PortRange", portRange);
+	setParameter("PortRange", portRange);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getResourceOwnerAccount()const
@@ -308,7 +156,7 @@ std::string RevokeSecurityGroupEgressRequest::getResourceOwnerAccount()const
 void RevokeSecurityGroupEgressRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getIpProtocol()const
@@ -319,7 +167,7 @@ std::string RevokeSecurityGroupEgressRequest::getIpProtocol()const
 void RevokeSecurityGroupEgressRequest::setIpProtocol(const std::string& ipProtocol)
 {
 	ipProtocol_ = ipProtocol;
-	setCoreParameter("IpProtocol", ipProtocol);
+	setParameter("IpProtocol", ipProtocol);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getOwnerAccount()const
@@ -330,7 +178,7 @@ std::string RevokeSecurityGroupEgressRequest::getOwnerAccount()const
 void RevokeSecurityGroupEgressRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getSourceCidrIp()const
@@ -341,18 +189,7 @@ std::string RevokeSecurityGroupEgressRequest::getSourceCidrIp()const
 void RevokeSecurityGroupEgressRequest::setSourceCidrIp(const std::string& sourceCidrIp)
 {
 	sourceCidrIp_ = sourceCidrIp;
-	setCoreParameter("SourceCidrIp", sourceCidrIp);
-}
-
-std::string RevokeSecurityGroupEgressRequest::getCallerBid()const
-{
-	return callerBid_;
-}
-
-void RevokeSecurityGroupEgressRequest::setCallerBid(const std::string& callerBid)
-{
-	callerBid_ = callerBid;
-	setCoreParameter("CallerBid", callerBid);
+	setParameter("SourceCidrIp", sourceCidrIp);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getDestGroupId()const
@@ -363,7 +200,7 @@ std::string RevokeSecurityGroupEgressRequest::getDestGroupId()const
 void RevokeSecurityGroupEgressRequest::setDestGroupId(const std::string& destGroupId)
 {
 	destGroupId_ = destGroupId;
-	setCoreParameter("DestGroupId", destGroupId);
+	setParameter("DestGroupId", destGroupId);
 }
 
 long RevokeSecurityGroupEgressRequest::getOwnerId()const
@@ -374,7 +211,7 @@ long RevokeSecurityGroupEgressRequest::getOwnerId()const
 void RevokeSecurityGroupEgressRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string RevokeSecurityGroupEgressRequest::getDestGroupOwnerAccount()const
@@ -385,7 +222,7 @@ std::string RevokeSecurityGroupEgressRequest::getDestGroupOwnerAccount()const
 void RevokeSecurityGroupEgressRequest::setDestGroupOwnerAccount(const std::string& destGroupOwnerAccount)
 {
 	destGroupOwnerAccount_ = destGroupOwnerAccount;
-	setCoreParameter("DestGroupOwnerAccount", destGroupOwnerAccount);
+	setParameter("DestGroupOwnerAccount", destGroupOwnerAccount);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getPriority()const
@@ -396,7 +233,7 @@ std::string RevokeSecurityGroupEgressRequest::getPriority()const
 void RevokeSecurityGroupEgressRequest::setPriority(const std::string& priority)
 {
 	priority_ = priority;
-	setCoreParameter("Priority", priority);
+	setParameter("Priority", priority);
 }
 
 std::string RevokeSecurityGroupEgressRequest::getDestCidrIp()const
@@ -407,40 +244,7 @@ std::string RevokeSecurityGroupEgressRequest::getDestCidrIp()const
 void RevokeSecurityGroupEgressRequest::setDestCidrIp(const std::string& destCidrIp)
 {
 	destCidrIp_ = destCidrIp;
-	setCoreParameter("DestCidrIp", destCidrIp);
-}
-
-bool RevokeSecurityGroupEgressRequest::getProxy_trust_transport_info()const
-{
-	return proxy_trust_transport_info_;
-}
-
-void RevokeSecurityGroupEgressRequest::setProxy_trust_transport_info(bool proxy_trust_transport_info)
-{
-	proxy_trust_transport_info_ = proxy_trust_transport_info;
-	setCoreParameter("Proxy_trust_transport_info", proxy_trust_transport_info ? "true" : "false");
-}
-
-bool RevokeSecurityGroupEgressRequest::getAk_mfa_present()const
-{
-	return ak_mfa_present_;
-}
-
-void RevokeSecurityGroupEgressRequest::setAk_mfa_present(bool ak_mfa_present)
-{
-	ak_mfa_present_ = ak_mfa_present;
-	setCoreParameter("Ak_mfa_present", ak_mfa_present ? "true" : "false");
-}
-
-bool RevokeSecurityGroupEgressRequest::getSecurity_transport()const
-{
-	return security_transport_;
-}
-
-void RevokeSecurityGroupEgressRequest::setSecurity_transport(bool security_transport)
-{
-	security_transport_ = security_transport;
-	setCoreParameter("Security_transport", security_transport ? "true" : "false");
+	setParameter("DestCidrIp", destCidrIp);
 }
 
 long RevokeSecurityGroupEgressRequest::getDestGroupOwnerId()const
@@ -451,17 +255,6 @@ long RevokeSecurityGroupEgressRequest::getDestGroupOwnerId()const
 void RevokeSecurityGroupEgressRequest::setDestGroupOwnerId(long destGroupOwnerId)
 {
 	destGroupOwnerId_ = destGroupOwnerId;
-	setCoreParameter("DestGroupOwnerId", std::to_string(destGroupOwnerId));
-}
-
-std::string RevokeSecurityGroupEgressRequest::getRequestId()const
-{
-	return requestId_;
-}
-
-void RevokeSecurityGroupEgressRequest::setRequestId(const std::string& requestId)
-{
-	requestId_ = requestId;
-	setCoreParameter("RequestId", requestId);
+	setParameter("DestGroupOwnerId", std::to_string(destGroupOwnerId));
 }
 

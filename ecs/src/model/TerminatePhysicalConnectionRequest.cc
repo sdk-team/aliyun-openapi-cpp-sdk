@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::TerminatePhysicalConnectionRequest;
 
 TerminatePhysicalConnectionRequest::TerminatePhysicalConnectionRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "TerminatePhysicalConnection")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 TerminatePhysicalConnectionRequest::~TerminatePhysicalConnectionRequest()
 {}
@@ -33,29 +35,7 @@ long TerminatePhysicalConnectionRequest::getResourceOwnerId()const
 void TerminatePhysicalConnectionRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string TerminatePhysicalConnectionRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void TerminatePhysicalConnectionRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string TerminatePhysicalConnectionRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void TerminatePhysicalConnectionRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string TerminatePhysicalConnectionRequest::getClientToken()const
@@ -66,29 +46,18 @@ std::string TerminatePhysicalConnectionRequest::getClientToken()const
 void TerminatePhysicalConnectionRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
+	setParameter("ClientToken", clientToken);
 }
 
-std::string TerminatePhysicalConnectionRequest::getPhysicalConnectionId()const
+std::string TerminatePhysicalConnectionRequest::getRegionId()const
 {
-	return physicalConnectionId_;
+	return regionId_;
 }
 
-void TerminatePhysicalConnectionRequest::setPhysicalConnectionId(const std::string& physicalConnectionId)
+void TerminatePhysicalConnectionRequest::setRegionId(const std::string& regionId)
 {
-	physicalConnectionId_ = physicalConnectionId;
-	setCoreParameter("PhysicalConnectionId", physicalConnectionId);
-}
-
-std::string TerminatePhysicalConnectionRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void TerminatePhysicalConnectionRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string TerminatePhysicalConnectionRequest::getUserCidr()const
@@ -99,7 +68,29 @@ std::string TerminatePhysicalConnectionRequest::getUserCidr()const
 void TerminatePhysicalConnectionRequest::setUserCidr(const std::string& userCidr)
 {
 	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
+	setParameter("UserCidr", userCidr);
+}
+
+std::string TerminatePhysicalConnectionRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void TerminatePhysicalConnectionRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string TerminatePhysicalConnectionRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void TerminatePhysicalConnectionRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long TerminatePhysicalConnectionRequest::getOwnerId()const
@@ -110,6 +101,17 @@ long TerminatePhysicalConnectionRequest::getOwnerId()const
 void TerminatePhysicalConnectionRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string TerminatePhysicalConnectionRequest::getPhysicalConnectionId()const
+{
+	return physicalConnectionId_;
+}
+
+void TerminatePhysicalConnectionRequest::setPhysicalConnectionId(const std::string& physicalConnectionId)
+{
+	physicalConnectionId_ = physicalConnectionId;
+	setParameter("PhysicalConnectionId", physicalConnectionId);
 }
 

@@ -38,22 +38,23 @@ void DescribeInstanceHistoryEventsResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
-	auto allInstanceSystemEventSet = value["InstanceSystemEventSet"]["InstanceSystemEventType"];
-	for (auto value : allInstanceSystemEventSet)
+	auto allInstanceSystemEventSetNode = value["InstanceSystemEventSet"]["InstanceSystemEventType"];
+	for (auto valueInstanceSystemEventSetInstanceSystemEventType : allInstanceSystemEventSetNode)
 	{
 		InstanceSystemEventType instanceSystemEventSetObject;
-		if(!value["InstanceId"].isNull())
-			instanceSystemEventSetObject.instanceId = value["InstanceId"].asString();
-		if(!value["EventId"].isNull())
-			instanceSystemEventSetObject.eventId = value["EventId"].asString();
-		if(!value["EventPublishTime"].isNull())
-			instanceSystemEventSetObject.eventPublishTime = value["EventPublishTime"].asString();
-		if(!value["NotBefore"].isNull())
-			instanceSystemEventSetObject.notBefore = value["NotBefore"].asString();
-		if(!value["EventFinishTime"].isNull())
-			instanceSystemEventSetObject.eventFinishTime = value["EventFinishTime"].asString();
+		if(!valueInstanceSystemEventSetInstanceSystemEventType["InstanceId"].isNull())
+			instanceSystemEventSetObject.instanceId = valueInstanceSystemEventSetInstanceSystemEventType["InstanceId"].asString();
+		if(!valueInstanceSystemEventSetInstanceSystemEventType["EventId"].isNull())
+			instanceSystemEventSetObject.eventId = valueInstanceSystemEventSetInstanceSystemEventType["EventId"].asString();
+		if(!valueInstanceSystemEventSetInstanceSystemEventType["EventPublishTime"].isNull())
+			instanceSystemEventSetObject.eventPublishTime = valueInstanceSystemEventSetInstanceSystemEventType["EventPublishTime"].asString();
+		if(!valueInstanceSystemEventSetInstanceSystemEventType["NotBefore"].isNull())
+			instanceSystemEventSetObject.notBefore = valueInstanceSystemEventSetInstanceSystemEventType["NotBefore"].asString();
+		if(!valueInstanceSystemEventSetInstanceSystemEventType["EventFinishTime"].isNull())
+			instanceSystemEventSetObject.eventFinishTime = valueInstanceSystemEventSetInstanceSystemEventType["EventFinishTime"].asString();
+		if(!valueInstanceSystemEventSetInstanceSystemEventType["Reason"].isNull())
+			instanceSystemEventSetObject.reason = valueInstanceSystemEventSetInstanceSystemEventType["Reason"].asString();
 		auto eventTypeNode = value["EventType"];
 		if(!eventTypeNode["Code"].isNull())
 			instanceSystemEventSetObject.eventType.code = std::stoi(eventTypeNode["Code"].asString());
@@ -69,6 +70,22 @@ void DescribeInstanceHistoryEventsResult::parse(const std::string &payload)
 			instanceSystemEventSetObject.extendedAttribute.diskId = extendedAttributeNode["DiskId"].asString();
 		if(!extendedAttributeNode["Device"].isNull())
 			instanceSystemEventSetObject.extendedAttribute.device = extendedAttributeNode["Device"].asString();
+		auto allInactiveDisksNode = extendedAttributeNode["InactiveDisks"]["InactiveDisk"];
+		for (auto extendedAttributeNodeInactiveDisksInactiveDisk : allInactiveDisksNode)
+		{
+			InstanceSystemEventType::ExtendedAttribute::InactiveDisk inactiveDiskObject;
+			if(!extendedAttributeNodeInactiveDisksInactiveDisk["CreationTime"].isNull())
+				inactiveDiskObject.creationTime = extendedAttributeNodeInactiveDisksInactiveDisk["CreationTime"].asString();
+			if(!extendedAttributeNodeInactiveDisksInactiveDisk["ReleaseTime"].isNull())
+				inactiveDiskObject.releaseTime = extendedAttributeNodeInactiveDisksInactiveDisk["ReleaseTime"].asString();
+			if(!extendedAttributeNodeInactiveDisksInactiveDisk["DeviceType"].isNull())
+				inactiveDiskObject.deviceType = extendedAttributeNodeInactiveDisksInactiveDisk["DeviceType"].asString();
+			if(!extendedAttributeNodeInactiveDisksInactiveDisk["DeviceCategory"].isNull())
+				inactiveDiskObject.deviceCategory = extendedAttributeNodeInactiveDisksInactiveDisk["DeviceCategory"].asString();
+			if(!extendedAttributeNodeInactiveDisksInactiveDisk["DeviceSize"].isNull())
+				inactiveDiskObject.deviceSize = extendedAttributeNodeInactiveDisksInactiveDisk["DeviceSize"].asString();
+			instanceSystemEventSetObject.extendedAttribute.inactiveDisks.push_back(inactiveDiskObject);
+		}
 		instanceSystemEventSet_.push_back(instanceSystemEventSetObject);
 	}
 	if(!value["TotalCount"].isNull())

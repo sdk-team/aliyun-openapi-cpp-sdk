@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::AssociateEipAddressRequest;
 
 AssociateEipAddressRequest::AssociateEipAddressRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "AssociateEipAddress")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 AssociateEipAddressRequest::~AssociateEipAddressRequest()
 {}
@@ -33,62 +35,7 @@ long AssociateEipAddressRequest::getResourceOwnerId()const
 void AssociateEipAddressRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string AssociateEipAddressRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void AssociateEipAddressRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string AssociateEipAddressRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void AssociateEipAddressRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string AssociateEipAddressRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void AssociateEipAddressRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string AssociateEipAddressRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void AssociateEipAddressRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string AssociateEipAddressRequest::getInstanceType()const
-{
-	return instanceType_;
-}
-
-void AssociateEipAddressRequest::setInstanceType(const std::string& instanceType)
-{
-	instanceType_ = instanceType;
-	setCoreParameter("InstanceType", instanceType);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string AssociateEipAddressRequest::getAllocationId()const
@@ -99,7 +46,51 @@ std::string AssociateEipAddressRequest::getAllocationId()const
 void AssociateEipAddressRequest::setAllocationId(const std::string& allocationId)
 {
 	allocationId_ = allocationId;
-	setCoreParameter("AllocationId", allocationId);
+	setParameter("AllocationId", allocationId);
+}
+
+std::string AssociateEipAddressRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void AssociateEipAddressRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string AssociateEipAddressRequest::getInstanceType()const
+{
+	return instanceType_;
+}
+
+void AssociateEipAddressRequest::setInstanceType(const std::string& instanceType)
+{
+	instanceType_ = instanceType;
+	setParameter("InstanceType", instanceType);
+}
+
+std::string AssociateEipAddressRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void AssociateEipAddressRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string AssociateEipAddressRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void AssociateEipAddressRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long AssociateEipAddressRequest::getOwnerId()const
@@ -110,6 +101,17 @@ long AssociateEipAddressRequest::getOwnerId()const
 void AssociateEipAddressRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string AssociateEipAddressRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void AssociateEipAddressRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

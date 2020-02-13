@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::AttachClassicLinkVpcRequest;
 
 AttachClassicLinkVpcRequest::AttachClassicLinkVpcRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "AttachClassicLinkVpc")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 AttachClassicLinkVpcRequest::~AttachClassicLinkVpcRequest()
 {}
-
-std::string AttachClassicLinkVpcRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void AttachClassicLinkVpcRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long AttachClassicLinkVpcRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long AttachClassicLinkVpcRequest::getResourceOwnerId()const
 void AttachClassicLinkVpcRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string AttachClassicLinkVpcRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void AttachClassicLinkVpcRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string AttachClassicLinkVpcRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void AttachClassicLinkVpcRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string AttachClassicLinkVpcRequest::getRegionId()const
@@ -77,18 +46,18 @@ std::string AttachClassicLinkVpcRequest::getRegionId()const
 void AttachClassicLinkVpcRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
-std::string AttachClassicLinkVpcRequest::getVpcId()const
+std::string AttachClassicLinkVpcRequest::getResourceOwnerAccount()const
 {
-	return vpcId_;
+	return resourceOwnerAccount_;
 }
 
-void AttachClassicLinkVpcRequest::setVpcId(const std::string& vpcId)
+void AttachClassicLinkVpcRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long AttachClassicLinkVpcRequest::getOwnerId()const
@@ -99,6 +68,28 @@ long AttachClassicLinkVpcRequest::getOwnerId()const
 void AttachClassicLinkVpcRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string AttachClassicLinkVpcRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void AttachClassicLinkVpcRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
+}
+
+std::string AttachClassicLinkVpcRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void AttachClassicLinkVpcRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
 }
 

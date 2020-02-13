@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeInstanceAttributeRequest;
 
 DescribeInstanceAttributeRequest::DescribeInstanceAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeInstanceAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeInstanceAttributeRequest::~DescribeInstanceAttributeRequest()
 {}
-
-std::string DescribeInstanceAttributeRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeInstanceAttributeRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeInstanceAttributeRequest::getResourceOwnerId()const
 {
@@ -44,18 +35,7 @@ long DescribeInstanceAttributeRequest::getResourceOwnerId()const
 void DescribeInstanceAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeInstanceAttributeRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void DescribeInstanceAttributeRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeInstanceAttributeRequest::getResourceOwnerAccount()const
@@ -66,7 +46,7 @@ std::string DescribeInstanceAttributeRequest::getResourceOwnerAccount()const
 void DescribeInstanceAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DescribeInstanceAttributeRequest::getOwnerAccount()const
@@ -77,7 +57,7 @@ std::string DescribeInstanceAttributeRequest::getOwnerAccount()const
 void DescribeInstanceAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DescribeInstanceAttributeRequest::getOwnerId()const
@@ -88,6 +68,17 @@ long DescribeInstanceAttributeRequest::getOwnerId()const
 void DescribeInstanceAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeInstanceAttributeRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void DescribeInstanceAttributeRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

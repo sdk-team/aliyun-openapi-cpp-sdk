@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::CreateHaVipRequest;
 
 CreateHaVipRequest::CreateHaVipRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateHaVip")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateHaVipRequest::~CreateHaVipRequest()
 {}
-
-std::string CreateHaVipRequest::getVSwitchId()const
-{
-	return vSwitchId_;
-}
-
-void CreateHaVipRequest::setVSwitchId(const std::string& vSwitchId)
-{
-	vSwitchId_ = vSwitchId;
-	setCoreParameter("VSwitchId", vSwitchId);
-}
 
 std::string CreateHaVipRequest::getIpAddress()const
 {
@@ -44,7 +35,7 @@ std::string CreateHaVipRequest::getIpAddress()const
 void CreateHaVipRequest::setIpAddress(const std::string& ipAddress)
 {
 	ipAddress_ = ipAddress;
-	setCoreParameter("IpAddress", ipAddress);
+	setParameter("IpAddress", ipAddress);
 }
 
 long CreateHaVipRequest::getResourceOwnerId()const
@@ -55,18 +46,7 @@ long CreateHaVipRequest::getResourceOwnerId()const
 void CreateHaVipRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateHaVipRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateHaVipRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateHaVipRequest::getClientToken()const
@@ -77,29 +57,7 @@ std::string CreateHaVipRequest::getClientToken()const
 void CreateHaVipRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string CreateHaVipRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateHaVipRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string CreateHaVipRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateHaVipRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string CreateHaVipRequest::getDescription()const
@@ -110,7 +68,40 @@ std::string CreateHaVipRequest::getDescription()const
 void CreateHaVipRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string CreateHaVipRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void CreateHaVipRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string CreateHaVipRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateHaVipRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateHaVipRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateHaVipRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long CreateHaVipRequest::getOwnerId()const
@@ -121,6 +112,17 @@ long CreateHaVipRequest::getOwnerId()const
 void CreateHaVipRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string CreateHaVipRequest::getVSwitchId()const
+{
+	return vSwitchId_;
+}
+
+void CreateHaVipRequest::setVSwitchId(const std::string& vSwitchId)
+{
+	vSwitchId_ = vSwitchId;
+	setParameter("VSwitchId", vSwitchId);
 }
 

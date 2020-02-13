@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DeleteSnapshotRequest;
 
 DeleteSnapshotRequest::DeleteSnapshotRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteSnapshot")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteSnapshotRequest::~DeleteSnapshotRequest()
 {}
-
-std::string DeleteSnapshotRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DeleteSnapshotRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DeleteSnapshotRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long DeleteSnapshotRequest::getResourceOwnerId()const
 void DeleteSnapshotRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteSnapshotRequest::getSnapshotId()const
@@ -55,7 +46,7 @@ std::string DeleteSnapshotRequest::getSnapshotId()const
 void DeleteSnapshotRequest::setSnapshotId(const std::string& snapshotId)
 {
 	snapshotId_ = snapshotId;
-	setCoreParameter("SnapshotId", snapshotId);
+	setParameter("SnapshotId", snapshotId);
 }
 
 std::string DeleteSnapshotRequest::getResourceOwnerAccount()const
@@ -66,7 +57,7 @@ std::string DeleteSnapshotRequest::getResourceOwnerAccount()const
 void DeleteSnapshotRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DeleteSnapshotRequest::getOwnerAccount()const
@@ -77,18 +68,7 @@ std::string DeleteSnapshotRequest::getOwnerAccount()const
 void DeleteSnapshotRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-bool DeleteSnapshotRequest::getForce()const
-{
-	return force_;
-}
-
-void DeleteSnapshotRequest::setForce(bool force)
-{
-	force_ = force;
-	setCoreParameter("Force", force ? "true" : "false");
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteSnapshotRequest::getOwnerId()const
@@ -99,6 +79,17 @@ long DeleteSnapshotRequest::getOwnerId()const
 void DeleteSnapshotRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+bool DeleteSnapshotRequest::getForce()const
+{
+	return force_;
+}
+
+void DeleteSnapshotRequest::setForce(bool force)
+{
+	force_ = force;
+	setParameter("Force", force ? "true" : "false");
 }
 

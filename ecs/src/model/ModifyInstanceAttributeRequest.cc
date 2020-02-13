@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::ModifyInstanceAttributeRequest;
 
 ModifyInstanceAttributeRequest::ModifyInstanceAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyInstanceAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyInstanceAttributeRequest::~ModifyInstanceAttributeRequest()
 {}
@@ -33,18 +35,7 @@ long ModifyInstanceAttributeRequest::getResourceOwnerId()const
 void ModifyInstanceAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyInstanceAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyInstanceAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 bool ModifyInstanceAttributeRequest::getRecyclable()const
@@ -55,18 +46,7 @@ bool ModifyInstanceAttributeRequest::getRecyclable()const
 void ModifyInstanceAttributeRequest::setRecyclable(bool recyclable)
 {
 	recyclable_ = recyclable;
-	setCoreParameter("Recyclable", recyclable ? "true" : "false");
-}
-
-std::string ModifyInstanceAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifyInstanceAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("Recyclable", recyclable ? "true" : "false");
 }
 
 std::string ModifyInstanceAttributeRequest::getDescription()const
@@ -77,40 +57,7 @@ std::string ModifyInstanceAttributeRequest::getDescription()const
 void ModifyInstanceAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-std::string ModifyInstanceAttributeRequest::getCreditSpecification()const
-{
-	return creditSpecification_;
-}
-
-void ModifyInstanceAttributeRequest::setCreditSpecification(const std::string& creditSpecification)
-{
-	creditSpecification_ = creditSpecification;
-	setCoreParameter("CreditSpecification", creditSpecification);
-}
-
-long ModifyInstanceAttributeRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void ModifyInstanceAttributeRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::string ModifyInstanceAttributeRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ModifyInstanceAttributeRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
+	setParameter("Description", description);
 }
 
 bool ModifyInstanceAttributeRequest::getDeletionProtection()const
@@ -121,7 +68,7 @@ bool ModifyInstanceAttributeRequest::getDeletionProtection()const
 void ModifyInstanceAttributeRequest::setDeletionProtection(bool deletionProtection)
 {
 	deletionProtection_ = deletionProtection;
-	setCoreParameter("DeletionProtection", deletionProtection ? "true" : "false");
+	setParameter("DeletionProtection", deletionProtection ? "true" : "false");
 }
 
 std::string ModifyInstanceAttributeRequest::getUserData()const
@@ -132,7 +79,7 @@ std::string ModifyInstanceAttributeRequest::getUserData()const
 void ModifyInstanceAttributeRequest::setUserData(const std::string& userData)
 {
 	userData_ = userData;
-	setCoreParameter("UserData", userData);
+	setParameter("UserData", userData);
 }
 
 std::string ModifyInstanceAttributeRequest::getPassword()const
@@ -143,7 +90,7 @@ std::string ModifyInstanceAttributeRequest::getPassword()const
 void ModifyInstanceAttributeRequest::setPassword(const std::string& password)
 {
 	password_ = password;
-	setCoreParameter("Password", password);
+	setParameter("Password", password);
 }
 
 std::string ModifyInstanceAttributeRequest::getHostName()const
@@ -154,7 +101,64 @@ std::string ModifyInstanceAttributeRequest::getHostName()const
 void ModifyInstanceAttributeRequest::setHostName(const std::string& hostName)
 {
 	hostName_ = hostName;
-	setCoreParameter("HostName", hostName);
+	setParameter("HostName", hostName);
+}
+
+std::string ModifyInstanceAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyInstanceAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyInstanceAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyInstanceAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::string ModifyInstanceAttributeRequest::getCreditSpecification()const
+{
+	return creditSpecification_;
+}
+
+void ModifyInstanceAttributeRequest::setCreditSpecification(const std::string& creditSpecification)
+{
+	creditSpecification_ = creditSpecification;
+	setParameter("CreditSpecification", creditSpecification);
+}
+
+long ModifyInstanceAttributeRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void ModifyInstanceAttributeRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<std::string> ModifyInstanceAttributeRequest::getSecurityGroupIds()const
+{
+	return securityGroupIds_;
+}
+
+void ModifyInstanceAttributeRequest::setSecurityGroupIds(const std::vector<std::string>& securityGroupIds)
+{
+	securityGroupIds_ = securityGroupIds;
+	for(int dep1 = 0; dep1!= securityGroupIds.size(); dep1++) {
+		setParameter("SecurityGroupIds."+ std::to_string(dep1), securityGroupIds.at(dep1));
+	}
 }
 
 std::string ModifyInstanceAttributeRequest::getInstanceId()const
@@ -165,7 +169,7 @@ std::string ModifyInstanceAttributeRequest::getInstanceId()const
 void ModifyInstanceAttributeRequest::setInstanceId(const std::string& instanceId)
 {
 	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
+	setParameter("InstanceId", instanceId);
 }
 
 std::string ModifyInstanceAttributeRequest::getInstanceName()const
@@ -176,6 +180,6 @@ std::string ModifyInstanceAttributeRequest::getInstanceName()const
 void ModifyInstanceAttributeRequest::setInstanceName(const std::string& instanceName)
 {
 	instanceName_ = instanceName;
-	setCoreParameter("InstanceName", instanceName);
+	setParameter("InstanceName", instanceName);
 }
 

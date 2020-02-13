@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::RecoverVirtualBorderRouterRequest;
 
 RecoverVirtualBorderRouterRequest::RecoverVirtualBorderRouterRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "RecoverVirtualBorderRouter")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 RecoverVirtualBorderRouterRequest::~RecoverVirtualBorderRouterRequest()
 {}
@@ -33,29 +35,7 @@ long RecoverVirtualBorderRouterRequest::getResourceOwnerId()const
 void RecoverVirtualBorderRouterRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string RecoverVirtualBorderRouterRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void RecoverVirtualBorderRouterRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string RecoverVirtualBorderRouterRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void RecoverVirtualBorderRouterRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string RecoverVirtualBorderRouterRequest::getClientToken()const
@@ -66,29 +46,7 @@ std::string RecoverVirtualBorderRouterRequest::getClientToken()const
 void RecoverVirtualBorderRouterRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string RecoverVirtualBorderRouterRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void RecoverVirtualBorderRouterRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string RecoverVirtualBorderRouterRequest::getUserCidr()const
-{
-	return userCidr_;
-}
-
-void RecoverVirtualBorderRouterRequest::setUserCidr(const std::string& userCidr)
-{
-	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
+	setParameter("ClientToken", clientToken);
 }
 
 std::string RecoverVirtualBorderRouterRequest::getVbrId()const
@@ -99,7 +57,51 @@ std::string RecoverVirtualBorderRouterRequest::getVbrId()const
 void RecoverVirtualBorderRouterRequest::setVbrId(const std::string& vbrId)
 {
 	vbrId_ = vbrId;
-	setCoreParameter("VbrId", vbrId);
+	setParameter("VbrId", vbrId);
+}
+
+std::string RecoverVirtualBorderRouterRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void RecoverVirtualBorderRouterRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string RecoverVirtualBorderRouterRequest::getUserCidr()const
+{
+	return userCidr_;
+}
+
+void RecoverVirtualBorderRouterRequest::setUserCidr(const std::string& userCidr)
+{
+	userCidr_ = userCidr;
+	setParameter("UserCidr", userCidr);
+}
+
+std::string RecoverVirtualBorderRouterRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void RecoverVirtualBorderRouterRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string RecoverVirtualBorderRouterRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void RecoverVirtualBorderRouterRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long RecoverVirtualBorderRouterRequest::getOwnerId()const
@@ -110,6 +112,6 @@ long RecoverVirtualBorderRouterRequest::getOwnerId()const
 void RecoverVirtualBorderRouterRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

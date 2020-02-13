@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DeleteBandwidthPackageRequest;
 
 DeleteBandwidthPackageRequest::DeleteBandwidthPackageRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DeleteBandwidthPackage")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DeleteBandwidthPackageRequest::~DeleteBandwidthPackageRequest()
 {}
@@ -33,29 +35,7 @@ long DeleteBandwidthPackageRequest::getResourceOwnerId()const
 void DeleteBandwidthPackageRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DeleteBandwidthPackageRequest::getBandwidthPackageId()const
-{
-	return bandwidthPackageId_;
-}
-
-void DeleteBandwidthPackageRequest::setBandwidthPackageId(const std::string& bandwidthPackageId)
-{
-	bandwidthPackageId_ = bandwidthPackageId;
-	setCoreParameter("BandwidthPackageId", bandwidthPackageId);
-}
-
-std::string DeleteBandwidthPackageRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DeleteBandwidthPackageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DeleteBandwidthPackageRequest::getRegionId()const
@@ -66,7 +46,29 @@ std::string DeleteBandwidthPackageRequest::getRegionId()const
 void DeleteBandwidthPackageRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DeleteBandwidthPackageRequest::getBandwidthPackageId()const
+{
+	return bandwidthPackageId_;
+}
+
+void DeleteBandwidthPackageRequest::setBandwidthPackageId(const std::string& bandwidthPackageId)
+{
+	bandwidthPackageId_ = bandwidthPackageId;
+	setParameter("BandwidthPackageId", bandwidthPackageId);
+}
+
+std::string DeleteBandwidthPackageRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DeleteBandwidthPackageRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DeleteBandwidthPackageRequest::getOwnerAccount()const
@@ -77,7 +79,7 @@ std::string DeleteBandwidthPackageRequest::getOwnerAccount()const
 void DeleteBandwidthPackageRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DeleteBandwidthPackageRequest::getOwnerId()const
@@ -88,6 +90,6 @@ long DeleteBandwidthPackageRequest::getOwnerId()const
 void DeleteBandwidthPackageRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

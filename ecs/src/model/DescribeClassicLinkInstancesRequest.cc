@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeClassicLinkInstancesRequest;
 
 DescribeClassicLinkInstancesRequest::DescribeClassicLinkInstancesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeClassicLinkInstances")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeClassicLinkInstancesRequest::~DescribeClassicLinkInstancesRequest()
 {}
-
-std::string DescribeClassicLinkInstancesRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeClassicLinkInstancesRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeClassicLinkInstancesRequest::getResourceOwnerId()const
 {
@@ -44,73 +35,7 @@ long DescribeClassicLinkInstancesRequest::getResourceOwnerId()const
 void DescribeClassicLinkInstancesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeClassicLinkInstancesRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void DescribeClassicLinkInstancesRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
-}
-
-std::string DescribeClassicLinkInstancesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeClassicLinkInstancesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeClassicLinkInstancesRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeClassicLinkInstancesRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeClassicLinkInstancesRequest::getVpcId()const
-{
-	return vpcId_;
-}
-
-void DescribeClassicLinkInstancesRequest::setVpcId(const std::string& vpcId)
-{
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
-}
-
-std::string DescribeClassicLinkInstancesRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeClassicLinkInstancesRequest::setPageSize(const std::string& pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", pageSize);
-}
-
-long DescribeClassicLinkInstancesRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeClassicLinkInstancesRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeClassicLinkInstancesRequest::getPageNumber()const
@@ -121,6 +46,72 @@ std::string DescribeClassicLinkInstancesRequest::getPageNumber()const
 void DescribeClassicLinkInstancesRequest::setPageNumber(const std::string& pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", pageNumber);
+	setParameter("PageNumber", pageNumber);
+}
+
+std::string DescribeClassicLinkInstancesRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeClassicLinkInstancesRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeClassicLinkInstancesRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeClassicLinkInstancesRequest::setPageSize(const std::string& pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", pageSize);
+}
+
+std::string DescribeClassicLinkInstancesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeClassicLinkInstancesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+long DescribeClassicLinkInstancesRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeClassicLinkInstancesRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeClassicLinkInstancesRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void DescribeClassicLinkInstancesRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
+}
+
+std::string DescribeClassicLinkInstancesRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void DescribeClassicLinkInstancesRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
 }
 

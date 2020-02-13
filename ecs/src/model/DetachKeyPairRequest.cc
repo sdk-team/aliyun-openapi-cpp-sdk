@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DetachKeyPairRequest;
 
 DetachKeyPairRequest::DetachKeyPairRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DetachKeyPair")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DetachKeyPairRequest::~DetachKeyPairRequest()
 {}
@@ -33,40 +35,7 @@ long DetachKeyPairRequest::getResourceOwnerId()const
 void DetachKeyPairRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DetachKeyPairRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DetachKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DetachKeyPairRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DetachKeyPairRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DetachKeyPairRequest::getInstanceIds()const
-{
-	return instanceIds_;
-}
-
-void DetachKeyPairRequest::setInstanceIds(const std::string& instanceIds)
-{
-	instanceIds_ = instanceIds;
-	setCoreParameter("InstanceIds", instanceIds);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DetachKeyPairRequest::getKeyPairName()const
@@ -77,7 +46,29 @@ std::string DetachKeyPairRequest::getKeyPairName()const
 void DetachKeyPairRequest::setKeyPairName(const std::string& keyPairName)
 {
 	keyPairName_ = keyPairName;
-	setCoreParameter("KeyPairName", keyPairName);
+	setParameter("KeyPairName", keyPairName);
+}
+
+std::string DetachKeyPairRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DetachKeyPairRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string DetachKeyPairRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DetachKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long DetachKeyPairRequest::getOwnerId()const
@@ -88,6 +79,17 @@ long DetachKeyPairRequest::getOwnerId()const
 void DetachKeyPairRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DetachKeyPairRequest::getInstanceIds()const
+{
+	return instanceIds_;
+}
+
+void DetachKeyPairRequest::setInstanceIds(const std::string& instanceIds)
+{
+	instanceIds_ = instanceIds;
+	setParameter("InstanceIds", instanceIds);
 }
 

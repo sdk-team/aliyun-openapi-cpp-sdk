@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::CreateForwardEntryRequest;
 
 CreateForwardEntryRequest::CreateForwardEntryRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "CreateForwardEntry")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 CreateForwardEntryRequest::~CreateForwardEntryRequest()
 {}
@@ -33,62 +35,7 @@ long CreateForwardEntryRequest::getResourceOwnerId()const
 void CreateForwardEntryRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string CreateForwardEntryRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void CreateForwardEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string CreateForwardEntryRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void CreateForwardEntryRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string CreateForwardEntryRequest::getIpProtocol()const
-{
-	return ipProtocol_;
-}
-
-void CreateForwardEntryRequest::setIpProtocol(const std::string& ipProtocol)
-{
-	ipProtocol_ = ipProtocol;
-	setCoreParameter("IpProtocol", ipProtocol);
-}
-
-std::string CreateForwardEntryRequest::getInternalPort()const
-{
-	return internalPort_;
-}
-
-void CreateForwardEntryRequest::setInternalPort(const std::string& internalPort)
-{
-	internalPort_ = internalPort;
-	setCoreParameter("InternalPort", internalPort);
-}
-
-std::string CreateForwardEntryRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void CreateForwardEntryRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string CreateForwardEntryRequest::getForwardTableId()const
@@ -99,40 +46,7 @@ std::string CreateForwardEntryRequest::getForwardTableId()const
 void CreateForwardEntryRequest::setForwardTableId(const std::string& forwardTableId)
 {
 	forwardTableId_ = forwardTableId;
-	setCoreParameter("ForwardTableId", forwardTableId);
-}
-
-long CreateForwardEntryRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void CreateForwardEntryRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
-}
-
-std::string CreateForwardEntryRequest::getExternalIp()const
-{
-	return externalIp_;
-}
-
-void CreateForwardEntryRequest::setExternalIp(const std::string& externalIp)
-{
-	externalIp_ = externalIp;
-	setCoreParameter("ExternalIp", externalIp);
-}
-
-std::string CreateForwardEntryRequest::getExternalPort()const
-{
-	return externalPort_;
-}
-
-void CreateForwardEntryRequest::setExternalPort(const std::string& externalPort)
-{
-	externalPort_ = externalPort;
-	setCoreParameter("ExternalPort", externalPort);
+	setParameter("ForwardTableId", forwardTableId);
 }
 
 std::string CreateForwardEntryRequest::getInternalIp()const
@@ -143,6 +57,94 @@ std::string CreateForwardEntryRequest::getInternalIp()const
 void CreateForwardEntryRequest::setInternalIp(const std::string& internalIp)
 {
 	internalIp_ = internalIp;
-	setCoreParameter("InternalIp", internalIp);
+	setParameter("InternalIp", internalIp);
+}
+
+std::string CreateForwardEntryRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void CreateForwardEntryRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string CreateForwardEntryRequest::getExternalIp()const
+{
+	return externalIp_;
+}
+
+void CreateForwardEntryRequest::setExternalIp(const std::string& externalIp)
+{
+	externalIp_ = externalIp;
+	setParameter("ExternalIp", externalIp);
+}
+
+std::string CreateForwardEntryRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void CreateForwardEntryRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string CreateForwardEntryRequest::getIpProtocol()const
+{
+	return ipProtocol_;
+}
+
+void CreateForwardEntryRequest::setIpProtocol(const std::string& ipProtocol)
+{
+	ipProtocol_ = ipProtocol;
+	setParameter("IpProtocol", ipProtocol);
+}
+
+std::string CreateForwardEntryRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void CreateForwardEntryRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long CreateForwardEntryRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void CreateForwardEntryRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string CreateForwardEntryRequest::getInternalPort()const
+{
+	return internalPort_;
+}
+
+void CreateForwardEntryRequest::setInternalPort(const std::string& internalPort)
+{
+	internalPort_ = internalPort;
+	setParameter("InternalPort", internalPort);
+}
+
+std::string CreateForwardEntryRequest::getExternalPort()const
+{
+	return externalPort_;
+}
+
+void CreateForwardEntryRequest::setExternalPort(const std::string& externalPort)
+{
+	externalPort_ = externalPort;
+	setParameter("ExternalPort", externalPort);
 }
 

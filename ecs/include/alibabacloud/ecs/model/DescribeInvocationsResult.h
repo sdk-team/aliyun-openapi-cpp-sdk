@@ -36,12 +36,27 @@ namespace AlibabaCloud
 				{
 					struct InvokeInstance
 					{
+						int dropped;
+						std::string invocationStatus;
 						std::string instanceId;
 						std::string instanceInvokeStatus;
+						long exitCode;
+						std::string errorInfo;
+						std::string startTime;
+						int repeats;
+						std::string finishTime;
+						std::string output;
+						std::string creationTime;
+						std::string updateTime;
+						std::string errorCode;
+						std::string stopTime;
 					};
+					std::string commandContent;
 					std::string invokeStatus;
+					std::string parameters;
 					std::string commandType;
 					bool timed;
+					std::string creationTime;
 					std::string frequency;
 					std::string commandId;
 					std::string commandName;

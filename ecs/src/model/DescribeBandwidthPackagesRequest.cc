@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeBandwidthPackagesRequest;
 
 DescribeBandwidthPackagesRequest::DescribeBandwidthPackagesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeBandwidthPackages")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeBandwidthPackagesRequest::~DescribeBandwidthPackagesRequest()
 {}
@@ -33,84 +35,7 @@ long DescribeBandwidthPackagesRequest::getResourceOwnerId()const
 void DescribeBandwidthPackagesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeBandwidthPackagesRequest::getBandwidthPackageId()const
-{
-	return bandwidthPackageId_;
-}
-
-void DescribeBandwidthPackagesRequest::setBandwidthPackageId(const std::string& bandwidthPackageId)
-{
-	bandwidthPackageId_ = bandwidthPackageId;
-	setCoreParameter("BandwidthPackageId", bandwidthPackageId);
-}
-
-std::string DescribeBandwidthPackagesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeBandwidthPackagesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeBandwidthPackagesRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeBandwidthPackagesRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeBandwidthPackagesRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeBandwidthPackagesRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-int DescribeBandwidthPackagesRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeBandwidthPackagesRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-std::string DescribeBandwidthPackagesRequest::getNatGatewayId()const
-{
-	return natGatewayId_;
-}
-
-void DescribeBandwidthPackagesRequest::setNatGatewayId(const std::string& natGatewayId)
-{
-	natGatewayId_ = natGatewayId;
-	setCoreParameter("NatGatewayId", natGatewayId);
-}
-
-long DescribeBandwidthPackagesRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeBandwidthPackagesRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 int DescribeBandwidthPackagesRequest::getPageNumber()const
@@ -121,6 +46,83 @@ int DescribeBandwidthPackagesRequest::getPageNumber()const
 void DescribeBandwidthPackagesRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeBandwidthPackagesRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeBandwidthPackagesRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeBandwidthPackagesRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeBandwidthPackagesRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeBandwidthPackagesRequest::getNatGatewayId()const
+{
+	return natGatewayId_;
+}
+
+void DescribeBandwidthPackagesRequest::setNatGatewayId(const std::string& natGatewayId)
+{
+	natGatewayId_ = natGatewayId;
+	setParameter("NatGatewayId", natGatewayId);
+}
+
+std::string DescribeBandwidthPackagesRequest::getBandwidthPackageId()const
+{
+	return bandwidthPackageId_;
+}
+
+void DescribeBandwidthPackagesRequest::setBandwidthPackageId(const std::string& bandwidthPackageId)
+{
+	bandwidthPackageId_ = bandwidthPackageId;
+	setParameter("BandwidthPackageId", bandwidthPackageId);
+}
+
+std::string DescribeBandwidthPackagesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeBandwidthPackagesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeBandwidthPackagesRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeBandwidthPackagesRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeBandwidthPackagesRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeBandwidthPackagesRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

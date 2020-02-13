@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeDedicatedHostAutoRenewRequest;
 
 DescribeDedicatedHostAutoRenewRequest::DescribeDedicatedHostAutoRenewRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeDedicatedHostAutoRenew")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeDedicatedHostAutoRenewRequest::~DescribeDedicatedHostAutoRenewRequest()
 {}
@@ -33,7 +35,7 @@ std::string DescribeDedicatedHostAutoRenewRequest::getDedicatedHostIds()const
 void DescribeDedicatedHostAutoRenewRequest::setDedicatedHostIds(const std::string& dedicatedHostIds)
 {
 	dedicatedHostIds_ = dedicatedHostIds;
-	setCoreParameter("DedicatedHostIds", dedicatedHostIds);
+	setParameter("DedicatedHostIds", dedicatedHostIds);
 }
 
 long DescribeDedicatedHostAutoRenewRequest::getResourceOwnerId()const
@@ -44,18 +46,7 @@ long DescribeDedicatedHostAutoRenewRequest::getResourceOwnerId()const
 void DescribeDedicatedHostAutoRenewRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeDedicatedHostAutoRenewRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeDedicatedHostAutoRenewRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeDedicatedHostAutoRenewRequest::getRegionId()const
@@ -66,7 +57,18 @@ std::string DescribeDedicatedHostAutoRenewRequest::getRegionId()const
 void DescribeDedicatedHostAutoRenewRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
+}
+
+std::string DescribeDedicatedHostAutoRenewRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeDedicatedHostAutoRenewRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string DescribeDedicatedHostAutoRenewRequest::getOwnerAccount()const
@@ -77,7 +79,7 @@ std::string DescribeDedicatedHostAutoRenewRequest::getOwnerAccount()const
 void DescribeDedicatedHostAutoRenewRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long DescribeDedicatedHostAutoRenewRequest::getOwnerId()const
@@ -88,6 +90,6 @@ long DescribeDedicatedHostAutoRenewRequest::getOwnerId()const
 void DescribeDedicatedHostAutoRenewRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

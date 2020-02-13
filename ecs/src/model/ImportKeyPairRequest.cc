@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ImportKeyPairRequest;
 
 ImportKeyPairRequest::ImportKeyPairRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ImportKeyPair")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ImportKeyPairRequest::~ImportKeyPairRequest()
 {}
-
-std::string ImportKeyPairRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ImportKeyPairRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ImportKeyPairRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long ImportKeyPairRequest::getResourceOwnerId()const
 void ImportKeyPairRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ImportKeyPairRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ImportKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ImportKeyPairRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ImportKeyPairRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string ImportKeyPairRequest::getPublicKeyBody()const
-{
-	return publicKeyBody_;
-}
-
-void ImportKeyPairRequest::setPublicKeyBody(const std::string& publicKeyBody)
-{
-	publicKeyBody_ = publicKeyBody;
-	setCoreParameter("PublicKeyBody", publicKeyBody);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ImportKeyPairRequest::getKeyPairName()const
@@ -88,7 +46,40 @@ std::string ImportKeyPairRequest::getKeyPairName()const
 void ImportKeyPairRequest::setKeyPairName(const std::string& keyPairName)
 {
 	keyPairName_ = keyPairName;
-	setCoreParameter("KeyPairName", keyPairName);
+	setParameter("KeyPairName", keyPairName);
+}
+
+std::string ImportKeyPairRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ImportKeyPairRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string ImportKeyPairRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ImportKeyPairRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ImportKeyPairRequest::getPublicKeyBody()const
+{
+	return publicKeyBody_;
+}
+
+void ImportKeyPairRequest::setPublicKeyBody(const std::string& publicKeyBody)
+{
+	publicKeyBody_ = publicKeyBody;
+	setParameter("PublicKeyBody", publicKeyBody);
 }
 
 long ImportKeyPairRequest::getOwnerId()const
@@ -99,6 +90,6 @@ long ImportKeyPairRequest::getOwnerId()const
 void ImportKeyPairRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

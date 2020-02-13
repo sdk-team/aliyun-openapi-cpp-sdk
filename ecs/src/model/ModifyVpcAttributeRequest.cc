@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifyVpcAttributeRequest;
 
 ModifyVpcAttributeRequest::ModifyVpcAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyVpcAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyVpcAttributeRequest::~ModifyVpcAttributeRequest()
 {}
-
-std::string ModifyVpcAttributeRequest::getVpcName()const
-{
-	return vpcName_;
-}
-
-void ModifyVpcAttributeRequest::setVpcName(const std::string& vpcName)
-{
-	vpcName_ = vpcName;
-	setCoreParameter("VpcName", vpcName);
-}
 
 long ModifyVpcAttributeRequest::getResourceOwnerId()const
 {
@@ -44,62 +35,7 @@ long ModifyVpcAttributeRequest::getResourceOwnerId()const
 void ModifyVpcAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyVpcAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyVpcAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifyVpcAttributeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ModifyVpcAttributeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string ModifyVpcAttributeRequest::getVpcId()const
-{
-	return vpcId_;
-}
-
-void ModifyVpcAttributeRequest::setVpcId(const std::string& vpcId)
-{
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
-}
-
-std::string ModifyVpcAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifyVpcAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-std::string ModifyVpcAttributeRequest::getCidrBlock()const
-{
-	return cidrBlock_;
-}
-
-void ModifyVpcAttributeRequest::setCidrBlock(const std::string& cidrBlock)
-{
-	cidrBlock_ = cidrBlock;
-	setCoreParameter("CidrBlock", cidrBlock);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyVpcAttributeRequest::getDescription()const
@@ -110,7 +46,29 @@ std::string ModifyVpcAttributeRequest::getDescription()const
 void ModifyVpcAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string ModifyVpcAttributeRequest::getVpcName()const
+{
+	return vpcName_;
+}
+
+void ModifyVpcAttributeRequest::setVpcName(const std::string& vpcName)
+{
+	vpcName_ = vpcName;
+	setParameter("VpcName", vpcName);
+}
+
+std::string ModifyVpcAttributeRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ModifyVpcAttributeRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
 }
 
 std::string ModifyVpcAttributeRequest::getUserCidr()const
@@ -121,7 +79,29 @@ std::string ModifyVpcAttributeRequest::getUserCidr()const
 void ModifyVpcAttributeRequest::setUserCidr(const std::string& userCidr)
 {
 	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
+	setParameter("UserCidr", userCidr);
+}
+
+std::string ModifyVpcAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyVpcAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyVpcAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyVpcAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyVpcAttributeRequest::getOwnerId()const
@@ -132,6 +112,28 @@ long ModifyVpcAttributeRequest::getOwnerId()const
 void ModifyVpcAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ModifyVpcAttributeRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void ModifyVpcAttributeRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
+}
+
+std::string ModifyVpcAttributeRequest::getCidrBlock()const
+{
+	return cidrBlock_;
+}
+
+void ModifyVpcAttributeRequest::setCidrBlock(const std::string& cidrBlock)
+{
+	cidrBlock_ = cidrBlock;
+	setParameter("CidrBlock", cidrBlock);
 }
 

@@ -20,7 +20,9 @@ using AlibabaCloud::Ecs::Model::DescribeEipAddressesRequest;
 
 DescribeEipAddressesRequest::DescribeEipAddressesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeEipAddresses")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeEipAddressesRequest::~DescribeEipAddressesRequest()
 {}
@@ -33,18 +35,7 @@ long DescribeEipAddressesRequest::getResourceOwnerId()const
 void DescribeEipAddressesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeEipAddressesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeEipAddressesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeEipAddressesRequest::getFilter2Value()const
@@ -55,7 +46,7 @@ std::string DescribeEipAddressesRequest::getFilter2Value()const
 void DescribeEipAddressesRequest::setFilter2Value(const std::string& filter2Value)
 {
 	filter2Value_ = filter2Value;
-	setCoreParameter("Filter2Value", filter2Value);
+	setParameter("Filter2Value", filter2Value);
 }
 
 std::string DescribeEipAddressesRequest::getISP()const
@@ -66,18 +57,7 @@ std::string DescribeEipAddressesRequest::getISP()const
 void DescribeEipAddressesRequest::setISP(const std::string& iSP)
 {
 	iSP_ = iSP;
-	setCoreParameter("ISP", iSP);
-}
-
-std::string DescribeEipAddressesRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeEipAddressesRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ISP", iSP);
 }
 
 std::string DescribeEipAddressesRequest::getAllocationId()const
@@ -88,40 +68,7 @@ std::string DescribeEipAddressesRequest::getAllocationId()const
 void DescribeEipAddressesRequest::setAllocationId(const std::string& allocationId)
 {
 	allocationId_ = allocationId;
-	setCoreParameter("AllocationId", allocationId);
-}
-
-std::string DescribeEipAddressesRequest::getFilter1Value()const
-{
-	return filter1Value_;
-}
-
-void DescribeEipAddressesRequest::setFilter1Value(const std::string& filter1Value)
-{
-	filter1Value_ = filter1Value;
-	setCoreParameter("Filter1Value", filter1Value);
-}
-
-std::string DescribeEipAddressesRequest::getFilter2Key()const
-{
-	return filter2Key_;
-}
-
-void DescribeEipAddressesRequest::setFilter2Key(const std::string& filter2Key)
-{
-	filter2Key_ = filter2Key;
-	setCoreParameter("Filter2Key", filter2Key);
-}
-
-long DescribeEipAddressesRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeEipAddressesRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("AllocationId", allocationId);
 }
 
 std::string DescribeEipAddressesRequest::getEipAddress()const
@@ -132,7 +79,7 @@ std::string DescribeEipAddressesRequest::getEipAddress()const
 void DescribeEipAddressesRequest::setEipAddress(const std::string& eipAddress)
 {
 	eipAddress_ = eipAddress;
-	setCoreParameter("EipAddress", eipAddress);
+	setParameter("EipAddress", eipAddress);
 }
 
 int DescribeEipAddressesRequest::getPageNumber()const
@@ -143,7 +90,7 @@ int DescribeEipAddressesRequest::getPageNumber()const
 void DescribeEipAddressesRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
 }
 
 std::string DescribeEipAddressesRequest::getLockReason()const
@@ -154,7 +101,7 @@ std::string DescribeEipAddressesRequest::getLockReason()const
 void DescribeEipAddressesRequest::setLockReason(const std::string& lockReason)
 {
 	lockReason_ = lockReason;
-	setCoreParameter("LockReason", lockReason);
+	setParameter("LockReason", lockReason);
 }
 
 std::string DescribeEipAddressesRequest::getFilter1Key()const
@@ -165,7 +112,7 @@ std::string DescribeEipAddressesRequest::getFilter1Key()const
 void DescribeEipAddressesRequest::setFilter1Key(const std::string& filter1Key)
 {
 	filter1Key_ = filter1Key;
-	setCoreParameter("Filter1Key", filter1Key);
+	setParameter("Filter1Key", filter1Key);
 }
 
 std::string DescribeEipAddressesRequest::getRegionId()const
@@ -176,7 +123,7 @@ std::string DescribeEipAddressesRequest::getRegionId()const
 void DescribeEipAddressesRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 std::string DescribeEipAddressesRequest::getAssociatedInstanceType()const
@@ -187,7 +134,7 @@ std::string DescribeEipAddressesRequest::getAssociatedInstanceType()const
 void DescribeEipAddressesRequest::setAssociatedInstanceType(const std::string& associatedInstanceType)
 {
 	associatedInstanceType_ = associatedInstanceType;
-	setCoreParameter("AssociatedInstanceType", associatedInstanceType);
+	setParameter("AssociatedInstanceType", associatedInstanceType);
 }
 
 int DescribeEipAddressesRequest::getPageSize()const
@@ -198,7 +145,62 @@ int DescribeEipAddressesRequest::getPageSize()const
 void DescribeEipAddressesRequest::setPageSize(int pageSize)
 {
 	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeEipAddressesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeEipAddressesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeEipAddressesRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeEipAddressesRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+std::string DescribeEipAddressesRequest::getFilter1Value()const
+{
+	return filter1Value_;
+}
+
+void DescribeEipAddressesRequest::setFilter1Value(const std::string& filter1Value)
+{
+	filter1Value_ = filter1Value;
+	setParameter("Filter1Value", filter1Value);
+}
+
+std::string DescribeEipAddressesRequest::getFilter2Key()const
+{
+	return filter2Key_;
+}
+
+void DescribeEipAddressesRequest::setFilter2Key(const std::string& filter2Key)
+{
+	filter2Key_ = filter2Key;
+	setParameter("Filter2Key", filter2Key);
+}
+
+long DescribeEipAddressesRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeEipAddressesRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string DescribeEipAddressesRequest::getChargeType()const
@@ -209,7 +211,7 @@ std::string DescribeEipAddressesRequest::getChargeType()const
 void DescribeEipAddressesRequest::setChargeType(const std::string& chargeType)
 {
 	chargeType_ = chargeType;
-	setCoreParameter("ChargeType", chargeType);
+	setParameter("ChargeType", chargeType);
 }
 
 std::string DescribeEipAddressesRequest::getAssociatedInstanceId()const
@@ -220,7 +222,7 @@ std::string DescribeEipAddressesRequest::getAssociatedInstanceId()const
 void DescribeEipAddressesRequest::setAssociatedInstanceId(const std::string& associatedInstanceId)
 {
 	associatedInstanceId_ = associatedInstanceId;
-	setCoreParameter("AssociatedInstanceId", associatedInstanceId);
+	setParameter("AssociatedInstanceId", associatedInstanceId);
 }
 
 std::string DescribeEipAddressesRequest::getStatus()const
@@ -231,6 +233,6 @@ std::string DescribeEipAddressesRequest::getStatus()const
 void DescribeEipAddressesRequest::setStatus(const std::string& status)
 {
 	status_ = status;
-	setCoreParameter("Status", status);
+	setParameter("Status", status);
 }
 

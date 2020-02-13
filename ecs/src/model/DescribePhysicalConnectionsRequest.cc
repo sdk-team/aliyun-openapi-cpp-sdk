@@ -20,27 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribePhysicalConnectionsRequest;
 
 DescribePhysicalConnectionsRequest::DescribePhysicalConnectionsRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribePhysicalConnections")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribePhysicalConnectionsRequest::~DescribePhysicalConnectionsRequest()
 {}
-
-std::vector<DescribePhysicalConnectionsRequest::Filter> DescribePhysicalConnectionsRequest::getFilter()const
-{
-	return filter_;
-}
-
-void DescribePhysicalConnectionsRequest::setFilter(const std::vector<Filter>& filter)
-{
-	filter_ = filter;
-	int i = 0;
-	for(int i = 0; i!= filter.size(); i++)	{
-		auto obj = filter.at(i);
-		std::string str ="Filter."+ std::to_string(i);
-		for(int i = 0; i!= obj.value.size(); i++)				setCoreParameter(str + ".Value."+ std::to_string(i), obj.value.at(i));
-		setCoreParameter(str + ".Key", obj.key);
-	}
-}
 
 long DescribePhysicalConnectionsRequest::getResourceOwnerId()const
 {
@@ -50,29 +35,7 @@ long DescribePhysicalConnectionsRequest::getResourceOwnerId()const
 void DescribePhysicalConnectionsRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribePhysicalConnectionsRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribePhysicalConnectionsRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribePhysicalConnectionsRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribePhysicalConnectionsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribePhysicalConnectionsRequest::getClientToken()const
@@ -83,51 +46,7 @@ std::string DescribePhysicalConnectionsRequest::getClientToken()const
 void DescribePhysicalConnectionsRequest::setClientToken(const std::string& clientToken)
 {
 	clientToken_ = clientToken;
-	setCoreParameter("ClientToken", clientToken);
-}
-
-std::string DescribePhysicalConnectionsRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribePhysicalConnectionsRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-int DescribePhysicalConnectionsRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribePhysicalConnectionsRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-std::string DescribePhysicalConnectionsRequest::getUserCidr()const
-{
-	return userCidr_;
-}
-
-void DescribePhysicalConnectionsRequest::setUserCidr(const std::string& userCidr)
-{
-	userCidr_ = userCidr;
-	setCoreParameter("UserCidr", userCidr);
-}
-
-long DescribePhysicalConnectionsRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribePhysicalConnectionsRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ClientToken", clientToken);
 }
 
 int DescribePhysicalConnectionsRequest::getPageNumber()const
@@ -138,6 +57,90 @@ int DescribePhysicalConnectionsRequest::getPageNumber()const
 void DescribePhysicalConnectionsRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribePhysicalConnectionsRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribePhysicalConnectionsRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribePhysicalConnectionsRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribePhysicalConnectionsRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribePhysicalConnectionsRequest::getUserCidr()const
+{
+	return userCidr_;
+}
+
+void DescribePhysicalConnectionsRequest::setUserCidr(const std::string& userCidr)
+{
+	userCidr_ = userCidr;
+	setParameter("UserCidr", userCidr);
+}
+
+std::string DescribePhysicalConnectionsRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribePhysicalConnectionsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribePhysicalConnectionsRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribePhysicalConnectionsRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribePhysicalConnectionsRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribePhysicalConnectionsRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::vector<DescribePhysicalConnectionsRequest::Filter> DescribePhysicalConnectionsRequest::getFilter()const
+{
+	return filter_;
+}
+
+void DescribePhysicalConnectionsRequest::setFilter(const std::vector<Filter>& filter)
+{
+	filter_ = filter;
+	for(int dep1 = 0; dep1!= filter.size(); dep1++) {
+		auto filterObj = filter.at(dep1);
+		std::string filterObjStr = "Filter." + std::to_string(dep1 + 1);
+		for(int dep2 = 0; dep2!= filterObj.value.size(); dep2++) {
+			setParameter(filterObjStr + ".Value."+ std::to_string(dep2), filterObj.value.at(dep2));
+		}
+		setParameter(filterObjStr + ".Key", filterObj.key);
+	}
 }
 

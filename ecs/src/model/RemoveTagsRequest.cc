@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::RemoveTagsRequest;
 
 RemoveTagsRequest::RemoveTagsRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "RemoveTags")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 RemoveTagsRequest::~RemoveTagsRequest()
 {}
-
-std::string RemoveTagsRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void RemoveTagsRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long RemoveTagsRequest::getResourceOwnerId()const
 {
@@ -44,29 +35,7 @@ long RemoveTagsRequest::getResourceOwnerId()const
 void RemoveTagsRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string RemoveTagsRequest::getResourceId()const
-{
-	return resourceId_;
-}
-
-void RemoveTagsRequest::setResourceId(const std::string& resourceId)
-{
-	resourceId_ = resourceId;
-	setCoreParameter("ResourceId", resourceId);
-}
-
-std::string RemoveTagsRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void RemoveTagsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string RemoveTagsRequest::getRegionId()const
@@ -77,7 +46,7 @@ std::string RemoveTagsRequest::getRegionId()const
 void RemoveTagsRequest::setRegionId(const std::string& regionId)
 {
 	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
+	setParameter("RegionId", regionId);
 }
 
 std::vector<RemoveTagsRequest::Tag> RemoveTagsRequest::getTag()const
@@ -88,13 +57,34 @@ std::vector<RemoveTagsRequest::Tag> RemoveTagsRequest::getTag()const
 void RemoveTagsRequest::setTag(const std::vector<Tag>& tag)
 {
 	tag_ = tag;
-	int i = 0;
-	for(int i = 0; i!= tag.size(); i++)	{
-		auto obj = tag.at(i);
-		std::string str ="Tag."+ std::to_string(i);
-		setCoreParameter(str + ".Value", obj.value);
-		setCoreParameter(str + ".Key", obj.key);
+	for(int dep1 = 0; dep1!= tag.size(); dep1++) {
+		auto tagObj = tag.at(dep1);
+		std::string tagObjStr = "Tag." + std::to_string(dep1 + 1);
+		setParameter(tagObjStr + ".Value", tagObj.value);
+		setParameter(tagObjStr + ".Key", tagObj.key);
 	}
+}
+
+std::string RemoveTagsRequest::getResourceId()const
+{
+	return resourceId_;
+}
+
+void RemoveTagsRequest::setResourceId(const std::string& resourceId)
+{
+	resourceId_ = resourceId;
+	setParameter("ResourceId", resourceId);
+}
+
+std::string RemoveTagsRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void RemoveTagsRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 long RemoveTagsRequest::getOwnerId()const
@@ -105,7 +95,7 @@ long RemoveTagsRequest::getOwnerId()const
 void RemoveTagsRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
 std::string RemoveTagsRequest::getResourceType()const
@@ -116,6 +106,6 @@ std::string RemoveTagsRequest::getResourceType()const
 void RemoveTagsRequest::setResourceType(const std::string& resourceType)
 {
 	resourceType_ = resourceType;
-	setCoreParameter("ResourceType", resourceType);
+	setParameter("ResourceType", resourceType);
 }
 

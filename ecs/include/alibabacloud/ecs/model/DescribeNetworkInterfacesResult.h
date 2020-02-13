@@ -74,6 +74,7 @@ namespace AlibabaCloud
 					long serviceID;
 					std::string type;
 					std::vector<NetworkInterfaceSet::Ipv6Set> ipv6Sets;
+					int queueNumber;
 					std::string vpcId;
 					AssociatedPublicIp associatedPublicIp;
 					std::string creationTime;
@@ -87,6 +88,7 @@ namespace AlibabaCloud
 				~DescribeNetworkInterfacesResult();
 				int getTotalCount()const;
 				int getPageSize()const;
+				std::string getNextToken()const;
 				int getPageNumber()const;
 				std::vector<NetworkInterfaceSet> getNetworkInterfaceSets()const;
 
@@ -95,6 +97,7 @@ namespace AlibabaCloud
 			private:
 				int totalCount_;
 				int pageSize_;
+				std::string nextToken_;
 				int pageNumber_;
 				std::vector<NetworkInterfaceSet> networkInterfaceSets_;
 

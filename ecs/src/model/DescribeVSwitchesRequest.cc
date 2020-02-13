@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeVSwitchesRequest;
 
 DescribeVSwitchesRequest::DescribeVSwitchesRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeVSwitches")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeVSwitchesRequest::~DescribeVSwitchesRequest()
 {}
-
-std::string DescribeVSwitchesRequest::getVSwitchId()const
-{
-	return vSwitchId_;
-}
-
-void DescribeVSwitchesRequest::setVSwitchId(const std::string& vSwitchId)
-{
-	vSwitchId_ = vSwitchId;
-	setCoreParameter("VSwitchId", vSwitchId);
-}
 
 long DescribeVSwitchesRequest::getResourceOwnerId()const
 {
@@ -44,95 +35,7 @@ long DescribeVSwitchesRequest::getResourceOwnerId()const
 void DescribeVSwitchesRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string DescribeVSwitchesRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeVSwitchesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeVSwitchesRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeVSwitchesRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeVSwitchesRequest::getVpcId()const
-{
-	return vpcId_;
-}
-
-void DescribeVSwitchesRequest::setVpcId(const std::string& vpcId)
-{
-	vpcId_ = vpcId;
-	setCoreParameter("VpcId", vpcId);
-}
-
-std::string DescribeVSwitchesRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeVSwitchesRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-int DescribeVSwitchesRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeVSwitchesRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-std::string DescribeVSwitchesRequest::getZoneId()const
-{
-	return zoneId_;
-}
-
-void DescribeVSwitchesRequest::setZoneId(const std::string& zoneId)
-{
-	zoneId_ = zoneId;
-	setCoreParameter("ZoneId", zoneId);
-}
-
-bool DescribeVSwitchesRequest::getIsDefault()const
-{
-	return isDefault_;
-}
-
-void DescribeVSwitchesRequest::setIsDefault(bool isDefault)
-{
-	isDefault_ = isDefault;
-	setCoreParameter("IsDefault", isDefault ? "true" : "false");
-}
-
-long DescribeVSwitchesRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeVSwitchesRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 int DescribeVSwitchesRequest::getPageNumber()const
@@ -143,6 +46,105 @@ int DescribeVSwitchesRequest::getPageNumber()const
 void DescribeVSwitchesRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeVSwitchesRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeVSwitchesRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeVSwitchesRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeVSwitchesRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+bool DescribeVSwitchesRequest::getIsDefault()const
+{
+	return isDefault_;
+}
+
+void DescribeVSwitchesRequest::setIsDefault(bool isDefault)
+{
+	isDefault_ = isDefault;
+	setParameter("IsDefault", isDefault ? "true" : "false");
+}
+
+std::string DescribeVSwitchesRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeVSwitchesRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeVSwitchesRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeVSwitchesRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeVSwitchesRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeVSwitchesRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string DescribeVSwitchesRequest::getVSwitchId()const
+{
+	return vSwitchId_;
+}
+
+void DescribeVSwitchesRequest::setVSwitchId(const std::string& vSwitchId)
+{
+	vSwitchId_ = vSwitchId;
+	setParameter("VSwitchId", vSwitchId);
+}
+
+std::string DescribeVSwitchesRequest::getVpcId()const
+{
+	return vpcId_;
+}
+
+void DescribeVSwitchesRequest::setVpcId(const std::string& vpcId)
+{
+	vpcId_ = vpcId;
+	setParameter("VpcId", vpcId);
+}
+
+std::string DescribeVSwitchesRequest::getZoneId()const
+{
+	return zoneId_;
+}
+
+void DescribeVSwitchesRequest::setZoneId(const std::string& zoneId)
+{
+	zoneId_ = zoneId;
+	setParameter("ZoneId", zoneId);
 }
 

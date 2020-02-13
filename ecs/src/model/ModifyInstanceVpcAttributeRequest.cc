@@ -20,43 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifyInstanceVpcAttributeRequest;
 
 ModifyInstanceVpcAttributeRequest::ModifyInstanceVpcAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyInstanceVpcAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyInstanceVpcAttributeRequest::~ModifyInstanceVpcAttributeRequest()
 {}
-
-std::string ModifyInstanceVpcAttributeRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ModifyInstanceVpcAttributeRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
-
-std::string ModifyInstanceVpcAttributeRequest::getVSwitchId()const
-{
-	return vSwitchId_;
-}
-
-void ModifyInstanceVpcAttributeRequest::setVSwitchId(const std::string& vSwitchId)
-{
-	vSwitchId_ = vSwitchId;
-	setCoreParameter("VSwitchId", vSwitchId);
-}
-
-std::string ModifyInstanceVpcAttributeRequest::getPrivateIpAddress()const
-{
-	return privateIpAddress_;
-}
-
-void ModifyInstanceVpcAttributeRequest::setPrivateIpAddress(const std::string& privateIpAddress)
-{
-	privateIpAddress_ = privateIpAddress;
-	setCoreParameter("PrivateIpAddress", privateIpAddress);
-}
 
 long ModifyInstanceVpcAttributeRequest::getResourceOwnerId()const
 {
@@ -66,18 +35,7 @@ long ModifyInstanceVpcAttributeRequest::getResourceOwnerId()const
 void ModifyInstanceVpcAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyInstanceVpcAttributeRequest::getInstanceId()const
-{
-	return instanceId_;
-}
-
-void ModifyInstanceVpcAttributeRequest::setInstanceId(const std::string& instanceId)
-{
-	instanceId_ = instanceId;
-	setCoreParameter("InstanceId", instanceId);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyInstanceVpcAttributeRequest::getResourceOwnerAccount()const
@@ -88,7 +46,7 @@ std::string ModifyInstanceVpcAttributeRequest::getResourceOwnerAccount()const
 void ModifyInstanceVpcAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
 {
 	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
 }
 
 std::string ModifyInstanceVpcAttributeRequest::getOwnerAccount()const
@@ -99,7 +57,7 @@ std::string ModifyInstanceVpcAttributeRequest::getOwnerAccount()const
 void ModifyInstanceVpcAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
 {
 	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyInstanceVpcAttributeRequest::getOwnerId()const
@@ -110,6 +68,39 @@ long ModifyInstanceVpcAttributeRequest::getOwnerId()const
 void ModifyInstanceVpcAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ModifyInstanceVpcAttributeRequest::getVSwitchId()const
+{
+	return vSwitchId_;
+}
+
+void ModifyInstanceVpcAttributeRequest::setVSwitchId(const std::string& vSwitchId)
+{
+	vSwitchId_ = vSwitchId;
+	setParameter("VSwitchId", vSwitchId);
+}
+
+std::string ModifyInstanceVpcAttributeRequest::getPrivateIpAddress()const
+{
+	return privateIpAddress_;
+}
+
+void ModifyInstanceVpcAttributeRequest::setPrivateIpAddress(const std::string& privateIpAddress)
+{
+	privateIpAddress_ = privateIpAddress;
+	setParameter("PrivateIpAddress", privateIpAddress);
+}
+
+std::string ModifyInstanceVpcAttributeRequest::getInstanceId()const
+{
+	return instanceId_;
+}
+
+void ModifyInstanceVpcAttributeRequest::setInstanceId(const std::string& instanceId)
+{
+	instanceId_ = instanceId;
+	setParameter("InstanceId", instanceId);
 }
 

@@ -38,14 +38,13 @@ void DescribeClustersResult::parse(const std::string &payload)
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
-
 	setRequestId(value["RequestId"].asString());
-	auto allClusters = value["Clusters"]["Cluster"];
-	for (auto value : allClusters)
+	auto allClustersNode = value["Clusters"]["Cluster"];
+	for (auto valueClustersCluster : allClustersNode)
 	{
 		Cluster clustersObject;
-		if(!value["ClusterId"].isNull())
-			clustersObject.clusterId = value["ClusterId"].asString();
+		if(!valueClustersCluster["ClusterId"].isNull())
+			clustersObject.clusterId = valueClustersCluster["ClusterId"].asString();
 		clusters_.push_back(clustersObject);
 	}
 

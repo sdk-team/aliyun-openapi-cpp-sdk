@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifyVSwitchAttributeRequest;
 
 ModifyVSwitchAttributeRequest::ModifyVSwitchAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifyVSwitchAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifyVSwitchAttributeRequest::~ModifyVSwitchAttributeRequest()
 {}
-
-std::string ModifyVSwitchAttributeRequest::getVSwitchId()const
-{
-	return vSwitchId_;
-}
-
-void ModifyVSwitchAttributeRequest::setVSwitchId(const std::string& vSwitchId)
-{
-	vSwitchId_ = vSwitchId;
-	setCoreParameter("VSwitchId", vSwitchId);
-}
 
 long ModifyVSwitchAttributeRequest::getResourceOwnerId()const
 {
@@ -44,51 +35,7 @@ long ModifyVSwitchAttributeRequest::getResourceOwnerId()const
 void ModifyVSwitchAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifyVSwitchAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifyVSwitchAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifyVSwitchAttributeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ModifyVSwitchAttributeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string ModifyVSwitchAttributeRequest::getVSwitchName()const
-{
-	return vSwitchName_;
-}
-
-void ModifyVSwitchAttributeRequest::setVSwitchName(const std::string& vSwitchName)
-{
-	vSwitchName_ = vSwitchName;
-	setCoreParameter("VSwitchName", vSwitchName);
-}
-
-std::string ModifyVSwitchAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifyVSwitchAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifyVSwitchAttributeRequest::getDescription()const
@@ -99,7 +46,40 @@ std::string ModifyVSwitchAttributeRequest::getDescription()const
 void ModifyVSwitchAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
+	setParameter("Description", description);
+}
+
+std::string ModifyVSwitchAttributeRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ModifyVSwitchAttributeRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string ModifyVSwitchAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifyVSwitchAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifyVSwitchAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifyVSwitchAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
 }
 
 long ModifyVSwitchAttributeRequest::getOwnerId()const
@@ -110,6 +90,28 @@ long ModifyVSwitchAttributeRequest::getOwnerId()const
 void ModifyVSwitchAttributeRequest::setOwnerId(long ownerId)
 {
 	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("OwnerId", std::to_string(ownerId));
+}
+
+std::string ModifyVSwitchAttributeRequest::getVSwitchId()const
+{
+	return vSwitchId_;
+}
+
+void ModifyVSwitchAttributeRequest::setVSwitchId(const std::string& vSwitchId)
+{
+	vSwitchId_ = vSwitchId;
+	setParameter("VSwitchId", vSwitchId);
+}
+
+std::string ModifyVSwitchAttributeRequest::getVSwitchName()const
+{
+	return vSwitchName_;
+}
+
+void ModifyVSwitchAttributeRequest::setVSwitchName(const std::string& vSwitchName)
+{
+	vSwitchName_ = vSwitchName;
+	setParameter("VSwitchName", vSwitchName);
 }
 

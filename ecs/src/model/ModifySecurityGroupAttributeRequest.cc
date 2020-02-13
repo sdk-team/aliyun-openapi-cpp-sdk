@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::ModifySecurityGroupAttributeRequest;
 
 ModifySecurityGroupAttributeRequest::ModifySecurityGroupAttributeRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "ModifySecurityGroupAttribute")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 ModifySecurityGroupAttributeRequest::~ModifySecurityGroupAttributeRequest()
 {}
-
-std::string ModifySecurityGroupAttributeRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void ModifySecurityGroupAttributeRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long ModifySecurityGroupAttributeRequest::getResourceOwnerId()const
 {
@@ -44,40 +35,7 @@ long ModifySecurityGroupAttributeRequest::getResourceOwnerId()const
 void ModifySecurityGroupAttributeRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
-}
-
-std::string ModifySecurityGroupAttributeRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void ModifySecurityGroupAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string ModifySecurityGroupAttributeRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void ModifySecurityGroupAttributeRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string ModifySecurityGroupAttributeRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void ModifySecurityGroupAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string ModifySecurityGroupAttributeRequest::getSecurityGroupId()const
@@ -88,7 +46,7 @@ std::string ModifySecurityGroupAttributeRequest::getSecurityGroupId()const
 void ModifySecurityGroupAttributeRequest::setSecurityGroupId(const std::string& securityGroupId)
 {
 	securityGroupId_ = securityGroupId;
-	setCoreParameter("SecurityGroupId", securityGroupId);
+	setParameter("SecurityGroupId", securityGroupId);
 }
 
 std::string ModifySecurityGroupAttributeRequest::getDescription()const
@@ -99,18 +57,7 @@ std::string ModifySecurityGroupAttributeRequest::getDescription()const
 void ModifySecurityGroupAttributeRequest::setDescription(const std::string& description)
 {
 	description_ = description;
-	setCoreParameter("Description", description);
-}
-
-long ModifySecurityGroupAttributeRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void ModifySecurityGroupAttributeRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("Description", description);
 }
 
 std::string ModifySecurityGroupAttributeRequest::getSecurityGroupName()const
@@ -121,6 +68,50 @@ std::string ModifySecurityGroupAttributeRequest::getSecurityGroupName()const
 void ModifySecurityGroupAttributeRequest::setSecurityGroupName(const std::string& securityGroupName)
 {
 	securityGroupName_ = securityGroupName;
-	setCoreParameter("SecurityGroupName", securityGroupName);
+	setParameter("SecurityGroupName", securityGroupName);
+}
+
+std::string ModifySecurityGroupAttributeRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void ModifySecurityGroupAttributeRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+std::string ModifySecurityGroupAttributeRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void ModifySecurityGroupAttributeRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string ModifySecurityGroupAttributeRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void ModifySecurityGroupAttributeRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long ModifySecurityGroupAttributeRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void ModifySecurityGroupAttributeRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 

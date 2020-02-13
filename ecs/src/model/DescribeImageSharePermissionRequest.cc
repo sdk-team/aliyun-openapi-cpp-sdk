@@ -20,21 +20,12 @@ using AlibabaCloud::Ecs::Model::DescribeImageSharePermissionRequest;
 
 DescribeImageSharePermissionRequest::DescribeImageSharePermissionRequest() :
 	RpcServiceRequest("ecs", "2014-05-26", "DescribeImageSharePermission")
-{}
+{
+	setMethod(HttpRequest::Method::Post);
+}
 
 DescribeImageSharePermissionRequest::~DescribeImageSharePermissionRequest()
 {}
-
-std::string DescribeImageSharePermissionRequest::getSourceRegionId()const
-{
-	return sourceRegionId_;
-}
-
-void DescribeImageSharePermissionRequest::setSourceRegionId(const std::string& sourceRegionId)
-{
-	sourceRegionId_ = sourceRegionId;
-	setCoreParameter("SourceRegionId", sourceRegionId);
-}
 
 long DescribeImageSharePermissionRequest::getResourceOwnerId()const
 {
@@ -44,7 +35,7 @@ long DescribeImageSharePermissionRequest::getResourceOwnerId()const
 void DescribeImageSharePermissionRequest::setResourceOwnerId(long resourceOwnerId)
 {
 	resourceOwnerId_ = resourceOwnerId;
-	setCoreParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
+	setParameter("ResourceOwnerId", std::to_string(resourceOwnerId));
 }
 
 std::string DescribeImageSharePermissionRequest::getImageId()const
@@ -55,62 +46,7 @@ std::string DescribeImageSharePermissionRequest::getImageId()const
 void DescribeImageSharePermissionRequest::setImageId(const std::string& imageId)
 {
 	imageId_ = imageId;
-	setCoreParameter("ImageId", imageId);
-}
-
-std::string DescribeImageSharePermissionRequest::getResourceOwnerAccount()const
-{
-	return resourceOwnerAccount_;
-}
-
-void DescribeImageSharePermissionRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
-{
-	resourceOwnerAccount_ = resourceOwnerAccount;
-	setCoreParameter("ResourceOwnerAccount", resourceOwnerAccount);
-}
-
-std::string DescribeImageSharePermissionRequest::getRegionId()const
-{
-	return regionId_;
-}
-
-void DescribeImageSharePermissionRequest::setRegionId(const std::string& regionId)
-{
-	regionId_ = regionId;
-	setCoreParameter("RegionId", regionId);
-}
-
-std::string DescribeImageSharePermissionRequest::getOwnerAccount()const
-{
-	return ownerAccount_;
-}
-
-void DescribeImageSharePermissionRequest::setOwnerAccount(const std::string& ownerAccount)
-{
-	ownerAccount_ = ownerAccount;
-	setCoreParameter("OwnerAccount", ownerAccount);
-}
-
-int DescribeImageSharePermissionRequest::getPageSize()const
-{
-	return pageSize_;
-}
-
-void DescribeImageSharePermissionRequest::setPageSize(int pageSize)
-{
-	pageSize_ = pageSize;
-	setCoreParameter("PageSize", std::to_string(pageSize));
-}
-
-long DescribeImageSharePermissionRequest::getOwnerId()const
-{
-	return ownerId_;
-}
-
-void DescribeImageSharePermissionRequest::setOwnerId(long ownerId)
-{
-	ownerId_ = ownerId;
-	setCoreParameter("OwnerId", std::to_string(ownerId));
+	setParameter("ImageId", imageId);
 }
 
 int DescribeImageSharePermissionRequest::getPageNumber()const
@@ -121,6 +57,61 @@ int DescribeImageSharePermissionRequest::getPageNumber()const
 void DescribeImageSharePermissionRequest::setPageNumber(int pageNumber)
 {
 	pageNumber_ = pageNumber;
-	setCoreParameter("PageNumber", std::to_string(pageNumber));
+	setParameter("PageNumber", std::to_string(pageNumber));
+}
+
+std::string DescribeImageSharePermissionRequest::getRegionId()const
+{
+	return regionId_;
+}
+
+void DescribeImageSharePermissionRequest::setRegionId(const std::string& regionId)
+{
+	regionId_ = regionId;
+	setParameter("RegionId", regionId);
+}
+
+int DescribeImageSharePermissionRequest::getPageSize()const
+{
+	return pageSize_;
+}
+
+void DescribeImageSharePermissionRequest::setPageSize(int pageSize)
+{
+	pageSize_ = pageSize;
+	setParameter("PageSize", std::to_string(pageSize));
+}
+
+std::string DescribeImageSharePermissionRequest::getResourceOwnerAccount()const
+{
+	return resourceOwnerAccount_;
+}
+
+void DescribeImageSharePermissionRequest::setResourceOwnerAccount(const std::string& resourceOwnerAccount)
+{
+	resourceOwnerAccount_ = resourceOwnerAccount;
+	setParameter("ResourceOwnerAccount", resourceOwnerAccount);
+}
+
+std::string DescribeImageSharePermissionRequest::getOwnerAccount()const
+{
+	return ownerAccount_;
+}
+
+void DescribeImageSharePermissionRequest::setOwnerAccount(const std::string& ownerAccount)
+{
+	ownerAccount_ = ownerAccount;
+	setParameter("OwnerAccount", ownerAccount);
+}
+
+long DescribeImageSharePermissionRequest::getOwnerId()const
+{
+	return ownerId_;
+}
+
+void DescribeImageSharePermissionRequest::setOwnerId(long ownerId)
+{
+	ownerId_ = ownerId;
+	setParameter("OwnerId", std::to_string(ownerId));
 }
 
