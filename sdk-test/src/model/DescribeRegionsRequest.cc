@@ -35,6 +35,6 @@ std::string DescribeRegionsRequest::getName()const
 void DescribeRegionsRequest::setName(const std::string& name)
 {
 	name_ = name;
-	setCoreParameter("Name", name);
+	setParameter("Name", name);
 }
 
