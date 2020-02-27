@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/FtGatedLaunchPolicyApiRequest.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::FtGatedLaunchPolicyApiRequest;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
-	RoaServiceRequest("ft", "2019-08-02")
+FtGatedLaunchPolicyApiRequest::FtGatedLaunchPolicyApiRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "FtGatedLaunchPolicyApi")
 {
-	setResourcePath("/web/getData");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+FtGatedLaunchPolicyApiRequest::~FtGatedLaunchPolicyApiRequest()
 {}
 
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
+std::string FtGatedLaunchPolicyApiRequest::getUnGatedLaunchPolicy()const
 {
-	return queryParam_;
+	return unGatedLaunchPolicy_;
 }
 
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
+void FtGatedLaunchPolicyApiRequest::setUnGatedLaunchPolicy(const std::string& unGatedLaunchPolicy)
 {
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
+	unGatedLaunchPolicy_ = unGatedLaunchPolicy;
+	setParameter("UnGatedLaunchPolicy", unGatedLaunchPolicy);
 }
 

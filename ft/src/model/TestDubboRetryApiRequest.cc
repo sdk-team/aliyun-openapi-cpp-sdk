@@ -14,28 +14,16 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/TestDubboRetryApiRequest.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::TestDubboRetryApiRequest;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
-	RoaServiceRequest("ft", "2019-08-02")
+TestDubboRetryApiRequest::TestDubboRetryApiRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "TestDubboRetryApi")
 {
-	setResourcePath("/web/getData");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+TestDubboRetryApiRequest::~TestDubboRetryApiRequest()
 {}
-
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
-{
-	return queryParam_;
-}
-
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
-{
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
-}
 

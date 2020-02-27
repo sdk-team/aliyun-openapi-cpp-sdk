@@ -14,28 +14,17 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/Add23Request.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::Add23Request;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
+Add23Request::Add23Request() :
 	RoaServiceRequest("ft", "2019-08-02")
 {
-	setResourcePath("/web/getData");
+	setResourcePath("/add23");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+Add23Request::~Add23Request()
 {}
-
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
-{
-	return queryParam_;
-}
-
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
-{
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
-}
 

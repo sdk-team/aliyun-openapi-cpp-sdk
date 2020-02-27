@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
-	RoaServiceRequest("ft", "2019-08-02")
+FtIpFlowControlRequest::FtIpFlowControlRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
 {
-	setResourcePath("/web/getData");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+FtIpFlowControlRequest::~FtIpFlowControlRequest()
 {}
 
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
+std::string FtIpFlowControlRequest::getName()const
 {
-	return queryParam_;
+	return name_;
 }
 
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
+void FtIpFlowControlRequest::setName(const std::string& name)
 {
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
+	name_ = name;
+	setParameter("Name", name);
 }
 

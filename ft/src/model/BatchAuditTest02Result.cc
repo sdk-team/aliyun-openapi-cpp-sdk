@@ -14,39 +14,38 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestResult.h>
+#include <alibabacloud/ft/model/BatchAuditTest02Result.h>
 #include <json/json.h>
 
 using namespace AlibabaCloud::Ft;
 using namespace AlibabaCloud::Ft::Model;
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult() :
+BatchAuditTest02Result::BatchAuditTest02Result() :
 	ServiceResult()
 {}
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult(const std::string &payload) :
+BatchAuditTest02Result::BatchAuditTest02Result(const std::string &payload) :
 	ServiceResult()
 {
 	parse(payload);
 }
 
-RoaHttpStringResponseTestResult::~RoaHttpStringResponseTestResult()
+BatchAuditTest02Result::~BatchAuditTest02Result()
 {}
 
-void RoaHttpStringResponseTestResult::parse(const std::string &payload)
+void BatchAuditTest02Result::parse(const std::string &payload)
 {
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto paramsNode = value["Params"];
-	if(!paramsNode["QueryParam"].isNull())
-		params_.queryParam = paramsNode["QueryParam"].asString();
+	if(!value["Name"].isNull())
+		name_ = value["Name"].asString();
 
 }
 
-RoaHttpStringResponseTestResult::Params RoaHttpStringResponseTestResult::getParams()const
+std::string BatchAuditTest02Result::getName()const
 {
-	return params_;
+	return name_;
 }
 

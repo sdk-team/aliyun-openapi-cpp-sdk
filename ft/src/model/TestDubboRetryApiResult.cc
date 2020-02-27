@@ -14,39 +14,31 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestResult.h>
+#include <alibabacloud/ft/model/TestDubboRetryApiResult.h>
 #include <json/json.h>
 
 using namespace AlibabaCloud::Ft;
 using namespace AlibabaCloud::Ft::Model;
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult() :
+TestDubboRetryApiResult::TestDubboRetryApiResult() :
 	ServiceResult()
 {}
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult(const std::string &payload) :
+TestDubboRetryApiResult::TestDubboRetryApiResult(const std::string &payload) :
 	ServiceResult()
 {
 	parse(payload);
 }
 
-RoaHttpStringResponseTestResult::~RoaHttpStringResponseTestResult()
+TestDubboRetryApiResult::~TestDubboRetryApiResult()
 {}
 
-void RoaHttpStringResponseTestResult::parse(const std::string &payload)
+void TestDubboRetryApiResult::parse(const std::string &payload)
 {
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto paramsNode = value["Params"];
-	if(!paramsNode["QueryParam"].isNull())
-		params_.queryParam = paramsNode["QueryParam"].asString();
 
-}
-
-RoaHttpStringResponseTestResult::Params RoaHttpStringResponseTestResult::getParams()const
-{
-	return params_;
 }
 

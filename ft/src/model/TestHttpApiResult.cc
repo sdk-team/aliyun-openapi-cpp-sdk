@@ -14,38 +14,44 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestResult.h>
+#include <alibabacloud/ft/model/TestHttpApiResult.h>
 #include <json/json.h>
 
 using namespace AlibabaCloud::Ft;
 using namespace AlibabaCloud::Ft::Model;
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult() :
+TestHttpApiResult::TestHttpApiResult() :
 	ServiceResult()
 {}
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult(const std::string &payload) :
+TestHttpApiResult::TestHttpApiResult(const std::string &payload) :
 	ServiceResult()
 {
 	parse(payload);
 }
 
-RoaHttpStringResponseTestResult::~RoaHttpStringResponseTestResult()
+TestHttpApiResult::~TestHttpApiResult()
 {}
 
-void RoaHttpStringResponseTestResult::parse(const std::string &payload)
+void TestHttpApiResult::parse(const std::string &payload)
 {
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto paramsNode = value["Params"];
-	if(!paramsNode["QueryParam"].isNull())
-		params_.queryParam = paramsNode["QueryParam"].asString();
+	if(!value["Params"].isNull())
+		params_ = value["Params"].asString();
+	if(!value["ServiceRpcSign"].isNull())
+		serviceRpcSign_ = value["ServiceRpcSign"].asString();
 
 }
 
-RoaHttpStringResponseTestResult::Params RoaHttpStringResponseTestResult::getParams()const
+std::string TestHttpApiResult::getServiceRpcSign()const
+{
+	return serviceRpcSign_;
+}
+
+std::string TestHttpApiResult::getParams()const
 {
 	return params_;
 }

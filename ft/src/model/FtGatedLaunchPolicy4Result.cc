@@ -14,39 +14,38 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestResult.h>
+#include <alibabacloud/ft/model/FtGatedLaunchPolicy4Result.h>
 #include <json/json.h>
 
 using namespace AlibabaCloud::Ft;
 using namespace AlibabaCloud::Ft::Model;
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult() :
+FtGatedLaunchPolicy4Result::FtGatedLaunchPolicy4Result() :
 	ServiceResult()
 {}
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult(const std::string &payload) :
+FtGatedLaunchPolicy4Result::FtGatedLaunchPolicy4Result(const std::string &payload) :
 	ServiceResult()
 {
 	parse(payload);
 }
 
-RoaHttpStringResponseTestResult::~RoaHttpStringResponseTestResult()
+FtGatedLaunchPolicy4Result::~FtGatedLaunchPolicy4Result()
 {}
 
-void RoaHttpStringResponseTestResult::parse(const std::string &payload)
+void FtGatedLaunchPolicy4Result::parse(const std::string &payload)
 {
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto paramsNode = value["Params"];
-	if(!paramsNode["QueryParam"].isNull())
-		params_.queryParam = paramsNode["QueryParam"].asString();
+	if(!value["IsGatedLaunch"].isNull())
+		isGatedLaunch_ = value["IsGatedLaunch"].asString();
 
 }
 
-RoaHttpStringResponseTestResult::Params RoaHttpStringResponseTestResult::getParams()const
+std::string FtGatedLaunchPolicy4Result::getIsGatedLaunch()const
 {
-	return params_;
+	return isGatedLaunch_;
 }
 

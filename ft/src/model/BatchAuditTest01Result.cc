@@ -14,39 +14,52 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestResult.h>
+#include <alibabacloud/ft/model/BatchAuditTest01Result.h>
 #include <json/json.h>
 
 using namespace AlibabaCloud::Ft;
 using namespace AlibabaCloud::Ft::Model;
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult() :
+BatchAuditTest01Result::BatchAuditTest01Result() :
 	ServiceResult()
 {}
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult(const std::string &payload) :
+BatchAuditTest01Result::BatchAuditTest01Result(const std::string &payload) :
 	ServiceResult()
 {
 	parse(payload);
 }
 
-RoaHttpStringResponseTestResult::~RoaHttpStringResponseTestResult()
+BatchAuditTest01Result::~BatchAuditTest01Result()
 {}
 
-void RoaHttpStringResponseTestResult::parse(const std::string &payload)
+void BatchAuditTest01Result::parse(const std::string &payload)
 {
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto paramsNode = value["Params"];
-	if(!paramsNode["QueryParam"].isNull())
-		params_.queryParam = paramsNode["QueryParam"].asString();
+	auto demo01Node = value["Demo01"];
+	auto allDemo011Node = demo01Node["Demo011"]["Demo011Item"];
+	for (auto demo01NodeDemo011Demo011Item : allDemo011Node)
+	{
+		Demo01::Demo011Item demo011ItemObject;
+		if(!demo01NodeDemo011Demo011Item["Demo0111"].isNull())
+			demo011ItemObject.demo0111 = demo01NodeDemo011Demo011Item["Demo0111"].asString();
+		demo01_.demo011.push_back(demo011ItemObject);
+	}
+	if(!value["Name"].isNull())
+		name_ = value["Name"].asString();
 
 }
 
-RoaHttpStringResponseTestResult::Params RoaHttpStringResponseTestResult::getParams()const
+BatchAuditTest01Result::Demo01 BatchAuditTest01Result::getDemo01()const
 {
-	return params_;
+	return demo01_;
+}
+
+std::string BatchAuditTest01Result::getName()const
+{
+	return name_;
 }
 

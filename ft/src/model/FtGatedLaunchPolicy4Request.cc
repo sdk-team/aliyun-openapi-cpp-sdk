@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/FtGatedLaunchPolicy4Request.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::FtGatedLaunchPolicy4Request;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
-	RoaServiceRequest("ft", "2019-08-02")
+FtGatedLaunchPolicy4Request::FtGatedLaunchPolicy4Request() :
+	RpcServiceRequest("ft", "2018-07-13", "FtGatedLaunchPolicy4")
 {
-	setResourcePath("/web/getData");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+FtGatedLaunchPolicy4Request::~FtGatedLaunchPolicy4Request()
 {}
 
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
+std::string FtGatedLaunchPolicy4Request::getIsGatedLaunch()const
 {
-	return queryParam_;
+	return isGatedLaunch_;
 }
 
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
+void FtGatedLaunchPolicy4Request::setIsGatedLaunch(const std::string& isGatedLaunch)
 {
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
+	isGatedLaunch_ = isGatedLaunch;
+	setParameter("IsGatedLaunch", isGatedLaunch);
 }
 

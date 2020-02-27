@@ -14,28 +14,39 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/DescribeOssSpecRequest.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::DescribeOssSpecRequest;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
+DescribeOssSpecRequest::DescribeOssSpecRequest() :
 	RoaServiceRequest("ft", "2019-08-02")
 {
-	setResourcePath("/web/getData");
+	setResourcePath("/oss/spec");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+DescribeOssSpecRequest::~DescribeOssSpecRequest()
 {}
 
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
+std::string DescribeOssSpecRequest::getPassword()const
 {
-	return queryParam_;
+	return password_;
 }
 
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
+void DescribeOssSpecRequest::setPassword(const std::string& password)
 {
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
+	password_ = password;
+	setParameter("Password", password);
+}
+
+std::string DescribeOssSpecRequest::getTimeStemp()const
+{
+	return timeStemp_;
+}
+
+void DescribeOssSpecRequest::setTimeStemp(const std::string& timeStemp)
+{
+	timeStemp_ = timeStemp;
+	setParameter("TimeStemp", timeStemp);
 }
 

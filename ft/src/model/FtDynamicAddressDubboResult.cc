@@ -14,39 +14,45 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestResult.h>
+#include <alibabacloud/ft/model/FtDynamicAddressDubboResult.h>
 #include <json/json.h>
 
 using namespace AlibabaCloud::Ft;
 using namespace AlibabaCloud::Ft::Model;
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult() :
+FtDynamicAddressDubboResult::FtDynamicAddressDubboResult() :
 	ServiceResult()
 {}
 
-RoaHttpStringResponseTestResult::RoaHttpStringResponseTestResult(const std::string &payload) :
+FtDynamicAddressDubboResult::FtDynamicAddressDubboResult(const std::string &payload) :
 	ServiceResult()
 {
 	parse(payload);
 }
 
-RoaHttpStringResponseTestResult::~RoaHttpStringResponseTestResult()
+FtDynamicAddressDubboResult::~FtDynamicAddressDubboResult()
 {}
 
-void RoaHttpStringResponseTestResult::parse(const std::string &payload)
+void FtDynamicAddressDubboResult::parse(const std::string &payload)
 {
 	Json::Reader reader;
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto paramsNode = value["Params"];
-	if(!paramsNode["QueryParam"].isNull())
-		params_.queryParam = paramsNode["QueryParam"].asString();
+	if(!value["StringValue"].isNull())
+		stringValue_ = value["StringValue"].asString();
+	if(!value["IntValue"].isNull())
+		intValue_ = std::stoi(value["IntValue"].asString());
 
 }
 
-RoaHttpStringResponseTestResult::Params RoaHttpStringResponseTestResult::getParams()const
+std::string FtDynamicAddressDubboResult::getStringValue()const
 {
-	return params_;
+	return stringValue_;
+}
+
+int FtDynamicAddressDubboResult::getIntValue()const
+{
+	return intValue_;
 }
 

@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/FtGatedLaunchPolicy3ApiRequest.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::FtGatedLaunchPolicy3ApiRequest;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
-	RoaServiceRequest("ft", "2019-08-02")
+FtGatedLaunchPolicy3ApiRequest::FtGatedLaunchPolicy3ApiRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "FtGatedLaunchPolicy3Api")
 {
-	setResourcePath("/web/getData");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+FtGatedLaunchPolicy3ApiRequest::~FtGatedLaunchPolicy3ApiRequest()
 {}
 
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
+std::string FtGatedLaunchPolicy3ApiRequest::getName()const
 {
-	return queryParam_;
+	return name_;
 }
 
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
+void FtGatedLaunchPolicy3ApiRequest::setName(const std::string& name)
 {
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
+	name_ = name;
+	setParameter("Name", name);
 }
 

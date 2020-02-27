@@ -21,13 +21,101 @@ set(ft_public_header
 	include/alibabacloud/ft/FtExport.h )
 
 set(ft_public_header_model 
+	include/alibabacloud/ft/model/Add23Request.h
+	include/alibabacloud/ft/model/Add23Result.h
+	include/alibabacloud/ft/model/AddApiRequest.h
+	include/alibabacloud/ft/model/AddApiResult.h
+	include/alibabacloud/ft/model/AddTestRequest.h
+	include/alibabacloud/ft/model/AddTestResult.h
+	include/alibabacloud/ft/model/BatchAuditTest01Request.h
+	include/alibabacloud/ft/model/BatchAuditTest01Result.h
+	include/alibabacloud/ft/model/BatchAuditTest02Request.h
+	include/alibabacloud/ft/model/BatchAuditTest02Result.h
+	include/alibabacloud/ft/model/CreateInstanceRequest.h
+	include/alibabacloud/ft/model/CreateInstanceResult.h
+	include/alibabacloud/ft/model/DescribeOssSpecRequest.h
+	include/alibabacloud/ft/model/DescribeOssSpecResult.h
+	include/alibabacloud/ft/model/DescribeResourceTypeRequest.h
+	include/alibabacloud/ft/model/DescribeResourceTypeResult.h
+	include/alibabacloud/ft/model/FTApiAliasApiRequest.h
+	include/alibabacloud/ft/model/FTApiAliasApiResult.h
+	include/alibabacloud/ft/model/FtDynamicAddressDubboRequest.h
+	include/alibabacloud/ft/model/FtDynamicAddressDubboResult.h
+	include/alibabacloud/ft/model/FtDynamicAddressHsfRequest.h
+	include/alibabacloud/ft/model/FtDynamicAddressHsfResult.h
+	include/alibabacloud/ft/model/FtEagleEyeRequest.h
+	include/alibabacloud/ft/model/FtEagleEyeResult.h
+	include/alibabacloud/ft/model/FtFlowSpecialRequest.h
+	include/alibabacloud/ft/model/FtFlowSpecialResult.h
+	include/alibabacloud/ft/model/FtGatedLaunchPolicy3ApiRequest.h
+	include/alibabacloud/ft/model/FtGatedLaunchPolicy3ApiResult.h
+	include/alibabacloud/ft/model/FtGatedLaunchPolicy4Request.h
+	include/alibabacloud/ft/model/FtGatedLaunchPolicy4Result.h
+	include/alibabacloud/ft/model/FtGatedLaunchPolicyApiRequest.h
+	include/alibabacloud/ft/model/FtGatedLaunchPolicyApiResult.h
+	include/alibabacloud/ft/model/FtIpFlowControlRequest.h
+	include/alibabacloud/ft/model/FtIpFlowControlResult.h
+	include/alibabacloud/ft/model/FtParamListRequest.h
+	include/alibabacloud/ft/model/FtParamListResult.h
 	include/alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h
-	include/alibabacloud/ft/model/RoaHttpStringResponseTestResult.h )
+	include/alibabacloud/ft/model/RoaHttpStringResponseTestResult.h
+	include/alibabacloud/ft/model/TestDubboRetryApiRequest.h
+	include/alibabacloud/ft/model/TestDubboRetryApiResult.h
+	include/alibabacloud/ft/model/TestErrorCodeForGateWayRequest.h
+	include/alibabacloud/ft/model/TestErrorCodeForGateWayResult.h
+	include/alibabacloud/ft/model/TestHttpApiRequest.h
+	include/alibabacloud/ft/model/TestHttpApiResult.h
+	include/alibabacloud/ft/model/Testlmz01Request.h
+	include/alibabacloud/ft/model/Testlmz01Result.h )
 
 set(ft_src 
 	src/FtClient.cc
+	src/model/Add23Request.cc
+	src/model/Add23Result.cc
+	src/model/AddApiRequest.cc
+	src/model/AddApiResult.cc
+	src/model/AddTestRequest.cc
+	src/model/AddTestResult.cc
+	src/model/BatchAuditTest01Request.cc
+	src/model/BatchAuditTest01Result.cc
+	src/model/BatchAuditTest02Request.cc
+	src/model/BatchAuditTest02Result.cc
+	src/model/CreateInstanceRequest.cc
+	src/model/CreateInstanceResult.cc
+	src/model/DescribeOssSpecRequest.cc
+	src/model/DescribeOssSpecResult.cc
+	src/model/DescribeResourceTypeRequest.cc
+	src/model/DescribeResourceTypeResult.cc
+	src/model/FTApiAliasApiRequest.cc
+	src/model/FTApiAliasApiResult.cc
+	src/model/FtDynamicAddressDubboRequest.cc
+	src/model/FtDynamicAddressDubboResult.cc
+	src/model/FtDynamicAddressHsfRequest.cc
+	src/model/FtDynamicAddressHsfResult.cc
+	src/model/FtEagleEyeRequest.cc
+	src/model/FtEagleEyeResult.cc
+	src/model/FtFlowSpecialRequest.cc
+	src/model/FtFlowSpecialResult.cc
+	src/model/FtGatedLaunchPolicy3ApiRequest.cc
+	src/model/FtGatedLaunchPolicy3ApiResult.cc
+	src/model/FtGatedLaunchPolicy4Request.cc
+	src/model/FtGatedLaunchPolicy4Result.cc
+	src/model/FtGatedLaunchPolicyApiRequest.cc
+	src/model/FtGatedLaunchPolicyApiResult.cc
+	src/model/FtIpFlowControlRequest.cc
+	src/model/FtIpFlowControlResult.cc
+	src/model/FtParamListRequest.cc
+	src/model/FtParamListResult.cc
 	src/model/RoaHttpStringResponseTestRequest.cc
-	src/model/RoaHttpStringResponseTestResult.cc )
+	src/model/RoaHttpStringResponseTestResult.cc
+	src/model/TestDubboRetryApiRequest.cc
+	src/model/TestDubboRetryApiResult.cc
+	src/model/TestErrorCodeForGateWayRequest.cc
+	src/model/TestErrorCodeForGateWayResult.cc
+	src/model/TestHttpApiRequest.cc
+	src/model/TestHttpApiResult.cc
+	src/model/Testlmz01Request.cc
+	src/model/Testlmz01Result.cc )
 
 add_library(ft ${LIB_TYPE}
 	${ft_public_header}

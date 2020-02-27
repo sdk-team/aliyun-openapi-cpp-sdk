@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/RoaHttpStringResponseTestRequest.h>
+#include <alibabacloud/ft/model/FtEagleEyeRequest.h>
 
-using AlibabaCloud::Ft::Model::RoaHttpStringResponseTestRequest;
+using AlibabaCloud::Ft::Model::FtEagleEyeRequest;
 
-RoaHttpStringResponseTestRequest::RoaHttpStringResponseTestRequest() :
-	RoaServiceRequest("ft", "2019-08-02")
+FtEagleEyeRequest::FtEagleEyeRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "FtEagleEye")
 {
-	setResourcePath("/web/getData");
 	setMethod(HttpRequest::Method::POST);
 }
 
-RoaHttpStringResponseTestRequest::~RoaHttpStringResponseTestRequest()
+FtEagleEyeRequest::~FtEagleEyeRequest()
 {}
 
-std::string RoaHttpStringResponseTestRequest::getQueryParam()const
+std::string FtEagleEyeRequest::getName()const
 {
-	return queryParam_;
+	return name_;
 }
 
-void RoaHttpStringResponseTestRequest::setQueryParam(const std::string& queryParam)
+void FtEagleEyeRequest::setName(const std::string& name)
 {
-	queryParam_ = queryParam;
-	setParameter("QueryParam", queryParam);
+	name_ = name;
+	setParameter("Name", name);
 }
 
