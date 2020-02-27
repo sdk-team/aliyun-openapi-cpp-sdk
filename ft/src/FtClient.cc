@@ -28,21 +28,21 @@ namespace
 }
 
 FtClient::FtClient(const Credentials &credentials, const ClientConfiguration &configuration) :
-	RoaServiceClient(SERVICE_NAME, std::make_shared<SimpleCredentialsProvider>(credentials), configuration)
+	RpcServiceClient(SERVICE_NAME, std::make_shared<SimpleCredentialsProvider>(credentials), configuration)
 {
 	auto locationClient = std::make_shared<LocationClient>(credentials, configuration);
 	endpointProvider_ = std::make_shared<EndpointProvider>(locationClient, configuration.regionId(), SERVICE_NAME, "");
 }
 
 FtClient::FtClient(const std::shared_ptr<CredentialsProvider>& credentialsProvider, const ClientConfiguration & configuration) :
-	RoaServiceClient(SERVICE_NAME, credentialsProvider, configuration)
+	RpcServiceClient(SERVICE_NAME, credentialsProvider, configuration)
 {
 	auto locationClient = std::make_shared<LocationClient>(credentialsProvider, configuration);
 	endpointProvider_ = std::make_shared<EndpointProvider>(locationClient, configuration.regionId(), SERVICE_NAME, "");
 }
 
 FtClient::FtClient(const std::string & accessKeyId, const std::string & accessKeySecret, const ClientConfiguration & configuration) :
-	RoaServiceClient(SERVICE_NAME, std::make_shared<SimpleCredentialsProvider>(accessKeyId, accessKeySecret), configuration)
+	RpcServiceClient(SERVICE_NAME, std::make_shared<SimpleCredentialsProvider>(accessKeyId, accessKeySecret), configuration)
 {
 	auto locationClient = std::make_shared<LocationClient>(accessKeyId, accessKeySecret, configuration);
 	endpointProvider_ = std::make_shared<EndpointProvider>(locationClient, configuration.regionId(), SERVICE_NAME, "");
@@ -50,114 +50,6 @@ FtClient::FtClient(const std::string & accessKeyId, const std::string & accessKe
 
 FtClient::~FtClient()
 {}
-
-FtClient::Add23Outcome FtClient::add23(const Add23Request &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return Add23Outcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return Add23Outcome(Add23Result(outcome.result()));
-	else
-		return Add23Outcome(outcome.error());
-}
-
-void FtClient::add23Async(const Add23Request& request, const Add23AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, add23(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::Add23OutcomeCallable FtClient::add23Callable(const Add23Request &request) const
-{
-	auto task = std::make_shared<std::packaged_task<Add23Outcome()>>(
-			[this, request]()
-			{
-			return this->add23(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-FtClient::AddApiOutcome FtClient::addApi(const AddApiRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return AddApiOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return AddApiOutcome(AddApiResult(outcome.result()));
-	else
-		return AddApiOutcome(outcome.error());
-}
-
-void FtClient::addApiAsync(const AddApiRequest& request, const AddApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, addApi(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::AddApiOutcomeCallable FtClient::addApiCallable(const AddApiRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<AddApiOutcome()>>(
-			[this, request]()
-			{
-			return this->addApi(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-FtClient::AddTestOutcome FtClient::addTest(const AddTestRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return AddTestOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return AddTestOutcome(AddTestResult(outcome.result()));
-	else
-		return AddTestOutcome(outcome.error());
-}
-
-void FtClient::addTestAsync(const AddTestRequest& request, const AddTestAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, addTest(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::AddTestOutcomeCallable FtClient::addTestCallable(const AddTestRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<AddTestOutcome()>>(
-			[this, request]()
-			{
-			return this->addTest(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
 
 FtClient::BatchAuditTest01Outcome FtClient::batchAuditTest01(const BatchAuditTest01Request &request) const
 {
@@ -225,78 +117,6 @@ FtClient::BatchAuditTest02OutcomeCallable FtClient::batchAuditTest02Callable(con
 			[this, request]()
 			{
 			return this->batchAuditTest02(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-FtClient::CreateInstanceOutcome FtClient::createInstance(const CreateInstanceRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return CreateInstanceOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return CreateInstanceOutcome(CreateInstanceResult(outcome.result()));
-	else
-		return CreateInstanceOutcome(outcome.error());
-}
-
-void FtClient::createInstanceAsync(const CreateInstanceRequest& request, const CreateInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, createInstance(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::CreateInstanceOutcomeCallable FtClient::createInstanceCallable(const CreateInstanceRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<CreateInstanceOutcome()>>(
-			[this, request]()
-			{
-			return this->createInstance(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-FtClient::DescribeOssSpecOutcome FtClient::describeOssSpec(const DescribeOssSpecRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return DescribeOssSpecOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return DescribeOssSpecOutcome(DescribeOssSpecResult(outcome.result()));
-	else
-		return DescribeOssSpecOutcome(outcome.error());
-}
-
-void FtClient::describeOssSpecAsync(const DescribeOssSpecRequest& request, const DescribeOssSpecAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, describeOssSpec(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::DescribeOssSpecOutcomeCallable FtClient::describeOssSpecCallable(const DescribeOssSpecRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<DescribeOssSpecOutcome()>>(
-			[this, request]()
-			{
-			return this->describeOssSpec(request);
 			});
 
 	asyncExecute(new Runnable([task]() { (*task)(); }));
@@ -699,42 +519,6 @@ FtClient::FtParamListOutcomeCallable FtClient::ftParamListCallable(const FtParam
 	return task->get_future();
 }
 
-FtClient::RoaHttpStringResponseTestOutcome FtClient::roaHttpStringResponseTest(const RoaHttpStringResponseTestRequest &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return RoaHttpStringResponseTestOutcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return RoaHttpStringResponseTestOutcome(RoaHttpStringResponseTestResult(outcome.result()));
-	else
-		return RoaHttpStringResponseTestOutcome(outcome.error());
-}
-
-void FtClient::roaHttpStringResponseTestAsync(const RoaHttpStringResponseTestRequest& request, const RoaHttpStringResponseTestAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, roaHttpStringResponseTest(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::RoaHttpStringResponseTestOutcomeCallable FtClient::roaHttpStringResponseTestCallable(const RoaHttpStringResponseTestRequest &request) const
-{
-	auto task = std::make_shared<std::packaged_task<RoaHttpStringResponseTestOutcome()>>(
-			[this, request]()
-			{
-			return this->roaHttpStringResponseTest(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
 FtClient::TestDubboRetryApiOutcome FtClient::testDubboRetryApi(const TestDubboRetryApiRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();
@@ -837,42 +621,6 @@ FtClient::TestHttpApiOutcomeCallable FtClient::testHttpApiCallable(const TestHtt
 			[this, request]()
 			{
 			return this->testHttpApi(request);
-			});
-
-	asyncExecute(new Runnable([task]() { (*task)(); }));
-	return task->get_future();
-}
-
-FtClient::Testlmz01Outcome FtClient::testlmz01(const Testlmz01Request &request) const
-{
-	auto endpointOutcome = endpointProvider_->getEndpoint();
-	if (!endpointOutcome.isSuccess())
-		return Testlmz01Outcome(endpointOutcome.error());
-
-	auto outcome = makeRequest(endpointOutcome.result(), request);
-
-	if (outcome.isSuccess())
-		return Testlmz01Outcome(Testlmz01Result(outcome.result()));
-	else
-		return Testlmz01Outcome(outcome.error());
-}
-
-void FtClient::testlmz01Async(const Testlmz01Request& request, const Testlmz01AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
-{
-	auto fn = [this, request, handler, context]()
-	{
-		handler(this, request, testlmz01(request), context);
-	};
-
-	asyncExecute(new Runnable(fn));
-}
-
-FtClient::Testlmz01OutcomeCallable FtClient::testlmz01Callable(const Testlmz01Request &request) const
-{
-	auto task = std::make_shared<std::packaged_task<Testlmz01Outcome()>>(
-			[this, request]()
-			{
-			return this->testlmz01(request);
 			});
 
 	asyncExecute(new Runnable([task]() { (*task)(); }));
