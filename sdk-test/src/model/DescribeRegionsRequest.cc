@@ -21,7 +21,7 @@ using AlibabaCloud::Sdk_test::Model::DescribeRegionsRequest;
 DescribeRegionsRequest::DescribeRegionsRequest() :
 	RpcServiceRequest("sdk-test", "2019-02-25", "DescribeRegions")
 {
-	setMethod(HttpRequest::Method::Post);
+	setMethod(HttpRequest::Method::POST);
 }
 
 DescribeRegionsRequest::~DescribeRegionsRequest()
