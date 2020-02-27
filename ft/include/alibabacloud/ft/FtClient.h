@@ -20,22 +20,12 @@
 #include <future>
 #include <alibabacloud/core/AsyncCallerContext.h>
 #include <alibabacloud/core/EndpointProvider.h>
-#include <alibabacloud/core/RoaServiceClient.h>
+#include <alibabacloud/core/RpcServiceClient.h>
 #include "FtExport.h"
-#include "model/Add23Request.h"
-#include "model/Add23Result.h"
-#include "model/AddApiRequest.h"
-#include "model/AddApiResult.h"
-#include "model/AddTestRequest.h"
-#include "model/AddTestResult.h"
 #include "model/BatchAuditTest01Request.h"
 #include "model/BatchAuditTest01Result.h"
 #include "model/BatchAuditTest02Request.h"
 #include "model/BatchAuditTest02Result.h"
-#include "model/CreateInstanceRequest.h"
-#include "model/CreateInstanceResult.h"
-#include "model/DescribeOssSpecRequest.h"
-#include "model/DescribeOssSpecResult.h"
 #include "model/DescribeResourceTypeRequest.h"
 #include "model/DescribeResourceTypeResult.h"
 #include "model/FTApiAliasApiRequest.h"
@@ -58,46 +48,27 @@
 #include "model/FtIpFlowControlResult.h"
 #include "model/FtParamListRequest.h"
 #include "model/FtParamListResult.h"
-#include "model/RoaHttpStringResponseTestRequest.h"
-#include "model/RoaHttpStringResponseTestResult.h"
 #include "model/TestDubboRetryApiRequest.h"
 #include "model/TestDubboRetryApiResult.h"
 #include "model/TestErrorCodeForGateWayRequest.h"
 #include "model/TestErrorCodeForGateWayResult.h"
 #include "model/TestHttpApiRequest.h"
 #include "model/TestHttpApiResult.h"
-#include "model/Testlmz01Request.h"
-#include "model/Testlmz01Result.h"
 
 
 namespace AlibabaCloud
 {
 	namespace Ft
 	{
-		class ALIBABACLOUD_FT_EXPORT FtClient : public RoaServiceClient
+		class ALIBABACLOUD_FT_EXPORT FtClient : public RpcServiceClient
 		{
 		public:
-			typedef Outcome<Error, Model::Add23Result> Add23Outcome;
-			typedef std::future<Add23Outcome> Add23OutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::Add23Request&, const Add23Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> Add23AsyncHandler;
-			typedef Outcome<Error, Model::AddApiResult> AddApiOutcome;
-			typedef std::future<AddApiOutcome> AddApiOutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::AddApiRequest&, const AddApiOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> AddApiAsyncHandler;
-			typedef Outcome<Error, Model::AddTestResult> AddTestOutcome;
-			typedef std::future<AddTestOutcome> AddTestOutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::AddTestRequest&, const AddTestOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> AddTestAsyncHandler;
 			typedef Outcome<Error, Model::BatchAuditTest01Result> BatchAuditTest01Outcome;
 			typedef std::future<BatchAuditTest01Outcome> BatchAuditTest01OutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::BatchAuditTest01Request&, const BatchAuditTest01Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> BatchAuditTest01AsyncHandler;
 			typedef Outcome<Error, Model::BatchAuditTest02Result> BatchAuditTest02Outcome;
 			typedef std::future<BatchAuditTest02Outcome> BatchAuditTest02OutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::BatchAuditTest02Request&, const BatchAuditTest02Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> BatchAuditTest02AsyncHandler;
-			typedef Outcome<Error, Model::CreateInstanceResult> CreateInstanceOutcome;
-			typedef std::future<CreateInstanceOutcome> CreateInstanceOutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::CreateInstanceRequest&, const CreateInstanceOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> CreateInstanceAsyncHandler;
-			typedef Outcome<Error, Model::DescribeOssSpecResult> DescribeOssSpecOutcome;
-			typedef std::future<DescribeOssSpecOutcome> DescribeOssSpecOutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::DescribeOssSpecRequest&, const DescribeOssSpecOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOssSpecAsyncHandler;
 			typedef Outcome<Error, Model::DescribeResourceTypeResult> DescribeResourceTypeOutcome;
 			typedef std::future<DescribeResourceTypeOutcome> DescribeResourceTypeOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::DescribeResourceTypeRequest&, const DescribeResourceTypeOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourceTypeAsyncHandler;
@@ -131,9 +102,6 @@ namespace AlibabaCloud
 			typedef Outcome<Error, Model::FtParamListResult> FtParamListOutcome;
 			typedef std::future<FtParamListOutcome> FtParamListOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::FtParamListRequest&, const FtParamListOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> FtParamListAsyncHandler;
-			typedef Outcome<Error, Model::RoaHttpStringResponseTestResult> RoaHttpStringResponseTestOutcome;
-			typedef std::future<RoaHttpStringResponseTestOutcome> RoaHttpStringResponseTestOutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::RoaHttpStringResponseTestRequest&, const RoaHttpStringResponseTestOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> RoaHttpStringResponseTestAsyncHandler;
 			typedef Outcome<Error, Model::TestDubboRetryApiResult> TestDubboRetryApiOutcome;
 			typedef std::future<TestDubboRetryApiOutcome> TestDubboRetryApiOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::TestDubboRetryApiRequest&, const TestDubboRetryApiOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestDubboRetryApiAsyncHandler;
@@ -143,35 +111,17 @@ namespace AlibabaCloud
 			typedef Outcome<Error, Model::TestHttpApiResult> TestHttpApiOutcome;
 			typedef std::future<TestHttpApiOutcome> TestHttpApiOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::TestHttpApiRequest&, const TestHttpApiOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestHttpApiAsyncHandler;
-			typedef Outcome<Error, Model::Testlmz01Result> Testlmz01Outcome;
-			typedef std::future<Testlmz01Outcome> Testlmz01OutcomeCallable;
-			typedef std::function<void(const FtClient*, const Model::Testlmz01Request&, const Testlmz01Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> Testlmz01AsyncHandler;
 
 			FtClient(const Credentials &credentials, const ClientConfiguration &configuration);
 			FtClient(const std::shared_ptr<CredentialsProvider> &credentialsProvider, const ClientConfiguration &configuration);
 			FtClient(const std::string &accessKeyId, const std::string &accessKeySecret, const ClientConfiguration &configuration);
 			~FtClient();
-			Add23Outcome add23(const Model::Add23Request &request)const;
-			void add23Async(const Model::Add23Request& request, const Add23AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			Add23OutcomeCallable add23Callable(const Model::Add23Request& request) const;
-			AddApiOutcome addApi(const Model::AddApiRequest &request)const;
-			void addApiAsync(const Model::AddApiRequest& request, const AddApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			AddApiOutcomeCallable addApiCallable(const Model::AddApiRequest& request) const;
-			AddTestOutcome addTest(const Model::AddTestRequest &request)const;
-			void addTestAsync(const Model::AddTestRequest& request, const AddTestAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			AddTestOutcomeCallable addTestCallable(const Model::AddTestRequest& request) const;
 			BatchAuditTest01Outcome batchAuditTest01(const Model::BatchAuditTest01Request &request)const;
 			void batchAuditTest01Async(const Model::BatchAuditTest01Request& request, const BatchAuditTest01AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			BatchAuditTest01OutcomeCallable batchAuditTest01Callable(const Model::BatchAuditTest01Request& request) const;
 			BatchAuditTest02Outcome batchAuditTest02(const Model::BatchAuditTest02Request &request)const;
 			void batchAuditTest02Async(const Model::BatchAuditTest02Request& request, const BatchAuditTest02AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			BatchAuditTest02OutcomeCallable batchAuditTest02Callable(const Model::BatchAuditTest02Request& request) const;
-			CreateInstanceOutcome createInstance(const Model::CreateInstanceRequest &request)const;
-			void createInstanceAsync(const Model::CreateInstanceRequest& request, const CreateInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			CreateInstanceOutcomeCallable createInstanceCallable(const Model::CreateInstanceRequest& request) const;
-			DescribeOssSpecOutcome describeOssSpec(const Model::DescribeOssSpecRequest &request)const;
-			void describeOssSpecAsync(const Model::DescribeOssSpecRequest& request, const DescribeOssSpecAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			DescribeOssSpecOutcomeCallable describeOssSpecCallable(const Model::DescribeOssSpecRequest& request) const;
 			DescribeResourceTypeOutcome describeResourceType(const Model::DescribeResourceTypeRequest &request)const;
 			void describeResourceTypeAsync(const Model::DescribeResourceTypeRequest& request, const DescribeResourceTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			DescribeResourceTypeOutcomeCallable describeResourceTypeCallable(const Model::DescribeResourceTypeRequest& request) const;
@@ -205,9 +155,6 @@ namespace AlibabaCloud
 			FtParamListOutcome ftParamList(const Model::FtParamListRequest &request)const;
 			void ftParamListAsync(const Model::FtParamListRequest& request, const FtParamListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			FtParamListOutcomeCallable ftParamListCallable(const Model::FtParamListRequest& request) const;
-			RoaHttpStringResponseTestOutcome roaHttpStringResponseTest(const Model::RoaHttpStringResponseTestRequest &request)const;
-			void roaHttpStringResponseTestAsync(const Model::RoaHttpStringResponseTestRequest& request, const RoaHttpStringResponseTestAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			RoaHttpStringResponseTestOutcomeCallable roaHttpStringResponseTestCallable(const Model::RoaHttpStringResponseTestRequest& request) const;
 			TestDubboRetryApiOutcome testDubboRetryApi(const Model::TestDubboRetryApiRequest &request)const;
 			void testDubboRetryApiAsync(const Model::TestDubboRetryApiRequest& request, const TestDubboRetryApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			TestDubboRetryApiOutcomeCallable testDubboRetryApiCallable(const Model::TestDubboRetryApiRequest& request) const;
@@ -217,9 +164,6 @@ namespace AlibabaCloud
 			TestHttpApiOutcome testHttpApi(const Model::TestHttpApiRequest &request)const;
 			void testHttpApiAsync(const Model::TestHttpApiRequest& request, const TestHttpApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			TestHttpApiOutcomeCallable testHttpApiCallable(const Model::TestHttpApiRequest& request) const;
-			Testlmz01Outcome testlmz01(const Model::Testlmz01Request &request)const;
-			void testlmz01Async(const Model::Testlmz01Request& request, const Testlmz01AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
-			Testlmz01OutcomeCallable testlmz01Callable(const Model::Testlmz01Request& request) const;
 	
 		private:
 			std::shared_ptr<EndpointProvider> endpointProvider_;
