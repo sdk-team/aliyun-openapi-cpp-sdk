@@ -1,0 +1,6 @@
+.DS_Store
+.vscode
+.idea
+/java/output/
+/java/node_modules/
+/java/repo

@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: test-case-ts-deployment
+spec:
+  selector:
+    matchLabels:
+      app: test-case-ts
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: test-case-ts
+    spec:
+      containers:
+      - name: test-case-ts
+        image: registry-vpc.cn-hangzhou.aliyuncs.com/sdk/test-case:node-v10
+        env:
+        - name: KAFKA_SERVERS
+          value: ''
+        - name: KAFKA_RESULT_TOPIC
+          value: ''
+        - name: KAFKA_CONSUMER_ID
+          value: ''
+        - name: KAFKA_TASK_TOPIC
+          value: ''
+        volumeMounts:
+        - name: test-case-nas
+          mountPath: /root/ts-test/workdir
+      imagePullSecrets:
+        - name: test-case-images
+      volumes:
+        - name: test-case-nas
+          persistentVolumeClaim:
+            claimName: test-case

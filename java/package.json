@@ -1,0 +1,12 @@
+{
+  "name": "portal-java-worker",
+  "version": "1.0.0",
+  "description": "java worker for aliyun sdk portal",
+  "author": "nanhe",
+  "license": "MIT",
+  "dependencies": {
+    "node-rdkafka": "^1.0.6",
+    "moment": "^2.24.0",
+    "xml2js": "^0.4.23"
+  }
+}
