@@ -25,6 +25,8 @@ set(ft_public_header_model
 	include/alibabacloud/ft/model/BatchAuditTest01Result.h
 	include/alibabacloud/ft/model/BatchAuditTest02Request.h
 	include/alibabacloud/ft/model/BatchAuditTest02Result.h
+	include/alibabacloud/ft/model/CountCloudProductCallTimesRequest.h
+	include/alibabacloud/ft/model/CountCloudProductCallTimesResult.h
 	include/alibabacloud/ft/model/DescribeResourceTypeRequest.h
 	include/alibabacloud/ft/model/DescribeResourceTypeResult.h
 	include/alibabacloud/ft/model/FTApiAliasApiRequest.h
@@ -37,6 +39,8 @@ set(ft_public_header_model
 	include/alibabacloud/ft/model/FtEagleEyeResult.h
 	include/alibabacloud/ft/model/FtFlowSpecialRequest.h
 	include/alibabacloud/ft/model/FtFlowSpecialResult.h
+	include/alibabacloud/ft/model/FtFlowSpecial1586868138332Request.h
+	include/alibabacloud/ft/model/FtFlowSpecial1586868138332Result.h
 	include/alibabacloud/ft/model/FtGatedLaunchPolicy3ApiRequest.h
 	include/alibabacloud/ft/model/FtGatedLaunchPolicy3ApiResult.h
 	include/alibabacloud/ft/model/FtGatedLaunchPolicy4Request.h
@@ -47,12 +51,28 @@ set(ft_public_header_model
 	include/alibabacloud/ft/model/FtIpFlowControlResult.h
 	include/alibabacloud/ft/model/FtParamListRequest.h
 	include/alibabacloud/ft/model/FtParamListResult.h
+	include/alibabacloud/ft/model/GetMigrateStrategyResultRequest.h
+	include/alibabacloud/ft/model/GetMigrateStrategyResultResult.h
+	include/alibabacloud/ft/model/GetTairDataRequest.h
+	include/alibabacloud/ft/model/GetTairDataResult.h
+	include/alibabacloud/ft/model/MigrateStrategyRequest.h
+	include/alibabacloud/ft/model/MigrateStrategyResult.h
+	include/alibabacloud/ft/model/QueryDomainChangeRecordsRequest.h
+	include/alibabacloud/ft/model/QueryDomainChangeRecordsResult.h
 	include/alibabacloud/ft/model/TestDubboRetryApiRequest.h
 	include/alibabacloud/ft/model/TestDubboRetryApiResult.h
 	include/alibabacloud/ft/model/TestErrorCodeForGateWayRequest.h
 	include/alibabacloud/ft/model/TestErrorCodeForGateWayResult.h
+	include/alibabacloud/ft/model/TestFlowStrategy01Request.h
+	include/alibabacloud/ft/model/TestFlowStrategy01Result.h
 	include/alibabacloud/ft/model/TestHttpApiRequest.h
-	include/alibabacloud/ft/model/TestHttpApiResult.h )
+	include/alibabacloud/ft/model/TestHttpApiResult.h
+	include/alibabacloud/ft/model/TestIspHttpValidatorRequest.h
+	include/alibabacloud/ft/model/TestIspHttpValidatorResult.h
+	include/alibabacloud/ft/model/TestXmlServiceRoutePolicyRequest.h
+	include/alibabacloud/ft/model/TestXmlServiceRoutePolicyResult.h
+	include/alibabacloud/ft/model/UpdateDomainRecordsRegionIdRequest.h
+	include/alibabacloud/ft/model/UpdateDomainRecordsRegionIdResult.h )
 
 set(ft_src 
 	src/FtClient.cc
@@ -60,6 +80,8 @@ set(ft_src
 	src/model/BatchAuditTest01Result.cc
 	src/model/BatchAuditTest02Request.cc
 	src/model/BatchAuditTest02Result.cc
+	src/model/CountCloudProductCallTimesRequest.cc
+	src/model/CountCloudProductCallTimesResult.cc
 	src/model/DescribeResourceTypeRequest.cc
 	src/model/DescribeResourceTypeResult.cc
 	src/model/FTApiAliasApiRequest.cc
@@ -72,6 +94,8 @@ set(ft_src
 	src/model/FtEagleEyeResult.cc
 	src/model/FtFlowSpecialRequest.cc
 	src/model/FtFlowSpecialResult.cc
+	src/model/FtFlowSpecial1586868138332Request.cc
+	src/model/FtFlowSpecial1586868138332Result.cc
 	src/model/FtGatedLaunchPolicy3ApiRequest.cc
 	src/model/FtGatedLaunchPolicy3ApiResult.cc
 	src/model/FtGatedLaunchPolicy4Request.cc
@@ -82,12 +106,28 @@ set(ft_src
 	src/model/FtIpFlowControlResult.cc
 	src/model/FtParamListRequest.cc
 	src/model/FtParamListResult.cc
+	src/model/GetMigrateStrategyResultRequest.cc
+	src/model/GetMigrateStrategyResultResult.cc
+	src/model/GetTairDataRequest.cc
+	src/model/GetTairDataResult.cc
+	src/model/MigrateStrategyRequest.cc
+	src/model/MigrateStrategyResult.cc
+	src/model/QueryDomainChangeRecordsRequest.cc
+	src/model/QueryDomainChangeRecordsResult.cc
 	src/model/TestDubboRetryApiRequest.cc
 	src/model/TestDubboRetryApiResult.cc
 	src/model/TestErrorCodeForGateWayRequest.cc
 	src/model/TestErrorCodeForGateWayResult.cc
+	src/model/TestFlowStrategy01Request.cc
+	src/model/TestFlowStrategy01Result.cc
 	src/model/TestHttpApiRequest.cc
-	src/model/TestHttpApiResult.cc )
+	src/model/TestHttpApiResult.cc
+	src/model/TestIspHttpValidatorRequest.cc
+	src/model/TestIspHttpValidatorResult.cc
+	src/model/TestXmlServiceRoutePolicyRequest.cc
+	src/model/TestXmlServiceRoutePolicyResult.cc
+	src/model/UpdateDomainRecordsRegionIdRequest.cc
+	src/model/UpdateDomainRecordsRegionIdResult.cc )
 
 add_library(ft ${LIB_TYPE}
 	${ft_public_header}

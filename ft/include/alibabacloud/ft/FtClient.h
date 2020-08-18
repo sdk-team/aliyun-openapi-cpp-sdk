@@ -26,6 +26,8 @@
 #include "model/BatchAuditTest01Result.h"
 #include "model/BatchAuditTest02Request.h"
 #include "model/BatchAuditTest02Result.h"
+#include "model/CountCloudProductCallTimesRequest.h"
+#include "model/CountCloudProductCallTimesResult.h"
 #include "model/DescribeResourceTypeRequest.h"
 #include "model/DescribeResourceTypeResult.h"
 #include "model/FTApiAliasApiRequest.h"
@@ -38,6 +40,8 @@
 #include "model/FtEagleEyeResult.h"
 #include "model/FtFlowSpecialRequest.h"
 #include "model/FtFlowSpecialResult.h"
+#include "model/FtFlowSpecial1586868138332Request.h"
+#include "model/FtFlowSpecial1586868138332Result.h"
 #include "model/FtGatedLaunchPolicy3ApiRequest.h"
 #include "model/FtGatedLaunchPolicy3ApiResult.h"
 #include "model/FtGatedLaunchPolicy4Request.h"
@@ -48,12 +52,28 @@
 #include "model/FtIpFlowControlResult.h"
 #include "model/FtParamListRequest.h"
 #include "model/FtParamListResult.h"
+#include "model/GetMigrateStrategyResultRequest.h"
+#include "model/GetMigrateStrategyResultResult.h"
+#include "model/GetTairDataRequest.h"
+#include "model/GetTairDataResult.h"
+#include "model/MigrateStrategyRequest.h"
+#include "model/MigrateStrategyResult.h"
+#include "model/QueryDomainChangeRecordsRequest.h"
+#include "model/QueryDomainChangeRecordsResult.h"
 #include "model/TestDubboRetryApiRequest.h"
 #include "model/TestDubboRetryApiResult.h"
 #include "model/TestErrorCodeForGateWayRequest.h"
 #include "model/TestErrorCodeForGateWayResult.h"
+#include "model/TestFlowStrategy01Request.h"
+#include "model/TestFlowStrategy01Result.h"
 #include "model/TestHttpApiRequest.h"
 #include "model/TestHttpApiResult.h"
+#include "model/TestIspHttpValidatorRequest.h"
+#include "model/TestIspHttpValidatorResult.h"
+#include "model/TestXmlServiceRoutePolicyRequest.h"
+#include "model/TestXmlServiceRoutePolicyResult.h"
+#include "model/UpdateDomainRecordsRegionIdRequest.h"
+#include "model/UpdateDomainRecordsRegionIdResult.h"
 
 
 namespace AlibabaCloud
@@ -69,6 +89,9 @@ namespace AlibabaCloud
 			typedef Outcome<Error, Model::BatchAuditTest02Result> BatchAuditTest02Outcome;
 			typedef std::future<BatchAuditTest02Outcome> BatchAuditTest02OutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::BatchAuditTest02Request&, const BatchAuditTest02Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> BatchAuditTest02AsyncHandler;
+			typedef Outcome<Error, Model::CountCloudProductCallTimesResult> CountCloudProductCallTimesOutcome;
+			typedef std::future<CountCloudProductCallTimesOutcome> CountCloudProductCallTimesOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::CountCloudProductCallTimesRequest&, const CountCloudProductCallTimesOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> CountCloudProductCallTimesAsyncHandler;
 			typedef Outcome<Error, Model::DescribeResourceTypeResult> DescribeResourceTypeOutcome;
 			typedef std::future<DescribeResourceTypeOutcome> DescribeResourceTypeOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::DescribeResourceTypeRequest&, const DescribeResourceTypeOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourceTypeAsyncHandler;
@@ -87,6 +110,9 @@ namespace AlibabaCloud
 			typedef Outcome<Error, Model::FtFlowSpecialResult> FtFlowSpecialOutcome;
 			typedef std::future<FtFlowSpecialOutcome> FtFlowSpecialOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::FtFlowSpecialRequest&, const FtFlowSpecialOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> FtFlowSpecialAsyncHandler;
+			typedef Outcome<Error, Model::FtFlowSpecial1586868138332Result> FtFlowSpecial1586868138332Outcome;
+			typedef std::future<FtFlowSpecial1586868138332Outcome> FtFlowSpecial1586868138332OutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::FtFlowSpecial1586868138332Request&, const FtFlowSpecial1586868138332Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> FtFlowSpecial1586868138332AsyncHandler;
 			typedef Outcome<Error, Model::FtGatedLaunchPolicy3ApiResult> FtGatedLaunchPolicy3ApiOutcome;
 			typedef std::future<FtGatedLaunchPolicy3ApiOutcome> FtGatedLaunchPolicy3ApiOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::FtGatedLaunchPolicy3ApiRequest&, const FtGatedLaunchPolicy3ApiOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> FtGatedLaunchPolicy3ApiAsyncHandler;
@@ -102,15 +128,39 @@ namespace AlibabaCloud
 			typedef Outcome<Error, Model::FtParamListResult> FtParamListOutcome;
 			typedef std::future<FtParamListOutcome> FtParamListOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::FtParamListRequest&, const FtParamListOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> FtParamListAsyncHandler;
+			typedef Outcome<Error, Model::GetMigrateStrategyResultResult> GetMigrateStrategyResultOutcome;
+			typedef std::future<GetMigrateStrategyResultOutcome> GetMigrateStrategyResultOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::GetMigrateStrategyResultRequest&, const GetMigrateStrategyResultOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> GetMigrateStrategyResultAsyncHandler;
+			typedef Outcome<Error, Model::GetTairDataResult> GetTairDataOutcome;
+			typedef std::future<GetTairDataOutcome> GetTairDataOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::GetTairDataRequest&, const GetTairDataOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> GetTairDataAsyncHandler;
+			typedef Outcome<Error, Model::MigrateStrategyResult> MigrateStrategyOutcome;
+			typedef std::future<MigrateStrategyOutcome> MigrateStrategyOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::MigrateStrategyRequest&, const MigrateStrategyOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> MigrateStrategyAsyncHandler;
+			typedef Outcome<Error, Model::QueryDomainChangeRecordsResult> QueryDomainChangeRecordsOutcome;
+			typedef std::future<QueryDomainChangeRecordsOutcome> QueryDomainChangeRecordsOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::QueryDomainChangeRecordsRequest&, const QueryDomainChangeRecordsOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> QueryDomainChangeRecordsAsyncHandler;
 			typedef Outcome<Error, Model::TestDubboRetryApiResult> TestDubboRetryApiOutcome;
 			typedef std::future<TestDubboRetryApiOutcome> TestDubboRetryApiOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::TestDubboRetryApiRequest&, const TestDubboRetryApiOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestDubboRetryApiAsyncHandler;
 			typedef Outcome<Error, Model::TestErrorCodeForGateWayResult> TestErrorCodeForGateWayOutcome;
 			typedef std::future<TestErrorCodeForGateWayOutcome> TestErrorCodeForGateWayOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::TestErrorCodeForGateWayRequest&, const TestErrorCodeForGateWayOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestErrorCodeForGateWayAsyncHandler;
+			typedef Outcome<Error, Model::TestFlowStrategy01Result> TestFlowStrategy01Outcome;
+			typedef std::future<TestFlowStrategy01Outcome> TestFlowStrategy01OutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::TestFlowStrategy01Request&, const TestFlowStrategy01Outcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestFlowStrategy01AsyncHandler;
 			typedef Outcome<Error, Model::TestHttpApiResult> TestHttpApiOutcome;
 			typedef std::future<TestHttpApiOutcome> TestHttpApiOutcomeCallable;
 			typedef std::function<void(const FtClient*, const Model::TestHttpApiRequest&, const TestHttpApiOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestHttpApiAsyncHandler;
+			typedef Outcome<Error, Model::TestIspHttpValidatorResult> TestIspHttpValidatorOutcome;
+			typedef std::future<TestIspHttpValidatorOutcome> TestIspHttpValidatorOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::TestIspHttpValidatorRequest&, const TestIspHttpValidatorOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestIspHttpValidatorAsyncHandler;
+			typedef Outcome<Error, Model::TestXmlServiceRoutePolicyResult> TestXmlServiceRoutePolicyOutcome;
+			typedef std::future<TestXmlServiceRoutePolicyOutcome> TestXmlServiceRoutePolicyOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::TestXmlServiceRoutePolicyRequest&, const TestXmlServiceRoutePolicyOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> TestXmlServiceRoutePolicyAsyncHandler;
+			typedef Outcome<Error, Model::UpdateDomainRecordsRegionIdResult> UpdateDomainRecordsRegionIdOutcome;
+			typedef std::future<UpdateDomainRecordsRegionIdOutcome> UpdateDomainRecordsRegionIdOutcomeCallable;
+			typedef std::function<void(const FtClient*, const Model::UpdateDomainRecordsRegionIdRequest&, const UpdateDomainRecordsRegionIdOutcome&, const std::shared_ptr<const AsyncCallerContext>&)> UpdateDomainRecordsRegionIdAsyncHandler;
 
 			FtClient(const Credentials &credentials, const ClientConfiguration &configuration);
 			FtClient(const std::shared_ptr<CredentialsProvider> &credentialsProvider, const ClientConfiguration &configuration);
@@ -122,6 +172,9 @@ namespace AlibabaCloud
 			BatchAuditTest02Outcome batchAuditTest02(const Model::BatchAuditTest02Request &request)const;
 			void batchAuditTest02Async(const Model::BatchAuditTest02Request& request, const BatchAuditTest02AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			BatchAuditTest02OutcomeCallable batchAuditTest02Callable(const Model::BatchAuditTest02Request& request) const;
+			CountCloudProductCallTimesOutcome countCloudProductCallTimes(const Model::CountCloudProductCallTimesRequest &request)const;
+			void countCloudProductCallTimesAsync(const Model::CountCloudProductCallTimesRequest& request, const CountCloudProductCallTimesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			CountCloudProductCallTimesOutcomeCallable countCloudProductCallTimesCallable(const Model::CountCloudProductCallTimesRequest& request) const;
 			DescribeResourceTypeOutcome describeResourceType(const Model::DescribeResourceTypeRequest &request)const;
 			void describeResourceTypeAsync(const Model::DescribeResourceTypeRequest& request, const DescribeResourceTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			DescribeResourceTypeOutcomeCallable describeResourceTypeCallable(const Model::DescribeResourceTypeRequest& request) const;
@@ -140,6 +193,9 @@ namespace AlibabaCloud
 			FtFlowSpecialOutcome ftFlowSpecial(const Model::FtFlowSpecialRequest &request)const;
 			void ftFlowSpecialAsync(const Model::FtFlowSpecialRequest& request, const FtFlowSpecialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			FtFlowSpecialOutcomeCallable ftFlowSpecialCallable(const Model::FtFlowSpecialRequest& request) const;
+			FtFlowSpecial1586868138332Outcome ftFlowSpecial1586868138332(const Model::FtFlowSpecial1586868138332Request &request)const;
+			void ftFlowSpecial1586868138332Async(const Model::FtFlowSpecial1586868138332Request& request, const FtFlowSpecial1586868138332AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			FtFlowSpecial1586868138332OutcomeCallable ftFlowSpecial1586868138332Callable(const Model::FtFlowSpecial1586868138332Request& request) const;
 			FtGatedLaunchPolicy3ApiOutcome ftGatedLaunchPolicy3Api(const Model::FtGatedLaunchPolicy3ApiRequest &request)const;
 			void ftGatedLaunchPolicy3ApiAsync(const Model::FtGatedLaunchPolicy3ApiRequest& request, const FtGatedLaunchPolicy3ApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			FtGatedLaunchPolicy3ApiOutcomeCallable ftGatedLaunchPolicy3ApiCallable(const Model::FtGatedLaunchPolicy3ApiRequest& request) const;
@@ -155,15 +211,39 @@ namespace AlibabaCloud
 			FtParamListOutcome ftParamList(const Model::FtParamListRequest &request)const;
 			void ftParamListAsync(const Model::FtParamListRequest& request, const FtParamListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			FtParamListOutcomeCallable ftParamListCallable(const Model::FtParamListRequest& request) const;
+			GetMigrateStrategyResultOutcome getMigrateStrategyResult(const Model::GetMigrateStrategyResultRequest &request)const;
+			void getMigrateStrategyResultAsync(const Model::GetMigrateStrategyResultRequest& request, const GetMigrateStrategyResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			GetMigrateStrategyResultOutcomeCallable getMigrateStrategyResultCallable(const Model::GetMigrateStrategyResultRequest& request) const;
+			GetTairDataOutcome getTairData(const Model::GetTairDataRequest &request)const;
+			void getTairDataAsync(const Model::GetTairDataRequest& request, const GetTairDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			GetTairDataOutcomeCallable getTairDataCallable(const Model::GetTairDataRequest& request) const;
+			MigrateStrategyOutcome migrateStrategy(const Model::MigrateStrategyRequest &request)const;
+			void migrateStrategyAsync(const Model::MigrateStrategyRequest& request, const MigrateStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			MigrateStrategyOutcomeCallable migrateStrategyCallable(const Model::MigrateStrategyRequest& request) const;
+			QueryDomainChangeRecordsOutcome queryDomainChangeRecords(const Model::QueryDomainChangeRecordsRequest &request)const;
+			void queryDomainChangeRecordsAsync(const Model::QueryDomainChangeRecordsRequest& request, const QueryDomainChangeRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			QueryDomainChangeRecordsOutcomeCallable queryDomainChangeRecordsCallable(const Model::QueryDomainChangeRecordsRequest& request) const;
 			TestDubboRetryApiOutcome testDubboRetryApi(const Model::TestDubboRetryApiRequest &request)const;
 			void testDubboRetryApiAsync(const Model::TestDubboRetryApiRequest& request, const TestDubboRetryApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			TestDubboRetryApiOutcomeCallable testDubboRetryApiCallable(const Model::TestDubboRetryApiRequest& request) const;
 			TestErrorCodeForGateWayOutcome testErrorCodeForGateWay(const Model::TestErrorCodeForGateWayRequest &request)const;
 			void testErrorCodeForGateWayAsync(const Model::TestErrorCodeForGateWayRequest& request, const TestErrorCodeForGateWayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			TestErrorCodeForGateWayOutcomeCallable testErrorCodeForGateWayCallable(const Model::TestErrorCodeForGateWayRequest& request) const;
+			TestFlowStrategy01Outcome testFlowStrategy01(const Model::TestFlowStrategy01Request &request)const;
+			void testFlowStrategy01Async(const Model::TestFlowStrategy01Request& request, const TestFlowStrategy01AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			TestFlowStrategy01OutcomeCallable testFlowStrategy01Callable(const Model::TestFlowStrategy01Request& request) const;
 			TestHttpApiOutcome testHttpApi(const Model::TestHttpApiRequest &request)const;
 			void testHttpApiAsync(const Model::TestHttpApiRequest& request, const TestHttpApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
 			TestHttpApiOutcomeCallable testHttpApiCallable(const Model::TestHttpApiRequest& request) const;
+			TestIspHttpValidatorOutcome testIspHttpValidator(const Model::TestIspHttpValidatorRequest &request)const;
+			void testIspHttpValidatorAsync(const Model::TestIspHttpValidatorRequest& request, const TestIspHttpValidatorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			TestIspHttpValidatorOutcomeCallable testIspHttpValidatorCallable(const Model::TestIspHttpValidatorRequest& request) const;
+			TestXmlServiceRoutePolicyOutcome testXmlServiceRoutePolicy(const Model::TestXmlServiceRoutePolicyRequest &request)const;
+			void testXmlServiceRoutePolicyAsync(const Model::TestXmlServiceRoutePolicyRequest& request, const TestXmlServiceRoutePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			TestXmlServiceRoutePolicyOutcomeCallable testXmlServiceRoutePolicyCallable(const Model::TestXmlServiceRoutePolicyRequest& request) const;
+			UpdateDomainRecordsRegionIdOutcome updateDomainRecordsRegionId(const Model::UpdateDomainRecordsRegionIdRequest &request)const;
+			void updateDomainRecordsRegionIdAsync(const Model::UpdateDomainRecordsRegionIdRequest& request, const UpdateDomainRecordsRegionIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr) const;
+			UpdateDomainRecordsRegionIdOutcomeCallable updateDomainRecordsRegionIdCallable(const Model::UpdateDomainRecordsRegionIdRequest& request) const;
 	
 		private:
 			std::shared_ptr<EndpointProvider> endpointProvider_;

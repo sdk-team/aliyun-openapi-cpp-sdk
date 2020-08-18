@@ -21,7 +21,7 @@ using AlibabaCloud::Ft::Model::DescribeResourceTypeRequest;
 DescribeResourceTypeRequest::DescribeResourceTypeRequest() :
 	RpcServiceRequest("ft", "2018-07-13", "DescribeResourceType")
 {
-	setMethod(HttpRequest::Method::GET);
+	setMethod(HttpRequest::Method::Get);
 }
 
 DescribeResourceTypeRequest::~DescribeResourceTypeRequest()

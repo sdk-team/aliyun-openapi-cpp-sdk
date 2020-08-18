@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_UPDATEDOMAINRECORDSREGIONIDREQUEST_H_
+#define ALIBABACLOUD_FT_MODEL_UPDATEDOMAINRECORDSREGIONIDREQUEST_H_
 
 #include <string>
 #include <vector>
@@ -28,21 +28,30 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT UpdateDomainRecordsRegionIdRequest : public RpcServiceRequest
 			{
 
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
+				UpdateDomainRecordsRegionIdRequest();
+				~UpdateDomainRecordsRegionIdRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
+				std::string getDomain()const;
+				void setDomain(const std::string& domain);
+				long getBucUid()const;
+				void setBucUid(long bucUid);
+				std::string getBucName()const;
+				void setBucName(const std::string& bucName);
+				std::string getBucEmpId()const;
+				void setBucEmpId(const std::string& bucEmpId);
 
             private:
-				std::string stringList_;
+				std::string domain_;
+				long bucUid_;
+				std::string bucName_;
+				std::string bucEmpId_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_UPDATEDOMAINRECORDSREGIONIDREQUEST_H_

@@ -14,38 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/BatchAuditTest02Request.h>
+#include <alibabacloud/ft/model/FtFlowSpecial1586868138332Request.h>
 
-using AlibabaCloud::Ft::Model::BatchAuditTest02Request;
+using AlibabaCloud::Ft::Model::FtFlowSpecial1586868138332Request;
 
-BatchAuditTest02Request::BatchAuditTest02Request() :
-	RpcServiceRequest("ft", "2018-07-13", "BatchAuditTest02")
+FtFlowSpecial1586868138332Request::FtFlowSpecial1586868138332Request() :
+	RpcServiceRequest("ft", "2018-07-13", "FtFlowSpecial1586868138332")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-BatchAuditTest02Request::~BatchAuditTest02Request()
+FtFlowSpecial1586868138332Request::~FtFlowSpecial1586868138332Request()
 {}
 
-std::string BatchAuditTest02Request::getName()const
+std::string FtFlowSpecial1586868138332Request::getName()const
 {
 	return name_;
 }
 
-void BatchAuditTest02Request::setName(const std::string& name)
+void FtFlowSpecial1586868138332Request::setName(const std::string& name)
 {
 	name_ = name;
 	setParameter("Name", name);
-}
-
-std::string BatchAuditTest02Request::getBatchAuditTest01()const
-{
-	return batchAuditTest01_;
-}
-
-void BatchAuditTest02Request::setBatchAuditTest01(const std::string& batchAuditTest01)
-{
-	batchAuditTest01_ = batchAuditTest01;
-	setParameter("BatchAuditTest01", batchAuditTest01);
 }
 

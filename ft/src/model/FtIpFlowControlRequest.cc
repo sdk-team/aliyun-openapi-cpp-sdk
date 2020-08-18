@@ -21,20 +21,20 @@ using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
 FtIpFlowControlRequest::FtIpFlowControlRequest() :
 	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
 {
-	setMethod(HttpRequest::Method::POST);
+	setMethod(HttpRequest::Method::Post);
 }
 
 FtIpFlowControlRequest::~FtIpFlowControlRequest()
 {}
 
-std::string FtIpFlowControlRequest::getName()const
+std::string FtIpFlowControlRequest::getStringList()const
 {
-	return name_;
+	return stringList_;
 }
 
-void FtIpFlowControlRequest::setName(const std::string& name)
+void FtIpFlowControlRequest::setStringList(const std::string& stringList)
 {
-	name_ = name;
-	setParameter("Name", name);
+	stringList_ = stringList;
+	setParameter("StringList", stringList);
 }
 

@@ -21,7 +21,7 @@ using AlibabaCloud::Ft::Model::TestDubboRetryApiRequest;
 TestDubboRetryApiRequest::TestDubboRetryApiRequest() :
 	RpcServiceRequest("ft", "2018-07-13", "TestDubboRetryApi")
 {
-	setMethod(HttpRequest::Method::POST);
+	setMethod(HttpRequest::Method::Post);
 }
 
 TestDubboRetryApiRequest::~TestDubboRetryApiRequest()

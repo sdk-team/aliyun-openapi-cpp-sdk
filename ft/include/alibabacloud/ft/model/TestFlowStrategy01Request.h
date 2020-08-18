@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_TESTFLOWSTRATEGY01REQUEST_H_
+#define ALIBABACLOUD_FT_MODEL_TESTFLOWSTRATEGY01REQUEST_H_
 
 #include <string>
 #include <vector>
@@ -28,21 +28,21 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT TestFlowStrategy01Request : public RpcServiceRequest
 			{
 
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
+				TestFlowStrategy01Request();
+				~TestFlowStrategy01Request();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
+				std::map<std::string, std::string> getNames()const;
+				void setNames(const std::map<std::string, std::string>& names);
 
             private:
-				std::string stringList_;
+				std::map<std::string, std::string> names_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_TESTFLOWSTRATEGY01REQUEST_H_

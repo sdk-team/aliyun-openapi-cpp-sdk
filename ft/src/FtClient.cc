@@ -123,6 +123,42 @@ FtClient::BatchAuditTest02OutcomeCallable FtClient::batchAuditTest02Callable(con
 	return task->get_future();
 }
 
+FtClient::CountCloudProductCallTimesOutcome FtClient::countCloudProductCallTimes(const CountCloudProductCallTimesRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return CountCloudProductCallTimesOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return CountCloudProductCallTimesOutcome(CountCloudProductCallTimesResult(outcome.result()));
+	else
+		return CountCloudProductCallTimesOutcome(outcome.error());
+}
+
+void FtClient::countCloudProductCallTimesAsync(const CountCloudProductCallTimesRequest& request, const CountCloudProductCallTimesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, countCloudProductCallTimes(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::CountCloudProductCallTimesOutcomeCallable FtClient::countCloudProductCallTimesCallable(const CountCloudProductCallTimesRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<CountCloudProductCallTimesOutcome()>>(
+			[this, request]()
+			{
+			return this->countCloudProductCallTimes(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
 FtClient::DescribeResourceTypeOutcome FtClient::describeResourceType(const DescribeResourceTypeRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();
@@ -339,6 +375,42 @@ FtClient::FtFlowSpecialOutcomeCallable FtClient::ftFlowSpecialCallable(const FtF
 	return task->get_future();
 }
 
+FtClient::FtFlowSpecial1586868138332Outcome FtClient::ftFlowSpecial1586868138332(const FtFlowSpecial1586868138332Request &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return FtFlowSpecial1586868138332Outcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return FtFlowSpecial1586868138332Outcome(FtFlowSpecial1586868138332Result(outcome.result()));
+	else
+		return FtFlowSpecial1586868138332Outcome(outcome.error());
+}
+
+void FtClient::ftFlowSpecial1586868138332Async(const FtFlowSpecial1586868138332Request& request, const FtFlowSpecial1586868138332AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, ftFlowSpecial1586868138332(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::FtFlowSpecial1586868138332OutcomeCallable FtClient::ftFlowSpecial1586868138332Callable(const FtFlowSpecial1586868138332Request &request) const
+{
+	auto task = std::make_shared<std::packaged_task<FtFlowSpecial1586868138332Outcome()>>(
+			[this, request]()
+			{
+			return this->ftFlowSpecial1586868138332(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
 FtClient::FtGatedLaunchPolicy3ApiOutcome FtClient::ftGatedLaunchPolicy3Api(const FtGatedLaunchPolicy3ApiRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();
@@ -519,6 +591,150 @@ FtClient::FtParamListOutcomeCallable FtClient::ftParamListCallable(const FtParam
 	return task->get_future();
 }
 
+FtClient::GetMigrateStrategyResultOutcome FtClient::getMigrateStrategyResult(const GetMigrateStrategyResultRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return GetMigrateStrategyResultOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return GetMigrateStrategyResultOutcome(GetMigrateStrategyResultResult(outcome.result()));
+	else
+		return GetMigrateStrategyResultOutcome(outcome.error());
+}
+
+void FtClient::getMigrateStrategyResultAsync(const GetMigrateStrategyResultRequest& request, const GetMigrateStrategyResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, getMigrateStrategyResult(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::GetMigrateStrategyResultOutcomeCallable FtClient::getMigrateStrategyResultCallable(const GetMigrateStrategyResultRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<GetMigrateStrategyResultOutcome()>>(
+			[this, request]()
+			{
+			return this->getMigrateStrategyResult(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+FtClient::GetTairDataOutcome FtClient::getTairData(const GetTairDataRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return GetTairDataOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return GetTairDataOutcome(GetTairDataResult(outcome.result()));
+	else
+		return GetTairDataOutcome(outcome.error());
+}
+
+void FtClient::getTairDataAsync(const GetTairDataRequest& request, const GetTairDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, getTairData(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::GetTairDataOutcomeCallable FtClient::getTairDataCallable(const GetTairDataRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<GetTairDataOutcome()>>(
+			[this, request]()
+			{
+			return this->getTairData(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+FtClient::MigrateStrategyOutcome FtClient::migrateStrategy(const MigrateStrategyRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return MigrateStrategyOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return MigrateStrategyOutcome(MigrateStrategyResult(outcome.result()));
+	else
+		return MigrateStrategyOutcome(outcome.error());
+}
+
+void FtClient::migrateStrategyAsync(const MigrateStrategyRequest& request, const MigrateStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, migrateStrategy(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::MigrateStrategyOutcomeCallable FtClient::migrateStrategyCallable(const MigrateStrategyRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<MigrateStrategyOutcome()>>(
+			[this, request]()
+			{
+			return this->migrateStrategy(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+FtClient::QueryDomainChangeRecordsOutcome FtClient::queryDomainChangeRecords(const QueryDomainChangeRecordsRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return QueryDomainChangeRecordsOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return QueryDomainChangeRecordsOutcome(QueryDomainChangeRecordsResult(outcome.result()));
+	else
+		return QueryDomainChangeRecordsOutcome(outcome.error());
+}
+
+void FtClient::queryDomainChangeRecordsAsync(const QueryDomainChangeRecordsRequest& request, const QueryDomainChangeRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, queryDomainChangeRecords(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::QueryDomainChangeRecordsOutcomeCallable FtClient::queryDomainChangeRecordsCallable(const QueryDomainChangeRecordsRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<QueryDomainChangeRecordsOutcome()>>(
+			[this, request]()
+			{
+			return this->queryDomainChangeRecords(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
 FtClient::TestDubboRetryApiOutcome FtClient::testDubboRetryApi(const TestDubboRetryApiRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();
@@ -591,6 +807,42 @@ FtClient::TestErrorCodeForGateWayOutcomeCallable FtClient::testErrorCodeForGateW
 	return task->get_future();
 }
 
+FtClient::TestFlowStrategy01Outcome FtClient::testFlowStrategy01(const TestFlowStrategy01Request &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return TestFlowStrategy01Outcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return TestFlowStrategy01Outcome(TestFlowStrategy01Result(outcome.result()));
+	else
+		return TestFlowStrategy01Outcome(outcome.error());
+}
+
+void FtClient::testFlowStrategy01Async(const TestFlowStrategy01Request& request, const TestFlowStrategy01AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, testFlowStrategy01(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::TestFlowStrategy01OutcomeCallable FtClient::testFlowStrategy01Callable(const TestFlowStrategy01Request &request) const
+{
+	auto task = std::make_shared<std::packaged_task<TestFlowStrategy01Outcome()>>(
+			[this, request]()
+			{
+			return this->testFlowStrategy01(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
 FtClient::TestHttpApiOutcome FtClient::testHttpApi(const TestHttpApiRequest &request) const
 {
 	auto endpointOutcome = endpointProvider_->getEndpoint();
@@ -621,6 +873,114 @@ FtClient::TestHttpApiOutcomeCallable FtClient::testHttpApiCallable(const TestHtt
 			[this, request]()
 			{
 			return this->testHttpApi(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+FtClient::TestIspHttpValidatorOutcome FtClient::testIspHttpValidator(const TestIspHttpValidatorRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return TestIspHttpValidatorOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return TestIspHttpValidatorOutcome(TestIspHttpValidatorResult(outcome.result()));
+	else
+		return TestIspHttpValidatorOutcome(outcome.error());
+}
+
+void FtClient::testIspHttpValidatorAsync(const TestIspHttpValidatorRequest& request, const TestIspHttpValidatorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, testIspHttpValidator(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::TestIspHttpValidatorOutcomeCallable FtClient::testIspHttpValidatorCallable(const TestIspHttpValidatorRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<TestIspHttpValidatorOutcome()>>(
+			[this, request]()
+			{
+			return this->testIspHttpValidator(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+FtClient::TestXmlServiceRoutePolicyOutcome FtClient::testXmlServiceRoutePolicy(const TestXmlServiceRoutePolicyRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return TestXmlServiceRoutePolicyOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return TestXmlServiceRoutePolicyOutcome(TestXmlServiceRoutePolicyResult(outcome.result()));
+	else
+		return TestXmlServiceRoutePolicyOutcome(outcome.error());
+}
+
+void FtClient::testXmlServiceRoutePolicyAsync(const TestXmlServiceRoutePolicyRequest& request, const TestXmlServiceRoutePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, testXmlServiceRoutePolicy(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::TestXmlServiceRoutePolicyOutcomeCallable FtClient::testXmlServiceRoutePolicyCallable(const TestXmlServiceRoutePolicyRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<TestXmlServiceRoutePolicyOutcome()>>(
+			[this, request]()
+			{
+			return this->testXmlServiceRoutePolicy(request);
+			});
+
+	asyncExecute(new Runnable([task]() { (*task)(); }));
+	return task->get_future();
+}
+
+FtClient::UpdateDomainRecordsRegionIdOutcome FtClient::updateDomainRecordsRegionId(const UpdateDomainRecordsRegionIdRequest &request) const
+{
+	auto endpointOutcome = endpointProvider_->getEndpoint();
+	if (!endpointOutcome.isSuccess())
+		return UpdateDomainRecordsRegionIdOutcome(endpointOutcome.error());
+
+	auto outcome = makeRequest(endpointOutcome.result(), request);
+
+	if (outcome.isSuccess())
+		return UpdateDomainRecordsRegionIdOutcome(UpdateDomainRecordsRegionIdResult(outcome.result()));
+	else
+		return UpdateDomainRecordsRegionIdOutcome(outcome.error());
+}
+
+void FtClient::updateDomainRecordsRegionIdAsync(const UpdateDomainRecordsRegionIdRequest& request, const UpdateDomainRecordsRegionIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context) const
+{
+	auto fn = [this, request, handler, context]()
+	{
+		handler(this, request, updateDomainRecordsRegionId(request), context);
+	};
+
+	asyncExecute(new Runnable(fn));
+}
+
+FtClient::UpdateDomainRecordsRegionIdOutcomeCallable FtClient::updateDomainRecordsRegionIdCallable(const UpdateDomainRecordsRegionIdRequest &request) const
+{
+	auto task = std::make_shared<std::packaged_task<UpdateDomainRecordsRegionIdOutcome()>>(
+			[this, request]()
+			{
+			return this->updateDomainRecordsRegionId(request);
 			});
 
 	asyncExecute(new Runnable([task]() { (*task)(); }));

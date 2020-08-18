@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FTApiAliasApiRequest.h>
+#include <alibabacloud/ft/model/TestXmlServiceRoutePolicyRequest.h>
 
-using AlibabaCloud::Ft::Model::FTApiAliasApiRequest;
+using AlibabaCloud::Ft::Model::TestXmlServiceRoutePolicyRequest;
 
-FTApiAliasApiRequest::FTApiAliasApiRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FTApiAliasApi")
+TestXmlServiceRoutePolicyRequest::TestXmlServiceRoutePolicyRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "TestXmlServiceRoutePolicy")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FTApiAliasApiRequest::~FTApiAliasApiRequest()
+TestXmlServiceRoutePolicyRequest::~TestXmlServiceRoutePolicyRequest()
 {}
 
-std::string FTApiAliasApiRequest::getName()const
+std::string TestXmlServiceRoutePolicyRequest::getApi()const
 {
-	return name_;
+	return api_;
 }
 
-void FTApiAliasApiRequest::setName(const std::string& name)
+void TestXmlServiceRoutePolicyRequest::setApi(const std::string& api)
 {
-	name_ = name;
-	setParameter("Name", name);
+	api_ = api;
+	setParameter("Api", api);
 }
 

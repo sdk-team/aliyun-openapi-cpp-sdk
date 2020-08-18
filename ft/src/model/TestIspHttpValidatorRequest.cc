@@ -14,27 +14,16 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FTApiAliasApiRequest.h>
+#include <alibabacloud/ft/model/TestIspHttpValidatorRequest.h>
 
-using AlibabaCloud::Ft::Model::FTApiAliasApiRequest;
+using AlibabaCloud::Ft::Model::TestIspHttpValidatorRequest;
 
-FTApiAliasApiRequest::FTApiAliasApiRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FTApiAliasApi")
+TestIspHttpValidatorRequest::TestIspHttpValidatorRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "TestIspHttpValidator")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FTApiAliasApiRequest::~FTApiAliasApiRequest()
+TestIspHttpValidatorRequest::~TestIspHttpValidatorRequest()
 {}
-
-std::string FTApiAliasApiRequest::getName()const
-{
-	return name_;
-}
-
-void FTApiAliasApiRequest::setName(const std::string& name)
-{
-	name_ = name;
-	setParameter("Name", name);
-}
 

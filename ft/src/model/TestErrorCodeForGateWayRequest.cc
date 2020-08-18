@@ -21,7 +21,7 @@ using AlibabaCloud::Ft::Model::TestErrorCodeForGateWayRequest;
 TestErrorCodeForGateWayRequest::TestErrorCodeForGateWayRequest() :
 	RpcServiceRequest("ft", "2018-07-13", "TestErrorCodeForGateWay")
 {
-	setMethod(HttpRequest::Method::GET);
+	setMethod(HttpRequest::Method::Get);
 }
 
 TestErrorCodeForGateWayRequest::~TestErrorCodeForGateWayRequest()

@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FTApiAliasApiRequest.h>
+#include <alibabacloud/ft/model/TestFlowStrategy01Request.h>
 
-using AlibabaCloud::Ft::Model::FTApiAliasApiRequest;
+using AlibabaCloud::Ft::Model::TestFlowStrategy01Request;
 
-FTApiAliasApiRequest::FTApiAliasApiRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FTApiAliasApi")
+TestFlowStrategy01Request::TestFlowStrategy01Request() :
+	RpcServiceRequest("ft", "2018-07-13", "TestFlowStrategy01")
 {
-	setMethod(HttpRequest::Method::Post);
+	setMethod(HttpRequest::Method::Put);
 }
 
-FTApiAliasApiRequest::~FTApiAliasApiRequest()
+TestFlowStrategy01Request::~TestFlowStrategy01Request()
 {}
 
-std::string FTApiAliasApiRequest::getName()const
+std::map<std::string, std::string> TestFlowStrategy01Request::getNames()const
 {
-	return name_;
+	return names_;
 }
 
-void FTApiAliasApiRequest::setName(const std::string& name)
+void TestFlowStrategy01Request::setNames(const std::map<std::string, std::string>& names)
 {
-	name_ = name;
-	setParameter("Name", name);
+	names_ = names;
+	setJsonParameters("Names", names);
 }
 
