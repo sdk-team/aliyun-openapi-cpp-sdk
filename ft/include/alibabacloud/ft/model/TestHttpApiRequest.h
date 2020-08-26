@@ -35,8 +35,6 @@ namespace AlibabaCloud
 				TestHttpApiRequest();
 				~TestHttpApiRequest();
 
-				std::string getIspSignatureSecretKey()const;
-				void setIspSignatureSecretKey(const std::string& ispSignatureSecretKey);
 				std::string getStringValue()const;
 				void setStringValue(const std::string& stringValue);
 				std::string getOtherParam()const;
@@ -45,16 +43,12 @@ namespace AlibabaCloud
 				void setBooleanParam(bool booleanParam);
 				std::string getDefaultValue()const;
 				void setDefaultValue(const std::string& defaultValue);
-				std::string getIspSignature()const;
-				void setIspSignature(const std::string& ispSignature);
 
             private:
-				std::string ispSignatureSecretKey_;
 				std::string stringValue_;
 				std::string otherParam_;
 				bool booleanParam_;
 				std::string defaultValue_;
-				std::string ispSignature_;
 
 			};
 		}

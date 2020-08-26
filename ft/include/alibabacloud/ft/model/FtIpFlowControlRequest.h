@@ -35,11 +35,11 @@ namespace AlibabaCloud
 				FtIpFlowControlRequest();
 				~FtIpFlowControlRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
+				std::string getName()const;
+				void setName(const std::string& name);
 
             private:
-				std::string stringList_;
+				std::string name_;
 
 			};
 		}

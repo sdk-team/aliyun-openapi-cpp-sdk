@@ -39,38 +39,13 @@ void FtIpFlowControlResult::parse(const std::string &payload)
 	Json::Value value;
 	reader.parse(payload, value);
 	setRequestId(value["RequestId"].asString());
-	auto allNames = value["Names"]["Names"];
-	for (const auto &item : allNames)
-		names_.push_back(item.asString());
-	auto allNames01 = value["Names01"]["Names01"];
-	for (const auto &item : allNames01)
-		names01_.push_back(item.asString());
-	auto allIntegerList = value["IntegerList"]["IntegerList"];
-	for (const auto &item : allIntegerList)
-		integerList_.push_back(item.asString());
-	auto allIntegerList1 = value["IntegerList1"]["IntegerList1"];
-	for (const auto &item : allIntegerList1)
-		integerList1_.push_back(item.asString());
+	if(!value["Name"].isNull())
+		name_ = value["Name"].asString();
 
 }
 
-std::vector<std::string> FtIpFlowControlResult::getNames()const
+std::string FtIpFlowControlResult::getName()const
 {
-	return names_;
-}
-
-std::vector<std::string> FtIpFlowControlResult::getNames01()const
-{
-	return names01_;
-}
-
-std::vector<std::string> FtIpFlowControlResult::getIntegerList()const
-{
-	return integerList_;
-}
-
-std::vector<std::string> FtIpFlowControlResult::getIntegerList1()const
-{
-	return integerList1_;
+	return name_;
 }
 

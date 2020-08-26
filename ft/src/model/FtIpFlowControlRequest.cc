@@ -27,14 +27,14 @@ FtIpFlowControlRequest::FtIpFlowControlRequest() :
 FtIpFlowControlRequest::~FtIpFlowControlRequest()
 {}
 
-std::string FtIpFlowControlRequest::getStringList()const
+std::string FtIpFlowControlRequest::getName()const
 {
-	return stringList_;
+	return name_;
 }
 
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
+void FtIpFlowControlRequest::setName(const std::string& name)
 {
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
+	name_ = name;
+	setParameter("Name", name);
 }
 

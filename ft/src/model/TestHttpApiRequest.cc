@@ -27,17 +27,6 @@ TestHttpApiRequest::TestHttpApiRequest() :
 TestHttpApiRequest::~TestHttpApiRequest()
 {}
 
-std::string TestHttpApiRequest::getIspSignatureSecretKey()const
-{
-	return ispSignatureSecretKey_;
-}
-
-void TestHttpApiRequest::setIspSignatureSecretKey(const std::string& ispSignatureSecretKey)
-{
-	ispSignatureSecretKey_ = ispSignatureSecretKey;
-	setParameter("IspSignatureSecretKey", ispSignatureSecretKey);
-}
-
 std::string TestHttpApiRequest::getStringValue()const
 {
 	return stringValue_;
@@ -46,7 +35,7 @@ std::string TestHttpApiRequest::getStringValue()const
 void TestHttpApiRequest::setStringValue(const std::string& stringValue)
 {
 	stringValue_ = stringValue;
-	setBodyParameter("StringValue", stringValue);
+	setParameter("StringValue", stringValue);
 }
 
 std::string TestHttpApiRequest::getOtherParam()const
@@ -57,7 +46,7 @@ std::string TestHttpApiRequest::getOtherParam()const
 void TestHttpApiRequest::setOtherParam(const std::string& otherParam)
 {
 	otherParam_ = otherParam;
-	setBodyParameter("OtherParam", otherParam);
+	setParameter("OtherParam", otherParam);
 }
 
 bool TestHttpApiRequest::getBooleanParam()const
@@ -79,17 +68,6 @@ std::string TestHttpApiRequest::getDefaultValue()const
 void TestHttpApiRequest::setDefaultValue(const std::string& defaultValue)
 {
 	defaultValue_ = defaultValue;
-	setBodyParameter("DefaultValue", defaultValue);
-}
-
-std::string TestHttpApiRequest::getIspSignature()const
-{
-	return ispSignature_;
-}
-
-void TestHttpApiRequest::setIspSignature(const std::string& ispSignature)
-{
-	ispSignature_ = ispSignature;
-	setParameter("IspSignature", ispSignature);
+	setParameter("DefaultValue", defaultValue);
 }
 
