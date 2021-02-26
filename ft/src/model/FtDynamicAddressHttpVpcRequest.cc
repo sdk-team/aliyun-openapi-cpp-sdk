@@ -27,6 +27,17 @@ FtDynamicAddressHttpVpcRequest::FtDynamicAddressHttpVpcRequest() :
 FtDynamicAddressHttpVpcRequest::~FtDynamicAddressHttpVpcRequest()
 {}
 
+std::string FtDynamicAddressHttpVpcRequest::getP1()const
+{
+	return p1_;
+}
+
+void FtDynamicAddressHttpVpcRequest::setP1(const std::string& p1)
+{
+	p1_ = p1;
+	setParameter("P1", p1);
+}
+
 std::string FtDynamicAddressHttpVpcRequest::getStringValue()const
 {
 	return stringValue_;
