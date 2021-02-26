@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_DELETEALLSTRATEGYREQUEST_H_
+#define ALIBABACLOUD_FT_MODEL_DELETEALLSTRATEGYREQUEST_H_
 
 #include <string>
 #include <vector>
@@ -28,21 +28,33 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT DeleteAllStrategyRequest : public RpcServiceRequest
 			{
 
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
+				DeleteAllStrategyRequest();
+				~DeleteAllStrategyRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
+				long getBucUid()const;
+				void setBucUid(long bucUid);
+				std::string getBucName()const;
+				void setBucName(const std::string& bucName);
+				std::string getBucEmpId()const;
+				void setBucEmpId(const std::string& bucEmpId);
+				std::string getProductName()const;
+				void setProductName(const std::string& productName);
+				std::string getEnv()const;
+				void setEnv(const std::string& env);
 
             private:
-				std::string stringList_;
+				long bucUid_;
+				std::string bucName_;
+				std::string bucEmpId_;
+				std::string productName_;
+				std::string env_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_DELETEALLSTRATEGYREQUEST_H_

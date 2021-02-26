@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_FTDYNAMICADDRESSHTTPVPCREQUEST_H_
+#define ALIBABACLOUD_FT_MODEL_FTDYNAMICADDRESSHTTPVPCREQUEST_H_
 
 #include <string>
 #include <vector>
@@ -28,21 +28,30 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT FtDynamicAddressHttpVpcRequest : public RpcServiceRequest
 			{
 
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
+				FtDynamicAddressHttpVpcRequest();
+				~FtDynamicAddressHttpVpcRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
+				std::string getStringValue()const;
+				void setStringValue(const std::string& stringValue);
+				std::string getOtherParam()const;
+				void setOtherParam(const std::string& otherParam);
+				bool getBooleanParam()const;
+				void setBooleanParam(bool booleanParam);
+				std::string getDefaultValue()const;
+				void setDefaultValue(const std::string& defaultValue);
 
             private:
-				std::string stringList_;
+				std::string stringValue_;
+				std::string otherParam_;
+				bool booleanParam_;
+				std::string defaultValue_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_FTDYNAMICADDRESSHTTPVPCREQUEST_H_
