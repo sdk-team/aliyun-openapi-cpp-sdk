@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_DELETEALLSTRATEGYRESULT_H_
+#define ALIBABACLOUD_FT_MODEL_DELETEALLSTRATEGYRESULT_H_
 
 #include <string>
 #include <vector>
-#include <alibabacloud/core/RpcServiceRequest.h>
+#include <utility>
+#include <alibabacloud/core/ServiceResult.h>
 #include <alibabacloud/ft/FtExport.h>
 
 namespace AlibabaCloud
@@ -28,21 +29,31 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT DeleteAllStrategyResult : public ServiceResult
 			{
-
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
 
-            private:
-				std::string stringList_;
+				DeleteAllStrategyResult();
+				explicit DeleteAllStrategyResult(const std::string &payload);
+				~DeleteAllStrategyResult();
+				std::string getMessage()const;
+				bool getData()const;
+				std::string getCode()const;
+				bool getSuccess()const;
+				std::string getMessageCN()const;
+
+			protected:
+				void parse(const std::string &payload);
+			private:
+				std::string message_;
+				bool data_;
+				std::string code_;
+				bool success_;
+				std::string messageCN_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_DELETEALLSTRATEGYRESULT_H_

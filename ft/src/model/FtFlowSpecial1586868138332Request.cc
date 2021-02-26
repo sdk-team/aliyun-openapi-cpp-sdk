@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/FtFlowSpecial1586868138332Request.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using AlibabaCloud::Ft::Model::FtFlowSpecial1586868138332Request;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
+FtFlowSpecial1586868138332Request::FtFlowSpecial1586868138332Request() :
+	RpcServiceRequest("ft", "2018-07-13", "FtFlowSpecial1586868138332")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+FtFlowSpecial1586868138332Request::~FtFlowSpecial1586868138332Request()
 {}
 
-std::string FtIpFlowControlRequest::getStringList()const
+std::string FtFlowSpecial1586868138332Request::getName()const
 {
-	return stringList_;
+	return name_;
 }
 
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
+void FtFlowSpecial1586868138332Request::setName(const std::string& name)
 {
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
+	name_ = name;
+	setParameter("Name", name);
 }
 

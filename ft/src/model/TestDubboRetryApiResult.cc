@@ -14,27 +14,31 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/TestDubboRetryApiResult.h>
+#include <json/json.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using namespace AlibabaCloud::Ft;
+using namespace AlibabaCloud::Ft::Model;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
-{
-	setMethod(HttpRequest::Method::Post);
-}
-
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+TestDubboRetryApiResult::TestDubboRetryApiResult() :
+	ServiceResult()
 {}
 
-std::string FtIpFlowControlRequest::getStringList()const
+TestDubboRetryApiResult::TestDubboRetryApiResult(const std::string &payload) :
+	ServiceResult()
 {
-	return stringList_;
+	parse(payload);
 }
 
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
+TestDubboRetryApiResult::~TestDubboRetryApiResult()
+{}
+
+void TestDubboRetryApiResult::parse(const std::string &payload)
 {
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
+	Json::Reader reader;
+	Json::Value value;
+	reader.parse(payload, value);
+	setRequestId(value["RequestId"].asString());
+
 }
 

@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/TestXmlServiceRoutePolicyRequest.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using AlibabaCloud::Ft::Model::TestXmlServiceRoutePolicyRequest;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
+TestXmlServiceRoutePolicyRequest::TestXmlServiceRoutePolicyRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "TestXmlServiceRoutePolicy")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+TestXmlServiceRoutePolicyRequest::~TestXmlServiceRoutePolicyRequest()
 {}
 
-std::string FtIpFlowControlRequest::getStringList()const
+std::string TestXmlServiceRoutePolicyRequest::getApi()const
 {
-	return stringList_;
+	return api_;
 }
 
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
+void TestXmlServiceRoutePolicyRequest::setApi(const std::string& api)
 {
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
+	api_ = api;
+	setParameter("Api", api);
 }
 

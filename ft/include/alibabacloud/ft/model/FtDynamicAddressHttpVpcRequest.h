@@ -35,8 +35,6 @@ namespace AlibabaCloud
 				FtDynamicAddressHttpVpcRequest();
 				~FtDynamicAddressHttpVpcRequest();
 
-				std::string getP1()const;
-				void setP1(const std::string& p1);
 				std::string getStringValue()const;
 				void setStringValue(const std::string& stringValue);
 				std::string getOtherParam()const;
@@ -47,7 +45,6 @@ namespace AlibabaCloud
 				void setDefaultValue(const std::string& defaultValue);
 
             private:
-				std::string p1_;
 				std::string stringValue_;
 				std::string otherParam_;
 				bool booleanParam_;

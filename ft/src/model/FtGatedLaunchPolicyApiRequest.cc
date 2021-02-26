@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/FtGatedLaunchPolicyApiRequest.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using AlibabaCloud::Ft::Model::FtGatedLaunchPolicyApiRequest;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
+FtGatedLaunchPolicyApiRequest::FtGatedLaunchPolicyApiRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "FtGatedLaunchPolicyApi")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+FtGatedLaunchPolicyApiRequest::~FtGatedLaunchPolicyApiRequest()
 {}
 
-std::string FtIpFlowControlRequest::getStringList()const
+std::string FtGatedLaunchPolicyApiRequest::getUnGatedLaunchPolicy()const
 {
-	return stringList_;
+	return unGatedLaunchPolicy_;
 }
 
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
+void FtGatedLaunchPolicyApiRequest::setUnGatedLaunchPolicy(const std::string& unGatedLaunchPolicy)
 {
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
+	unGatedLaunchPolicy_ = unGatedLaunchPolicy;
+	setParameter("UnGatedLaunchPolicy", unGatedLaunchPolicy);
 }
 

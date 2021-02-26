@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_BATCHAUDITTEST02RESULT_H_
+#define ALIBABACLOUD_FT_MODEL_BATCHAUDITTEST02RESULT_H_
 
 #include <string>
 #include <vector>
-#include <alibabacloud/core/RpcServiceRequest.h>
+#include <utility>
+#include <alibabacloud/core/ServiceResult.h>
 #include <alibabacloud/ft/FtExport.h>
 
 namespace AlibabaCloud
@@ -28,21 +29,23 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT BatchAuditTest02Result : public ServiceResult
 			{
-
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
 
-            private:
-				std::string stringList_;
+				BatchAuditTest02Result();
+				explicit BatchAuditTest02Result(const std::string &payload);
+				~BatchAuditTest02Result();
+				std::string getName()const;
+
+			protected:
+				void parse(const std::string &payload);
+			private:
+				std::string name_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_BATCHAUDITTEST02RESULT_H_

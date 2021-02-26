@@ -14,27 +14,16 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/TestDubboRetryApiRequest.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using AlibabaCloud::Ft::Model::TestDubboRetryApiRequest;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
+TestDubboRetryApiRequest::TestDubboRetryApiRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "TestDubboRetryApi")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+TestDubboRetryApiRequest::~TestDubboRetryApiRequest()
 {}
-
-std::string FtIpFlowControlRequest::getStringList()const
-{
-	return stringList_;
-}
-
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
-{
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
-}
 

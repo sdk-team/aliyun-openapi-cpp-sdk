@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLRESULT_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLRESULT_H_
+#ifndef ALIBABACLOUD_FT_MODEL_TESTXMLSERVICEROUTEPOLICYRESULT_H_
+#define ALIBABACLOUD_FT_MODEL_TESTXMLSERVICEROUTEPOLICYRESULT_H_
 
 #include <string>
 #include <vector>
@@ -29,29 +29,35 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlResult : public ServiceResult
+			class ALIBABACLOUD_FT_EXPORT TestXmlServiceRoutePolicyResult : public ServiceResult
 			{
 			public:
+				struct Add
+				{
+					std::string o;
+				};
+				struct Sdw
+				{
+					int import;
+				};
 
 
-				FtIpFlowControlResult();
-				explicit FtIpFlowControlResult(const std::string &payload);
-				~FtIpFlowControlResult();
-				std::vector<std::string> getNames()const;
-				std::vector<std::string> getNames01()const;
-				std::vector<std::string> getIntegerList()const;
-				std::vector<std::string> getIntegerList1()const;
+				TestXmlServiceRoutePolicyResult();
+				explicit TestXmlServiceRoutePolicyResult(const std::string &payload);
+				~TestXmlServiceRoutePolicyResult();
+				Add getAdd()const;
+				std::vector<Sdw> getDb()const;
+				std::vector<std::string> getBan()const;
 
 			protected:
 				void parse(const std::string &payload);
 			private:
-				std::vector<std::string> names_;
-				std::vector<std::string> names01_;
-				std::vector<std::string> integerList_;
-				std::vector<std::string> integerList1_;
+				Add add_;
+				std::vector<Sdw> db_;
+				std::vector<std::string> ban_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLRESULT_H_
+#endif // !ALIBABACLOUD_FT_MODEL_TESTXMLSERVICEROUTEPOLICYRESULT_H_

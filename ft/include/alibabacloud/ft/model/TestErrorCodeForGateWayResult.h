@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLRESULT_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLRESULT_H_
+#ifndef ALIBABACLOUD_FT_MODEL_TESTERRORCODEFORGATEWAYRESULT_H_
+#define ALIBABACLOUD_FT_MODEL_TESTERRORCODEFORGATEWAYRESULT_H_
 
 #include <string>
 #include <vector>
@@ -29,29 +29,29 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlResult : public ServiceResult
+			class ALIBABACLOUD_FT_EXPORT TestErrorCodeForGateWayResult : public ServiceResult
 			{
 			public:
 
 
-				FtIpFlowControlResult();
-				explicit FtIpFlowControlResult(const std::string &payload);
-				~FtIpFlowControlResult();
-				std::vector<std::string> getNames()const;
-				std::vector<std::string> getNames01()const;
-				std::vector<std::string> getIntegerList()const;
-				std::vector<std::string> getIntegerList1()const;
+				TestErrorCodeForGateWayResult();
+				explicit TestErrorCodeForGateWayResult(const std::string &payload);
+				~TestErrorCodeForGateWayResult();
+				std::string getMessage()const;
+				std::string getHttpStatusCode()const;
+				std::string getCode()const;
+				std::string getSuccess()const;
 
 			protected:
 				void parse(const std::string &payload);
 			private:
-				std::vector<std::string> names_;
-				std::vector<std::string> names01_;
-				std::vector<std::string> integerList_;
-				std::vector<std::string> integerList1_;
+				std::string message_;
+				std::string httpStatusCode_;
+				std::string code_;
+				std::string success_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLRESULT_H_
+#endif // !ALIBABACLOUD_FT_MODEL_TESTERRORCODEFORGATEWAYRESULT_H_

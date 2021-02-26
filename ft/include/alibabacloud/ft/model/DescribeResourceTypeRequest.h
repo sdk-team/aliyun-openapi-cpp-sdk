@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_DESCRIBERESOURCETYPEREQUEST_H_
+#define ALIBABACLOUD_FT_MODEL_DESCRIBERESOURCETYPEREQUEST_H_
 
 #include <string>
 #include <vector>
@@ -28,21 +28,30 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT DescribeResourceTypeRequest : public RpcServiceRequest
 			{
 
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
+				DescribeResourceTypeRequest();
+				~DescribeResourceTypeRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
+				std::string getProduct()const;
+				void setProduct(const std::string& product);
+				std::string getAcceptLanguage()const;
+				void setAcceptLanguage(const std::string& acceptLanguage);
+				std::string getEnv()const;
+				void setEnv(const std::string& env);
+				std::string getResourceType()const;
+				void setResourceType(const std::string& resourceType);
 
             private:
-				std::string stringList_;
+				std::string product_;
+				std::string acceptLanguage_;
+				std::string env_;
+				std::string resourceType_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_DESCRIBERESOURCETYPEREQUEST_H_

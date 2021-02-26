@@ -14,27 +14,16 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/TestIspHttpValidatorRequest.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using AlibabaCloud::Ft::Model::TestIspHttpValidatorRequest;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
+TestIspHttpValidatorRequest::TestIspHttpValidatorRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "TestIspHttpValidator")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+TestIspHttpValidatorRequest::~TestIspHttpValidatorRequest()
 {}
-
-std::string FtIpFlowControlRequest::getStringList()const
-{
-	return stringList_;
-}
-
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
-{
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
-}
 

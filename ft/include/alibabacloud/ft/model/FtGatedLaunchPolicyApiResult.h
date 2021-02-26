@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-#ifndef ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
-#define ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#ifndef ALIBABACLOUD_FT_MODEL_FTGATEDLAUNCHPOLICYAPIRESULT_H_
+#define ALIBABACLOUD_FT_MODEL_FTGATEDLAUNCHPOLICYAPIRESULT_H_
 
 #include <string>
 #include <vector>
-#include <alibabacloud/core/RpcServiceRequest.h>
+#include <utility>
+#include <alibabacloud/core/ServiceResult.h>
 #include <alibabacloud/ft/FtExport.h>
 
 namespace AlibabaCloud
@@ -28,21 +29,23 @@ namespace AlibabaCloud
 	{
 		namespace Model
 		{
-			class ALIBABACLOUD_FT_EXPORT FtIpFlowControlRequest : public RpcServiceRequest
+			class ALIBABACLOUD_FT_EXPORT FtGatedLaunchPolicyApiResult : public ServiceResult
 			{
-
 			public:
-				FtIpFlowControlRequest();
-				~FtIpFlowControlRequest();
 
-				std::string getStringList()const;
-				void setStringList(const std::string& stringList);
 
-            private:
-				std::string stringList_;
+				FtGatedLaunchPolicyApiResult();
+				explicit FtGatedLaunchPolicyApiResult(const std::string &payload);
+				~FtGatedLaunchPolicyApiResult();
+				std::string getUnGatedLaunchPolicy()const;
+
+			protected:
+				void parse(const std::string &payload);
+			private:
+				std::string unGatedLaunchPolicy_;
 
 			};
 		}
 	}
 }
-#endif // !ALIBABACLOUD_FT_MODEL_FTIPFLOWCONTROLREQUEST_H_
+#endif // !ALIBABACLOUD_FT_MODEL_FTGATEDLAUNCHPOLICYAPIRESULT_H_

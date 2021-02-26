@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-#include <alibabacloud/ft/model/FtIpFlowControlRequest.h>
+#include <alibabacloud/ft/model/RpcHsfServiceRouteMatchApiRequest.h>
 
-using AlibabaCloud::Ft::Model::FtIpFlowControlRequest;
+using AlibabaCloud::Ft::Model::RpcHsfServiceRouteMatchApiRequest;
 
-FtIpFlowControlRequest::FtIpFlowControlRequest() :
-	RpcServiceRequest("ft", "2018-07-13", "FtIpFlowControl")
+RpcHsfServiceRouteMatchApiRequest::RpcHsfServiceRouteMatchApiRequest() :
+	RpcServiceRequest("ft", "2018-07-13", "RpcHsfServiceRouteMatchApi")
 {
 	setMethod(HttpRequest::Method::Post);
 }
 
-FtIpFlowControlRequest::~FtIpFlowControlRequest()
+RpcHsfServiceRouteMatchApiRequest::~RpcHsfServiceRouteMatchApiRequest()
 {}
 
-std::string FtIpFlowControlRequest::getStringList()const
+std::string RpcHsfServiceRouteMatchApiRequest::getName()const
 {
-	return stringList_;
+	return name_;
 }
 
-void FtIpFlowControlRequest::setStringList(const std::string& stringList)
+void RpcHsfServiceRouteMatchApiRequest::setName(const std::string& name)
 {
-	stringList_ = stringList;
-	setParameter("StringList", stringList);
+	name_ = name;
+	setParameter("Name", name);
 }
 
